@@ -11,23 +11,23 @@
 	<li><a href="#Introduction">1. Introduction</a></li>
 		<ul>
 		<li><a href="#1.1">1.1 Purpose</a></li>
-		<li><a href="#1.1">1.2 Scope</a></li>
-		<li><a href="#1.1">1.3 Definitions</a></li>
-		<li><a href="#1.1">1.4 References</a></li>
-		<li><a href="#1.1">1.5 Overview</a></li>
+		<li><a href="#1.2">1.2 Scope</a></li>
+		<li><a href="#1.3">1.3 Definitions</a></li>
+		<li><a href="#1.4">1.4 References</a></li>
+		<li><a href="#1.5">1.5 Overview</a></li>
 		</ul>
 	<li><a href="#Overall Description">2. Overall Description</a></li>
 		<ul>
-		<li><a href="#1.1">2.1 Product Perspective</a></li>
-		<li><a href="#1.1">2.2 Product Functions</a></li>
-		<li><a href="#1.1">2.3 User Chracteristics</a></li>
-		<li><a href="#1.1">2.4 References</a></li>
-		<li><a href="#1.1">2.5 Overview</a></li>
+		<li><a href="#2.1">2.1 Product Perspective</a></li>
+		<li><a href="#2.2">2.2 Product Functions</a></li>
+		<li><a href="#2.3">2.3 User Chracteristics</a></li>
+		<li><a href="#2.4">2.4 References</a></li>
+		<li><a href="#2.5">2.5 Overview</a></li>
 		</ul>
 	<li><a href="#sRequirements">3. Specific Requirements</a></li>
 	</ul>
 	<h2 id="Introduction">1. Introduction</h2>
-		<p>Reach is a web based application that enables its users to locate events occurring within a radius around their current location. The problem it is trying to solve is that, the ability to find events that are happening nearby within a short term is dependent on having a big network of friends in which to reach out to. Often times this network is unreliable in the short term and Reach aims to solve this problem by giving users an alternative to a reliance on their network of friends</p>
+		<p>Reach is a web/android based application that enables its users to locate events occurring within a radius around their current location. The problem it is trying to solve is that, the ability to find events that are happening nearby within a short term is dependent on having a big network of friends in which to reach out to. Often times this network is unreliable in the short term and Reach aims to solve this problem by giving users an alternative to a reliance on their network of friends</p>
 	<h3 id="1.1">1.1 Purpose</h3>
 	<p>
 		This document will act as a framework for Reach. This document is intended for David Brown as well as Reach's development team.
@@ -61,11 +61,25 @@
 		
 	<hr>
 	<h2 id="Overall Description">2.Overall Description</h2>
-		<p>Text here </p>
 	<h3 id="2.1">2.1 Product Perspective</h3>
 		<p>
 			Reach will operate as two seperate applications.
-			One will be a web based application 
+			One will be a web based application and the other an Android based application.
+			Both applications will operate using three major components.
+			A front end, back end, and database.
+			<h4>Front End:</h4>
+			The front end is the user interface component of the application.
+			It is the only part of the application users will be able to see and interact with.
+			The frontend should be responsive and support multiple screen sizes and resolutions.
+			It should work on any modern browser or android device depending on the application used.
+			<h4>Back End:</h4>
+			The back end is responsible for interacting with both the frontend and database.
+			It should recieve information from both in order to carry out various functions.
+			These functions include the creation, finding, and viewing of events and should update the front end and database with required information.
+			<h4>Database:</h4>
+			The database should hold various information regarding the application.
+			This information includes user info, such as usernames and encrypted passwords.
+			It should also include event information, such as address and times.
 		</p>
 	<h3 id="2.2">2.2 Product functions</h3>
 		<p>
