@@ -142,6 +142,36 @@
           <li>Details and further information</li>
           <li>Custom QR code/party access password (optional)</li>
         </p>
+	<h3>3.3 Standards Compliance</h3>
+		<ul>
+			<li>Log Formatting:
+				<li>User:</li>
+				<li>Process:</li>
+				<li>Target User (if there is one):</li>
+				<li>Date/Time:</li>
+				<li>IP Address:</li>
+			</li>
+			<li>Logging Procedures:
+				<p>Logs will be generated whenever a user interacts with the database. 
+				The log will contain which user is interacting with the database and what it is that they’re doing. 
+				This will include things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
+			</li> 
+		</ul>
+
+	<h3>3.4 Software System Attributes</h3>
+		<ul>
+			<li>Security:
+				<p>Login: If the given username/email doesn’t exist within the database then an error is handed back to the client side. 
+				If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
+				The hash generated will then be checked with what is stored in the database. If the two don’t match an error is returned.</p>
+				<p>Encryption Algorithm: SHA256</p>
+			</li>
+			<li>Maintainability:
+				<p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
+				“Hotfixes” will be released on an “as needed” basis to address any critical bugs noticed with the software.</p>
+			</li>
+		</ul>
+
 
 </body>
 
