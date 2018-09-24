@@ -33,11 +33,11 @@
 		</ul>
 	<h2 id="Introduction">1. Introduction</h2>
 		<p>Reach is a web/Android based application that enables its users to locate events occurring within a radius around their current location. 
-		The problem it is trying to solve is that, the ability to find events that are happening nearby within a short time is dependent on having a big network of friends to reach out to. 
-		Often times this network is unreliable in the short term and Reach aims to solve this problem by giving users an alternative to a reliance on their network of friends.</p>
+		The problem it solves is that, the ability to find events that are happening nearby within a short time is dependent on having a big network of friends to reach out to. 
+		Often times this network is unreliable in the short term and Reach solves this problem by giving users an alternative to a reliance on their network of friends.</p>
 	<h3 id="1.1">1.1 Purpose</h3>
 	<p>
-		This document will act as a framework for Reach. This document is intended for whoever would like to gain an in depth understanding of the application as well as Reach's development team.
+		This document is a framework for Reach. This document is intended for whoever would like to gain an in depth understanding of the application as well as Reach's development team.
 	</p>
 	<h3 id="1.2">1.2 Scope</h3>
 	<p>  
@@ -70,42 +70,42 @@
 	<h2 id="Overall Description">2. Overall Description</h2>
 	<h3 id="2.1">2.1 Product Perspective</h3>
 		<p>
-			Reach will operate as two seperate applications.
-			One will be a web-based application and the other an Android-based application.
-			Both applications will operate using three major components: 
+			Reach operates as two seperate applications.
+			One is a web-based application and the other an Android-based application.
+			Both applications operate using three major components: 
 			a front end, back end, and database.
 			<h4>Front End:</h4>
 			The front end is the user interface component of the application.
-			It is the only part of the application users will be able to see and interact with.
-			The front end should be responsive and support multiple screen sizes and resolutions.
+			It is the only part of the application users can see and interact with.
+			The front end is responsive and supports multiple screen sizes and resolutions.
 			It should work on any modern browser or Android device depending on the application used.
 			<h4>Back End:</h4>
 			The back end is responsible for interacting with both the front end and database.
 			It should receive information from both in order to carry out various functions.
 			These functions include the creation, finding, and viewing of events and should update the front end and database with required information.
 			<h4>Database:</h4>
-			The database should hold various information regarding the application.
+			The database holds information regarding the application.
 			This information includes user info, such as usernames and encrypted passwords.
-			It should also include event information, such as address and times.
+			It also includes event information, such as addresses and times.
 		</p>
 	<h3 id="2.2">2.2 Product functions</h3>
 		<p>
-			Reach has three main functions which users will be able to utilize.
-			These functions will be implemented with the help of the <a href="https://developers.google.com/maps/documentation/">Google Maps Platform</a> and it's various related API's.
+			Reach has three main functions which users can utilize.
+			These functions are implemented with the help of the <a href="https://developers.google.com/maps/documentation/">Google Maps Platform</a> and its various related API's.
 			<h4>Create Event:</h4>
 			The first main function is the ability to create and host an event.
-			When creating an event users will be prompted to input various required information.
-			This information includes a name and descripttion for the event, as well as the address, times, and cost if it is a paid event.
+			When creating an event users are prompted to input various required information.
+			This information includes a name and description for the event, as well as the address, times, and cost if it is a paid event.
 			After the information has been filled out, a pin will be created and placed on the map at the specified address.
 			<h4>Find Event:</h4>
 			The next main function is the ability to find events that have been created.
 			Finding events is done automatically and is only dependent on a radius specified by the user.
-			Within the radius of the user's location, a list of events that are upcoming or ongoing will be created.
+			Within the radius of the user's location, a list of events that are upcoming or ongoing is created.
 			These events are then displayed as pins on a map, which the user can select to view details about the event.
 			<h4>View Event:</h4>
 			The last main function is the ability to view the information of found events.
-			Selecting a pin on the map will display all the information regarding the event.
-			Further options for the user should also be displayed, such as directions to the party.
+			Selecting a pin on the map displays all the information regarding the event.
+			Further options for the user can also be displayed, such as directions to the party.
 			
 		</p>
 		
@@ -113,8 +113,8 @@
 	<h3 id="2.3">2.3 User Characteristics</h3>
 		<p>Users only require a basic level of technical expertise with using a website or mobile application. 
 		Users who wish to act as Hosts are provided with a simple form to input their event details. 
-		Meanwhile, the Search interface will be intuitive to use so users seeking events to attend at the last minute can find one quickly and without hassle. 
-		Users will be provided with a tutorial the first time they use the application.</p>
+		Meanwhile, the Search interface is intuitive to use so users seeking events to attend at the last minute can find one quickly and without hassle. 
+		Users are provided with a tutorial the first time they use the application.</p>
 
 	<h3 id="2.4">2.4 Constraints</h3>
 		<p>Development of this application will face both time and cost constraints. 
@@ -123,7 +123,7 @@
 		provided by the Google Maps API.</p>
 
 	<h3 id="2.5">2.5 Assumptions and Dependencies</h3>
-		<p>It is assumed that a user's device or browser is compatible with the Google Maps API, and connected to the internet. 
+		<p>It is assumed that a user's device or browser is compatible with the Google Maps, and connected to the internet. 
 		The website version should function on any operating system, and all major, up-to-date internet browsers. 
 		This includes Google Chrome, Firefox, Microsoft Edge, and Internet Explorer.</p>
 		
@@ -147,7 +147,7 @@
 		<h3 id="3.2"> 3.2 Database</h3>
         <p>
           <b>User Information:</b>
-		Database will contain user specific information such as:</p>
+		Database contains user specific information such as:</p>
 	<ul>
           <li>Emails</li>
           <li>Usernames</li>
@@ -156,7 +156,7 @@
 	</ul>
           
           <p><b>Party Information:</b>
-		  Database will also contain information specific to each party/event such as:
+		  Database also contains information specific to each party/event such as:
 	<ul>
           <li>Host(s)</li>
           <li>Location</li>
@@ -177,8 +177,8 @@
 			</li>
 			<li>Logging Procedures:
 				<p>Logs will be generated whenever a user interacts with the database. 
-				The log will contain which user is interacting with the database and what it is that they're doing. 
-				This will include things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
+				The log contains which user is interacting with the database and what it is that they're doing. 
+				This includes things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
 			</li> 
 		</ul>
 
