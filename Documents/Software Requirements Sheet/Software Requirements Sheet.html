@@ -20,24 +20,31 @@
 		<ul>
 		<li><a href="#2.1">2.1 Product Perspective</a></li>
 		<li><a href="#2.2">2.2 Product Functions</a></li>
-		<li><a href="#2.3">2.3 User Chracteristics</a></li>
+		<li><a href="#2.3">2.3 User Characteristics</a></li>
 		<li><a href="#2.4">2.4 References</a></li>
 		<li><a href="#2.5">2.5 Overview</a></li>
 		</ul>
 	<li><a href="#sRequirements">3. Specific Requirements</a></li>
-	</ul>
+		<ul>
+		<li><a href="#3.1">3.1 External Interfaces</a></li>
+		<li><a href="#3.2">3.2 Database</a></li>
+		<li><a href="#3.3">3.3 Standards Compliance</a></li>
+		<li><a href="#3.4">3.4 Software System Attributes</a></li>
+		</ul>
 	<h2 id="Introduction">1. Introduction</h2>
-		<p>Reach is a web/android based application that enables its users to locate events occurring within a radius around their current location. The problem it is trying to solve is that, the ability to find events that are happening nearby within a short term is dependent on having a big network of friends in which to reach out to. Often times this network is unreliable in the short term and Reach aims to solve this problem by giving users an alternative to a reliance on their network of friends</p>
+		<p>Reach is a web/Android based application that enables its users to locate events occurring within a radius around their current location. 
+		The problem it is trying to solve is that, the ability to find events that are happening nearby within a short term is dependent on having a big network of friends in which to reach out to. 
+		Often times this network is unreliable in the short term and Reach aims to solve this problem by giving users an alternative to a reliance on their network of friends.</p>
 	<h3 id="1.1">1.1 Purpose</h3>
 	<p>
 		This document will act as a framework for Reach. This document is intended for whoever would like to gain an in depth understanding of the application as well as Reach's development team.
 	</p>
 	<h3 id="1.2">1.2 Scope</h3>
 	<p>  
-	Reach is an application where users can either locate or advertise thier events in a radius around their current location. Users consist of Host and Guests. 
-	Hosts can set up a broadcast radius, fill in relevant details regarding their event, and then post it so other useres can see it.
-	Guests define the radius around them, all events are listed within the radius, and guests can express interest in any event they choose.
-	This will give the host an idea of the potential number of people attending their event.
+	Reach is an application where users can either locate or advertise their events in a radius around their current location. Users consist of Hosts and Guests. 
+	Hosts can set up a broadcast radius, fill in relevant details regarding their event, and then post it so other users can see it.
+	Guests define the radius around them, all events are listed within the radius, and Guests can express interest in any event they choose.
+	This will give the Host an idea of the potential number of people attending their event.
 	</p>
 
 	<h3 id="1.3">1.3 Definitions</h3>
@@ -46,7 +53,7 @@
 		<p><b>Post:</b> An action to introduce an event into the database to be advertised</p>
 		<p><b>Host:</b> A user who has scheduled an event</p>
 		<p><b>Guest:</b> A user who is attending an event</p>
-		<p><b>User Radius:</b> The user defined radius in kilometers around their current location in which to search or advertise
+		<p><b>User Radius:</b> The user-defined radius in kilometers around their current location in which to search or advertise
 		</p>
 
 	<h3 id="1.4">1.4 References</h3>
@@ -54,26 +61,26 @@
 
 	<h3 id="1.5">1.5 Overview</h3>
 	<p> 
-		The rest of the document contains the 'Overall Description section' & 'Specific Requirements' section. 
-		The former going in to detail about what factors affect Reach and its requirements.
-		The latter discussing what these requirements will be. 
+		The rest of this document contains the 'Overall Description section' & 'Specific Requirements' section. 
+		The former goes into detail about what factors affect Reach and its requirements.
+		The latter discusses what these requirements will be. 
 	</p>
 		
 	<hr>
-	<h2 id="Overall Description">2.Overall Description</h2>
+	<h2 id="Overall Description">2. Overall Description</h2>
 	<h3 id="2.1">2.1 Product Perspective</h3>
 		<p>
 			Reach will operate as two seperate applications.
-			One will be a web based application and the other an Android based application.
-			Both applications will operate using three major components.
-			A front end, back end, and database.
+			One will be a web-based application and the other an Android-based application.
+			Both applications will operate using three major components: 
+			a front end, back end, and database.
 			<h4>Front End:</h4>
 			The front end is the user interface component of the application.
 			It is the only part of the application users will be able to see and interact with.
 			The front end should be responsive and support multiple screen sizes and resolutions.
-			It should work on any modern browser or android device depending on the application used.
+			It should work on any modern browser or Android device depending on the application used.
 			<h4>Back End:</h4>
-			The back end is responsible for interacting with both the frontend and database.
+			The back end is responsible for interacting with both the front end and database.
 			It should receive information from both in order to carry out various functions.
 			These functions include the creation, finding, and viewing of events and should update the front end and database with required information.
 			<h4>Database:</h4>
@@ -92,9 +99,9 @@
 			After the information has been filled out, a pin will be created and placed on the map at the specified address.
 			<h4>Find Event:</h4>
 			The next main function is the ability to find events that have been created.
-			Finding events is done automatically and is only dependant on a radius specified by the user.
-			Within the radius of the users location, a list of events that are upcoming or ongoing will be created.
-			These events are then displayed as pins on a map, which the user can then select to view details about the event.
+			Finding events is done automatically and is only dependent on a radius specified by the user.
+			Within the radius of the user's location, a list of events that are upcoming or ongoing will be created.
+			These events are then displayed as pins on a map, which the user can select to view details about the event.
 			<h4>View Event:</h4>
 			The last main function is the ability to view the information of found events.
 			Selecting a pin on the map will display all the information regarding the event.
@@ -122,10 +129,10 @@
 		
 	<hr>	
 	<h2 id="sRequirements">3. Specific Requirements</h2>
-		<p>Text here </p>
+	
 	<h3 id="3.1"> 3.1 External Interfaces</h3>
 		<p>
-		    The following are all forms of data in which the user will either use or input using the software
+		    The following are all forms of data which the user will either use or input using the software
 		    <li>Database</li>
 		    <li>Google Maps API</li>
 		    <li>Username</li>
@@ -138,14 +145,14 @@
 		<h3 id="3.2"> 3.2 Database</h3>
         <p>
           <b>User Information:</b>
-          Database will contain user specific information such as:
+		Database will contain user specific information such as:</p>
           <li>Emails</li>
           <li>Usernames</li>
           <li>Passwords/Salts</li>
           <li>Location</li>
           
-          <b>Party Information:</b>
-          Database will also contain information specific to each party/event such as:
+          <p><b>Party Information:</b>
+		  Database will also contain information specific to each party/event such as:
           <li>Host(s)</li>
           <li>Location</li>
           <li>Date</li>
@@ -153,7 +160,7 @@
           <li>Rules</li>
           <li>Details and further information</li>
           <li>Custom QR code/party access password (optional)</li>
-	<h3>3.3 Standards Compliance</h3>
+	<h3 id="3.3">3.3 Standards Compliance</h3>
 		<ul>
 			<li>Log Formatting:
 				<li>User:</li>
@@ -164,22 +171,22 @@
 			</li>
 			<li>Logging Procedures:
 				<p>Logs will be generated whenever a user interacts with the database. 
-				The log will contain which user is interacting with the database and what it is that they’re doing. 
+				The log will contain which user is interacting with the database and what it is that they're doing. 
 				This will include things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
 			</li> 
 		</ul>
 
-	<h3>3.4 Software System Attributes</h3>
+	<h3 id="3.4">3.4 Software System Attributes</h3>
 		<ul>
 			<li>Security:
-				<p>Login: If the given username/email doesn’t exist within the database then an error is handed back to the client side. 
+				<p>Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
 				If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
-				The hash generated will then be checked with what is stored in the database. If the two don’t match an error is returned.</p>
+				The hash generated will then be checked with what is stored in the database. If the two don't match an error is returned.</p>
 				<p>Encryption Algorithm: SHA256</p>
 			</li>
 			<li>Maintainability:
 				<p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
-				“Hotfixes” will be released on an “as needed” basis to address any critical bugs noticed with the software.</p>
+				"Hotfixes" will be released on an “as needed” basis to address any critical bugs noticed with the software.</p>
 			</li>
 		</ul>
 
