@@ -24,7 +24,7 @@ TODO
 
 ## Contributing
 Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on
-how to contribute to this project.
+how to contribute to ***Reach***.
 
 ## Versioning 
 ***Reach*** is versioned using [SemVer](http://semver.org/).
