@@ -84,7 +84,7 @@ As soon as you make a commit, you can open a pull request and start a discussion
 **Steps:**
 1. In GitHub Desktop browse to *Branch > Create pull request*.
 2. This will open your browser with a pull request.
-3. Make sure You compare your branch with develop.
+3. Make sure You compare your branch with `develop`.
 4. Add a Title and Description.
 5. Click "Create pull request".
 6. Congratulations! You created a pull request.
