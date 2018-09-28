@@ -14,7 +14,6 @@ The following is a set of guidelines for contributing to ***Reach*** on GitHub. 
 
 [Contributing](#contributing)
    - [Creating a branch](#creating-a-branch)
-   - [Branching](#branching)
    - [Making and commiting changes](#making-and-commiting-changes)
    - [Pull Requests](#pull-requests)
    - [Merging](#merging)
