@@ -55,11 +55,12 @@ Examples: if you are adding a feature that zooms, a good branch name would be "z
 
 **Steps:**
 1. In GitHub Desktop select ***Reach*** as the current repository.
-2. Browse to *Branch > New Branch*.
-3. Name your new branch as described above.
-4. Select `develop` and click "Create branch".
-5. In the top right click "Publish branch".
-5. Congratulations! You now have a branch you can make changes to!
+2. Make sure you have `develop` selected as the Current branch.
+3. Browse to *Branch > New Branch*.
+4. Name your new branch as described above.
+5. Select `develop` and click "Create branch".
+6. In the top right click "Publish branch".
+7. Congratulations! You now have a branch you can make changes to!
 
 ### Making and commiting changes
 Now that you have a local version of the repository you can make changes to it as needed. Once you have made these changes you need to save them to the repository. On GitHub, saving changes is called **Commiting**. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you’ve done and why. Use the Git Commit [Styleguide](#styleguides) for styling your commits.
@@ -83,14 +84,14 @@ As soon as you make a commit, you can open a pull request and start a discussion
 **Steps:**
 1. In GitHub Desktop browse to *Branch > Create pull request*.
 2. This will open your browser with a pull request.
-3. Make sure You compare your branch with develop.
+3. Make sure You compare your branch with `develop`.
 4. Add a Title and Description.
 5. Click "Create pull request".
 6. Congratulations! You created a pull request.
 
 ### Merging
 In this final step, it’s time to bring your changes together – merging your branch into the `develop` branch.
-After your code has been reviewed by at least two other members it can then be merged to develop.
+After your code has been reviewed by at least two other members it can then be merged to `develop`.
 
 **Steps:**
 1. Under your pull request click "Merge".
