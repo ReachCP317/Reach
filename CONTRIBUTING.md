@@ -55,11 +55,12 @@ Examples: if you are adding a feature that zooms, a good branch name would be "z
 
 **Steps:**
 1. In GitHub Desktop select ***Reach*** as the current repository.
-2. Browse to *Branch > New Branch*.
-3. Name your new branch as described above.
-4. Select `develop` and click "Create branch".
-5. In the top right click "Publish branch".
-5. Congratulations! You now have a branch you can make changes to!
+2. Make sure you have `develop` selected as the Current branch.
+3. Browse to *Branch > New Branch*.
+4. Name your new branch as described above.
+5. Select `develop` and click "Create branch".
+6. In the top right click "Publish branch".
+7. Congratulations! You now have a branch you can make changes to!
 
 ### Making and commiting changes
 Now that you have a local version of the repository you can make changes to it as needed. Once you have made these changes you need to save them to the repository. On GitHub, saving changes is called **Commiting**. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you’ve done and why. Use the Git Commit [Styleguide](#styleguides) for styling your commits.
