@@ -7,7 +7,18 @@ The following is a set of guidelines for contributing to ***Reach*** on GitHub. 
 #### Table Of Contents
 
 [Code of Conduct](#code-of-conduct)
-[What do I need to do before contributing?]#what-do-i-need-to-do-before-contributing)
+
+[What do I need to do before contributing?](#what-do-i-need-to-do-before-contributing)
+   - [Get GitHub Desktop](#get-github-desktop)
+   - [Clone The Repository](#clone-the-repository)
+
+[Contributing](#contributing)
+   - [Creating a branch](#creating-a-branch)
+   - [Branching](#branching)
+   - [Making and commiting changes](#making-and-commiting-changes)
+   - [Pull Requests](#pull-requests)
+   - [Merging](#merging)
+
 [Styleguide](#styleguides)
 
 ## Code of Conduct
@@ -35,12 +46,11 @@ The next prerequisite is to clone the ***Reach*** repository to your local machi
 ## Contributing
 It is crucial to the neatness and efficiency of the ***Reach*** repository that the following instructions are followed to a T.
 
-### Branching
+### Creating a branch
 When adding to the repository, a new branch off of the `develop` branch should be created. **Branching** is the way to work on different versions of a repository at one time.
 
 When you create a branch off the `develop` branch, you’re making a copy, or snapshot, of `develop` as it was at that point in time. If someone else made changes to the `develop` branch while you were working on your branch, you could pull in those updates.
 
-### Creating a branch
 When creating a branch, consider what it is you plan on implementing or fixing and name the branch accordingly.
 Examples: if you are adding a feature that zooms, a good branch name would be "zoom-feature", if you are fixing a bug that crashes the application, a good branch name would be "crash-bug-fix".
 
