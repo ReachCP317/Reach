@@ -91,7 +91,7 @@ As soon as you make a commit, you can open a pull request and start a discussion
 
 ### Merging
 In this final step, it’s time to bring your changes together – merging your branch into the `develop` branch.
-After your code has been reviewed by at least two other members it can then be merged to develop.
+After your code has been reviewed by at least two other members it can then be merged to `develop`.
 
 **Steps:**
 1. Under your pull request click "Merge".
