@@ -1,7 +1,7 @@
 # <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/party_popper.png" width="4%" height="4%">Reach
->***Reach*** is Android and Web based application for finding events within the users proximity.
+>***Reach*** is an Android and Web based application that makes finding and hosting events easier for everyone..
 
-Looking for a party? How about finding a local ping pong tournament? ***Reach*** allows you to do just that. By using a user defined radius, ***Reach*** finds events hosted on the application within that radius, relative to the user's GPS coordinates. ***Reach*** also helps find directions to events, as well as providing useful information regarding the event. This creates a fast and easy way to find something to do, especially in last minute situations.
+Looking for a party? How about finding a local ping pong tournament? What about hosting your own event? ***Reach*** allows you to do just that. Users can host their events on ***Reach***, where it will then be advertised to other users on the app. By using a user defined radius, ***Reach*** finds events hosted on the application within that radius, relative to the user's GPS coordinates. ***Reach*** also helps find directions to events, as well as providing useful information regarding the event. This creates a fast and easy way to find something to do, especially in last minute situations.
 
 ## Documentation
 See this repositories [GitHub Pages](https://reachcp317.github.io/Reach/) for documentation.
