@@ -17,15 +17,12 @@
 	<li><a href="#Implementation">2. Implementation</a></li>
 		<ul>
 		<li><a href="#2.1">2.1 Coding Language</a></li>
-		<li><a href="#2.2">2.2 Product Functions</a></li>
-		<li><a href="#2.3">2.3 Team</a></li>
-		<li><a href="#2.4">2.4 References</a></li>
+		<li><a href="#2.2">2.2 Team</a></li>
 		</ul>
 	<li><a href="#Decomposition">3. Decomposition</a></li>
 		<ul>
 		<li><a href="#3.1">3.1 General Framework Dependencies</a></li>
 		<li><a href="#3.2">3.2 Model Class Diagram</a></li>
-		<li><a href="#3.3">3.3 Standards Compliance</a></li>
 		</ul>
 	<li><a href="#Interface">4. Interface</a></li>
 		<ul>
@@ -34,15 +31,17 @@
 		<li><a href="#4.3">4.3 Icons</a></li>
 		<li><a href="#4.4">4.4 View Modules</a></li>
 		</ul>
-
-	<li><a href="#Interface">5. Maintenance</a></li>
+	<li><a href="#DetailedDesign">5. Detailed Design</a></li>
 		<ul>
-		<li><a href="#5.1">5.1 ???</a></li>
-		<li><a href="#5.2">5.2 ???</a></li>
-		<li><a href="#5.3">5.3 ???</a></li>
+		<li><a href="#createAccount()">createAccount()</a></li>
+		<li><a href="#loginAccount()">loginAccount()</a></li>
+		<li><a href="#onMapReady(GoogleMap)">onMapReady(GoogleMap)</a></li>
+		<li><a href="#onMarkerClick(Marker)">onMarkerClick(Marker)</a></li>
+		<li><a href="#refresh()">refresh()</a></li>
 		</ul>
 	</ul>
 	
+
 	<h2 id="Introduction">1. Introduction</h2>
 		<p>Reach is being developed both as an Android app and a website. The website is able to (run on any modern browser)? while the app is able to run on Android x.x devices and higher.</br>
 		In both cases, the device must be able to utilize Google Maps.</p>
@@ -52,16 +51,152 @@
 		</p>
 	<h3 id="1.2">1.2 Scope</h3>
 		<p>  
-		This document is intended for the developers of Reach. It is intended to be a guiding document for the development of the application.
+		This document is intended for the developers of Reach as a guiding document for the development of the application.
 		</p>
 	<h3 id="1.3">1.3 References</h3>
 		<ul>
 		<li>Reach Software Requirements Specification document</li>
 		<li>Reach Analysis document</li>
+		<li>Reach Software Project Management Plan document</li>
 		<li>IEEE. <a href="https://bohr.wlu.ca/cp317/notes/IEEE_830.pdf">IEEE Std 830-1998</a> IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998</li>
 		</ul>
 
 
+	<h2 id="Implementation">2. Implementation</h2>
+	<h3 id="2.1">2.1 Coding Languages & Utilities</h3>
+		<p>
+		<strong>Android</strong></p>
+		<p>
+		Java, Android Studio</p>
+		<p>
+		<strong>Database</strong></p>
+		<p>
+		???</p>
+		<p>
+		<strong>Website</strong></p>
+		<p>
+		HTML, ???</p>
+		<p>
+		<strong>Back End</strong></p>
+		<p>
+		Google Maps API</p>
+		<p>
+	<h3 id="2.2">2.2 Team</h3>
+		<p>  
+		<strong>Android</strong> </p>
+		<p>
+		Team Representative: Julius Fan</p>
+		<p>
+		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Midusa Nadeswarathasan</p>
+		<p>
+		<strong>Database</strong> </p>
+		<p>
+		Team Representative: Pray Khanna</p>
+		<p>
+		Members: Jordan Harris, Qiao Liu, Mike Pintur, Muzammil Elahi, Yousef Fahim</p>
+		<p>
+		<strong>Back End</strong> </p>
+		<p>
+		Team Representative: ??</p>
+		<p>
+		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Julius Fan, Kobi Lee, Morgenne Besenschek</p>
+		<p>
+		<strong>Front End</strong> </p>
+		<p>
+		Team Representative: ??</p>
+		<p>
+		Members: Bethel Adaghe, Dan Huynh, Joshua Varga, Qiao Liu, Midusa Nadeswarathasan, Muzammil Elahi, Yousef Fahim</p>
+		<p>
+		<strong>Website</strong> </p>
+		<p>
+		Team Representative: Rosario Elmy</p>
+		<p>
+		Members: Bethel Adaghe, Dan Huynh, Midusa Nadeswarathasan, Muzammil Elahi, Nick Marecek, Qiao Liu, Yingxu Zhao, Zach</p>
+		</ul>
+
+
+	<h2 id="Decomposition">3. Decomposition</h2>
+
+	<h3 id="3.1">3.1 Model Class Diagram</h3>
+		<p> <img src="https://i.imgur.com/uf9YNVm.png"> </p>
+
+
+	<h2 id="Interface">4. Interface</h2>
+
+	<h3 id="4.1">4.1 Colour Usage</h3>
+		<p>
+		<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+		.tg .tg-syad{background-color:#000000;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
+		.tg .tg-uog8{text-decoration:underline;border-color:inherit;text-align:left;vertical-align:top}
+		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+		.tg .tg-8a3d{background-color:#282828;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
+		.tg .tg-lydr{background-color:#ff0000;border-color:inherit;text-align:left;vertical-align:top}
+		</style>
+		<table class="tg">
+ 		<tr>
+    			<th class="tg-uog8">Component</th>
+    			<th class="tg-0pky">Colours<br></th>
+  		</tr>
+  		<tr>
+    			<td class="tg-0pky">Menu and Boxes</td>
+    			<td class="tg-syad">#0000000<br></td>
+  		</tr>
+  		<tr>
+    			<td class="tg-0pky">Buttons<br></td>
+    			<td class="tg-8a3d">#282828<br></td>
+  		</tr>
+  		<tr>
+    			<td class="tg-0pky">Borders<br></td>
+    			<td class="tg-lydr">#FF0000<br></td>
+  		</tr>
+  		<tr>
+    			<td class="tg-0pky">Text<br></td>
+   			<td class="tg-0pky">#FFFFFF</td>
+  		</tr>
+		</table>
+		</p>
+	<h3 id="4.2">4.2 Font Usage</h3>
+		<p>  
+		<strong>Website</strong></p>
+		<ul>
+		<li>Bahnschrift Condensed</li>
+		<li>Calibri (Body)</li>
+		</ul>
+		<p>  
+		<strong>Android</strong></p>
+		<ul>
+		<li>Franklin Gothic Demi</li>
+		</ul>
+	<h3 id="4.3">4.3 Icons</h3>
+		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" style="width:256px;height:256px;"> </p>
+	<h3 id="4.4">4.4 View Modules</h3>
+
+
+	<h2 id="DetailedDesign">5. Detailed Design</h2>
+		<p>Detailed description of important functions for Reach.</p>
+	<h3 id="createAccount(String  String, String)">createAccount()</h3>
+		<p>
+		Deposits a User object into the database, constructed using the given username, email, and password parameters, then calls loginAccount().
+		</p>
+	<h3 id="loginAccount(String, String)">loginAccount(String, String)</h3>
+		<p>
+		Searches the database for the corresponding account given the username and password. If successful, go to main page. Otherwise, ask to try again.
+		</p>
+	<h3 id="onMapReady(GoogleMap)">onMapReady(GoogleMap)</h3>
+		<p>  
+		Called when the map is ready to be used. Searches for all events within the user's radius and displays them as Markers on the map. 
+		</p>
+	<h3 id="onMarkerClick(Marker)">onMarkerClick(Marker)</h3>
+		<p>  
+		Called when a marker is clicked/tapped. Goes to the EventView page.
+		</p>
+	<h3 id="refresh()">refresh()</h3>
+		<p>  
+		Iterate through the list of events in the database. For each event, if result of distanceBetween() is less than or equal to the user's radius, a Marker will be placed via addMarker().
+		</p>
 </body>
 
 </html>
