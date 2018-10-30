@@ -35,9 +35,12 @@
 		<ul>
 		<li><a href="#createAccount()">createAccount()</a></li>
 		<li><a href="#loginAccount()">loginAccount()</a></li>
-		<li><a href="#onMapReady(GoogleMap)">onMapReady(GoogleMap)</a></li>
-		<li><a href="#onMarkerClick(Marker)">onMarkerClick(Marker)</a></li>
+		<li><a href="#onMapReady()">onMapReady()</a></li>
+		<li><a href="#onMarkerClick()">onMarkerClick()</a></li>
 		<li><a href="#refresh()">refresh()</a></li>
+		<li><a href="#interested()">interested()</a></li>
+		<li><a href="#giveRating()">giveRating()</a></li>
+		<li><a href="#setRadius()">setRadius()</a></li>
 		</ul>
 	</ul>
 	
@@ -71,23 +74,22 @@
 		<p>
 		<strong>Database</strong></p>
 		<p>
-		???</p>
+		SQL</p>
 		<p>
 		<strong>Website</strong></p>
 		<p>
-		HTML, ???</p>
+		HTML, Javascript</p>
 		<p>
 		<strong>Back End</strong></p>
 		<p>
-		Google Maps API</p>
-		<p>
+		Google Maps API, Google Location API</p>
 	<h3 id="2.2">2.2 Team</h3>
 		<p>  
 		<strong>Android</strong> </p>
 		<p>
-		Team Representative: Julius Fan</p>
+		Team Representative: Julius Fan / Qiao Liu</p>
 		<p>
-		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Midusa Nadeswarathasan</p>
+		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Midusa Nadeswarathasan, Zach VanderBurgt</p>
 		<p>
 		<strong>Database</strong> </p>
 		<p>
@@ -97,13 +99,13 @@
 		<p>
 		<strong>Back End</strong> </p>
 		<p>
-		Team Representative: ??</p>
+		Team Representative: Morgenne Besenschek</p>
 		<p>
 		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Julius Fan, Kobi Lee, Morgenne Besenschek</p>
 		<p>
 		<strong>Front End</strong> </p>
 		<p>
-		Team Representative: ??</p>
+		Team Representative: Rosario Elmy / Qiao Liu</p>
 		<p>
 		Members: Bethel Adaghe, Dan Huynh, Joshua Varga, Qiao Liu, Midusa Nadeswarathasan, Muzammil Elahi, Yousef Fahim</p>
 		<p>
@@ -111,14 +113,14 @@
 		<p>
 		Team Representative: Rosario Elmy</p>
 		<p>
-		Members: Bethel Adaghe, Dan Huynh, Midusa Nadeswarathasan, Muzammil Elahi, Nick Marecek, Qiao Liu, Yingxu Zhao, Zach</p>
+		Members: Bethel Adaghe, Dan Huynh, Midusa Nadeswarathasan, Muzammil Elahi, Nick Marecek, Qiao Liu, Yingxu Zhao, Yousef Fahim, Zach VanderBurgt</p>
 		</ul>
 
 
 	<h2 id="Decomposition">3. Decomposition</h2>
 
 	<h3 id="3.1">3.1 Model Class Diagram</h3>
-		<p> <img src="https://i.imgur.com/uf9YNVm.png"> </p>
+		<p> <img src="https://vignette.wikia.nocookie.net/project-pokemon/images/4/47/Placeholder.png/revision/latest?cb=20170330235552" style="width:100px;height:100px;"> </p>
 
 
 	<h2 id="Interface">4. Interface</h2>
@@ -171,31 +173,48 @@
 		<li>Franklin Gothic Demi</li>
 		</ul>
 	<h3 id="4.3">4.3 Icons</h3>
-		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" style="width:256px;height:256px;"> </p>
+		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" style="width:200px;height:200px;"> </p>
 	<h3 id="4.4">4.4 View Modules</h3>
+		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_menu.png" style="width:216px;height:384px;"> 
+		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_main.png" style="width:216px;height:384px;"> 
+		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_event.png" style="width:216px;height:384px;"> </p>
 
 
 	<h2 id="DetailedDesign">5. Detailed Design</h2>
 		<p>Detailed description of important functions for Reach.</p>
-	<h3 id="createAccount(String  String, String)">createAccount()</h3>
+
+	<h3 id="createAccount(String, String, String)">createAccount(String, String, String)</h3>
 		<p>
 		Deposits a User object into the database, constructed using the given username, email, and password parameters, then calls loginAccount().
 		</p>
-	<h3 id="loginAccount(String, String)">loginAccount(String, String)</h3>
+	<h3 id="loginAccount()">loginAccount(String, String)</h3>
 		<p>
 		Searches the database for the corresponding account given the username and password. If successful, go to main page. Otherwise, ask to try again.
 		</p>
-	<h3 id="onMapReady(GoogleMap)">onMapReady(GoogleMap)</h3>
+	<h3 id="onMapReady()">onMapReady(GoogleMap)</h3>
 		<p>  
-		Called when the map is ready to be used. Searches for all events within the user's radius and displays them as Markers on the map. 
+		Called when the map is ready to be used. Overriden to call refresh().
 		</p>
-	<h3 id="onMarkerClick(Marker)">onMarkerClick(Marker)</h3>
-		<p>  
-		Called when a marker is clicked/tapped. Goes to the EventView page.
+	<h3 id="onMarkerClick()">onMarkerClick(Marker)</h3>
+		<p>
+		Called when a marker is clicked/tapped. This will be overridden to go to the EventView activity.
 		</p>
 	<h3 id="refresh()">refresh()</h3>
 		<p>  
-		Iterate through the list of events in the database. For each event, if result of distanceBetween() is less than or equal to the user's radius, a Marker will be placed via addMarker().
+		Iterate through the list of events in the database. For each event, if distanceTo(Location) returns a value (in meters, will have to convert) less than or equal to the user's radius, a Marker will be placed via addMarker().
+		Location objects can be constructed with an empty String provider as the parameter, and given its latitude/longitude values via its setters.
+		</p>
+	<h3 id="interested()">interested()</h3>
+		<p>
+		Called when the user presses the 'Interested' button. Increments the Event's "totalInterested" value by 1.
+		</p>
+	<h3 id="giveRating()">giveRating(float)</h3>
+		<p>
+		Called when the user presses the 'Rate' button. Sends the parameter value to the database.
+		</p>
+	<h3 id="setRadius()">setRadius()</h3>
+		<p>
+		Set's the user's radius to whatever value in kilometers was entered in the text box.
 		</p>
 </body>
 
