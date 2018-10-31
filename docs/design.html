@@ -41,6 +41,10 @@
 		<li><a href="#interested()">interested()</a></li>
 		<li><a href="#giveRating()">giveRating()</a></li>
 		<li><a href="#setRadius()">setRadius()</a></li>
+		<li><a href="#createEvent()">createEvent()</a></li>
+		<li><a href="#deleteEvent()">deleteEvent()</a></li>
+		<li><a href="#updateEvent()">updateEvent()</a></li>
+		<li><a href="#changeLocation()">changeLocation()</a></li>
 		</ul>
 	</ul>
 	
@@ -74,7 +78,7 @@
 		<p>
 		<strong>Database</strong></p>
 		<p>
-		SQL</p>
+		HeidiSQL</p>
 		<p>
 		<strong>Website</strong></p>
 		<p>
@@ -175,9 +179,15 @@
 	<h3 id="4.3">4.3 Icons</h3>
 		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" style="width:200px;height:200px;"> </p>
 	<h3 id="4.4">4.4 View Modules</h3>
-		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_menu.png" style="width:216px;height:384px;"> 
+		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_event.png" style="width:216px;height:384px;">
 		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_main.png" style="width:216px;height:384px;"> 
-		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_event.png" style="width:216px;height:384px;"> </p>
+		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_menu.png" style="width:216px;height:384px;"> </p>
+		<p> <img src="https://i.imgur.com/mxN9yxU.jpg" style="width:500px;height:290px;">
+		    <img src="https://i.imgur.com/DUSf1Qq.jpg" style="width:500px;height:290px;"> 
+		    <img src="https://i.imgur.com/6Pcnqcg.jpg" style="width:500px;height:290px;"></p>
+		<p> <img src="https://i.imgur.com/ui9RKCC.jpg" style="width:500px;height:290px;">
+		    <img src="https://i.imgur.com/2ayF5TF.jpg" style="width:500px;height:290px;"> 
+		    <img src="https://i.imgur.com/cXhKoVB.jpg" style="width:500px;height:290px;"></p>
 
 
 	<h2 id="DetailedDesign">5. Detailed Design</h2>
@@ -193,29 +203,45 @@
 		</p>
 	<h3 id="onMapReady()">onMapReady(GoogleMap)</h3>
 		<p>  
-		Called when the map is ready to be used. Overriden to call refresh().
+		Called when the map is ready to be used. Overriden to call updateEventsList(), setMyLocationEnabled().
 		</p>
 	<h3 id="onMarkerClick()">onMarkerClick(Marker)</h3>
 		<p>
-		Called when a marker is clicked/tapped. This will be overridden to go to the EventView activity.
+		Called when a marker is clicked/tapped. This will be overridden to go to the EventActivity.
 		</p>
-	<h3 id="refresh()">refresh()</h3>
+	<h3 id="updateEventsList()">updateEventsList()</h3>
 		<p>  
-		Iterate through the list of events in the database. For each event, if distanceTo(Location) returns a value (in meters, will have to convert) less than or equal to the user's radius, a Marker will be placed via addMarker().
-		Location objects can be constructed with an empty String provider as the parameter, and given its latitude/longitude values via its setters.
+		Iterate through the list of events in the database, storing only nearby locations (small difference in lat/long) into eventsList. For each event, if distanceTo(Location) returns a value (in meters, will have to convert) less than or equal to the user's radius, a Marker will be placed via addMarker().
 		</p>
 	<h3 id="interested()">interested()</h3>
 		<p>
-		Called when the user presses the 'Interested' button. Increments the Event's "totalInterested" value by 1.
+		Called when the user presses the 'Interested' button. Increments the Event's "totalInterested" value by 1. When the button is pressed again, decrement by 1.
 		</p>
 	<h3 id="giveRating()">giveRating(float)</h3>
 		<p>
-		Called when the user presses the 'Rate' button. Sends the parameter value to the database.
+		Called when the user presses the 'Rate' button. Calculates the new rating of the event's creator and updates it to the database.
 		</p>
-	<h3 id="setRadius()">setRadius()</h3>
+	<h3 id="setRadius()">setRadius(float)</h3>
 		<p>
-		Set's the user's radius to whatever value in kilometers was entered in the text box.
+		Sets the user's radius to whatever value in kilometers was entered in the text box.
 		</p>
+	<h3 id="createEvent()">createEvent()</h3>
+		<p>
+		Called when the 'Create Event' button is pressed. Places a draggable marker on the user's location. Once the marker has been confirmed to be in the correct position, opens the EventView.
+		</p>
+	<h3 id="deleteEvent()">deleteEvent()</h3>
+		<p>
+		Called when the 'Delete Event' button is pressed. Clears all event information and removes the event from the database.
+		</p>
+	<h3 id="updateEvent()">updateEvent()</h3>
+		<p>
+		Submits changes to the event's information to the database. 
+		</p>
+	<h3 id="changeLocation()">changeLocation()</h3>
+		<p>
+		Opens MainActivity and makes the event's Marker draggable. Once the marker has been confirmed to be in the correct position, opens the EventView.
+		</p>
+	
 </body>
 
 </html>
