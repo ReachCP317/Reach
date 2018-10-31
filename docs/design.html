@@ -50,11 +50,11 @@
 	
 
 	<h2 id="Introduction">1. Introduction</h2>
-		<p>Reach is being developed both as an Android app and a website. The website is able to (run on any modern browser)? while the app is able to run on Android x.x devices and higher.</br>
+		<p>Reach is being developed both as an Android app and a website. The website is able to run on any modern browser, while the app is able to run on any Android version 15.0 or higher.</br>
 		In both cases, the device must be able to utilize Google Maps.</p>
 	<h3 id="1.1">1.1 Purpose</h3>
 		<p>
-		This document describes Reach's system design and architecture
+		This document describes Reach's system design and architecture.
 		</p>
 	<h3 id="1.2">1.2 Scope</h3>
 		<p>  
@@ -82,7 +82,7 @@
 		<p>
 		<strong>Website</strong></p>
 		<p>
-		HTML, Javascript</p>
+		JavaScript, HTML, CSS</p>
 		<p>
 		<strong>Back End</strong></p>
 		<p>
@@ -192,15 +192,6 @@
 
 	<h2 id="DetailedDesign">5. Detailed Design</h2>
 		<p>Detailed description of important functions for Reach.</p>
-
-	<h3 id="createAccount(String, String, String)">createAccount(String, String, String)</h3>
-		<p>
-		Deposits a User object into the database, constructed using the given username, email, and password parameters, then calls loginAccount().
-		</p>
-	<h3 id="loginAccount()">loginAccount(String, String)</h3>
-		<p>
-		Searches the database for the corresponding account given the username and password. If successful, go to main page. Otherwise, ask to try again.
-		</p>
 	<h3 id="onMapReady()">onMapReady(GoogleMap)</h3>
 		<p>  
 		Called when the map is ready to be used. Overriden to call updateEventsList(), setMyLocationEnabled().
