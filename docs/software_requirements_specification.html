@@ -1,207 +1,233 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-
-</head>
-
-<body>
-	<h1>Reach - Software Requirements</h1>
-	<ul>
-	<li><a href="#Introduction">1. Introduction</a></li>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>CP317 Reach Software Project Management Plan </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+			.use-cases, td, th {
+			border: 1px solid black;
+			width: 700px;
+			}
+			.category {
+			font-weight: bold;
+			width: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Reach - Software Requirements</h1>
 		<ul>
-		<li><a href="#1.1">1.1 Purpose</a></li>
-		<li><a href="#1.2">1.2 Scope</a></li>
-		<li><a href="#1.3">1.3 Definitions</a></li>
-		<li><a href="#1.4">1.4 References</a></li>
-		<li><a href="#1.5">1.5 Overview</a></li>
+			<li><a href="#Introduction">1. Introduction</a></li>
+			<li>
+				<ul>
+					<li><a href="#1.1">1.1 Purpose</a></li>
+					<li><a href="#1.2">1.2 Scope</a></li>
+					<li><a href="#1.3">1.3 Definitions</a></li>
+					<li><a href="#1.4">1.4 References</a></li>
+					<li><a href="#1.5">1.5 Overview</a></li>
+				</ul>
+			</li>
+			<li><a href="#Overall_Description">2. Overall Description</a></li>
+			<li>
+				<ul>
+					<li><a href="#2.1">2.1 Product Perspective</a></li>
+					<li><a href="#2.2">2.2 Product Functions</a></li>
+					<li><a href="#2.3">2.3 User Characteristics</a></li>
+					<li><a href="#2.4">2.4 References</a></li>
+					<li><a href="#2.5">2.5 Overview</a></li>
+				</ul>
+			</li>
+			<li><a href="#Requirements">3. Specific Requirements</a></li>
+			<li>
+				<ul>
+					<li><a href="#3.1">3.1 External Interfaces</a></li>
+					<li><a href="#3.2">3.2 Database</a></li>
+					<li><a href="#3.3">3.3 Standards Compliance</a></li>
+					<li><a href="#3.4">3.4 Software System Attributes</a></li>
+					<li><a href="#3.5">3.5 Use Case Diagram</a></li>
+				</ul>
+			</li>
 		</ul>
-	<li><a href="#Overall Description">2. Overall Description</a></li>
-		<ul>
-		<li><a href="#2.1">2.1 Product Perspective</a></li>
-		<li><a href="#2.2">2.2 Product Functions</a></li>
-		<li><a href="#2.3">2.3 User Characteristics</a></li>
-		<li><a href="#2.4">2.4 References</a></li>
-		<li><a href="#2.5">2.5 Overview</a></li>
-		</ul>
-	<li><a href="#sRequirements">3. Specific Requirements</a></li>
-		<ul>
-		<li><a href="#3.1">3.1 External Interfaces</a></li>
-		<li><a href="#3.2">3.2 Database</a></li>
-		<li><a href="#3.3">3.3 Standards Compliance</a></li>
-		<li><a href="#3.4">3.4 Software System Attributes</a></li>
-		<li><a href="#3.5">3.5 Use Case Diagram</a></li>
-		</ul>
-	</ul>
-	<h2 id="Introduction">1. Introduction</h2>
-		<p>Reach is a web/Android based application that enables its users to locate events occurring within a radius around their current location. 
-		The problem it solves is that, the ability to find events that are happening nearby within a short time is dependent on having a big network of friends to reach out to. 
-		Often times this network is unreliable in the short term and Reach solves this problem by giving users an alternative to a reliance on their network of friends.</p>
-	<h3 id="1.1">1.1 Purpose</h3>
-	<p>
-		This document is a framework for Reach. This document is intended for whoever would like to gain an in depth understanding of the application as well as Reach's development team.
-	</p>
-	<h3 id="1.2">1.2 Scope</h3>
-	<p>  
-	Reach is an application where users can either locate or advertise their events in a radius around their current location. Users consist of Hosts and Guests. 
-	Hosts can set up a broadcast radius, fill in relevant details regarding their event, and then post it so other users can see it.
-	Guests define the radius around them, all events are listed within the radius, and Guests can express interest in any event they choose.
-	This will give the Host an idea of the potential number of people attending their event.
-	</p>
-
-	<h3 id="1.3">1.3 Definitions</h3>
+		<h2 id="Introduction">1. Introduction</h2>
 		<p>
-		<p><b>Guest:</b> A user who attends an event</p>
-		<p><b>Host:</b> A user who schedules an event</p>
-		<p><b>Post:</b> Introduces an event into the database to be advertised</p>
-		<b>Search:</b> Request a list of events that are scheduled to begin or have already begun</p>
-		<p><b>User Radius:</b> The user-defined radius in kilometers around their current location in which to search or advertise
+			Reach is an Android and Web based application that makes finding and hosting events easier for everyone. 
+			Users can host their events on Reach, where it will then be advertised to other users on the app.
+			By using a user defined radius, Reach finds events hosted on the application within that radius, relative to the user's GPS coordinates.
+			Reach also helps find directions to events, as well as providing useful information regarding the event.
+			This creates a fast and easy way to find something to do, especially in last minute situations.
 		</p>
-
-	<h3 id="1.4">1.4 References</h3>
-		<p>IEEE. <a href="https://bohr.wlu.ca/cp317/notes/IEEE_830.pdf">IEEE Std 830-1998</a> IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998</p>
-
-	<h3 id="1.5">1.5 Overview</h3>
-	<p> 
-		The rest of this document contains the 'Overall Description section' & 'Specific Requirements' section. 
-		The former goes into detail about what factors affect Reach and its requirements.
-		The latter discusses what these requirements will be. 
-	</p>
-		
-	<hr>
-	<h2 id="Overall Description">2. Overall Description</h2>
-	<h3 id="2.1">2.1 Product Perspective</h3>
+		<h3 id="1.1">1.1 Purpose</h3>
+		<p>
+			This document is a framework for Reach. This document is intended for whoever would like to gain an in depth understanding of the application as well as Reach's development team.
+		</p>
+		<h3 id="1.2">1.2 Scope</h3>
+		<p>  
+			Reach is an application where users can either locate or advertise their events in a radius around their current location. Users consist of Hosts and Guests. 
+			Hosts can set up a broadcast radius, fill in relevant details regarding their event, and then post it so other users can see it.
+			Guests define the radius around them, all events are listed within the radius, and Guests can express interest in any event they choose.
+			This gives the Host an idea of the potential number of people attending their event.
+		</p>
+		<h3 id="1.3">1.3 Definitions</h3>
+		<p>
+			<b>Guest:</b> A user who attends an event.<br>
+			<b>Host:</b> A user who schedules an event.<br>
+			<b>Post:</b> Introduces an event into the database to be advertised.<br>
+			<b>Search:</b> Request a list of events that are scheduled to begin or have already begun.<br>
+			<b>User Radius:</b> The user-defined radius in kilometers around their current location in which to search or advertise.<br>
+		</p>
+		<h3 id="1.4">1.4 References</h3>
+		<p>
+			IEEE. <a href="https://bohr.wlu.ca/cp317/notes/IEEE_830.pdf">IEEE Std 830-1998</a> IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998
+		</p>
+		<h3 id="1.5">1.5 Overview</h3>
+		<p> 
+			The rest of this document contains the 'Overall Description section' & 'Specific Requirements' section. 
+			The former goes into detail about what factors affect Reach and its requirements.
+			The latter discusses what these requirements are. 
+		</p>
+		<h2 id="Overall_Description">2. Overall Description</h2>
+		<h3 id="2.1">2.1 Product Perspective</h3>
 		<p>
 			Reach operates as two seperate applications.
 			One is a web-based application and the other an Android-based application.
 			Both applications operate using three major components: 
 			a front end, back end, and database.
-			<h4>Front End:</h4>
+		</p>
+		<h4>Front End:</h4>
+		<p>
 			The front end is the user interface component of the application.
 			It is the only part of the application users can see and interact with.
 			The front end is responsive and supports multiple screen sizes and resolutions.
 			It should work on any modern browser or Android device depending on the application used.
-			<h4>Back End:</h4>
+		</p>
+		<h4>Back End:</h4>
+		<p>
 			The back end is responsible for interacting with both the front end and database.
 			It should receive information from both in order to carry out various functions.
 			These functions include the creation, finding, and viewing of events and should update the front end and database with required information.
-			<h4>Database:</h4>
+		</p>
+		<h4>Database:</h4>
+		<p>
 			The database holds information regarding the application.
 			This information includes user info, such as usernames and encrypted passwords.
 			It also includes event information, such as addresses and times.
 		</p>
-	<h3 id="2.2">2.2 Product functions</h3>
+		<h3 id="2.2">2.2 Product functions</h3>
 		<p>
 			Reach has three main functions which users can utilize.
 			These functions are implemented with the help of the <a href="https://developers.google.com/maps/documentation/">Google Maps Platform</a> and its various related API's.
-			<h4>Create Event:</h4>
+		</p>
+		<h4>Create Event:</h4>
+		<p>
 			The first main function is the ability to create and host an event.
 			When creating an event users are prompted to input various required information.
 			This information includes a name and description for the event, as well as the address, times, and cost if it is a paid event.
-			After the information has been filled out, a pin will be created and placed on the map at the specified address.
-			<h4>Find Event:</h4>
-			The next main function is the ability to find events that have been created.
+			After the information is filled out, a pin is created and placed on the map at the specified address.
+		</p>
+		<h4>Find Event:</h4>
+		<p>
+			The next main function is the ability to find events that are created.
 			Finding events is done automatically and is only dependent on a radius specified by the user.
 			Within the radius of the user's location, a list of events that are upcoming or ongoing is created.
 			These events are then displayed as pins on a map, which the user can select to view details about the event.
-			<h4>View Event:</h4>
+		</p>
+		<h4>View Event:</h4>
+		<p>
 			The last main function is the ability to view the information of found events.
 			Selecting a pin on the map displays all the information regarding the event.
-			Further options for the user can also be displayed, such as directions to the party.
-			
+			Further options for the user can also be displayed, such as directions to the party.		
 		</p>
-		
-	
-	<h3 id="2.3">2.3 User Characteristics</h3>
-		<p>Users only require a basic level of technical expertise with using a website or mobile application. 
-		Users who wish to act as Hosts are provided with a simple form to input their event details. 
-		Meanwhile, the Search interface is intuitive to use so users seeking events to attend at the last minute can find one quickly and without hassle. 
-		Users are provided with a tutorial the first time they use the application.</p>
-
-	<h3 id="2.4">2.4 Constraints</h3>
-		<p>Development of this application will face both time and cost constraints. 
-		As there is no budget, the application's capabilities will be restricted to the monthly 
-		<a href="https://cloud.google.com/maps-platform/pricing/sheet/">$200 free credit</a> 
-		provided by the Google Maps API.</p>
-
-	<h3 id="2.5">2.5 Assumptions and Dependencies</h3>
-		<p>It is assumed that a user's device or browser is compatible with the Google Maps, and connected to the internet. 
-		The website version should function on any operating system, and all major, up-to-date internet browsers. 
-		This includes Google Chrome, Firefox, Microsoft Edge, and Internet Explorer.</p>
-		
-	<hr>	
-	<h2 id="sRequirements">3. Specific Requirements</h2>
-	
-	<h3 id="3.1"> 3.1 External Interfaces</h3>
+		<h3 id="2.3">2.3 User Characteristics</h3>
 		<p>
-		    The following are all forms of data which the user will either use or input using the software
-		<ul>
-		    <li>Database</li>
-		    <li>Google Maps API</li>
-		    <li>Username</li>
-		    <li>Passwords/Salts</li>
-		    <li>GPS Location (coordinates)</li>
-		    <li>Timestamps</li>
-		    <li>Message Strings</li>
-		</ul>
-		   
+			Users only require a basic level of technical expertise with using a website or mobile application. 
+			Users who wish to act as Hosts are provided with a simple form to input their event details. 
+			Meanwhile, the Search interface is intuitive to use so users seeking events to attend at the last minute can find one quickly and without hassle. 
+			Users are provided with a tutorial the first time they use the application.
 		</p>
+		<h3 id="2.4">2.4 Constraints</h3>
+		<p>
+			Development of this application faces both time and cost constraints. 
+			As there is no budget, the application's capabilities are restricted to the monthly 
+			<a href="https://butt.google.com/maps-platform/pricing/sheet/">$200 free credit</a> 
+			provided by the Google Maps API.
+		</p>
+		<h3 id="2.5">2.5 Assumptions and Dependencies</h3>
+		<p>
+			It is assumed that a user's device or browser is compatible with the Google Maps, and connected to the internet. 
+			The website version should function on any operating system, and all major, up-to-date internet browsers. 
+			This includes Google Chrome, Firefox, Microsoft Edge, and Internet Explorer.
+			The Android version should function on newer android based devices and the vast majority of older devices.
+		</p>
+		<h2 id="sRequirements">3. Specific Requirements</h2>
+		<h3 id="3.1"> 3.1 External Interfaces</h3>
+		<p>
+			The following are all forms of data which the user either uses or inputs using the software
+		</p>
+		<ul>
+			<li>Database</li>
+			<li>Google Maps API</li>
+			<li>Username</li>
+			<li>Passwords/Salts</li>
+			<li>GPS Location (coordinates)</li>
+			<li>Timestamps</li>
+			<li>Message Strings</li>
+		</ul>
 		<h3 id="3.2"> 3.2 Database</h3>
-        <p>
-          <b>User Information:</b>
-		Database contains user specific information such as:</p>
-	<ul>
-          <li>Emails</li>
-          <li>Usernames</li>
-          <li>Passwords/Salts</li>
-          <li>Location</li>
-	</ul>
-          
-          <p><b>Party Information:</b>
-		  Database also contains information specific to each party/event such as:
-	<ul>
-          <li>Host(s)</li>
-          <li>Location</li>
-          <li>Date</li>
-          <li>Time</li>
-          <li>Rules</li>
-          <li>Details and further information</li>
-          <li>Custom QR code/party access password (optional)</li>
-	</ul>
-	<h3 id="3.3">3.3 Standards Compliance</h3>
+		<p>
+			<b>User Information:</b>
+			Database contains user specific information such as:
+		</p>
 		<ul>
-			<li>Log Formatting:
-				<li>User:</li>
-				<li>Process:</li>
-				<li>Target User (if there is one):</li>
-				<li>Date/Time:</li>
-				<li>IP Address:</li>
-			</li>
-			<li>Logging Procedures:
-				<p>Logs will be generated whenever a user interacts with the database. 
-				The log contains which user is interacting with the database and what it is that they're doing. 
-				This includes things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
-			</li> 
+			<li>Emails</li>
+			<li>Usernames</li>
+			<li>Passwords/Salts</li>
+			<li>Location</li>
 		</ul>
-
-	<h3 id="3.4">3.4 Software System Attributes</h3>
+		<p>
+			<b>Party Information:</b>
+			Database also contains information specific to each party/event such as:
+		</p>
 		<ul>
-			<li>Security:
-				<p>Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
-				If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
-				The hash generated will then be checked with what is stored in the database. If the two don't match an error is returned.</p>
-				<p>Encryption Algorithm: SHA256</p>
-			</li>
-			<li>Maintainability:
-				<p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
-				"Hotfixes" will be released on an "as needed" basis to address any critical bugs noticed with the software.</p>
-			</li>
+			<li>Host(s)</li>
+			<li>Location</li>
+			<li>Date</li>
+			<li>Time</li>
+			<li>Rules</li>
+			<li>Details and further information</li>
+			<li>Custom QR code/party access password (optional)</li>
 		</ul>
-		
-	<h3 id="3.5">3.5 Use Case Diagram</h3>
+		<h3 id="3.3">3.3 Standards Compliance</h3>
+		<b>Log Formatting:</b>
+		<ul>
+			<li>User</li>
+			<li>Process</li>
+			<li>Target User (if there is one)</li>
+			<li>Date/Time</li>
+			<li>IP Address</li>
+		</ul>
+		<b>Logging Procedures:</b>
+		<p>
+			Logs are generated whenever a user interacts with the database. 
+			The log contains which user is interacting with the database and what it is that they're doing. 
+			This includes things like user logins, password reset requests, password resets, registering a party,
+			sending a location to another user, requesting a location from another user, rating another user, and logging out.
+		</p>
+		<h3 id="3.4">3.4 Software System Attributes</h3>
+		<b>Security:</b>
+		<p>
+			Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
+			If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
+			The hash generated is then checked with what is stored in the database. If the two don't match an error is returned.<br><br>
+			Encryption Algorithm: SHA256
+		</p>
+		<b>Maintainability:</b>
+		<p>
+			Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
+			"Hotfixes" are released on an "as needed" basis to address any critical bugs noticed with the software.
+		</p>
+		<h3 id="3.5">3.5 Use Case Diagram</h3>
 		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;display:block; margin:0 auto;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\&quot; version=\&quot;9.2.7\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;0a9d91dc-77bb-02fd-63d9-d9423b81706a\&quot; name=\&quot;Page-1\&quot;&gt;7VrLcpswFP0ath1A+LW0nTRZtDOZeNomSxlusCYy8gjhR7++wggwEu4Q12BP3EwW6KLnOUdHF4yFpsvtA8erxXcWALVcO9ha6M5y3ZHrWum/HeyygOf1s0DISZCFnDIwI79BBW0VTUgAcaWiYIwKsqoGfRZF4ItKDHPONtVqb4xWR13hEIzAzMfUjP4igVhk0WHPLuOPQMJFPrJjqztz7L+HnCWRGs9y0dv+L7u9xHlfqn68wAHbHITQvYWmnDGRXS23U6AptDlsWbuvR+4W8+YQiSYNFE9rTBO19B8xcDU3scvxkNNcpZfJko59wbiFJmvggkjEvuE50CcWE0FYJKvMmRBsKSvQ9MakwGPKaNrurkSk7GNMSZi2FWwlowuxpLLgyEuWCEoimBY02zKopizbwvbosp0CTKlRYEsQfCerqAZuzpfSp4tUeVOynYcWB0T3VQwrfYVFzyXG8kLBXA85MiB/SCAWltuncpTJXKLfD8V+nWbkxnjp9zqjxTNoeWT/WallBY262y1DgxYDbtlAnguyMNksiIDZCvvpnY08mar4nAEK5GrGMTIVOqyBoncGKEYGFDOQArWfcUCS2IBFLlJU1x8Lzt4hl1bEohSzN0KpFsJKYL4EBXiN8pYkCOgxwPf6heB88kOeJj/HlJ9Xg7l7Bszzoa5Wf6g7/TmOgcVPAhsZuV+n078ZARZodiBAt4kAo2CcJr0lgAeYyzXy3YsCY194TQtfegU2EBjJsIaMzL4xDyEP2fVoHaDR+4sEOVAsyLo6ZB1EaoQnRlJxFYeRToZ+ysQs4T6oVoepr97RSOvI0TrK1mx0tGesWHYzEs2dc2kSh5+Cw6N22AKHZt5+VSeBM+juJKhJlmeAub+4vbPAqcmFWzsLeldnI9mu+Hw+MmzPR8w0/qp8pMOEEpm5zVgIqeDbs5EOM0p0gWSkYhmjxmBdxkVG2t4/NaHst+YhyL1uD+nwpQgy07JnLOD2HMTp8K0IMvO/Ti0k1/+ntxDHac9DPpZM+hTHMfE1GrdEvBTEpaXXnFN5/QScyAmle+VA9E0yzAwupeFL8upofKDBqS8bciLzjvRteEZi+/9ObFOqLrbfHK+6T/SjpDkv1Y7chhtOood3B9VWaYX4AxMe2h+bl12pLy+yGZwskkEDkVzyKWRgnmatpRDmb0xTDjeZRKChmbm1lkQ0eRBuM4kYXJupaWR46FRT004tz27tsMmnfK0+4tV82NGWj3jmg/UdULhFH/G87nzEa/Iw3KKP5Ou6AR/Rd8nJPiKL5TduWfXyO0J0/wc=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
-		<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
-
-</body>
-
+		<script src="https://www.draw.io/js/viewer.min.js"></script>
+	</body>
 </html>

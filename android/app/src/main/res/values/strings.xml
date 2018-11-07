@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reach</string>
+    <string name="title_activity_main">Reach</string>
 </resources>
