@@ -1,0 +1,69 @@
+<!--@Author Dan Huynh
+Version 0
+November 9, 2018
+--!>
+<html>
+    <head>
+        <title>Reach: Sign Up</title>
+    </head>
+    
+    
+    <body>
+        <style>
+        body{
+            color:white;
+            }
+        </style>
+<div align= "center">
+         <font face = "Bahnschrift Condensed" size = "20" color="white">Join REACH with your email address</font><br />
+
+<form>
+  <table>
+    <tr>
+      <td align="right">First Name:</td>
+      <td align="left"><input type="text" name="first" /></td>
+    </tr>
+    <tr>
+      <td align="right">Last Name:</td>
+      <td align="left"><input type="text" name="last" /></td>
+    </tr>
+    <tr>
+      <td align="right">Email:</td>
+      <td align="left"><input type="text" name="email" /></td>
+    </tr>
+   <tr>
+      <td align="right">Password:</td>
+      <td align="left"><input type="password" name="password" /></td>
+    </tr>
+  </table>
+</form>
+        <button id="SignUp">Create Account</button>
+            
+
+        <p id="result"></p>
+    </div>
+        
+        
+    <style>
+    body{
+        background-color: black
+        }</style>
+    
+    
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    
+    <script>
+        $("#SignUp").click(function(){
+        var name = $("#first").val();
+        var size = $("#password").val();
+        
+        var message = "Welcome to Reach!"
+        $("#result").html(message);
+    });
+        
+    </script>
+</html>
