@@ -34,8 +34,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
-                                      <entry key="foregroundImage" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
+                                      <entry key="backgroundImage" value="@mipmap/ic_launcher" />
+                                      <entry key="foregroundImage" value="@mipmap/ic_launcher" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -49,7 +49,7 @@
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
+                                      <entry key="imageAsset" value="@mipmap/ic_launcher" />
                                     </map>
                                   </option>
                                 </PersistentState>
