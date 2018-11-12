@@ -50,13 +50,13 @@
 	</p>
 
 	<h3 id="1.3">1.3 Definitions</h3>
-		<p>
-		<p><b>Guest:</b> A user who attends an event</p>
-		<p><b>Host:</b> A user who schedules an event</p>
-		<p><b>Post:</b> Introduces an event into the database to be advertised</p>
-		<b>Search:</b> Request a list of events that are scheduled to begin or have already begun</p>
-		<p><b>User Radius:</b> The user-defined radius in kilometers around their current location in which to search or advertise
-		</p>
+		<dl>
+		<dt>Guest:</dt><dd> A user who attends an event</dd>
+		<dt>Host:</dt><dd> A user who schedules an event</dd>
+		<dt>Post:</dt><dd> Introduces an event into the database to be advertised</dd>
+		<dt>Search:</dt><dd> Request a list of events that are scheduled to begin or have already begun</dd>
+		<dt>User Radius:</dt><dd> The user-defined radius in kilometers around their current location in which to search or advertise</dd>
+		</dl>
 
 	<h3 id="1.4">1.4 References</h3>
 		<p>IEEE. <a href="https://bohr.wlu.ca/cp317/notes/IEEE_830.pdf">IEEE Std 830-1998</a> IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998</p>
@@ -189,18 +189,17 @@
 		</ul>
 
 	<h3 id="3.4">3.4 Software System Attributes</h3>
-		<ul>
-			<li>Security:
-				<p>Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
+		<dl>
+			<dt>Security:</dt>
+				<dd><p>Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
 				If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
 				The hash generated will then be checked with what is stored in the database. If the two don't match an error is returned.</p>
 				<p>Encryption Algorithm: SHA256</p>
-			</li>
-			<li>Maintainability:
-				<p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
-				"Hotfixes" will be released on an "as needed" basis to address any critical bugs noticed with the software.</p>
-			</li>
-		</ul>
+				</dd>
+			<dt>Maintainability:</dt>
+				<dd><p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
+				"Hotfixes" will be released on an "as needed" basis to address any critical bugs noticed with the software.</p></dd>
+		</dl>
 		
 	<h3 id="3.5">3.5 Use Case Diagram</h3>
 		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;display:block; margin:0 auto;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\&quot; version=\&quot;9.2.7\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;0a9d91dc-77bb-02fd-63d9-d9423b81706a\&quot; name=\&quot;Page-1\&quot;&gt;7VrLcpswFP0ath1A+LW0nTRZtDOZeNomSxlusCYy8gjhR7++wggwEu4Q12BP3EwW6KLnOUdHF4yFpsvtA8erxXcWALVcO9ha6M5y3ZHrWum/HeyygOf1s0DISZCFnDIwI79BBW0VTUgAcaWiYIwKsqoGfRZF4ItKDHPONtVqb4xWR13hEIzAzMfUjP4igVhk0WHPLuOPQMJFPrJjqztz7L+HnCWRGs9y0dv+L7u9xHlfqn68wAHbHITQvYWmnDGRXS23U6AptDlsWbuvR+4W8+YQiSYNFE9rTBO19B8xcDU3scvxkNNcpZfJko59wbiFJmvggkjEvuE50CcWE0FYJKvMmRBsKSvQ9MakwGPKaNrurkSk7GNMSZi2FWwlowuxpLLgyEuWCEoimBY02zKopizbwvbosp0CTKlRYEsQfCerqAZuzpfSp4tUeVOynYcWB0T3VQwrfYVFzyXG8kLBXA85MiB/SCAWltuncpTJXKLfD8V+nWbkxnjp9zqjxTNoeWT/WallBY262y1DgxYDbtlAnguyMNksiIDZCvvpnY08mar4nAEK5GrGMTIVOqyBoncGKEYGFDOQArWfcUCS2IBFLlJU1x8Lzt4hl1bEohSzN0KpFsJKYL4EBXiN8pYkCOgxwPf6heB88kOeJj/HlJ9Xg7l7Bszzoa5Wf6g7/TmOgcVPAhsZuV+n078ZARZodiBAt4kAo2CcJr0lgAeYyzXy3YsCY194TQtfegU2EBjJsIaMzL4xDyEP2fVoHaDR+4sEOVAsyLo6ZB1EaoQnRlJxFYeRToZ+ysQs4T6oVoepr97RSOvI0TrK1mx0tGesWHYzEs2dc2kSh5+Cw6N22AKHZt5+VSeBM+juJKhJlmeAub+4vbPAqcmFWzsLeldnI9mu+Hw+MmzPR8w0/qp8pMOEEpm5zVgIqeDbs5EOM0p0gWSkYhmjxmBdxkVG2t4/NaHst+YhyL1uD+nwpQgy07JnLOD2HMTp8K0IMvO/Ti0k1/+ntxDHac9DPpZM+hTHMfE1GrdEvBTEpaXXnFN5/QScyAmle+VA9E0yzAwupeFL8upofKDBqS8bciLzjvRteEZi+/9ObFOqLrbfHK+6T/SjpDkv1Y7chhtOood3B9VWaYX4AxMe2h+bl12pLy+yGZwskkEDkVzyKWRgnmatpRDmb0xTDjeZRKChmbm1lkQ0eRBuM4kYXJupaWR46FRT004tz27tsMmnfK0+4tV82NGWj3jmg/UdULhFH/G87nzEa/Iw3KKP5Ou6AR/Rd8nJPiKL5TduWfXyO0J0/wc=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
