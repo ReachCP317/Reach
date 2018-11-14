@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+	<style>
+body{
+margin: 0;
+color:#B8008B;
+background-image:url("party.jpeg");
+
+    height: 100%; 
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-attachment:fixed;
+	
+}
+.option{
+width:500px; margin-left:auto; margin-right:auto; background-color:rgb(200,200,200); padding-left:10px; border-radius:10px; margin-bottom:5px;
+transition-duration:0.4s;}
+
+.option:hover{
+background-color:#8B008B;
+color:white;
+}
+button{
+width:10em; height:3em; margin-left:20px; border: none; background-color:#8B008B;font-size:20px; transition-durations:0.4s
+}
+button:hover{
+background-color:white;
+color:#8B008B;
+border: 2px solid #8B008B;
+}
+	</style>
+</head>
+<body>
+<div class="header"style="height:150;overflow:hidden; background-color: rgba(128,0,128,0.6); ">
+<img src="IMG_20180324_015901.jpg" style="width:100px;height:100px; border-radius:250px;
+ margin-left:auto; margin-right:auto; display:block;margin-top:5px;" ></img>
+ <button type="button"onclick="location.href= 'post.html'" style="display:block;margin-left:auto; margin-right:auto; margin-top:10px;margin-bottom:10px">Host</button>
+</div>
+
+<div id="mapholder" style=" width:700px; height:500px;margin-left:auto; margin-right:auto; display:block; border-radius:20px" >
+
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
+<script>
+getLocation();
+function getLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition,showError);
+}
+}
+function showPosition(position){
+var lat =position.coords.latitude;
+var lon = position.coords.longitude;
+var latlon = new google.maps.LatLng(lat,lon);
+var mapOptions={center:latlon,zoom:16, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("mapholder"),mapOptions);
+var marker = new google.maps.Marker({position:latlon,map:map,title:"You are Here!",animation:google.maps.Animation.BOUNCE});
+}
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+
+</script>
+
+<div>
+	<div class="option" >
+	<h2 style="font-size:30px; margin-top:5px; margin-bottom:1px;">Sigma Chi Saturday Rip</h2><br>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block;">Albert Street</h6>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block; margin-left:20px"> 128 attending</h6>
+	</div>
+		
+	<a href="find.html" style="text-decoration:none"><div class="option"><h2 style="font-size:30px; margin-top:5px; margin-bottom:1px;">The King's plane is landing</h2><br>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px;display:inline-block;">King Street</h6>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block; margin-left:20px"> 203 attending</h6>
+	</div></a>
+		<div class="option">
+	<h2 style="font-size:30px; margin-top:5px; margin-bottom:1px;">deLuxe Pizza Party</h2><br>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px;display:inline-block;">King Street</h6>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block; margin-left:20px"> 97 attending</h6>
+	</div>
+		<div class="option">
+	<h2 style="font-size:30px; margin-top:5px; margin-bottom:1px;">Heat on Ezra</h2><br>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px;display:inline-block;">Ezra Avenue</h6>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block; margin-left:20px"> 54 attending</h6>
+	</div>
+			<div class="option" >
+	<h2 style="font-size:30px; margin-top:5px; margin-bottom:1px;">Marshall's Pong tournament</h2><br>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px;display:inline-block;">Marshall Street</h6>
+	<h6 style="font-size:15px; margin-top:5px; margin-bottom:1px; display:inline-block; margin-left:20px"> 87 attending</h6>
+	</div>
+</div>
+
+
+
+
+</body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+<style>
+body{
+padding-left:10%;
+padding-right:10%;
+margin: 0;
+color:#8B008B;
+background-image:url("party.jpeg");
+
+    height: 100%; 
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-attachment:fixed;
+	}
+	.label{font-size:35px;}
+	.button{
+	display:block;
+width:10em; height:3em; margin-left:auto;margin-right:auto; margin-top:15px; border: none; background-color:#8B008B;font-size:20px; transition-durations:0.4s
+}
+.button:hover{
+background-color:white;
+color:#8B008B;
+border: 2px solid #8B008B;
+}
+	</style>
+	
+</head>
+<body>
+<div style="display:block; background-color:rgba(200,200,200,0.9); padding:15px; border-radius:20px">
+<div>
+<div style="display:inline-block; vertical-align:top;">
+<h1 class="label">Title your party</h1>
+<form>
+<input type="text" placeholder="Title" style="font-size:30px; width:500px; padding:10px; border:none;border-radius:15px">
+<h1 class = "label">When</h1>
+<input type="text" placeholder="Time" style="font-size:25px; width:250px; padding:10px;border:none; border-radius:15px">
+</div>
+<img src="wh logo.png" style="display:inline-block; vertical-align:top; margin-left:10%;"></img>
+</div>
+
+<div style="display:inline-block; vertical-align:top; margin-right:10%">
+<h1 class="label">Details</h1>
+<textarea style="width:500px; height:500px; border:none; border-radius:15px; font-size:20px; padding:10px"></textarea>
+</div>
+
+<div style= "display:inline-block; vertical-align:top;">
+<h1 class="label">Location</h1>
+<h3>Street Number</h3>
+<input type="text" placeholder="e.g 389" style="width:75px; padding:10px; border:none;border-radius:15px">
+<h3>Street Name</h3>
+<input type="text" placeholder="e.g Purple Blvd" style="width:300px;  padding:10px; border:none;border-radius:15px">
+<h3>City</h3>
+<input type="text" placeholder="e.g Waterloo" style="width:300px;  padding:10px; border:none;border-radius:15px">
+<h3>Province</h3>
+<select  style="width:300px;  padding:10px; border:none;border-radius:15px">
+<option>Ontario</option>
+<option>British Columbia</option>
+<option>Manitoba</option>
+<option>New Brunswick</option>
+<option>Newfoundland and Labrador</option>
+<option>Nova Scotia</option>
+<option>Prince Edward Island</option>
+<option>Quebec</option>
+<option>Saskatchewan</option>
+</select>
+<h3>Upload pictures</h3>
+<input type="file" name="pic" accept="image/*">
+</div>
+<input type="submit" class="button" value="Post">
+</form>
+</div>
+</body>
