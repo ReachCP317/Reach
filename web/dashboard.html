@@ -7,6 +7,7 @@
 	<!-- Scripts here-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
 	<script src="map.js"></script>
+	
 	</head>
 	<body>
 		<div id="Banner">
@@ -25,13 +26,24 @@
 					</td>
 					<td style="width:15%">
 					<div id="controlPanel">
-					Map Related items
+						<div class="slidecontainer">
+							<h5 style="font-size:20px; margin: 0 0 10px 0;">Maximum Distance</h5>
+							<span id ="radius" style="font-size:20px"> </span><br>
+							<form>
+								<input type="range" min="1" max="20" value="10" class="slider" id="myRadius"><br>
+								<input type="submit" value="Show Me Parties">
+							</form>
+							<script src ="mapItems.js"></script>
+							<hr>
+						</div>
+						<h5 style ="font-size:20px; margin:10px 0;">Events Nearby</h5>
 					</div>
 					</td>
 				</tr>
 				
 			</table>
 		</div>
+
 	</body>
 
 </html>
