@@ -1,20 +1,24 @@
 package io.github.reachcp317.reach;
 
+import android.location.Location;
+
 import java.util.Date;
 
 public class Event {
     private String name;
     private String description;
     private String address;
+    private Location location;
     private Date startTime;
     private Date endTime;
     private int totalInterested;
 
     //Constructor
-    public Event(String name, String description, String address, Date startTime, Date endTime) {
+    public Event(String name, String description, String address, Location location, Date startTime, Date endTime) {
         this.name = name;
         this.description = description;
         this.address = address;
+        this.location = location;
         this.startTime = startTime;
         this.endTime = endTime;
         this.totalInterested = 0;
@@ -31,6 +35,10 @@ public class Event {
 
     public String getAddress() {
         return address;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public Date getStartTime() {
@@ -56,6 +64,10 @@ public class Event {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public void setStartTime(Date startTime) {
