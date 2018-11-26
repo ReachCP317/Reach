@@ -7,6 +7,7 @@
 	<!-- Scripts here-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
 	<script src="map.js"></script>
+	<script src="navigatorPanel.js"></script>
 	
 	</head>
 	<body>
@@ -14,18 +15,19 @@
 		Banner
 		</div>
 		<div id="BodyPanel">
-			<table><!-- Split body Panel into 3 sections-->
-				<tr>
-					<td style="width:15%">
-						<div id="leftPanel" >
-						Left Panel
-						</div>
-					</td>
-					<td>
+
+					
+						<span id="navigatorPanel">
+						Navigator
+						<span id="closeButton" onclick="closeNav()">&times;</span>
+						</span>
+						<span id ="NavigatorButton" onclick="openNav()">&#9776;</span>
+					
+					
 						<div id ="mapPanel"></div>
-					</td>
-					<td style="width:15%">
-					<div id="controlPanel">
+					
+					
+					<span id="controlPanel">
 						<div class="slidecontainer">
 							<h5 style="font-size:20px; margin: 0 0 10px 0;">Maximum Distance</h5>
 							<span id ="radius" style="font-size:20px"> </span><br>
@@ -37,11 +39,8 @@
 							<hr>
 						</div>
 						<h5 style ="font-size:20px; margin:10px 0;">Events Nearby</h5>
-					</div>
-					</td>
-				</tr>
-				
-			</table>
+					</span>
+					
 		</div>
 
 	</body>
