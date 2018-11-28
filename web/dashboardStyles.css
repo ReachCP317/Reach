@@ -65,3 +65,10 @@ table{
 #closeButton:hover{
 	color: #f1f1f1;
 }
+#logo{
+	cursor:pointer;
+}
+#pageTitle{
+	margin:0;
+	padding:0;
+}
