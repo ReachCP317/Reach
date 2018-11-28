@@ -1,0 +1,84 @@
+body, html{
+  margin:0px;
+  padding:0px;
+  height: 100%;
+}
+
+.jumbotron{
+  background:none;
+}
+
+.navbar-brand{
+  color: #ffffff;
+}
+#bgImage{
+  background-image: url("bg_Image_prototype.jpg");
+
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+}
+label{
+  color:#ffffff;
+  font-size:15px;
+}
+#formContent p{
+  color: #ffffff;
+  font-size:35px;
+}
+
+#formContent h1{
+  font-size: 100px;
+  color: #ffffff;
+}
+#formContent{
+  text-align: center;
+  height:90%;
+  margin:auto;
+  padding-top: 15%;
+}
+
+.container{
+  background-color: black;
+  width:1000px;
+
+  padding:20px;
+  position: relative;
+  border-radius: 2px;
+  border: 2px solid red;
+  z-index:10;
+}
+.container:after{
+  background-color: #393939;
+  display:block;
+  position: absolute;
+  top:20px;
+  right:20px;
+  left:20px;
+  bottom:20px;
+
+  z-index:-1;
+}
+
+label{
+  width:150px;
+  text-align:right;
+}
+.inputs{
+  width:30%;
+}
+
+
+#bottomNavbar{
+  background-color: black;
+}
+#navbarContent{
+  margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+}
