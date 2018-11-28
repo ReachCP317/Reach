@@ -7,25 +7,30 @@
 	<!-- Scripts here-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
 	<script src="map.js"></script>
+	<!---Code needed for navigation menu--->
 	<script src="navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
 	
 	</head>
 	<body>
+		
 		<div id="Banner">
 		Banner
 		</div>
 		<div id="BodyPanel">
-
-					
-						<span id="navigatorPanel">
-						Navigator
-						<span id="closeButton" onclick="closeNav()">&times;</span>
+						<!-- Code for navigation menu --->
+						<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+							<a class="closeButton" onclick="closeNav()">&times;</a>
+							<!--- href set to "#" until all webpages have been created and can be set properly--->
+							<a href="https://www.google.com" id="search">Search</a>
+							<a href="#" id="create">Create Event</a>
+							<a href="#" id="profile">Profile</a>
+							<script> pageSettings() </script>
 						</span>
 						<span id ="NavigatorButton" onclick="openNav()">&#9776;</span>
-					
+						<!-- End of code for navigation menu --->
 					
 						<div id ="mapPanel"></div>
-					
 					
 					<span id="controlPanel">
 						<div class="slidecontainer">

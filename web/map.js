@@ -7,7 +7,12 @@ function showPosition(position){
 var lat =position.coords.latitude;
 var lon = position.coords.longitude;
 var latlon = new google.maps.LatLng(lat,lon);
-var mapOptions={center:latlon,zoom:16, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var mapOptions={
+	center:latlon,
+	zoom:16,
+	mapTypeId:google.maps.MapTypeId.ROADMAP,
+	disableDefaultUI: true
+	};
 var map = new google.maps.Map(document.getElementById("mapPanel"),mapOptions);
 var marker = new google.maps.Marker({position:latlon,map:map,title:"You are Here!",animation:google.maps.Animation.BOUNCE});
 }
