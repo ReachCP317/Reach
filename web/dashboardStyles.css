@@ -78,4 +78,10 @@ table{
 #navigatorPanel a:hover{
 	color: #FFFFFF
 }
-	
+#logo{
+	cursor:pointer;
+}
+#pageTitle{
+	margin:0;
+	padding:0;
+}
