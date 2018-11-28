@@ -1,6 +1,6 @@
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("navigatorPanel").style.width = "15%";
+    document.getElementById("navigatorPanel").style.width = "20%";
 }
 
 /* Set the width of the side navigation to 0 */
