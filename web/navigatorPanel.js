@@ -12,6 +12,6 @@ function pageSettings(){
 	var title = document.title;
 	if(title == "Dashboard"){
 		document.getElementById("search").href = "#";
-		document.getElementById("search").style.color = "#FF0000";
+		document.getElementById("search").style.color = "#FF6E83";
 	}
 }

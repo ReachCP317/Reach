@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
 	margin:0px;
+	font-family: Bahnschrift Condensed;
 }
 #Banner{
  background-color:#000000;
@@ -29,14 +30,16 @@ width:100%;
 }
 #controlPanel{
  position:absolute;
- top:5px;
- right:5px;
+ top:2%;
+ right:1%;
  z-index:3;
- background-color:blue;
- height:100%;
+ background-color:#38414E;
+ height:84%;
  text-align:center;
  font-size:20px;
  min-width:200px;
+ color:#FFFFFF;
+ border-radius: 15px;
 }
 table{
 	table-layout: fixed;
@@ -54,7 +57,7 @@ table{
 
 #navigatorPanel{
 	z-index:2;
-	background-color:#000000;
+	background-color:#12171F;
 	position: fixed;
 	height:100%;
 	width:0%;
@@ -94,4 +97,35 @@ table{
 #pageTitle{
 	margin:0;
 	padding:0;
+}
+.slidecontainer{
+	border-radius: 15px 15px 0px 0px;
+	background-color:#12171F;
+}
+.nearbyEvents{
+	background-color:#38414E;
+	height = 100%;
+}
+
+input {
+	border-radius:15px;
+	color:#FFFFFF;
+	background-color:#242f3E;
+	border: none;
+}
+
+.slider {
+	-webkit-appearance:none;
+	background:#38414E;
+	outline: none;
+	height: 10px;
+}
+
+.slider::-webkit-slider-thumb{
+	-webkit-appearance:none;
+	appearance:none;
+	background:#242f3E;
+	width:10px;
+	height:20px;
+	border-radius:25px;
 }
