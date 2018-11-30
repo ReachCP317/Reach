@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /**
@@ -24,10 +25,9 @@ public class DBConnect {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url ="jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb?useSSL=true&requireSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; 
 			con = DriverManager.getConnection(url, "reachAndroid@reachdb", "reachWLU@");
-			//con = DriverManager.getConnection("jdbc:mysql://den1.mysql6.gear.host:3306/reachdb", "reachdb", "reach@");
 			
 			st = con.createStatement();
-			
+			System.out.println("Successful Connection to Database");
 		} catch(Exception ex) {
 			System.out.println("Error: "+ ex);
 		}
@@ -149,6 +149,62 @@ public class DBConnect {
 		
 			return userID;
 	}
+	
+	/**
+	 * 
+	 * Returns an ArrayList of EventIds that are within a condition of the users current Latitude and Longitude. 
+	 * 
+	 * @param lat - Users current latitude
+	 * @param lon  - Users current longitude 
+	 * @param condition - Specified range for comparison (i.e 0.5) 
+	 * @return ArrayList of eventIds within the specified range. 
+	 */
+	public ArrayList<Integer> closeLocation(int lat, int lon, double condition) {
+		String query;
+		int lonHigh = (int) (lon + condition);
+		int lonLow = (int) (lon - condition);
+		int latHigh  = (int) (lat + condition);
+		int latLow = (int) (lat - condition);
+		//First query statement to get number of events in database
+		String eventCount = "SELECT COUNT(1) FROM event";
+		//eventCounted to hold number of events counted from first query
+		int eventCounted = 0;
+		
+		
+		//Separate query to get number of events to find ArrayList size
+		try {
+			rs = st.executeQuery(eventCount);
+			while (rs.next()) {
+				eventCounted = rs.getInt(1);
+				//System.out.println(rs.getInt(1));
+			}
+		} catch (Exception ex) {
+			System.out.println("Error: "+ ex);
+		}
+		
+		query = String.format("SELECT * from event where (longitude BETWEEN %d AND %d) and latitude between %d and %d", lonLow, lonHigh, latLow, latHigh);
+		ArrayList<Integer> events = new ArrayList<Integer>(eventCounted);
+		try {
+			rs = st.executeQuery(query);
+			while (rs.next()) {
+				//System.out.println("EventID: " + rs.getInt("eventID"));
+				events.add(rs.getInt("eventID"));
+				/**
+				 * rs.getInt("longitude");
+				 * rs.getInt("latitude");
+
+				 */
+			}
+		} catch (Exception ex) {
+			System.out.println("Error: "+ ex);
+		}
+		
+		
+		
+		return events;
+		
+	}
+	
   }
 
 
