@@ -1,3 +1,5 @@
+package io.github.reachcp317.reach;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.security.MessageDigest;
@@ -46,51 +48,46 @@ public class DBConnect {
 	 * @param condition - Specified range for comparison (i.e 0.5) 
 	 * @return ArrayList of eventIds within the specified range. 
 	 */
-	public ArrayList<Integer> closeLocation(int lat, int lon, double condition) {
+	 public ArrayList<Integer> closeLocation(double lat, double lon, double condition) {
 		String query;
-		int lonHigh = (int) (lon + condition);
-		int lonLow = (int) (lon - condition);
-		int latHigh  = (int) (lat + condition);
-		int latLow = (int) (lat - condition);
+		double lonHigh = lon + condition;
+		double lonLow = lon - condition;
+		double latHigh  = lat + condition;
+		double latLow = lat - condition;
 		//First query statement to get number of events in database
 		String eventCount = "SELECT COUNT(1) FROM event";
 		//eventCounted to hold number of events counted from first query
 		int eventCounted = 0;
-		
-		
+
 		//Separate query to get number of events to find ArrayList size
 		try {
-			rs = st.executeQuery(eventCount);
-			while (rs.next()) {
-				eventCounted = rs.getInt(1);
-				//System.out.println(rs.getInt(1));
-			}
+		    rs = st.executeQuery(eventCount);
+		    while (rs.next()) {
+			eventCounted = rs.getInt(1);
+			//System.out.println(rs.getInt(1));
+		    }
 		} catch (Exception ex) {
-			System.out.println("Error: "+ ex);
+		    System.out.println("Error: "+ ex);
 		}
-		
+
 		query = String.format("SELECT * from event where (longitude BETWEEN %d AND %d) and latitude between %d and %d", lonLow, lonHigh, latLow, latHigh);
 		ArrayList<Integer> events = new ArrayList<Integer>(eventCounted);
 		try {
-			rs = st.executeQuery(query);
-			while (rs.next()) {
-				//System.out.println("EventID: " + rs.getInt("eventID"));
-				events.add(rs.getInt("eventID"));
-				/**
-				 * rs.getInt("longitude");
-				 * rs.getInt("latitude");
-
-				 */
-			}
+		    rs = st.executeQuery(query);
+		    while (rs.next()) {
+			//System.out.println("EventID: " + rs.getInt("eventID"));
+			events.add(rs.getInt("eventID"));
+			/**
+			 * rs.getInt("longitude");
+			 * rs.getInt("latitude");
+			 */
+		    }
 		} catch (Exception ex) {
-			System.out.println("Error: "+ ex);
+		    System.out.println("Error: "+ ex);
 		}
-		
-		
-		
+
 		return events;
-		
-	}
+	 }
 	
 	
 	/*
@@ -151,7 +148,7 @@ public class DBConnect {
 	 * Returns a result set from the database view v_event_name when given an event ID.
 	 * @param eventID - Possibly from an ArrayList of event ID's
 	 */
-	public void queryEvent(int eventID) {
+    	public Event queryEvent(int eventID) {
 		String query = null;
 		query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
 		int lon = 0;
@@ -160,24 +157,26 @@ public class DBConnect {
 		String address;
 		String startDate;
 		String endDate;
-		
-		
-		
+		Event eventObject = null;
+
+
 		try {
-			rs = st.executeQuery(query);
-			while (rs.next()) {
-				lon = rs.getInt("longitude");
-				lat = rs.getInt("latitude");
-				hostName = rs.getString("hostName");
-				address = rs.getString("address");
-				startDate = rs.getString("startDate");
-				endDate = rs.getString("endDate");
-			}
-			System.out.println(eventID + " " + hostName);
+		    rs = st.executeQuery(query);
+		    while (rs.next()) {
+			lon = rs.getInt("longitude");
+			lat = rs.getInt("latitude");
+			hostName = rs.getString("hostName");
+			address = rs.getString("address");
+			startDate = rs.getString("startDate");
+			endDate = rs.getString("endDate");
+			eventObject = new Event(hostName,address,lat,lon);
+		    }
+		    System.out.println(eventID + " " + hostName);
 		} catch (Exception ex) {
-			System.out.println("Error: "+ ex);
+		    System.out.println("Error: "+ ex);
 		}
-		
+
+		return eventObject;
 	}
 
 	
