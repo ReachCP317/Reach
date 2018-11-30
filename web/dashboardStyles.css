@@ -48,12 +48,6 @@ html, body {
   border-radius: 15px;
 }
 
-table {
-  table-layout: fixed;
-  height: 100%;
-  width: 100%;
-}
-
 #NavigatorButton {
   position: absolute;
   top: 10px;
