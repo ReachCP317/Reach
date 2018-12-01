@@ -1,4 +1,4 @@
-package com.reachcp317.Reach;
+package com.reachcp317.reach;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
