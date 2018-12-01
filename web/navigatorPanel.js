@@ -1,5 +1,6 @@
 /* Set the width of the side navigation to 250px */
 function openNav() {
+
   document.getElementById("navigatorPanel").style.width = "240px";
 }
 

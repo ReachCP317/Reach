@@ -3,6 +3,7 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   }
 
+
 }
 
 function showPosition(position) {
@@ -17,6 +18,7 @@ function showPosition(position) {
     center: latlon,
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
+
     disableDefaultUI: true,
     styles: [
       {

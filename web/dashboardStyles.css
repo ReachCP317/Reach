@@ -48,6 +48,7 @@ html, body {
   border-radius: 15px;
 }
 
+
 table {
   table-layout: fixed;
   height: 100%;
@@ -71,6 +72,7 @@ table {
   width: 0%;
   overflow-x: hidden;
   transition: 0.5s;
+
   padding-top: 50px;
   font-family: Bahnschrift Condensed;
 }
@@ -113,6 +115,7 @@ table {
 .slidecontainer {
   border-radius: 15px 15px 0px 0px;
   background-color: #12171F;
+
   padding-top: 20px;
 }
 
@@ -138,6 +141,7 @@ input {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+
   background: #242f3E;
   width: 10px;
   height: 20px;
