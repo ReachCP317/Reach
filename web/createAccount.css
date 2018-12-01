@@ -82,3 +82,8 @@ top: 50%;
 -ms-transform: translateY(-50%);
 transform: translateY(-50%);
 }
+#createContainer{
+	border: 7px solid black;
+	outline: 2px solid red;
+	background-color: rgb(100,100,100);
+}
