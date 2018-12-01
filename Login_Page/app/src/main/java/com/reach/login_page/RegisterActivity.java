@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class SecondActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText newUsername, newPassword, userEmail;
     private Button Register;
@@ -27,7 +27,7 @@ public class SecondActivity extends AppCompatActivity {
                     //Add  to database
                     String email = userEmail.getText().toString().trim();
                     String password = newPassword.getText().toString().trim();
-                    startActivity(new Intent(SecondActivity.this,Login_Activity.class));
+                    startActivity(new Intent(RegisterActivity.this,Login_Activity.class));
                 }
             }
         });
