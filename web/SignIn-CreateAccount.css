@@ -49,8 +49,8 @@ body, html{
 
   padding:5px;
 
-  border-radius: 2px;
-  border: 2px solid red;
+  border-radius: 5px;
+  border: 5px solid red;
 }
 
 #createAccountButton{
@@ -62,8 +62,8 @@ body, html{
 
   padding:5px;
 
-  border-radius: 2px;
-  border: 2px solid red;
+  border-radius: 5px;
+  border: 5px solid red;
 }
 #reachLogo{
   width:100px;
