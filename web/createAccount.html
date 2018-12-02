@@ -18,17 +18,18 @@
         <p><b>Create Account</b></p>
 
         <label for="usernameInput">Username:</label>
-        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0 inputs" id="usernameInput" placeholder="Enter Username">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input type="text" class="form-control inputs" id="usernameInput" placeholder="Enter Username"></div><br/><br/>
 
+		<label for="emailInput">Email:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="email" class="form-control inputs" id="emailInput" placeholder="Enter Email">
+        </div><br/><br/>
+		
         <label for="passwordInput">Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <input type="password" class="form-control inputs" id="passwordInput" placeholder="Enter Password">
         </div><br/><br/>
-
-        <label for="emailInput">Email:</label>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="email" class="form-control inputs" id="emailInput" placeholder="Enter Email">
-        </div>
 
         <label for="confirmPasswordInput">Confirm Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -37,8 +38,6 @@
       </form>
     </div>
     </div>
-
-
 
     <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
