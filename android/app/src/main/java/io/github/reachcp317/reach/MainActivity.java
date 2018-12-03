@@ -82,7 +82,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                         eventsIDList = connect.closeLocation(location.getLatitude(),location.getLongitude(),0.5);     // retrieve ArrayList of all eventIDs with locations of <0.5 difference in latitude and longitude from database.
                         for (int i = 0; i < eventsIDList.size(); i++){ // iterate through eventsIDList and displays them on the map as Markers if the distance is within User's radius
                             tempEvent = connect.queryEvent(eventsIDList.get(i));
-                            if (location.distanceTo(tempEvent.getLocation()) < radius) {
+                            if ((location.distanceTo(tempEvent.getLocation()) / 1000) < radius) {   // convert distance to kilometers, check if within radius
                                 tempLL = new LatLng(tempEvent.getLocation().getLatitude(), tempEvent.getLocation().getLongitude());
                                 mMap.addMarker(new MarkerOptions().position(tempLL).title(tempEvent.getName()));
                             }
