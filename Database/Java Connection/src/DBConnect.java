@@ -128,7 +128,7 @@ public class DBConnect {
 	 * @param end - end date of the event
 	 * @param address - address of the event
 	 */
-	public void createEvent(String email, String desc, int lon, int lat, String start, String end, String address ) {
+	public void createEvent(String email, String desc, double lon, double lat, String start, String end, String address ) {
 		int userID = getUserID(email);
 		String insertEvent;
 		//insertEvent = String.format("INSERT INTO event (eventID, desc, longitude, latitude, startDate, endDate, address)"
