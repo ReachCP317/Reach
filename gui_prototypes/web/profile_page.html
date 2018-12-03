@@ -1,7 +1,6 @@
 <style>
   body {
   padding-top: 80px;
-  
   text-align: center;
   font-family: Franklin Gothic Demi;
   background: url(https://cdn.discordapp.com/attachments/489635354614169600/516407748452417565/bcg1.jpg) 50%;
@@ -12,25 +11,14 @@ h1, h2 {
   background: #fff;
 }
 
-.logo_box img{
-  position: fixed;
-  right: 0;
-  top: 0;
-}
-
-
 span {
   background: #fd0;
 }
 .profile-img img{
-    position: absolute;
-    left: 5%;
-    top: -20%;
-    width: 240px;
-    height: 240px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
         border: 3px solid red;
-    float: left;
 }
 .profile-img .file {
   
@@ -42,6 +30,9 @@ span {
     background: #fff;
     
 }
+.column {
+    float: left;
+}
 
 .left {
     width: 25%;
@@ -50,70 +41,50 @@ span {
 .right {
     width: 75%;
 }
-
 .profile{
-    position: absolute;
     padding: 10px;
-    margin-top: 15%;
+    margin-top: 3;
     margin-bottom: 3%;
+
     background: #282828;
     border:3px solid red;
 }
 
 .user-about-me{
-    width: 100%;
-    border: 3px solid black;
+    margin: auto;
+
+    border: 3px solid red;
     padding: 10px;
-    
     color: white;
     font-size: x-large;
     
-    
-  background-color: black;
+  background-color: #282828
   
   
 }
 .user-event-info{
-    position:absolute;
-    top: 1%;
-    width: 68%;
-    height: 363px;
-
-  
-    border: 3px solid black;
-    
+  margin: auto;
+    width: 50%;
+    border: 3px solid red;
+    padding: 10px;
   color: white;
-  
       font-size: x-large;
-    text-align:left;
-    list-style-type:none;
-    background: #000;
-}
 
-.user-event-info li{
-    padding-top: 20px;
-    padding-bottom:72px;
-    padding-left: 10px;
-    width:15%;
     
-    background-color: #12171F;
-    
+    background: #282828;
 }
 
 .button {
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    background-color: #282828;
-    border-color: red;
+    background-color: #000;
+    border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
+    display: inline-block;
     font-family: Franklin Gothic Demi;
       margin: 4px 2px;
     cursor: pointer;
-    
     
 }
 
@@ -124,110 +95,107 @@ span {
 
 
 .column {
-    width: 30%;
+  
+    float: left;
+    width: 50%;
     padding: 10px;
-    float:left;
+    height: 300px; 
 }
+
 
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-
-.footer{
-  position:absolute;
-  bottom:0;
-  background-color:black;
-  width:110%;
-  height: 15%;
-  text-align:left;
-}
-.footer a{
-  text-decoration:none;
-  color:white;
-
-  padding-left: 10%; 
-}
-
-.footer img{
-  position:absolute;
-  top: -30%;
-}
-
 </style>
 
-<div class="logo_box"> 
-  <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
+<div class = logo> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt=""/>
 </div>
 
 
-<div class="container profile" style="position:relative; height:50%;">
+<div class="container profile">
 
   <div class="profile-img">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg/600px-Default_profile_picture_%28male%29_on_Facebook.jpg" alt=""/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg/600px-Default_profile_picture_%28male%29_on_Facebook.jpg" alt=""/>
   </div>
   
-  <button class="button" class="edit_button">Edit</button>
-  
-  <div class="row" style="padding-top:10%;">
-    <div class="column" style="background-color: #282828;">
-  
-                    <table class="user-about-me">
-                      <tbody>
+  <button class="button">Edit Profile</button>
+  <div class="row">
+  <div class="column" style="background-color:#000;">
+
+      <div class=" col-md-9 col-lg-9 "> 
+                  <table class="user-about-me">
+                    <tbody>
+                      <tr>
+                        <td>Username:</td>
+                        <td>username</td>
+                      </tr>
+                      
+                      
+                      <tr>
+                        <td>Email:</td>
+                        <td>testing@reach.test</td>
+                      </tr>
+                      
+                      
+                      <tr>
+                        <td>Phone Number:</td>
+                        <td>(123)456-7890</td>
+                      </tr>
+                   
+
+                             <tr>
+                        <td>Gender:</td>
+                        <td>Female</td>
+                      </tr>
+                      
                         <tr>
-                          <td>Username:</td>
-                          <td>username</td>
-                        </tr>
-                        
-                        
-                        <tr>
-                          <td>Email:</td>
-                          <td>testing@reach.test</td>
-                        </tr>
-                        
-                        
-                        <tr>
-                          <td>Phone Number:</td>
-                          <td>(123)456-7890</td>
-                        </tr>
+                      </tr>
+                      <tr>
+                        <td>Connect with: </td>
+                      </tr>
+                        </td>
+                           
+                      </tr>
                      
-  
-                               <tr>
-                          <td>Gender:</td>
-                          <td>Female</td>
-                        </tr>
-                        
-                          <tr>
-                        </tr>
-                        <tr>
-                          <td>Connect with: </td>
-                        </tr>
-                          </td>
-                             
-                        </tr>
-                       
-                      </tbody>
-                    </table>
-                    
-    </div>
-    <div class="column"">
-  
-      
-                    <ul class="user-event-info">
-                      <li>Attended:</li>
-                      <li>Hosted:</li>
-                      <li>Interests:</li>
-                    </ul>
-                    
+                    </tbody>
+                  </table>
                   
+                </div>
+  </div>
+  <div class="column" style="background-color:#000;">
+
+                      <div class=" col-md-9 col-lg-9 "> 
+                  <table class="user-event-info">
+                    <tbody>
+                      <tr>
+                        <td>Attended:</td>
+                        <td>___________________</td></td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Hosted:</td>
+                        <td>___________________</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Interests:</td>
+                        <td>___________________</td>
+                      </tr>
+                   
+                   
+                     
+                    </tbody>
+                  </table>
                   
-                  
-  
-    </div>
+                </div>
+                
+                
+                
+
+  </div>
 </div>
-
-
 
 
               
@@ -235,15 +203,5 @@ span {
                 
 
 </div>
-<footer class="footer">
-  <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" height="100px" width="100px">
-  <a href="">About</a>
-  <a href="">Terms</a>
-  <a href="">Contact Us</a>
-  <br>
-  <br>
-  <a href="">Privacy</a>
-  <a href="">FAQ</a>
-  <a href="">Feedback</a>
-</footer>
+
 </div>

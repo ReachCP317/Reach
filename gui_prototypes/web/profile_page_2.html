@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Reach - User Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+  
+        body{
+		  font-family: Franklin Gothic Demi;
+
+	  background: url(https://i2.wp.com/www.nvslmag.com/wp-content/uploads/2018/03/AdobeStock_98161746.jpeg) 50%;
+	    background-size: cover;
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #282828;
+}
+.profile-img{
+    text-align: center;
+}
+
+.profile-img img{
+    border-radius: 50%;
+    border: 3px solid red;
+	width: 240px;
+    height: 240px;
+	
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+
+
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+	  color:#000
+	  background-color:#000
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+
+    border-bottom:2px solid #FF0000;
+}
+.profile-work{
+	text-align:left;
+    padding: 14%;
+    margin-top: -5%;
+	background:#000
+}
+.profile-work p{
+	text-align:left;
+    font-size: 12px;
+
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+	text-align:left;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+font-color:#282828
+    font-weight: 600;
+}
+.profile-tab p{
+    color:#282828
+    font-weight: 600;
+
+
+}
+
+.logo_box img{
+    position: relative;
+    overflow: hidden;
+	margin-left:20%
+
+}
+
+
+ul.nav li a, ul.nav li a:visited {
+    color: #fff;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: #FF0000 !important;
+}
+
+ul.nav li.active a {
+    color: #FF0000 !important;
+}
+.user-about-me{
+    margin: auto;
+
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+
+}
+.user-event-info{
+  margin: auto;
+  color: white;
+  font-size: x-large;
+  text-align:left;
+	padding: 10px;
+
+
+	list-style-type:none;
+}
+.user-hosted-info{
+  margin: auto;
+  color: white;
+  font-size: x-large;
+  text-align:left;
+	padding: 10px;
+
+
+	list-style-type:none;
+}
+.footer{
+  position:absolute;
+  bottom:0;
+  background-color:black;
+  width:100%;
+  height: 8%;
+  height: 8%;
+  text-align:left;
+}
+.footer a{
+  text-decoration:none;
+  color:white;
+  padding-left: 10%; 
+}
+
+
+
+
+
+
+
+</style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class=container logo>
+<div class="logo_box"> 
+  <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
+</div>
+
+</div>
+
+
+<div class="container emp-profile">
+
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg/600px-Default_profile_picture_%28male%29_on_Facebook.jpg" alt=""/>
+                            
+							<div class="file btn btn-lg btn-dark">
+                                Edit
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="attended-tab" data-toggle="tab" href="#attended" role="tab" aria-controls="home" aria-selected="true">Attended</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="hosted-tab" data-toggle="tab" href="#hosted" role="tab" aria-controls="profile" aria-selected="false">Hosted</a>
+                                </li>
+								<li class="nav-item">
+                                    <a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="profile" aria-selected="false">Interests</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+						
+
+			<div class="column_1"> 
+                    <table class="user-about-me">
+                      <tbody>
+                        <tr>
+                          <td>Username:</td>
+                          <td>username</td>
+                        </tr>
+                        
+                        
+                        <tr>
+                          <td>Email:</td>
+                          <td>testing@reach.test</td>
+                        </tr>
+                        
+                        
+                        <tr>
+                          <td>Phone Number:</td>
+                          <td>(123)456-7890</td>
+                        </tr>
+                     
+  
+                               <tr>
+                          <td>Gender:</td>
+                          <td>Female</td>
+                        </tr>
+                        
+                          <tr>
+                        </tr>
+                        <tr>
+                          <td>Connect with: </td>
+                        </tr>
+                          </td>
+                             
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                    
+                  </div>
+
+                        </div>
+                    </div>
+					
+					
+                    <div class="col-md-8" style="background-color:#000;">
+                        <div class="tab-content profile-tab" id="myTabContent">
+	
+                            <div class="tab-pane fade show active" id="attended" role="tabpanel" aria-labelledby="attended-tab">
+
+                                        <div class="column">
+  
+                        <div class=" col-md-9 col-lg-9 "> 
+                    <ul class="user-event-info">
+                      <li>1:</li>
+                      <li>2:</li>
+                      <li>3:</li>
+                    </ul>
+                    
+                  </div>
+                  
+                  
+                  
+  
+    </div>
+                            </div>
+							
+						
+                            <div class="tab-pane fade" id="hosted" role="tabpanel" aria-labelledby="hosted-tab">
+     <div class="column">
+  
+                        <div class=" col-md-9 col-lg-9 "> 
+                    <ul class="user-event-info">
+                      <li>4:</li>
+                      <li>5:</li>
+                      <li>6:</li>
+                    </ul>
+                    
+                  </div>
+                  
+                  
+                  
+  
+    </div>
+                                </div>
+								
+				<div class="tab-pane fade" id="interests" role="tabpanel" aria-labelledby="interests-tab">
+     <div class="column">
+  
+                        <div class=" col-md-9 col-lg-9 "> 
+                    <ul class="user-event-info">
+                      <li>7:</li>
+                      <li>8:</li>
+                      <li>9:</li>
+                    </ul>
+                    
+                  </div>
+                  
+                  
+           
+    </div>
+                                </div>
+								
+								
+                            </div>
+							
+							
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+		
+		<footer class="footer">
+
+ 
+  <a href="">About</a>
+  <a href="">Terms</a>
+  <a href="">Contact Us</a>
+  <br>
+  <br>
+  <a href="">Privacy</a>
+  <a href="">FAQ</a>
+  <a href="">Feedback</a>
+</footer>
+
+
+		
+		
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
