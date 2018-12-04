@@ -1,0 +1,23 @@
+body{
+  height: 100%;
+  font-family: Bahnschrift Condensed;
+  color: white;
+  background-image:url('background.jpg');
+  background-position: center;
+  font-size:30px;
+
+}
+table{
+    border: 2px solid red;
+    background: #282828;
+    font-size: 20px;
+	margin-left:200px;
+}
+#footer{
+ 	background-color:black;
+    color: white;
+	padding:10px;
+	margin-top: 60px;
+	margin-left:0px;
+	width:1500px;
+}
