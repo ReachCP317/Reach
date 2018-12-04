@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="#000000">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="434dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="131dp"
+            tools:context=".GoogleMapsActivity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:text="REACH"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp" />
+
+        <EditText
+            android:id="@+id/location_search"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="58dp"
+            android:background="#282828"
+            android:ems="10"
+            android:hint="Enter a location..."
+            android:textColor="#FFFFFF"
+            android:textColorHint="#A9A9A9" />
+
+        <ImageView
+            android:id="@+id/Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/location_search"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="2dp"
+            android:background="#30FF0000"
+            android:onClick="onClick"
+            android:src="@android:drawable/ic_menu_search" />
+
+        <EditText
+            android:id="@+id/radius"
+            android:layout_width="84dp"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="52dp"
+            android:background="#282828"
+            android:ems="10"
+            android:hint="Radius:"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#A9A9A9"
+            android:inputType="number" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
