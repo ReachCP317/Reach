@@ -1,7 +1,6 @@
-package io.github.reachcp317.reach;
-
 import java.sql.*;
 import java.util.ArrayList;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /**
@@ -17,6 +16,7 @@ public class DBConnect {
 	private Connection con;
 	private Statement st;
 	private ResultSet rs;
+	 private PreparedStatement ps;
 	
 	/**
 	 * Constructor to connect to the MYSQL database
@@ -47,47 +47,66 @@ public class DBConnect {
 	 * @param lon  - Users current longitude 
 	 * @param condition - Specified range for comparison (i.e 0.5) 
 	 * @return ArrayList of eventIds within the specified range. 
+	 * 
+	 * @author michaelpintur
+	 * 
+	 * @sqa JuliusFan
 	 */
-	 public ArrayList<Integer> closeLocation(double lat, double lon, double condition) {
+	public ArrayList<Integer> closeLocation(double lat, double lon, double condition) {
 		String query;
-		double lonHigh = lon + condition;
-		double lonLow = lon - condition;
-		double latHigh  = lat + condition;
-		double latLow = lat - condition;
+		int lonHigh = (int) (lon + condition);
+		int lonLow = (int) (lon - condition);
+		int latHigh  = (int) (lat + condition);
+		int latLow = (int) (lat - condition);
 		//First query statement to get number of events in database
 		String eventCount = "SELECT COUNT(1) FROM event";
 		//eventCounted to hold number of events counted from first query
 		int eventCounted = 0;
-
+		
+		
 		//Separate query to get number of events to find ArrayList size
 		try {
-		    rs = st.executeQuery(eventCount);
-		    while (rs.next()) {
-			eventCounted = rs.getInt(1);
-			//System.out.println(rs.getInt(1));
-		    }
+			rs = st.executeQuery(eventCount);
+			while (rs.next()) {
+				eventCounted = rs.getInt(1);
+				//System.out.println(rs.getInt(1));
+			}
 		} catch (Exception ex) {
-		    System.out.println("Error: "+ ex);
+			System.out.println("Error: "+ ex);
 		}
-
-		query = String.format("SELECT * from event where (longitude BETWEEN %d AND %d) and latitude between %d and %d", lonLow, lonHigh, latLow, latHigh);
+		
+		try {
+			ps = con.prepareStatement("SELECT * from event where (longitude BETWEEN ? AND ?) and latitude between ?and ?");
+			ps.setDouble(1, lonLow);
+			ps.setDouble(2, lonHigh);
+			ps.setDouble(3, latLow);
+			ps.setDouble(4, latHigh);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		ArrayList<Integer> events = new ArrayList<Integer>(eventCounted);
 		try {
-		    rs = st.executeQuery(query);
-		    while (rs.next()) {
-			//System.out.println("EventID: " + rs.getInt("eventID"));
-			events.add(rs.getInt("eventID"));
-			/**
-			 * rs.getInt("longitude");
-			 * rs.getInt("latitude");
-			 */
-		    }
-		} catch (Exception ex) {
-		    System.out.println("Error: "+ ex);
-		}
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				//System.out.println("EventID: " + rs.getInt("eventID"));
+				events.add(rs.getInt("eventID"));
+				/**
+				 * rs.getInt("longitude");
+				 * rs.getInt("latitude");
 
+				 */
+			}
+		} catch (Exception ex) {
+			System.out.println("Error: "+ ex);
+		}
+		
+		
+		
 		return events;
-	 }
+		
+	}
 	
 	
 	/*
@@ -99,13 +118,20 @@ public class DBConnect {
 	 * @param lName - last name of the user
 	 * @param password - password that the user wishes to create account with
 	 * 
+	 * @author michaelpintur
 	 */
 	public void createUser(String email, String fName, String lName, String password) {
 		String name = fName + " "+ lName;
-		String insertUser;
-		insertUser = String.format("INSERT INTO user (email, pwd, name) VALUES ('%s','%s','%s')", email, password, name );
 		try {
-			st.execute(insertUser);
+			ps = con.prepareStatement("INSERT INTO user (email, pwd, name) VALUES (?,?,?)");
+			ps.setString(1, email);
+			ps.setString(2, password);
+			ps.setString(3, name);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			ps.execute();
 		} catch(Exception ex) {
 			System.out.println("Error: "+ ex);
 
@@ -127,17 +153,32 @@ public class DBConnect {
 	 * @param start - start date of the event
 	 * @param end - end date of the event
 	 * @param address - address of the event
+	 * @param capacity - the capacity of the event 
+	 * 
+	 * @author michaelpintur
+	 * @sqa JuliusFan
+	 * 
 	 */
-	public void createEvent(String email, String desc, double lon, double lat, String start, String end, String address ) {
+	public void createEvent(String email, String desc, double lon, double lat, String start, String end, String address, int capacity ) {
 		int userID = getUserID(email);
-		String insertEvent;
-		//insertEvent = String.format("INSERT INTO event (eventID, desc, longitude, latitude, startDate, endDate, address)"
-		//		+ " VALUES (%d, '%s', %d, %d, '%s', '%s', '%s')", userID, desc, lon, lat, start, end, address);
-		insertEvent = String.format("INSERT INTO event (hostID, address, description, latitude, longitude, startDate, endDate)"
-				+ " VALUES (%d, '%s', '%s', %d, %d, '%s', '%s')", userID, "address", desc,lat, lon, start, end);
-		System.out.println(insertEvent);
 		try {
-			st.execute(insertEvent);
+			ps = con.prepareStatement("INSERT INTO event (hostID, address, description, latitude, longitude, startDate, endDate, capacity)"
+					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+			ps.setInt(1,  userID);
+			ps.setString(2, address);
+			ps.setString(3, desc);
+			ps.setDouble(4, lat);
+			ps.setDouble(5, lon);
+			ps.setString(6, start);
+			ps.setString(7, end);
+			ps.setInt(8, capacity);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(ps.toString());
+		try {
+			ps.execute();
 		}catch (Exception ex) {
 			System.out.println("Error: "+ ex);
 		}
@@ -147,8 +188,9 @@ public class DBConnect {
 	/**
 	 * Returns a result set from the database view v_event_name when given an event ID.
 	 * @param eventID - Possibly from an ArrayList of event ID's
+	 * @author michaelpintur
 	 */
-    	public Event queryEvent(int eventID) {
+	public void queryEvent(int eventID) {
 		String query = null;
 		query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
 		int lon = 0;
@@ -157,26 +199,24 @@ public class DBConnect {
 		String address;
 		String startDate;
 		String endDate;
-		Event eventObject = null;
-
-
+		
+		
+		
 		try {
-		    rs = st.executeQuery(query);
-		    while (rs.next()) {
-			lon = rs.getInt("longitude");
-			lat = rs.getInt("latitude");
-			hostName = rs.getString("hostName");
-			address = rs.getString("address");
-			startDate = rs.getString("startDate");
-			endDate = rs.getString("endDate");
-			eventObject = new Event(hostName,address,lat,lon);
-		    }
-		    System.out.println(eventID + " " + hostName);
+			rs = st.executeQuery(query);
+			while (rs.next()) {
+				lon = rs.getInt("longitude");
+				lat = rs.getInt("latitude");
+				hostName = rs.getString("hostName");
+				address = rs.getString("address");
+				startDate = rs.getString("startDate");
+				endDate = rs.getString("endDate");
+			}
+			System.out.println(eventID + " " + hostName);
 		} catch (Exception ex) {
-		    System.out.println("Error: "+ ex);
+			System.out.println("Error: "+ ex);
 		}
-
-		return eventObject;
+		
 	}
 
 	
@@ -185,6 +225,7 @@ public class DBConnect {
 	 * fetches userID from user table when given email as a parameter
 	 * @param email - user email
 	 * @return - returns the unique userID from the given email address.
+	 * @author michaelpintur
 	 */
 	public int getUserID(String email) {
 		int userID = 0;
@@ -204,13 +245,103 @@ public class DBConnect {
 	
 	/**
 	 * 
+	 * Method will return the InputStream of the BLOB column containing the users ICON.png
+	 * 
+	 * @param userID
+	 * @return
+	 * 
+	 * @author michaelpintur
+	 */
+	public InputStream getUserIcon(int userID) {
+		String query = String.format("SELECT icon FROM user where userID = %d", userID);
+		InputStream binaryStream = null;
+		try {
+			rs = st.executeQuery(query);
+			while(rs.next()) {
+				Blob imageBlob = rs.getBlob("icon");
+				binaryStream = imageBlob.getBinaryStream(0, imageBlob.length());
+			}
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex);
+		}
+		
+		return binaryStream;
+		
+	}
+	
+	/**
+	 * 
+	 * Updates the User's icon into the database 
+	 * 
+	 * @param userID ID of the user to change their icon.
+	 * @param file i.e /full/path/to/new/image.jpg
+	 * 
+	 * @author michaelpintur
+	 */
+	public void updateUserIcon(int userID, String file) {
+		String query = String.format("UPDATE user" + 
+				"SET icon = LOAD_FILE('%s')\n" + 
+				"WHERE userID = %d;", file, userID);
+		
+		try {
+			st.execute(query);
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex);
+		}
+	}
+	
+	
+	/**
+	 * Updates users password into the database, the database automatically hashes this string to sha256
+	 * 
+	 * @param userID User's ID
+	 * @param currentPass Users current password to check against db
+	 * @param newPass Users new password 
+	 * @author michaelpintur
+	 * 
+	 * 	 * @return -1 if no result set 0- if hash code does not match database hash code 1- if hash codes match
+
+	 * 
+	 */
+	public int changePassword(int userID, String currentPass, String newPass) {
+		if (passwordChecker(userID, currentPass) == 1) {
+			try {
+				ps = con.prepareStatement("UPDATE user SET pwd = ? where userID = ?");
+				ps.setString(1, newPass);
+				ps.setInt(2, userID);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				ps.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Password changed.");
+			return 1;
+		} else if (passwordChecker(userID, currentPass) == -1) {
+			System.out.println("User does not exist");
+			return -1;
+		} else {
+			System.out.println("Incorrect Current Password");
+			return 0;
+
+		}
+	}
+	
+	
+	/**
+	 * 
 	 * Method will hash the given password to SHA-256 then will compare hash codes with the database to verify the passwords are correct.
 	 * 
 	 * @param email
 	 * @param password 
 	 * @return -1 if no result set 0- if hash code does not match database hash code 1- if hash codes match
+	 * 
+	 * @author michaelpintur
 	 */
-	public int passwordChecker(String email, String password) {
+	public int passwordChecker(int userID, String password) {
 		MessageDigest mDigest;
 		String hashCode ="";
 		StringBuffer sb = new StringBuffer();
@@ -224,9 +355,16 @@ public class DBConnect {
 			e.printStackTrace();
 		}
 		
-		String query = String.format("SELECT pwd FROM user WHERE email = '%s'", email);
+		//String query = String.format("SELECT pwd FROM user WHERE email = '%s'", email);
 		try {
-			rs= st.executeQuery(query);
+			ps = con.prepareStatement("SELECT pwd FROM user WHERE userID = ?");
+			ps.setInt(1, userID);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs= ps.executeQuery();
 			if (rs.next()) {
 				hashCode = rs.getString("pwd");
 			} else {
