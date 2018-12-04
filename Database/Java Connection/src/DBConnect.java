@@ -243,52 +243,6 @@ public class DBConnect {
 			return userID;
 	}
 	
-	/**
-	 * 
-	 * Method will return the InputStream of the BLOB column containing the users ICON.png
-	 * 
-	 * @param userID
-	 * @return
-	 * 
-	 * @author michaelpintur
-	 */
-	public InputStream getUserIcon(int userID) {
-		String query = String.format("SELECT icon FROM user where userID = %d", userID);
-		InputStream binaryStream = null;
-		try {
-			rs = st.executeQuery(query);
-			while(rs.next()) {
-				Blob imageBlob = rs.getBlob("icon");
-				binaryStream = imageBlob.getBinaryStream(0, imageBlob.length());
-			}
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-		
-		return binaryStream;
-		
-	}
-	
-	/**
-	 * 
-	 * Updates the User's icon into the database 
-	 * 
-	 * @param userID ID of the user to change their icon.
-	 * @param file i.e /full/path/to/new/image.jpg
-	 * 
-	 * @author michaelpintur
-	 */
-	public void updateUserIcon(int userID, String file) {
-		String query = String.format("UPDATE user" + 
-				"SET icon = LOAD_FILE('%s')\n" + 
-				"WHERE userID = %d;", file, userID);
-		
-		try {
-			st.execute(query);
-		} catch (Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-	}
 	
 	
 	/**
