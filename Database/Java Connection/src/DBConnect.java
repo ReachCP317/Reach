@@ -76,7 +76,7 @@ public class DBConnect {
 		}
 		
 		try {
-			ps = con.prepareStatement("SELECT * from event where (longitude BETWEEN ? AND ?) and latitude between ?and ?");
+			ps = con.prepareStatement("SELECT * from event where (longitude BETWEEN ? AND ?) and latitude between ? and ? and endDate > CURDATE()");
 			ps.setDouble(1, lonLow);
 			ps.setDouble(2, lonHigh);
 			ps.setDouble(3, latLow);
