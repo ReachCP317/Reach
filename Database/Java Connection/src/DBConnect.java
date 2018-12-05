@@ -192,7 +192,6 @@ public class DBConnect {
 		query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
 		int lon = 0;
 		int lat = 0;
-		String hostName = null;
 		String address;
 		String startDate;
 		String endDate;
@@ -204,7 +203,6 @@ public class DBConnect {
 			while (rs.next()) {
 				lon = rs.getInt("longitude");
 				lat = rs.getInt("latitude");
-				hostName = rs.getString("hostName");
 				address = rs.getString("address");
 				startDate = rs.getString("startDate");
 				endDate = rs.getString("endDate");
