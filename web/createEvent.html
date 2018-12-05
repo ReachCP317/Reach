@@ -12,6 +12,15 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
   </head>
   <body>
 
+<!-- Jamie: So we're going to have to pass the user information from page to page somehow
+when I've done it in the past I had to use c# to do it sooo idk what you guys want
+to do for it lol.
+--->
+<div id="userInfo" hidden>
+  <!-- Jamie: As far as I know we're going to have to pass the userID at least. We'll need
+  it for keeping track of who is creating the event in this case  --->
+    <input id="userID" type="text">
+</div>
 
       <div id="Banner">
       		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
@@ -35,17 +44,21 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
   <div class="jumbotron">
     <div class="container" id="headings" >
     <form action="#" method="#" id="signInForm" class="form-inline">
-        <span id="titleBar">
+
+      <span id="titleBar">
       <h1><strong>Host Event</strong></h1>
+<!--- we'll need to put the error message here as an "a" or "h-" tag or something
+named "errMessage". We need to reconstruct this so that it actually works utilizing some form
+of "error" class in the css
       </span>
       <!-- testing for the location input box................ --->
       <div id="locationContainer" style="border:2px solid #FF6E83">
-          <div id="location" class="inputs form-group half">
+          <div id="eventLocation" class="inputs form-group half">
             <input type="text" placeholder=" "/>
-            <label><i class="fas fa-map-marker-alt"></i> Location</label>
+            <label for="eventLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
           </div>
           <div class="inputs form-group half">
-            <select id="range">
+            <select id="eventRange">
                 <option value="" disabled selected>Select your option</option>
                 <option>0.5</option>
                 <option>1</option>
@@ -77,8 +90,8 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <input type='text' class="form-control" id='datetimepicker4' title="Select the date for your event" placeholder=" " />
-                <label for="datetimepicker4">Event Date</label>
+                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker' title="Select the date for your event" placeholder=" " />
+                <label for="datetimepicker">Start Date & Time</label>
               </div>
             </td>
 
@@ -87,9 +100,8 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input type='text' class="form-control" id='datetimepicker3' title="Select the time for your event" placeholder=" " />
-                <label for="datetimepicker3">Event Time</label>
-
+                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker1' title="Select the time for your event" placeholder=" " />
+                <label for="datetimepicker1">End Date & Time</label>
               </div>
             </td>
         </tr>
@@ -97,14 +109,14 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="capacity"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
+              <input id="eventCapacity"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
               <label for="capacity">Capacity</label>
             </div>
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label for="eventDesc" title="Enter a brief description of your event for your guests">Event Description</label>
-              <textarea id="eventDesc"  type="text" rows="10" placeholder=" "></textarea>
+              <label for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
 
             </div>
           </td>
@@ -123,7 +135,7 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <select id="numDays" title="Select the maximum amount of days your event will be visible">
+              <select id="eventDays" title="Select the maximum amount of days your event will be visible">
                 <option value="" disabled selected>Select your option</option>
                 <option>1</option>
                 <option>2</option>
@@ -140,7 +152,7 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
                 <option>13</option>
                 <option>14</option>
               </select>
-              <label for="numDays" >Post for (days)</label>
+              <label for="eventDays" >Post for (days)</label>
             </div>
           </td>
         </tr>
