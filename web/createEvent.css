@@ -7,7 +7,7 @@
   margin: 0 auto;
   background-color: transparent;
   width: 80%;
-  border-radius:
+  min-height: 80vh;
 }
 .container{
   min-height: 100%;
@@ -55,7 +55,7 @@ body{
 #BodyPanel {
   position: fixed;
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 #NavigatorButton {
   position: absolute;
@@ -68,7 +68,7 @@ body{
 }
 
 #navigatorPanel {
-  z-index: 2;
+  z-index: 99;
   background-color: #12171F;
   position: fixed;
   height: 100%;
@@ -144,16 +144,33 @@ tr {
   padding: 0;
 }
 #eventInfo tr {
-  height: 3em
+  min-height: 3em
 }
-#eventInfo tr {
-  height: 3em
+#eventInfo td {
+  min-height: 5em
 }
 #createEvent{
   margin:0;
 }
-#submitButton{
-  float:right;
+
+.submitBtn{
+  margin: 15px auto;
+  height: 2em;
+  background-color: #000;
+  color: #AAA;
+  font-size: 1.5em;
+  border: 1px solid rgba(169,169,169,0.8);
+  border-radius:5px;
+  transition: .5s;
+}
+
+.submitBtn:hover,.submitBtn:focus{
+  color: #FFF;
+  border: 1px solid #FFF;
+  outline: none;
+  transition: .5s;
+
+
 }
 input{
   float:right;
@@ -171,10 +188,10 @@ input[type=text]:focus{
 }
 /*test*/
 .inputs{
-   position:relative;
+  z-index: 3;
    float:left;
    width:100%;
-
+ position:relative;
    box-sizing:border-box;
    padding:10px 0px 10px 10px;
 }
@@ -191,6 +208,8 @@ input[type=text]:focus{
    outline:none;
    transition:all 0.3s;
    color:#FFF;
+   font-size:14px;
+   max-height: 50px;
 }
 
 .inputs textarea{
@@ -200,7 +219,7 @@ input[type=text]:focus{
   resize:none;
 }
 
-.inputs textarea::before{
+.inputs textarea:focus + label:before{
   color:#FFF;
 }
 .inputs select option{
@@ -219,12 +238,24 @@ input[type=text]:focus{
 }
 
 
-.inputs input:placeholder-shown + label, .inputs textarea:placeholder-shown + label,
+.inputs input:placeholder-shown + label,
 .inputs select:placeholder-shown + label{
    color:#AAA;
    left:14px;
    bottom:-8px;
 }
+
+#eventLocation:placeholder-shown + label{
+  position:absolute;
+  bottom:14px;
+  left:10px;
+  color:#FFF;
+  line-height:60px;
+  pointer-events:none;
+  transition: all 0.25s;
+  font-size:14px;
+}
+
 .inputs input:focus + label, .inputs textarea:focus + label, .inputs select:focus + label,
 .inputs input + label, .inputs textarea + label, .inputs select + label{
    position:absolute;
