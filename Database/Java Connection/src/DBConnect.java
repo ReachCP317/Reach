@@ -57,7 +57,7 @@ public class DBConnect {
 		double lonHigh =(lon + condition);
 		double lonLow = (lon - condition);
 		double latHigh  = (lat + condition);
-		double latLow = (lat - condition);;
+		double latLow = (lat - condition);
 		//First query statement to get number of events in database
 		String eventCount = "SELECT COUNT(1) FROM event";
 		//eventCounted to hold number of events counted from first query
