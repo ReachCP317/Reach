@@ -8,6 +8,7 @@
   background-color: transparent;
   width: 80%;
   min-height: 80vh;
+  min-width: 600px;
 }
 .container{
   min-height: 100%;
@@ -40,6 +41,7 @@ body{
   font-family: Bahnschrift Condensed;
   position:relative;
   z-index:90;
+  min-width: 700px;
 }
 
 #Banner a {
