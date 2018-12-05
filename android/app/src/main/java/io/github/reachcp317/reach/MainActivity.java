@@ -65,6 +65,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return false; // Return false so default behaviour occurs (camera moves to user's current position)
     }
 
+
     /**
      * @author Julius Fan
      * fanx0430@mylaurier.ca
