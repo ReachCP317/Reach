@@ -111,22 +111,20 @@ public class DBConnect {
 	
 	/*
 	 * Inserts a user into the user database table. The database automatically encrypts the password to 
-	 * SHA2 and auto generates userID
+	 * SHA2 and auto generates userID. No null items allows
 	 * 
-	 * @param email - WLU email of the user 
-	 * @param fName - first name of the user
-	 * @param lName - last name of the user
+	 * @param email - WLU email of the user (maximum of 50 character)
+	 * @param userName - desired user name of the user: (maximum of 50 characters)
 	 * @param password - password that the user wishes to create account with
 	 * 
 	 * @author michaelpintur
 	 */
-	public void createUser(String email, String fName, String lName, String password) {
-		String name = fName + " "+ lName;
+	public void createUser(String email, String userName, String password) {
 		try {
-			ps = con.prepareStatement("INSERT INTO user (email, pwd, name) VALUES (?,?,?)");
+			ps = con.prepareStatement("INSERT INTO user (email, pwd, userName) VALUES (?,?,?)");
 			ps.setString(1, email);
 			ps.setString(2, password);
-			ps.setString(3, name);
+			ps.setString(3, userName);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -137,8 +135,7 @@ public class DBConnect {
 
 		}
 	}
-	
-	
+
 	/*
 	 * createEvent into event table
 	 * 
