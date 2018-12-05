@@ -29,14 +29,15 @@ to do for it lol.
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
-      		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+      		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed;">
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
-      			<a href="https://www.google.com" id="search">Search</a>
-      			<a href="#" id="create">Create&nbsp;Event</a>
-      			<a href="#" id="profile">Profile</a>
+      			<a href="dashboard.html" id="search">Search</a>
+      			<a style="color:rgb(169,169,169); cursor:default;" id="create">Create&nbsp;Event</a>
+      			<a href="profilePage.html" id="profile">Profile</a>
       			<script> pageSettings() </script>
       		</span>
+          
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
       		<!-- End of code for navigation menu --->
 </div>
@@ -49,12 +50,12 @@ to do for it lol.
       <h1><strong>Host Event</strong></h1>
 <!--- we'll need to put the error message here as an "a" or "h-" tag or something
 named "errMessage". We need to reconstruct this so that it actually works utilizing some form
-of "error" class in the css
+of "error" class in the css --->
       </span>
       <!-- testing for the location input box................ --->
-      <div id="locationContainer" style="border:2px solid #FF6E83">
-          <div id="eventLocation" class="inputs form-group half">
-            <input type="text" placeholder=" "/>
+      <div id="locationContainer" style="border-top:4px solid #FF6E83">
+          <div class="inputs form-group half">
+            <input id="eventLocation" type="text" placeholder="Ex. 75 University Ave. W."/>
             <label for="eventLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
           </div>
           <div class="inputs form-group half">
@@ -70,7 +71,6 @@ of "error" class in the css
             </select>
             <label>Range (km)</label>
           </div>
-
       </div>
       <!-- ................................................. --->
       <!--- https://codepen.io/legeoffrey/pen/VYMLNq --->
@@ -91,7 +91,7 @@ of "error" class in the css
             <td colspan=1>
               <div class="inputs full">
                 <input id="eventStartDate" type='text' class="form-control" name='datetimepicker' title="Select the date for your event" placeholder=" " />
-                <label for="datetimepicker">Start Date & Time</label>
+                <label for="datetimepicker">Start Date &#38; Time</label>
               </div>
             </td>
 
@@ -101,7 +101,7 @@ of "error" class in the css
                 --->
 
                 <input id="eventEndDate" type='text' class="form-control" name='datetimepicker1' title="Select the time for your event" placeholder=" " />
-                <label for="datetimepicker1">End Date & Time</label>
+                <label for="datetimepicker1">End Date &#38; Time</label>
               </div>
             </td>
         </tr>
@@ -115,7 +115,7 @@ of "error" class in the css
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <label id="eventDescriptionLabel" for="eventDescription" style="color:#AAA" title="Enter a brief description of your event for your guests">Event Description</label>
               <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
 
             </div>
@@ -163,10 +163,11 @@ of "error" class in the css
 
 
 
-
-      <button id="submitButton">Enter</button>
+<div class="form-group row">
+      <button id="submitButton" class="submitBtn col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-12 col-xs-12"><strong>Create</strong></button>
   </div>
-    <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
+  </div>
+    <div class="navbar navbar-light bg-light" style="margin-bottom:0pxf" id="bottomNavbar">
       <span id="reachLogo">
         <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
       </span>
@@ -178,7 +179,7 @@ of "error" class in the css
         <a class="navbar-brand" href="#">FAQ</a>
         <a class="navbar-brand" href="#">Feedback</a>
 </span>
-      </nav>
+      </div>
 
 
     <!-- jQuery library -->
