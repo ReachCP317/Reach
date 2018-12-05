@@ -10,9 +10,9 @@ function closeNav() {
 
 function pageSettings() {
   var title = document.title;
-  if (title == "Dashboard") {
-    document.getElementById("search").href = "#";
-    document.getElementById("search").style.color = "#FF6E83";
+  if (title == "REACH Create Event") {
+    document.getElementById("create").href = "#";
+    document.getElementById("create").style.color = "#FF6E83";
   }
 }
 
