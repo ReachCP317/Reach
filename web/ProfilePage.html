@@ -1,147 +1,74 @@
-<!-- Dan Huynh Dec 3 2018 -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-		<meta charset="utf-8">
-			<title>Reach - User Profile</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-					<style type="text/css">
-  
-        body{
-      font-family: Franklin Gothic Demi;
-
-	  background: url(https://i2.wp.com/www.nvslmag.com/wp-content/uploads/2018/03/AdobeStock_98161746.jpeg) 50%;
-	    background-size: cover;
-}
-
-
-</style>
-					<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-				</head>
-				<body>
-					<div class=container logo>
-						<div class="logo_box">
-							<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
-						</div>
-					</div>
-					<div class="container profile">
-						<form method="post">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="profile-img">
-										<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg/600px-Default_profile_picture_%28male%29_on_Facebook.jpg" alt=""/>
-										<div class="file btn btn-lg btn-dark">
-                                Edit
-                                
-											<input type="file" name="file"/>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-8">
-									<div class="profile-head">
-										<ul class="nav nav-tabs" id="myTab" role="tablist">
-											<li class="nav-item">
-												<a class="nav-link active" id="attended-tab" data-toggle="tab" href="#attended" role="tab" aria-controls="home" aria-selected="true">Attended</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" id="hosted-tab" data-toggle="tab" href="#hosted" role="tab" aria-controls="profile" aria-selected="false">Hosted</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" id="interests-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="profile" aria-selected="false">Interests</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div class="profile-work">
-										<div class="column_1">
-											<table class="user-panel-info">
-												<tbody>
-													<tr>
-														<td>Username:</td>
-														<td>username</td>
-													</tr>
-													<tr>
-														<td>Email:</td>
-														<td>testing@reach.test</td>
-													</tr>
-													<tr>
-														<td>Phone Number:</td>
-														<td>(123)456-7890</td>
-													</tr>
-													<tr>
-														<td>Gender:</td>
-														<td>Female</td>
-													</tr>
-													<tr></tr>
-													<tr>
-														<td>Connect with: </td>
-													</tr>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-8" style="background-color:#000;">
-							<div class="tab-content profile-tab" id="myTabContent">
-								<div class="tab-pane fade show active" id="attended" role="tabpanel" aria-labelledby="attended-tab">
-									<div class="column">
-										<div class=" col-md-9 col-lg-9 ">
-											<ul class="user-panel-info">
-												<li>1:</li>
-												<li>2:</li>
-												<li>3:</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="hosted" role="tabpanel" aria-labelledby="hosted-tab">
-									<div class="column">
-										<div class=" col-md-9 col-lg-9 ">
-											<ul class="user-panel-info">
-												<li>4:</li>
-												<li>5:</li>
-												<li>6:</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="interests" role="tabpanel" aria-labelledby="interests-tab">
-									<div class="column">
-										<div class=" col-md-9 col-lg-9 ">
-											<ul class="user-panel-info">
-												<li>7:</li>
-												<li>8:</li>
-												<li>9:</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
+    <meta charset="utf-8">
+    <title>ProfilePage</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="ProfilePage.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+ 
+<div id="bgImage">
+	<div class=container logo>
+		<div class="logo_box">
+		<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
 		</div>
-		<nav class="navbar fixed-bottom navbar-dark" style="background-color:black" id="bottomNavbar">
+	</div>
+	
+	<div class=container profilePic>
+		<div class="profilePic_box">
+		<img src="profilePic.jpg" id=PPimage>
+		</div>
+	</div>
+	
+	<table>
+		<tr>
+			<td>Username:</td>
+			<td>"replace with username"</td> 
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td>"replace with email address"</td> 
+		</tr>
+		<tr>
+			<td>Phone number:</td>
+			<td>"replace with phone number"</td> 
+		</tr>
+		<tr>
+			<td>Rating:</td>
+			<td>"replace with rating"</td> 
+		</tr>
+		<tr>
+			<td>Hosted:</td>
+			<td>"replacee with hosted event link if applicable"</td> 
+		</tr>
+		<tr>
+			<td>Interested:</td>
+			<td>"replacee with interested event link if applicable"</td> 
+		</tr>
+		<tr>
+			<td>Attended:</td>
+			<td>"replacee with attended event link if applicable"</td> 
+		</tr>
+    </table>
+    <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
+      <span id="reachLogo">
+        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </nav>
+</div>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
 
-				<span id="navbarContent">
-        <a href="#" class="navbar-left"><img src=""https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png></a>
-					<a class="navbar-brand" href="#">About</a>
-					<a class="navbar-brand" href="#">Terms</a>
-					<a class="navbar-brand" href="#">Contact Us</a>
-					<a class="navbar-brand" href="#">Privacy</a>
-					<a class="navbar-brand" href="#">FAQ</a>
-					<a class="navbar-brand" href="#">Feedback</a>
-				</span>
-			</nav>
-			<script type="text/javascript"></script>
-		</body>
-	</html>
+
