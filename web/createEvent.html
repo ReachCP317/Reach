@@ -5,7 +5,7 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
 <html>
   <head>
     <meta charset="utf-8">
-    <title>REACH Create Event Webpage</title>
+    <title>REACH Create Event</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="createEvent.css" media="screen" title="no title" charset="utf-8">
@@ -33,9 +33,9 @@ to do for it lol.
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
       			<a href="dashboard.html" id="search">Search</a>
-      			<a style="color:rgb(169,169,169); cursor:default;" id="create">Create&nbsp;Event</a>
+      			<a id="create">Create&nbsp;Event</a>
       			<a href="profilePage.html" id="profile">Profile</a>
-      			<script> pageSettings() </script>
+
       		</span>
 
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -90,8 +90,9 @@ of "error" class in the css --->
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker' title="Select the date for your event" placeholder=" " />
-                <label for="datetimepicker">Start Date &#38; Time</label>
+                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker3'
+                title="Select the date for your event" style="border-radius: 0" placeholder=" " />
+                <label for="datetimepicker3">Start Date &#38; Time</label>
               </div>
             </td>
 
@@ -100,8 +101,9 @@ of "error" class in the css --->
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker1' title="Select the time for your event" placeholder=" " />
-                <label for="datetimepicker1">End Date &#38; Time</label>
+                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker4'
+                 title="Select the time for your event" style="border-radius: 0" placeholder=" " />
+                <label for="datetimepicker4">End Date &#38; Time</label>
               </div>
             </td>
         </tr>
@@ -115,7 +117,7 @@ of "error" class in the css --->
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label id="eventDescriptionLabel" for="eventDescription" style="color:#AAA" title="Enter a brief description of your event for your guests">Event Description</label>
+              <label id="eventDescriptionLabel" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
               <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
 
             </div>
@@ -194,10 +196,13 @@ of "error" class in the css --->
       <script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
       <script type="text/javascript">
           $(function () {
-              $('#datetimepicker3').datetimepicker();
+              $('[name=datetimepicker3]').datetimepicker();
           });
           $(function () {
-              $('#datetimepicker4').datetimepicker();
+              $('[name=datetimepicker4]').datetimepicker();
           });
+
+
       </script>
+      <script> document.onload = pageSettings(); </script>
 </html>
