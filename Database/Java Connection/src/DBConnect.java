@@ -54,10 +54,10 @@ public class DBConnect {
 	 */
 	public ArrayList<Integer> closeLocation(double lat, double lon, double condition) {
 		String query;
-		int lonHigh = (int) (lon + condition);
-		int lonLow = (int) (lon - condition);
-		int latHigh  = (int) (lat + condition);
-		int latLow = (int) (lat - condition);
+		double lonHigh =(lon + condition);
+		double lonLow = (lon - condition);
+		double latHigh  = (lat + condition);
+		double latLow = (lat - condition);;
 		//First query statement to get number of events in database
 		String eventCount = "SELECT COUNT(1) FROM event";
 		//eventCounted to hold number of events counted from first query
