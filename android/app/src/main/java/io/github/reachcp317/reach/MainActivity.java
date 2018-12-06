@@ -1,23 +1,25 @@
 package io.github.reachcp317.reach;
 
-import android.location.Location;
-
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+
+import android.location.Location;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.content.Intent;
 
-import java.util.ArrayList;
-
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
+import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener{
 
@@ -78,18 +80,31 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
-                        eventsIDList.clear();
                         mMap.clear();
                         eventsIDList = connect.closeLocation(location.getLatitude(),location.getLongitude(),0.5);     // retrieve ArrayList of all eventIDs with locations of <0.5 difference in latitude and longitude from database.
                         for (int i = 0; i < eventsIDList.size(); i++){ // iterate through eventsIDList and displays them on the map as Markers if the distance is within User's radius
                             tempEvent = connect.queryEvent(eventsIDList.get(i));
-                            if ((location.distanceTo(tempEvent.getLocation()) / 1000) < radius) {   // convert distance to kilometers, check if within radius
+                            if ((location.distanceTo(tempEvent.getLocation()) / 1000) < radius) {      // convert distance to kilometers, check if within radius
                                 tempLL = new LatLng(tempEvent.getLocation().getLatitude(), tempEvent.getLocation().getLongitude());
-                                mMap.addMarker(new MarkerOptions().position(tempLL).title(tempEvent.getName()));
+                                tempMarker = mMap.addMarker(new MarkerOptions().position(tempLL).title(tempEvent.getName()));
+                                tempMarker.setTag(tempEvent);
                             }
                         }
+                        eventsIDList.clear();
+/*                              //This block is for testing purposes only.
+                        eventsList.add(new Event("Event1","Address1",37.47,-122.2));
+                        eventsList.add(new Event("Event2","Address2",37.5,-122.0));
+                        eventsList.add(new Event("Event3","Address3",37.4,-122.1));
+                        for (int i = 0; i < eventsList.size(); i++){ // iterate through eventsIDList and displays them on the map as Markers if the distance is within User's radius
+                            tempEvent = eventsList.get(i);
+                            if ((location.distanceTo(tempEvent.getLocation()) / 1000) < 5) {      // convert distance to kilometers, check if within radius
+                                tempLL = new LatLng(tempEvent.getLocation().getLatitude(), tempEvent.getLocation().getLongitude());
+                                tempMarker = mMap.addMarker(new MarkerOptions().position(tempLL).title(tempEvent.getName()));
+                                tempMarker.setTag(tempEvent);
+                            }
+                        } eventsList.clear();*/
                     } else { // location object null if device's location is off, Google Play services on device restarted, or device is new/factory reset. These should be rare cases
-                        // i'm actually not sure what to put here
+                        Toast.makeText(getApplicationContext(), "Null Location", Toast.LENGTH_LONG).show();
                     }
                 }
             });
