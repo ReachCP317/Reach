@@ -65,8 +65,8 @@ public class User {
 	}
 
 	/**
-	 * Gets the user ID and returns it as in int.
-	 * @return
+	 * Gets the user ID from the database and returns it as in int.
+	 * @return The user ID as an int.
 	 */
 	public int getID() {
 		// TODO implement here
@@ -74,8 +74,8 @@ public class User {
 	}
 
 	/**
-	 * Gets a users rating and returns it as a float.
-	 * @return
+	 * Gets a users rating from the database and returns it as a float.
+	 * @return The users rating as a float
 	 */
 	public float getRating() {
 		// TODO implement here
@@ -83,7 +83,7 @@ public class User {
 	}
 
 	/**
-	 * Gets the age of the user and returns it is an int.
+	 * Gets the age of the user from the database and returns it is an int.
 	 * @return
 	 */
 	public int getAge() {
@@ -92,8 +92,8 @@ public class User {
 	}
 
 	/**
-	 * Get the users username.
-	 * @return
+	 * Get the users username for the database, if not found return string "please sign in first".
+	 * @return The users username, if not found return a string containing "please sign in first".
 	 */
 	public String getUsername() {
 		// TODO implement here
@@ -101,7 +101,7 @@ public class User {
 	}
 
 	/**
-	 * Gets the users phone number.
+	 * Gets the users phone number from the database and returns it as a String.
 	 * @return The users phone number.
 	 */
 	public String getPhoneNumber() {
@@ -110,15 +110,16 @@ public class User {
 	}
 
 	/**
-	 * Gets the users gender.
-	 * @param Parameter1 The gender of the user.
+	 * Gets the users gender from the database and returns it as a String.
+	 * @return The gender of the user.
 	 */
-	public void getGender(String Parameter1) {
+	public String getGender() {
 		// TODO implement here
+		return "";
 	}
 
 	/**
-	 * Gets the users password.
+	 * Gets the users password from the database and returns it as a stiring.
 	 * @return The users password.
 	 */
 	public String getPassword() {
@@ -127,7 +128,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the rating of a user.
+	 * Sets the rating of a user in the database.
 	 * @param Parameter1 The new user rating.
 	 */
 	public void setRating(float Parameter1) {
@@ -135,6 +136,7 @@ public class User {
 	}
 
 	/**
+	 * Sets the username of the user in the database.
 	 * @param Parameter1 The new username.
 	 */
 	public void setUsername(String Parameter1) {
@@ -142,7 +144,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the users phone number
+	 * Sets the users phone number in the database.
 	 * @param Parameter1 The new phone number for the user.
 	 */
 	public void setPhoneNumber(String Parameter1) {
@@ -150,7 +152,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the  users password
+	 * Sets the  users password in the database
 	 * @param Parameter1 The new user password.
 	 */
 	public void setPassword(String Parameter1) {
@@ -158,7 +160,7 @@ public class User {
 	}
 
 	/**
-	 * Set the users email
+	 * Set the users email in the database
 	 * @param Parameter1 The new email for the user.
 	 */
 	public void setEmail(String Parameter1) {
@@ -166,7 +168,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the users gender.
+	 * Sets the users gender in the database
 	 * @param Parameter1 The new value for the users gender.
 	 */
 	public void setGender(String Parameter1) {
@@ -174,7 +176,7 @@ public class User {
 	}
 
 	/**
-	 * Sets a value for the users password.
+	 * Sets a value for the users password in the database.
 	 * @param Parameter1 The users new password.
 	 */
 	public void setPassword(String Parameter1) {

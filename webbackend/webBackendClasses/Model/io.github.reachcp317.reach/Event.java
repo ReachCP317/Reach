@@ -14,6 +14,11 @@ public class Event {
 	}
 
 	/**
+	 * The id of the event
+	 */
+	private int eventID;
+
+	/**
 	 * Name of event.
 	 */
 	private String name;
@@ -51,7 +56,22 @@ public class Event {
 	/**
 	 * The events street number.
 	 */
-	private Address address;
+	private String address;
+
+	/**
+	 * The capacity of the event.
+	 */
+	private int capacity;
+
+	/**
+	 * 
+	 */
+	private ArrayList<String> eventType;
+
+	/**
+	 * The ID of the user who is hosting/creating the party.
+	 */
+	private String userID;
 
 	/**
 	 * The constructor for the Event class.
@@ -61,15 +81,18 @@ public class Event {
 	 * @param latitiude 
 	 * @param longitude 
 	 * @param startTime 
-	 * @param endTime
+	 * @param endTime 
+	 * @param capacity the capacity of the event.
+	 * @param eventType A string array of event types.
+	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, Address address, double latitiude, double longitude, Date startTime, Date endTime) {
+	public void Event(String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, String array eventType, String userID) {
 		// TODO implement here
 	}
 
 	/**
 	 * Gets the name of an event.
-	 * @return
+	 * @return The name of the event.
 	 */
 	public String getName() {
 		// TODO implement here
@@ -131,6 +154,42 @@ public class Event {
 	}
 
 	/**
+	 * Gets the capacity of the event from the database and returns it as a int.
+	 * @return The capacity of the event.
+	 */
+	public int getCapacity() {
+		// TODO implement here
+		return 0;
+	}
+
+	/**
+	 * Gets the event type from the database.
+	 * @return The event type in a string array
+	 */
+	public ArrayList<String> getEventType() {
+		// TODO implement here
+		return null;
+	}
+
+	/**
+	 * Gets the event orginizers user ID from the database and returns it as a int.
+	 * @return The ID of the user who is hosting/creating the party.
+	 */
+	public int getUserID() {
+		// TODO implement here
+		return 0;
+	}
+
+	/**
+	 * Gets the event ID from the database
+	 * @return the event ID to be returned.
+	 */
+	public int getEventID() {
+		// TODO implement here
+		return 0;
+	}
+
+	/**
 	 * Sets the name of the event.
 	 * @param name
 	 */
@@ -150,7 +209,7 @@ public class Event {
 	 * Sets the address of the event.
 	 * @param address
 	 */
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		// TODO implement here
 	}
 
@@ -192,6 +251,48 @@ public class Event {
 	 */
 	public void setTotallnterested(void totallnterested) {
 		// TODO implement here
+	}
+
+	/**
+	 * Sets the capacity of the event in the database.
+	 * @param Parameter1 The capacity of the event.
+	 */
+	public void setCapacity(int Parameter1) {
+		// TODO implement here
+	}
+
+	/**
+	 * Sets the event type in the database.
+	 * @param Parameter1 A string array filled with event types.
+	 */
+	public void setEventType(ArrayList<String> Parameter1) {
+		// TODO implement here
+	}
+
+	/**
+	 * Sets the ID of the user who is hosting/creating the party in the database.
+	 * @param Parameter1 The ID of the user who is hosting/creating the party.
+	 */
+	public void setUserID(int Parameter1) {
+		// TODO implement here
+	}
+
+	/**
+	 * Sets the event ID in the database.
+	 * @param Parameter1 the new id for the event.
+	 */
+	public void setEventID(int Parameter1) {
+		// TODO implement here
+	}
+
+	/**
+	 * Provides details on an event.
+	 * @param eventID The ID of the event.
+	 * @return
+	 */
+	public String eventDetails(int eventID) {
+		// TODO implement here
+		return "";
 	}
 
 }
