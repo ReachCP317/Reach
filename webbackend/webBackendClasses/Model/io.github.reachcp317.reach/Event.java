@@ -1,6 +1,8 @@
-package io.github.reachcp317.reach;
-
 import java.util.*;
+
+import com.sun.xml.internal.bind.v2.model.core.NonElement;
+
+import io.github.reachcp317.reach.User;
 
 /**
  * 
@@ -71,7 +73,7 @@ public class Event {
 	/**
 	 * The ID of the user who is hosting/creating the party.
 	 */
-	private String userID;
+	private int userID;
 
 	/**
 	 * The constructor for the Event class.
@@ -86,8 +88,21 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, String array eventType, String userID) {
+	public void Event(String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, ArrayList<String> eventType, int userID) {
 		// TODO implement here
+		this.name = name;
+		this.description = description;
+		this.address = address;
+		this.latitiude = latitiude;
+		this.longitude = longitude;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.capacity = capacity;
+		this.eventType = eventType;
+		this.userID = userID;
+		DBConnect dbc = new DBConnect();
+		
+		dbc.createEvent(this.userID, this.description, this.longitude, this.laititude, this.startTime.toLocaleString(), this.endTime.toLocaleString(), this.address, this.capacity);
 	}
 
 	/**
@@ -249,7 +264,7 @@ public class Event {
 	 * Sets the total number of interested users.
 	 * @param totallnterested
 	 */
-	public void setTotallnterested(void totallnterested) {
+	public void setTotallnterested(int totallnterested) {
 		// TODO implement here
 	}
 
@@ -288,7 +303,7 @@ public class Event {
 	/**
 	 * Provides details on an event.
 	 * @param eventID The ID of the event.
-	 * @return
+	 * @return 
 	 */
 	public String eventDetails(int eventID) {
 		// TODO implement here

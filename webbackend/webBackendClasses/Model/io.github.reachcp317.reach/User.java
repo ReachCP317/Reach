@@ -128,6 +128,18 @@ public class User {
 	}
 
 	/**
+	 * Gets the user object from the database based upon the userID.
+	 * @param userID The users ID
+	 * @return The users object.
+	 */
+	public User getUser(int userID) {
+		// TODO implement here
+		User user = new User();
+		//code to get the user from DB
+		return user;
+	}
+
+	/**
 	 * Sets the rating of a user in the database.
 	 * @param Parameter1 The new user rating.
 	 */
@@ -174,13 +186,4 @@ public class User {
 	public void setGender(String Parameter1) {
 		// TODO implement here
 	}
-
-	/**
-	 * Sets a value for the users password in the database.
-	 * @param Parameter1 The users new password.
-	 */
-	public void setPassword(String Parameter1) {
-		// TODO implement here
-	}
-
 }

@@ -65,9 +65,11 @@ public class EventActivity {
 	/**
 	 * Gets the users set radius from the frontend?
 	 * @param Parameter1
+	 * @return The raid
 	 */
-	public void getRadius(void Parameter1) {
+	public int getRadius() {
 		// TODO implement here
+		return 0;
 	}
 
 	/**
@@ -84,7 +86,7 @@ public class EventActivity {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void eventUpdate(Event event, String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, String array eventType, String userID) {
+	public void eventUpdate(Event event, String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, ArrayList<String> eventType, String userID) {
 		// TODO implement here
 	}
 
