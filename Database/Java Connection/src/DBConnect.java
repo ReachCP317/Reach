@@ -330,6 +330,58 @@ public class DBConnect {
 		return 0;	
 	}
 	
+		/**
+	 * Debugging to show all users in database
+	 * @author michaelpintur
+	 */
+	public void displayUsers() {
+		String userQuery = "SELECT * from user";
+		try {
+			rs = st.executeQuery(userQuery);
+			System.out.println("ALL USERS IN TABLE");
+			while (rs.next()) {
+	
+				System.out.print("UserID: " + rs.getInt("userID") + " ");
+				System.out.print("Email: " + rs.getString("email") + " ");
+				System.out.print("pwd: " + rs.getString("pwd") + " ");
+				System.out.print("userName: " + rs.getString("userName") + " ");
+				System.out.println();
+				}
+		} catch (Exception ex) {
+			System.out.println("Error: "+ ex);
+		}
+	}
+	
+	
+	/**
+	 * Debugging to show all events in database
+	 * @author michaelpintur
+	 */
+	public void displayEvents() {
+		String eventQuery = "SELECT * from event";
+		try {
+			rs = st.executeQuery(eventQuery);
+			System.out.println("ALL EVENTS IN TABLE");
+
+			while (rs.next()) {
+				System.out.print("EventID: " + rs.getInt("eventID") + " ");
+				System.out.print("HostID: " + rs.getInt("hostID") + " ");
+				System.out.print("Address: " + rs.getString("address") + " ");
+				System.out.print("Desc: " + rs.getString("description") + " ");
+				System.out.print("Lat: " + rs.getInt("latitude") + " ");
+				System.out.print("Lat: " + rs.getInt("longitude") + " ");
+				System.out.print("startDate: " + rs.getString("startDate") + " ");
+				System.out.print("endDate: " + rs.getString("endDate") + " ");
+				System.out.print("Capcity: " + rs.getInt("capacity") + " ");
+				
+				System.out.println();
+				}
+		} catch (Exception ex) {
+			System.out.println("Error: "+ ex);
+		}
+	}
+	
+	
 	
   }
 
