@@ -63,23 +63,30 @@ public class User {
 	 * @param email 
 	 * @param password The users password.
 	 */
-	public User(String username, String email, String password) {
+	public User(int id, String username, String email, String password) {
+		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 
+	}
+	
+	/**
+	 * Basic User object initialization
+	 * @param id
+	 */
+	public User(int id) {
+		this.id = id;
 	}
 
 	/**
 	 * Gets the user ID from the database and returns it as in int.
 	 * @return The user ID as an int.
 	 */
-	/*
+	
 	public int getID() {
-		// TODO implement here
-		return 0;
+		return this.id;
 	}
-	*/
 
 	/**
 	 * Gets a users rating from the database and returns it as a float.
@@ -95,7 +102,6 @@ public class User {
 	 * @return
 	 */
 	public int getAge() {
-		// TODO implement here
 		return 0;
 	}
 
@@ -104,8 +110,11 @@ public class User {
 	 * @return The users username, if not found return a string containing "please sign in first".
 	 */
 	public String getUsername() {
-		// TODO implement here
 		return this.username;
+	}
+	
+	public String getEmail() {
+		return this.email;
 	}
 
 	/**
@@ -113,7 +122,6 @@ public class User {
 	 * @return The users phone number.
 	 */
 	public String getPhoneNumber() {
-		// TODO implement here
 		return this.phoneNumber;
 	}
 

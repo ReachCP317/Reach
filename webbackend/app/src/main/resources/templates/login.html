@@ -5,7 +5,7 @@
     <title>Sign-In Page</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Sign In.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/Sign In.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
 <div id="bgImage">
@@ -14,7 +14,7 @@
 
     <h1><strong>REACH</strong></h1>
     <div class="container">
-    <form action="#" th:action="@{dashboard.html}" th:object="${user}" method="post" id="signInForm">
+    <form action="#" th:action="@{login}" th:object="${user}" method="post" id="signInForm">
       <p><b>Sign In</b></p>
       <div class="form-group row">
         <label for="inputUsername" class="col-sm-3 col-form-label">Username:</label>
@@ -47,7 +47,7 @@
 
       <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
         <span id="reachLogo">
-          <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+          <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
         </span>
         <span id="navbarContent">
           <a class="navbar-brand" href="#">About</a>

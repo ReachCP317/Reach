@@ -5,14 +5,14 @@
     <title>ProfilePage</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="ProfilePage.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/ProfilePage.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
  
 <div id="bgImage">
 	<div class=container logo>
 		<div class="logo_box">
-		<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
+		<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%">
 		</div>
 	</div>
 	
@@ -25,11 +25,11 @@
 	<table>
 		<tr>
 			<td>Username:</td>
-			<td>"replace with username"</td> 
+			<td th:text="${user.username}">Username</td> 
 		</tr>
 		<tr>
 			<td>Email:</td>
-			<td>"replace with email address"</td> 
+			<td th:text="${user.email}">Email</td> 
 		</tr>
 		<tr>
 			<td>Phone number:</td>
@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<td>Rating:</td>
-			<td>"replace with rating"</td> 
+			<td>"Rating"</td> 
 		</tr>
 		<tr>
 			<td>Hosted:</td>
@@ -54,7 +54,7 @@
     </table>
     <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>
