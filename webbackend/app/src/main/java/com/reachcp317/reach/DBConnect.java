@@ -1,3 +1,6 @@
+package com.reachcp317.reach;
+
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.io.InputStream;
@@ -206,7 +209,7 @@ public class DBConnect {
 				startDate = rs.getString("startDate");
 				endDate = rs.getString("endDate");
 			}
-			System.out.println(eventID + " " + hostName);
+			//System.out.println(eventID + " " + hostName);
 		} catch (Exception ex) {
 			System.out.println("Error: "+ ex);
 		}

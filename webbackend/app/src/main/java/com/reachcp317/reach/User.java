@@ -4,6 +4,8 @@ import java.util.*;
 
 /**
  * Object to hold user information
+ * @author Morgenne Besenschek (implementation), James Robertson (UML export)
+ *
  */
 public class User {
 
@@ -85,7 +87,7 @@ public class User {
 	 */
 	public float getRating() {
 		// TODO implement here
-		return 0.0f;
+		return this.rating;
 	}
 
 	/**
@@ -103,7 +105,7 @@ public class User {
 	 */
 	public String getUsername() {
 		// TODO implement here
-		return "";
+		return this.username;
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class User {
 	 */
 	public String getPhoneNumber() {
 		// TODO implement here
-		return "";
+		return this.phoneNumber;
 	}
 
 	/**
@@ -121,7 +123,7 @@ public class User {
 	 */
 	public String getGender() {
 		// TODO implement here
-		return "";
+		return this.gender;
 	}
 
 	/**
@@ -130,7 +132,7 @@ public class User {
 	 */
 	public String getPassword() {
 		// TODO implement here
-		return "";
+		return this.password;
 	}
 	
 		/**

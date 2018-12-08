@@ -1,8 +1,10 @@
+package com.reachcp317.reach;
+
 import java.util.*;
 
 import com.sun.xml.internal.bind.v2.model.core.NonElement;
 
-import io.github.reachcp317.reach.User;
+import com.reachcp317.reach.User;
 
 /**
  * 
@@ -33,7 +35,7 @@ public class Event {
 	/**
 	 * Latititude of event.
 	 */
-	private double laititude;
+	private double latitude;
 
 	/**
 	 * Longitude of event.
@@ -88,12 +90,12 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, String address, double latitiude, double longitude, Date startTime, Date endTime, int capacity, ArrayList<String> eventType, int userID) {
+	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, ArrayList<String> eventType, int userID) {
 		// TODO implement here
 		this.name = name;
 		this.description = description;
 		this.address = address;
-		this.latitiude = latitiude;
+		this.latitude = latitude;
 		this.longitude = longitude;
 		this.startTime = startTime;
 		this.endTime = endTime;
@@ -102,7 +104,7 @@ public class Event {
 		this.userID = userID;
 		DBConnect dbc = new DBConnect();
 		
-		dbc.createEvent(this.userID, this.description, this.longitude, this.laititude, this.startTime.toLocaleString(), this.endTime.toLocaleString(), this.address, this.capacity);
+		//dbc.createEvent(this.userID, this.description, this.longitude, this.laititude, this.startTime.toLocaleString(), this.endTime.toLocaleString(), this.address, this.capacity);
 	}
 
 	/**

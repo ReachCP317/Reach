@@ -1,4 +1,4 @@
-package io.github.reachcp317.reach;
+package com.reachcp317.reach;
 
 import java.util.*;
 

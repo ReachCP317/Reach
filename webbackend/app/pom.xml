@@ -61,7 +61,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-jdbc</artifactId>
+		</dependency>
 	</dependencies>
+	
 
 	<dependencyManagement>
 		<dependencies>
@@ -80,6 +85,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+       		 		<archive>
+          				<manifest>
+            				<addClasspath>true</addClasspath>
+            					<classpathPrefix>lib/</classpathPrefix>
+            						<mainClass>com.reachcp317.reach.ReachApplication</mainClass>
+          				</manifest>
+        			</archive>
+      			</configuration>
 			</plugin>
 		</plugins>
 	</build>
