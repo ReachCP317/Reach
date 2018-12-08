@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@drawable/grad">
+    android:background="@drawable/bcg1">
 
     <RelativeLayout
         android:layout_width="223dp"
@@ -95,15 +95,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31" />
+
     <RelativeLayout
         android:layout_width="100dp"
         android:layout_height="52dp"
         android:background="@drawable/border"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656">
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="301dp">
 
-</RelativeLayout>
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

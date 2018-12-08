@@ -38,16 +38,16 @@
 
 
         <Button
-            android:id="@+id/Edit"
+            android:id="@+id/Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="72dp"
-            android:layout_marginRight="72dp"
-            android:layout_marginBottom="62dp"
-            android:text="Edit" />
+            android:layout_marginEnd="71dp"
+            android:layout_marginRight="71dp"
+            android:layout_marginBottom="69dp"
+            android:text="Save" />
     </RelativeLayout>
 
 

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bcg1"
+    tools:context=".DisplayEvent2">
+
+    <TextView
+        android:id="@+id/createEvent"
+        android:layout_width="123dp"
+        android:layout_height="29dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Display Event"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/eventName"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="text"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="text|textMultiLine"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="text|textMultiLine"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/startDate"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="datetime"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <TextView
+        android:id="@+id/endDate"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="datetime"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="343dp" />
+
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="number"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="number"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="443dp" />
+
+    <TextView
+        android:id="@+id/totalCapacity"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:inputType="number"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="129dp"
+        android:layout_height="29dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Event Name:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <TextView
+        android:id="@+id/descriptionView"
+        android:layout_width="131dp"
+        android:layout_height="30dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Description:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <TextView
+        android:id="@+id/addressView"
+        android:layout_width="131dp"
+        android:layout_height="28dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Address "
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <TextView
+        android:id="@+id/startDateView"
+        android:layout_width="130dp"
+        android:layout_height="24dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Start Date:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <TextView
+        android:id="@+id/endDateView"
+        android:layout_width="128dp"
+        android:layout_height="23dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="End Date:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="343dp" />
+
+    <TextView
+        android:id="@+id/longitudeView"
+        android:layout_width="129dp"
+        android:layout_height="29dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Longitude"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/latitudeView"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Latitude:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="443dp" />
+
+    <TextView
+        android:id="@+id/totalCapacityView"
+        android:layout_width="154dp"
+        android:layout_height="26dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Total Capacity:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+
+    </android.support.constraint.ConstraintLayout>

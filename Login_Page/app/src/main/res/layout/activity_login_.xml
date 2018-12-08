@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login_Activity"
-    android:background="@drawable/grad">
+    android:background="@drawable/bcg1">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"

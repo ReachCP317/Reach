@@ -40,7 +40,7 @@ public class Login_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //add to Database
-                Intent intent = new Intent(Login_Activity.this, UIActivity.class);
+                Intent intent = new Intent(Login_Activity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
