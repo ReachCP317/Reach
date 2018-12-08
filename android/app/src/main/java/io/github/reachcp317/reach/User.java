@@ -90,7 +90,8 @@ public class User {
 	 */
 	public float setRating(float rating, int number_ratings) {
 		float temp = this.rating * this.number_ratings;
-		rating = this.rating / this.number_ratings+1;
+		rating = this.rating / (this.number_ratings+1);
+		this.number_ratings++;
 		return rating;
 	}
 }
