@@ -1,0 +1,4 @@
+#Fri Dec 07 23:30:03 EST 2018
+base.0=C\:\\Users\\Midusa\\Documents\\GitHub\\Reach\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

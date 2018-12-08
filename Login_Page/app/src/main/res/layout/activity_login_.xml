@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login_Activity"
+    tools:context="com.reach.maps_page.Login_Activity"
     android:background="@drawable/bcg1">
 
     <RelativeLayout
