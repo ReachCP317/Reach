@@ -120,7 +120,7 @@ public class Event {
 	 * Gets the description of the event
 	 * @return
 	 */
-	public String getDesciption() {
+	public String getDescription() {
 		// TODO implement here
 		return "";
 	}
