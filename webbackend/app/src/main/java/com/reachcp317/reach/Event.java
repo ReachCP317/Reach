@@ -68,9 +68,9 @@ public class Event {
 	private int capacity;
 
 	/**
-	 * 
+	 * The type of event?
 	 */
-	private ArrayList<String> eventType;
+	private String eventType;
 
 	/**
 	 * The ID of the user who is hosting/creating the party.
@@ -90,7 +90,7 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, ArrayList<String> eventType, int userID) {
+	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID) {
 		// TODO implement here
 		this.name = name;
 		this.description = description;
@@ -102,18 +102,20 @@ public class Event {
 		this.capacity = capacity;
 		this.eventType = eventType;
 		this.userID = userID;
-		DBConnect dbc = new DBConnect();
-		
-		//dbc.createEvent(this.userID, this.description, this.longitude, this.laititude, this.startTime.toLocaleString(), this.endTime.toLocaleString(), this.address, this.capacity);
 	}
-
+	/**
+	 * Basic Event object initialization
+	 * @param id
+	 */
+	public Event(int id) {
+		this.eventID = id;
+	}
 	/**
 	 * Gets the name of an event.
 	 * @return The name of the event.
 	 */
 	public String getName() {
-		// TODO implement here
-		return "";
+		return this.name;
 	}
 
 	/**
@@ -121,8 +123,7 @@ public class Event {
 	 * @return
 	 */
 	public String getDesciption() {
-		// TODO implement here
-		return "";
+		return this.description;
 	}
 
 	/**
@@ -130,8 +131,7 @@ public class Event {
 	 * @return
 	 */
 	public double getLatitude() {
-		// TODO implement here
-		return 0.0d;
+		return this.latitude;
 	}
 
 	/**
@@ -139,8 +139,7 @@ public class Event {
 	 * @return
 	 */
 	public double getLongitude() {
-		// TODO implement here
-		return 0.0d;
+		return this.longitude;
 	}
 
 	/**
@@ -148,8 +147,7 @@ public class Event {
 	 * @return
 	 */
 	public Date getStartTime() {
-		// TODO implement here
-		return null;
+		return this.startTime;
 	}
 
 	/**
@@ -157,8 +155,7 @@ public class Event {
 	 * @return
 	 */
 	public Date getEndTime() {
-		// TODO implement here
-		return null;
+		return this.endTime;
 	}
 
 	/**
@@ -166,8 +163,7 @@ public class Event {
 	 * @return
 	 */
 	public int getTotallnterested() {
-		// TODO implement here
-		return 0;
+		return this.totallnterested;
 	}
 
 	/**
@@ -175,17 +171,15 @@ public class Event {
 	 * @return The capacity of the event.
 	 */
 	public int getCapacity() {
-		// TODO implement here
-		return 0;
+		return this.capacity;
 	}
 
 	/**
 	 * Gets the event type from the database.
 	 * @return The event type in a string array
 	 */
-	public ArrayList<String> getEventType() {
-		// TODO implement here
-		return null;
+	public String getEventType() {
+		return this.eventType;
 	}
 
 	/**
@@ -193,8 +187,7 @@ public class Event {
 	 * @return The ID of the user who is hosting/creating the party.
 	 */
 	public int getUserID() {
-		// TODO implement here
-		return 0;
+		return this.userID;
 	}
 
 	/**
@@ -202,8 +195,7 @@ public class Event {
 	 * @return the event ID to be returned.
 	 */
 	public int getEventID() {
-		// TODO implement here
-		return 0;
+		return this.eventID;
 	}
 
 	/**
@@ -211,7 +203,7 @@ public class Event {
 	 * @param name
 	 */
 	public void setName(String name) {
-		// TODO implement here
+		this.name = name;
 	}
 
 	/**
@@ -219,7 +211,7 @@ public class Event {
 	 * @param description
 	 */
 	public void setDesciption(String description) {
-		// TODO implement here
+		this.description = description;
 	}
 
 	/**
@@ -227,7 +219,7 @@ public class Event {
 	 * @param address
 	 */
 	public void setAddress(String address) {
-		// TODO implement here
+		this.address = address;
 	}
 
 	/**
@@ -235,7 +227,7 @@ public class Event {
 	 * @param latitiude
 	 */
 	public void setLatitude(double latitiude) {
-		// TODO implement here
+		this.latitude = latitiude;
 	}
 
 	/**
@@ -243,7 +235,7 @@ public class Event {
 	 * @param longitude
 	 */
 	public void setLongitude(double longitude) {
-		// TODO implement here
+		this.longitude = longitude;
 	}
 
 	/**
@@ -251,7 +243,7 @@ public class Event {
 	 * @param startTime
 	 */
 	public void setStartTime(Date startTime) {
-		// TODO implement here
+		this.startTime = startTime;
 	}
 
 	/**
@@ -259,7 +251,7 @@ public class Event {
 	 * @param endTime
 	 */
 	public void setEndTime(Date endTime) {
-		// TODO implement here
+		this.endTime = endTime;
 	}
 
 	/**
@@ -267,39 +259,39 @@ public class Event {
 	 * @param totallnterested
 	 */
 	public void setTotallnterested(int totallnterested) {
-		// TODO implement here
+		this.totallnterested = totallnterested;
 	}
 
 	/**
 	 * Sets the capacity of the event in the database.
-	 * @param Parameter1 The capacity of the event.
+	 * @param capacity The capacity of the event.
 	 */
-	public void setCapacity(int Parameter1) {
-		// TODO implement here
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 
 	/**
 	 * Sets the event type in the database.
-	 * @param Parameter1 A string array filled with event types.
+	 * @param eventType A string array filled with event types.
 	 */
-	public void setEventType(ArrayList<String> Parameter1) {
-		// TODO implement here
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
 	}
 
 	/**
 	 * Sets the ID of the user who is hosting/creating the party in the database.
-	 * @param Parameter1 The ID of the user who is hosting/creating the party.
+	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void setUserID(int Parameter1) {
-		// TODO implement here
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
 	/**
 	 * Sets the event ID in the database.
-	 * @param Parameter1 the new id for the event.
+	 * @param eventID the new id for the event.
 	 */
-	public void setEventID(int Parameter1) {
-		// TODO implement here
+	public void setEventID(int evnetID) {
+		this.eventID = eventID;
 	}
 
 	/**
