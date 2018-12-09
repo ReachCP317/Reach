@@ -153,7 +153,7 @@ function showPosition(position) {
     position: latlon,
     map: map,
     title: "You are Here!",
-    icon: '../images/person_marker.png'
+    icon: '/person_marker.png'
   });
 
   //tester marker using pub on king
@@ -161,7 +161,7 @@ function showPosition(position) {
     position: new google.maps.LatLng(43.4678, -80.5232),
     map: map,
     title: 'Desination',
-    icon: '../images/party_popper_map.png'
+    icon: '/party_popper_map.png'
   });
 
 

@@ -34,7 +34,6 @@ public class UserRepository{
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User(rs.getInt("userID"));
 			user.setUsername(rs.getString("userName"));
-			user.setPassword(rs.getString("pwd"));
 			user.setEmail(rs.getString("email"));
 			return user;
 		}
@@ -55,7 +54,8 @@ public class UserRepository{
 	 * @return
 	 */
 	public User getById(int id) {
-		User user = this.jdbcTemplate.queryForObject("SELECT * FROM user WHERE userID = ?", new Object[] {id}, new UserMapper());
+		User user = this.jdbcTemplate.queryForObject("SELECT * FROM user WHERE userID = ?",
+				new Object[] {id}, new UserMapper());
 		//User user = this.jdbcTemplate.query("SELECT * FROM user WHERE userID = ?", new Object[] {id}, new UserMapper());
 		
 		return user;
@@ -66,6 +66,7 @@ public class UserRepository{
 				new Object[] {"TheFunk"}, String.class);
 	}
 	
+	//TODO: Are usernames unique? Should I be checking for an email?
 	public int verifyLogin(User user) {
 		int valid = 0;
 		
@@ -74,7 +75,7 @@ public class UserRepository{
 		if (!validUsername) {
 			//valid = ?;
 		}else {
-			
+			boolean validPassword = verifyPassword(user.getPassword());
 		}
 		
 		return valid;
@@ -83,11 +84,11 @@ public class UserRepository{
 	private boolean verifyUsername(String username) {
 		boolean valid = true;
 		
-		int id = this.jdbcTemplate.queryForObject("SELECT id FROM user WHERE userName = ?",
+		int id = this.jdbcTemplate.queryForObject("SELECT userID FROM user WHERE userName = ?",
 				new Object[] {username}, Integer.class);
 		
 		if (id == -1) {
-			
+			valid = false;
 		}
 		
 		return valid;
@@ -99,8 +100,26 @@ public class UserRepository{
 		return valid;
 	}
 	
-	public int createUser() {
+	//TODO: 
+	public int createUser(User user) {
+		int success = 1;
 		
-		return 0;
+		//check if an account with the given email already exists
+		String email = this.jdbcTemplate.queryForObject("SELECT userID FROM user WHERE email = ?"
+				, new Object[] {user.getEmail()}, String.class);
+		
+		if (email.isEmpty()) {
+			success = 0;
+		}
+		
+		int update = this.jdbcTemplate.update("INSERT INTO user (email, pwd, userName) VALUES(?, ?, ?)",
+				user.getEmail(), user.getPassword(), user.getUsername());
+		
+		//if no change was made to the database, user creation failed
+		if (update == 0) {
+			success = -1;
+		}
+		
+		return success;
 	}
 }

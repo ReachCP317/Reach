@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ReachApplication<Reach>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.reachcp317.reach.ReachApplication",
+            "projectName": "Reach",
+            "args": ""
+        }
+    ]
+}
