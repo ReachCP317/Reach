@@ -57,7 +57,7 @@ body{
 }
 
 #BodyPanel {
-  position: relative;;
+  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -74,19 +74,19 @@ body{
 #navigatorPanel {
   z-index:89;
   background-color: #12171F;
-  position: fixed;
+  position: absolute;
   height: 100vh;
   width: 0%;
   overflow-x: hidden;
   transition: 0.5s;
   top:0;
-  padding-top: 150px;
+  padding-top: 50px;
   font-family: Bahnschrift Condensed;
 }
 
 #navigatorPanel .closeButton {
   position: absolute;
-  top: 100px;
+  top: 0px;
   right: 7%;
   z-index: 1;
   font-size: 3.5em;
@@ -104,6 +104,7 @@ body{
   color: #A9A9A9;
   display: block;
   transition: 0.3s;
+  
 }
 
 #navigatorPanel a:hover {

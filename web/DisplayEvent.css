@@ -9,7 +9,7 @@
 }
 .container{
   min-height: 100%;
-  margin-left: 5px;
+  margin-left: 0px;
   width:100%;
   background-color:rgba(0,0,0,.9);
   border-top-left-radius: 20px;
@@ -17,7 +17,7 @@
   color:#FFF;
 }
 body{
-  background: url("background.jpg");
+  background: url("../images/bg_Image_prototype.jpg");
    height: 100%;
    width:100%;
   background-position: center;
@@ -43,15 +43,8 @@ body{
   text-decoration: none;
 }
 
-#Banner p {
-  font-size: 20px;
-  float: right;
-  padding: 20px;
-  color: #FFFFFF;
-}
-
 #BodyPanel {
-  position: fixed;
+  position: relative;
   height: 100%;
   width: 100%
 }
@@ -65,15 +58,26 @@ body{
   color: #FFF;
 }
 
+#NavigatorButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  font-size: 40px;
+  cursor: pointer;
+  color: #FFF;
+}
+
 #navigatorPanel {
-  z-index: 2;
+  z-index:89;
   background-color: #12171F;
-  position: fixed;
-  height: 100%;
+  position: absolute;
+  height: 100vh;
   width: 0%;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 5%;
+  top:0;
+  padding-top: 50px;
   font-family: Bahnschrift Condensed;
 }
 
@@ -97,6 +101,7 @@ body{
   color: #A9A9A9;
   display: block;
   transition: 0.3s;
+  
 }
 
 #navigatorPanel a:hover {
@@ -160,4 +165,13 @@ p{
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border-bottom: 1px solid #FFFFFF;
+}
+#Banner p {
+  font-size: 20px;
+  float: right;
+  padding: 20px;
+  color: #FFFFFF;
+  margin: 0px;
+  box-shadow:0;
+  border-bottom:0px;
 }
