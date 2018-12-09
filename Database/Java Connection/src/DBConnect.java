@@ -380,17 +380,34 @@ public class DBConnect {
 			System.out.println("Error: "+ ex);
 		}
 	}
+	
+	/**
+	 * Method returns void on default
+	 * Method to fetch what email, pwd(hashed), icon (directory to image), username  when given a userID
+	 * @param userID Users ID number
+	 * 
+	 * 
+	 * @author Jordan Harris
+	 * @sqa Michael Pintur
+	 * 2018/12/09
+	 */
 	public void queryUser(int userID)
 	{
-		String query = null;
-		query = String.format("SELECT * FROM user WHERE userID = %d",userID);
+		try {
+			ps = con.prepareStatement("SELECT * FROM user WHERE userID = ?");
+			ps.setInt(1,userID);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String email;
 		String pwd;
 		String icon;
-		String userName;
+		String userName = null;
 		try 
 		{
-			rs = st.executeQuery(query);
+			rs = ps.executeQuery();
 			while (rs.next()) 
 			{
 				email = rs.getString("email");
@@ -406,7 +423,7 @@ public class DBConnect {
 		}
 	
 	}
-	
+		
 	
 	
   }
