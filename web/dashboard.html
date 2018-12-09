@@ -1,6 +1,3 @@
-<!--
-authors: Bethel Adaghe, Zack VanderBurgt
--->
 <!DOCTYPE html>
 <html>
 
@@ -22,16 +19,16 @@ authors: Bethel Adaghe, Zack VanderBurgt
 	<div id="Banner">
 		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="../images/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-		<p>Username</p>
+		<p>Username/Sign Out</p>
 	</div>
 	<div id="BodyPanel">
 		<!-- Code for navigation menu --->
 		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
 			<a class="closeButton" onclick="closeNav()">&times;</a>
 			<!--- href set to "#" until all webpages have been created and can be set properly--->
-			<a href="#" id="search">Search</a>
-			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
-			<a href="DisplayEvent.html" id="profile">Profile</a>
+			<a href="https://www.google.com" id="search">Search</a>
+			<a href="#" id="create">Create&nbsp;Event</a>
+			<a href="#" id="profile">Profile</a>
 			<script> pageSettings() </script>
 		</span>
 		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -46,7 +43,7 @@ authors: Bethel Adaghe, Zack VanderBurgt
 				<span id="radius" style="font-size:20px"> </span><br>
 				<form>
 					<input type="range" min="1" max="20" value="10" class="slider" id="myRadius"><br><br>
-					<input type="submit" value="Show Me Parties" style="cursor:pointer; padding:5px">
+					<input type="submit" value="Show Me Parties">
 				</form>
 				<hr style="border:none; border-color:#242f3E">
 				<script src="mapItems.js"></script>
@@ -54,7 +51,11 @@ authors: Bethel Adaghe, Zack VanderBurgt
 
 			<div class="nearbyEvents">
 				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>
-
+				<hr style="color:white">
+				<p style="font-size:18px; text-align:left">&nbsp Event Name </p>
+				<p style="font-size:15px; text-align:right;">Start Date-End Date &nbsp </p>
+				<p style="font-size:15px;text-align:left"> &nbsp Description...</p>
+				<hr style="color:white">
 			</div>
 		</span>
 	</div>
