@@ -17,12 +17,12 @@ public class User {
 	}
 
 	/**
-	 * A users identification number
+	 * A user's identification number, assigned by the database	
 	 */
 	private int id;
 
 	/**
-	 * A users rating
+	 * A user's rating
 	 */
 	private float rating;
 
@@ -98,7 +98,7 @@ public class User {
 	}
 
 	/**
-	 * Gets the age of the user from the database and returns it is an int.
+	 * Gets t	he age of the user from the database and returns it is an int.
 	 * @return
 	 */
 	public int getAge() {

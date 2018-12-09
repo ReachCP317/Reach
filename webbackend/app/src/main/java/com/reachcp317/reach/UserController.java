@@ -31,6 +31,8 @@ public class UserController implements WebMvcConfigurer{
 	//public User currentUser; ?
 	@Autowired
 	UserRepository db;
+	//@Autowired
+	//TODO:
 
 	/**
 	 * When User visits the site, redirects them based on if they are logged in or not
@@ -114,11 +116,18 @@ public class UserController implements WebMvcConfigurer{
 			System.out.println("This is a username.");
 			//if db
 		}
+		
+		//user.setPassword(encrypt.encode(user.getPassword()));
+		
+		//int valid = db.verifyLogin(user);
+		
 		httpSession.setAttribute("username", user.getUsername());
 		httpSession.setAttribute("userID", user.getID());
+		
 		System.out.println("User = " + httpSession.getAttribute("username"));
 		System.out.println("Login successful");
 		System.out.println("User: " + user.getUsername() + " " + user.getPassword());
+		
 		model.addAttribute(httpSession);
 		//model.addAttribute(user);
 		return "redirect:/dashboard";
