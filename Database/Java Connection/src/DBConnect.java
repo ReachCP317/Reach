@@ -380,6 +380,32 @@ public class DBConnect {
 			System.out.println("Error: "+ ex);
 		}
 	}
+	public void queryUser(int userID)
+	{
+		String query = null;
+		query = String.format("SELECT * FROM user WHERE userID = %d",userID);
+		String email;
+		String pwd;
+		String icon;
+		String userName;
+		try 
+		{
+			rs = st.executeQuery(query);
+			while (rs.next()) 
+			{
+				email = rs.getString("email");
+				pwd  = rs.getString("pwd");
+				icon = rs.getString("icon");
+				userName = rs.getString("userName");
+			}
+			System.out.println(userID + " " + userName);
+		} 
+		catch (Exception ex) 
+		{
+			System.out.println("Error: "+ ex);
+		}
+	
+	}
 	
 	
 	
