@@ -186,6 +186,7 @@ public class DBConnect {
 	 * Returns a result set from the database view v_event_name when given an event ID.
 	 * @param eventID - Possibly from an ArrayList of event ID's
 	 * @author michaelpintur
+	 * @SQA kobilee - need prepared statemnt
 	 */
 	public void queryEvent(int eventID) {
 		String query = null;
@@ -221,6 +222,7 @@ public class DBConnect {
 	 * @param email - user email
 	 * @return - returns the unique userID from the given email address.
 	 * @author michaelpintur
+	 * @SQA kobilee - need prepared statemnt
 	 */
 	public int getUserID(String email) {
 		int userID = 0;
