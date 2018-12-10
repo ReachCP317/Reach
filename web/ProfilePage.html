@@ -9,49 +9,90 @@
   </head>
   <body>
  
-<div id="bgImage">
-	<div class=container logo>
-		<div class="logo_box">
-		<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%""/>
+<div id="userInfo" hidden>
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+      		<p>Username/Sign Out</p>
+      	</div>
+      		
+	  <div class="jumbotron">
+		<div class="container" id="headings" >
+		<form action="#" method="#" id="signInForm" class="form-inline">
+		  <span id="titleBar">
+		  <h1><strong>Profile</strong></h1>
+		  </span>
+		  <hr width="100%" align="center">
+		</form>
 		</div>
-	</div>
-	
-	<div class=container profilePic>
-		<div class="profilePic_box">
-		<img src="profilePic.jpg" id=PPimage>
-		</div>
-	</div>
-	
-	<table>
+      <div id="DisplayEvent">
+        <table id="usertInfo">
+      <body>
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp User Name</p>
+            </div>
+          </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Phone Number</p>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Email</p>
+            </div>
+          </td>
+        </tr>
+		
 		<tr>
-			<td>Username:</td>
-			<td>"replace with username"</td> 
-		</tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Interested</p>
+            </div>
+          </td>
+        </tr>
+		
 		<tr>
-			<td>Email:</td>
-			<td>"replace with email address"</td> 
-		</tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Attended</p>
+            </div>
+          </td>
+        </tr>
+		
 		<tr>
-			<td>Phone number:</td>
-			<td>"replace with phone number"</td> 
-		</tr>
-		<tr>
-			<td>Rating:</td>
-			<td>"replace with rating"</td> 
-		</tr>
-		<tr>
-			<td>Hosted:</td>
-			<td>"replacee with hosted event link if applicable"</td> 
-		</tr>
-		<tr>
-			<td>Interested:</td>
-			<td>"replacee with interested event link if applicable"</td> 
-		</tr>
-		<tr>
-			<td>Attended:</td>
-			<td>"replacee with attended event link if applicable"</td> 
-		</tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Hosted</p>
+            </div>
+          </td>
+		  <td colspan=2>
+            <div>
+               <ul>
+				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event1</p></li>
+				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event2</p></li>
+				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event3</p></li>
+			   </ul>
+            </div>
+          </td>
+        </tr>
+		
+      </tbody>
     </table>
+	<br>
+	<button id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
+      </div>
+  </div>
     <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
         <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
