@@ -43,6 +43,7 @@ public class EventRepository{
 			event.setStartTime(rs.getDate("start"));
 			event.setEndTime(rs.getDate("end"));
 			event.setCapacity(rs.getInt("capacity"));
+			//event.setEventRange(rs.getInt("eventRange"));
 			return event;		
 		}
 	}

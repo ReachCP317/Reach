@@ -46,6 +46,9 @@ public class User {
 	 * The users password.
 	 */
 	private String password;
+	
+	//TODO: A better way to do password confirmation
+	private String passwordConfirm;
 
 	/**
 	 * 
@@ -89,8 +92,8 @@ public class User {
 	}
 
 	/**
-	 * Gets a users rating from the database and returns it as a float.
-	 * @return The users rating as a float
+	 * Gets the user's rating
+	 * @return The user's rating as a float
 	 */
 	public float getRating() {
 		// TODO implement here
@@ -98,27 +101,31 @@ public class User {
 	}
 
 	/**
-	 * Gets t	he age of the user from the database and returns it is an int.
-	 * @return
+	 * Gets the age of the user
+	 * @return the user's age
 	 */
 	public int getAge() {
 		return 0;
 	}
 
 	/**
-	 * Get the users username for the database, if not found return string "please sign in first".
-	 * @return The users username, if not found return a string containing "please sign in first".
+	 * Gets the user's username
+	 * @return The user's username
 	 */
 	public String getUsername() {
 		return this.username;
 	}
 	
+	/**
+	 * Gets the user's email
+	 * @return The user's email
+	 */
 	public String getEmail() {
 		return this.email;
 	}
 
 	/**
-	 * Gets the users phone number from the database and returns it as a String.
+	 * Gets the user's phone number
 	 * @return The users phone number.
 	 */
 	public String getPhoneNumber() {
@@ -126,7 +133,7 @@ public class User {
 	}
 
 	/**
-	 * Gets the users gender from the database and returns it as a String.
+	 * Gets the user's gender
 	 * @return The gender of the user.
 	 */
 	public String getGender() {
@@ -135,32 +142,24 @@ public class User {
 	}
 
 	/**
-	 * Gets the user's password from the database and returns it as a string.
-	 * @return The users password.
+	 * Gets the user's password
+	 * @return The user's password.
 	 */
 	public String getPassword() {
 		// TODO implement here
 		return this.password;
 	}
 	
-		/**
-	 * Gets the user object from the database based upon the userID.
-	 * @param userID The users ID
-	 * @return The users object.
-	 */
-	public User getUser(int userID) {
-		// TODO implement here
-		User user = new User();
-		//code to get the user from DB
-		return user;
+	public String getPasswordConfirm() {
+		return this.passwordConfirm;
 	}
 
 	/**
-	 * Sets the rating of a user in the database.
+	 * Sets the rating of a user
 	 * @param Parameter1 The new user rating.
 	 */
 	public void setRating(float rating) {
-		/* todo: how do we want to calculate ratings?
+		/* TODO: how do we want to calculate ratings?
 		 * Do we keep track of how many times a user has been rated and set a new rating based on
 		 * the overall average of the ratings? Is database handling this?
 		 */
@@ -168,7 +167,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the username of the user in the database.
+	 * Sets the username of the user
 	 * @param username The new username.
 	 */
 	public void setUsername(String username) {
@@ -176,7 +175,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the user's phone number in the database.
+	 * Sets the user's phone number
 	 * @param phoneNumber The new phone number for the user.
 	 */
 	public void setPhoneNumber(String phoneNumber) {
@@ -184,7 +183,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the user's password in the database
+	 * Sets the user's password
 	 * @param password The new user password.
 	 */
 	public void setPassword(String password) {
@@ -192,7 +191,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the user's email in the database
+	 * Sets the user's email
 	 * @param email The new email for the user.
 	 */
 	public void setEmail(String email) {
@@ -200,12 +199,16 @@ public class User {
 	}
 
 	/**
-	 * Sets the user's gender in the database
+	 * Sets the user's gender
 	 * @param gender The new value for the user's gender.
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
 		
+	}
+	
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 }

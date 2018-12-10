@@ -45,7 +45,7 @@ to do for it lol.
 
   <div class="jumbotron">
     <div class="container" id="headings" >
-    <form action="#" method="#" id="signInForm" class="form-inline">
+    <form action="#" class="form-inline" th:action="@{event}" th:object="${event}" method="POST" id="eventForm">
 
       <span id="titleBar">
       <h1><strong>Host Event</strong></h1>
@@ -75,7 +75,7 @@ of "error" class in the css --->
       </div>
       <!-- ................................................. --->
       <!--- https://codepen.io/legeoffrey/pen/VYMLNq --->
-      </form action= "#" th:action="@{event}" th:object="${event}" method="post" id="eventForm">
+      </form>
     </div>
 
       <div id="createEvent">

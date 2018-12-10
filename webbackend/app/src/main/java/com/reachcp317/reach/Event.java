@@ -76,6 +76,10 @@ public class Event {
 	 * The ID of the user who is hosting/creating the party.
 	 */
 	private int userID;
+	/**
+	 * The range the event wants to reach
+	 */
+	private int eventRange;
 
 	/**
 	 * The constructor for the Event class.
@@ -90,7 +94,7 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID) {
+	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID, int eventRange) {
 		// TODO implement here
 		this.name = name;
 		this.description = description;
@@ -102,6 +106,8 @@ public class Event {
 		this.capacity = capacity;
 		this.eventType = eventType;
 		this.userID = userID;
+		this.eventRange;
+
 	}
 	/**
 	 * Basic Event object initialization
@@ -122,7 +128,8 @@ public class Event {
 	 * Gets the description of the event
 	 * @return
 	 */
-	public String getDesciption() {
+
+	public String getDesrciption() {
 		return this.description;
 	}
 
@@ -196,6 +203,22 @@ public class Event {
 	 */
 	public int getEventID() {
 		return this.eventID;
+	}
+
+	/**
+	 * Gets the event range
+	 * @return 
+	 */
+	public int getEventRange() {
+		return this.eventRange;
+	}
+
+	/**
+	 * Sets the range of the event.
+	 * @param name
+	 */
+	public void setEventRange(int eventRange) {
+		this.eventRange = eventRange;
 	}
 
 	/**

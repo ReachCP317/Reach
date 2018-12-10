@@ -1,10 +1,14 @@
+
+<!--
+authors: Bethel Adaghe, Zack VanderBurgt
+-->
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="/dashboardStyles.css">
+	<link rel="stylesheet" type="text/css" href="dashboardStyles.css">
 	<!-- Scripts here-->
 	<script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
 	<script src="/map.js"></script>
@@ -19,16 +23,17 @@
 	<div id="Banner">
 		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-		<p th:text="${#httpSession.getAttribute('username')} + ' /Sign Out'">Username/Sign Out</p>
+		<p th:text=${#httpSession.getAttribute("username")}>Username</p>
 	</div>
 	<div id="BodyPanel">
 		<!-- Code for navigation menu --->
 		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
 			<a class="closeButton" onclick="closeNav()">&times;</a>
 			<!--- href set to "#" until all webpages have been created and can be set properly--->
-			<a href="https://www.google.com" id="search">Search</a>
-			<a href="#" id="create">Create&nbsp;Event</a>
-			<a href="#" id="profile">Profile</a>
+			<a href="#" id="search">Search</a>
+			<a href="/createEvent.html" id="create">Create&nbsp;Event</a>
+			<a href="/DisplayEvent.html" id="profile">Profile</a>
+
 			<script> pageSettings() </script>
 		</span>
 		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -43,7 +48,7 @@
 				<span id="radius" style="font-size:20px"> </span><br>
 				<form>
 					<input type="range" min="1" max="20" value="10" class="slider" id="myRadius"><br><br>
-					<input type="submit" value="Show Me Parties">
+					<input type="submit" value="Show Me Parties" style="cursor:pointer; padding:5px">
 				</form>
 				<hr style="border:none; border-color:#242f3E">
 				<script src="/mapItems.js"></script>

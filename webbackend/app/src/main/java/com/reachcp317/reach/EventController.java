@@ -28,10 +28,18 @@ public class EventController implements WebMvcConfigurer{
     @GetMapping("/event")
     public String createEventForm(Model model){
         model.addAttribute("event", new Event());
+        System.out.print("1");
         return "event";
     }
     @PostMapping("/event")
     public String createEventSubmit(@ModelAttribute Event event){
+        System.out.print("2");
         return "result";
     }
+    @GetMapping("/createEvent")
+    public String goToCreateEvent(Event event){
+        System.out.print("3");
+        return "createEvent";
+    }
 }
+

@@ -14,27 +14,33 @@
 
     <h1><strong>REACH</strong></h1>
     <div class="container">
-    <form action="#" method="#" id="signInForm" class="form-inline">
+    <form action="#" th:action="@{createAccount}" method="post" th:object="${user}" id="signInForm" class="form-inline">
         <p><b>Create Account</b></p>
 
         <label for="usernameInput">Username:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control inputs" id="usernameInput" placeholder="Enter Username"></div><br/><br/>
+        <input type="text" class="form-control inputs" th:field="*{username}" id="usernameInput" placeholder="Enter Username"></div><br/><br/>
 
 		<label for="emailInput">Email:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="email" class="form-control inputs" id="emailInput" placeholder="Enter Email">
+          <input type="email" class="form-control inputs" th:field="*{email}" id="emailInput" placeholder="Enter Email">
         </div><br/><br/>
 		
         <label for="passwordInput">Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="password" class="form-control inputs" id="passwordInput" placeholder="Enter Password">
+          <input type="password" class="form-control inputs" th:field="*{password}" id="passwordInput" placeholder="Enter Password">
         </div><br/><br/>
 
         <label for="confirmPasswordInput">Confirm Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="password" class="form-control inputs" id="confirmPasswordInput" placeholder="Re-enter Password">
+          <input type="password" class="form-control inputs" th:field="*{passwordConfirm}" id="confirmPasswordInput" placeholder="Re-enter Password">
         </div>
+        <!-- Placeholder submit button for testing --->
+        <div class="form-group row">
+        	<div class="offset-sm-2 col-sm-13">
+          		<button type="submit" class="btn btn-primary">Sign in</button>
+        	</div>
+      	</div>
       </form>
     </div>
     </div>
