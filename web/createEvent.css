@@ -125,6 +125,7 @@ body{
   z-index:90;
   background-color: black;
   margin-bottom:0;
+  min-width:700px;
 }
 #navbarContent{
   margin: 0;

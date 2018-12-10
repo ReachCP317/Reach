@@ -1,3 +1,6 @@
+<!--
+authors: Yousef Fahim, Bethel Adaghe
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +11,7 @@
     <link rel="stylesheet" href="createAccount.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-<div id="bgImage">
+
 
   <div class="jumbotron" id="formContent">
 
@@ -34,12 +37,18 @@
         <label for="confirmPasswordInput">Confirm Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <input type="password" class="form-control inputs" id="confirmPasswordInput" placeholder="Re-enter Password">
-        </div>
+        </div><br><br>
+		
+		  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <div class="offset-sm-2 col-sm-13">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div><br><br>
+      </div>
       </form>
     </div>
     </div>
 
-    <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
+    <div class="navigationBar" style="margin-bottom:0px" id="bottomNavbar">
       <span id="reachLogo">
         <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
       </span>
@@ -51,8 +60,8 @@
         <a class="navbar-brand" href="#">FAQ</a>
         <a class="navbar-brand" href="#">Feedback</a>
 </span>
-      </nav>
-</div>
+      </div>
+
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
