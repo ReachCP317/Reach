@@ -127,6 +127,8 @@ transform: translateY(-50%);
   width:100%;
   margin:0;
   background-color: rgba(0,0,0,0.9);
+  position: relative;
+  left: 5px;
 }
 table,
 th,
