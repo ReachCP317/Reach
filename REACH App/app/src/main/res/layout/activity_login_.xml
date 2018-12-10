@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.reach.maps_page.Login_Activity"
+    android:background="@drawable/bcg1">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="305dp"
+        android:layout_height="53dp">
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_alignEnd="@+id/relativeLayout1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="-11dp"
+        android:background="#A9A9A9"
+        android:ems="10"
+        android:hint="  Username"
+        android:inputType="textPersonName"
+        android:lineSpacingExtra="8sp"
+        android:textColorLink="@color/colorAccent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="305dp"
+        android:layout_height="53dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="134dp" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="268dp"
+        android:background="#A9A9A9"
+        android:ems="10"
+        android:hint="  Password"
+        android:inputType="textPassword"
+        android:lineSpacingExtra="8sp" />
+
+    <Button
+        android:id="@+id/Register"
+        android:layout_width="94dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/relativeLayout3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="143dp"
+        android:background="#000000"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:background="#000000"
+        android:text="Logout"
+        android:textColor="#FFFFFF" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="92dp"
+        android:layout_height="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginBottom="189dp">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#000000"
+            android:text="Login"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+</RelativeLayout>
