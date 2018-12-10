@@ -1,4 +1,4 @@
-package com.reach.maps_page;
+package com.reach.REACH;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +25,7 @@ public class Login_Activity extends AppCompatActivity {
         Name = (EditText)findViewById(R.id.Username);
         Password = (EditText)findViewById(R.id.Password);
         Info = (TextView)findViewById(R.id.tvInfo);
-        Login = (Button)findViewById(R.id.Login);
+        Login = (Button)findViewById(R.id.login);
         Register = (Button)findViewById(R.id.Register);
         Info.setText("Number of attempts remaining: 5");
         Logout = (Button) findViewById(R.id.Logout);

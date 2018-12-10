@@ -1,8 +1,7 @@
-package com.reach.maps_page;
+package com.reach.REACH;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /**

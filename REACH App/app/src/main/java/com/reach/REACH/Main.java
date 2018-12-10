@@ -1,4 +1,4 @@
-package com.reach.maps_page;
+package com.reach.REACH;
 
 import java.util.ArrayList;
 

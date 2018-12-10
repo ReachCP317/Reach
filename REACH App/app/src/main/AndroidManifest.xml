@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.reach.maps_page">
+    package="com.reach.REACH">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -28,7 +28,7 @@
             android:value='AIzaSyByHsXjl_34vjzGdbF-_PfPVz7BuU9k1oA' />
 
         <activity
-            android:name=".GoogleMapsActivity"
+            android:name="com.reach.REACH.GoogleMapsActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

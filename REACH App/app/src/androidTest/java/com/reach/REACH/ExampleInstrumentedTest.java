@@ -1,4 +1,4 @@
-package com.reach.maps_page;
+package com.reach.REACH;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.reach.maps_page", appContext.getPackageName());
+        assertEquals("com.reach.REACH", appContext.getPackageName());
     }
 }
