@@ -143,10 +143,9 @@ public class UserController implements WebMvcConfigurer{
 		user.setPassword(new String(digest, "UTF-8"));
 		System.out.println("Password hashed = " + user.getPassword());
 		**/
-
-		//TEST:
-		//MessageDigestPasswordEncoder digest = new MessageDigestPasswordEncoder();
-		//user.setPassword(digest.encode(user.getPassword()));
+		
+		//test
+		user.setPassword("0cb4bcd33cfb20f13f5fc8fc46fecdbea4fb776f5cc50de562c06d7d15f1c347");
 		
 		int valid = db.verifyLogin(user);
 		System.out.println("Result: " + valid);

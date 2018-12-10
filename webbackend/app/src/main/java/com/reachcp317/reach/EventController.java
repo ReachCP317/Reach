@@ -1,5 +1,8 @@
 package com.reachcp317.reach;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,22 +27,40 @@ import com.reachcp317.reach.UserRepository;
 //@SessionAttributes("event")
 @Controller
 public class EventController implements WebMvcConfigurer{
+	@Autowired
+	EventRepository db;
     
-    @GetMapping("/event")
-    public String createEventForm(Model model){
-        model.addAttribute("event", new Event());
-        System.out.print("1");
-        return "event";
-    }
-    @PostMapping("/event")
-    public String createEventSubmit(@ModelAttribute Event event){
-        System.out.print("2");
-        return "result";
-    }
-    @GetMapping("/createEvent")
-    public String goToCreateEvent(Event event){
-        System.out.print("3");
-        return "createEvent";
-    }
+	/**
+	 * View an Event profile given a Event ID
+	 * @return
+	 */
+	@GetMapping("/event/{id}")
+	public String eventProfile(@PathVariable(value = "id") int id, Model model, HttpSession httpSession) {
+		Event event = new Event();
+		//TODO: Proper error page?
+		if (event == null) {
+			return "redirect:/dashboard";
+		}else {
+			System.out.println(id);
+			model.addAttribute(event);
+			return "profile";
+		}
+	}
+	
+	@GetMapping("/event")
+	public String test() {
+
+		/**
+		 * Database connection test
+		 */
+		List<Event> events = db.viewAllEventnames();
+		for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
+			Event current = iter.next();
+			System.out.println("Event: " + current.getEventID());
+		}
+		
+		return "DisplayEvent";
+	}
+	
 }
 

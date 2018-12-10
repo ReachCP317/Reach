@@ -6,8 +6,8 @@
     <title>REACH Create Event Webpage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="DisplayEvent.css" media="screen" title="no title" charset="utf-8">
-	<script src="navigatorPanel.js"></script>
+    <link rel="stylesheet" href="/DisplayEvent.css" media="screen" title="no title" charset="utf-8">
+	<script src="/navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
@@ -23,7 +23,7 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
       		<p>Username/Sign Out</p>
       	</div>
@@ -71,13 +71,13 @@ of "error" class in the css--->
           <td colspan=3>
             <div class="inputs full">
               <label id="eventName">
-              <p style="color:white" th:text="'Event Name: ' + ${eventName.id}">&nbsp</p>
-        <!-- get function --->
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Name</p>
+			  <!-- get function --->
             </div>
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <p style="color:white" th:text="'Start Date & Time: ' + ${eventStartDate.id}">&nbsp</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white"> &nbsp Start Date & Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -86,7 +86,7 @@ of "error" class in the css--->
               <div class="inputs full">
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
-                <p style="color:white" th:text="'End Date & Time: ' + ${eventEndDate.id}">&nbsp</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp End Date & Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -95,13 +95,13 @@ of "error" class in the css--->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="color:white" th:text="'Capacity: ' + ${eventCapacity.id}">&nbsp</p>eventDescription
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Capacity</p>
 			  <!-- get function --->
             </div>
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <p style="color:white" th:text="'Event Description: ' + ${eventDescription.id}">&nbsp</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white;" for="eventDescription" title="Enter a brief description of your event for your guests">&nbsp Event Description</p>
             </div>
           </td>
 
@@ -110,7 +110,7 @@ of "error" class in the css--->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="color:white" th:text="'Event Type: ' + ${eventType.id}">&nbsp Event Type</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Type</p>
 			  <!-- get function --->
             </div>
           </td>
@@ -118,13 +118,15 @@ of "error" class in the css--->
 
         <tr>
           <td colspan=3>
-              <p style="color:white">&nbsp Days Left</p>
+              <p style="border-bottom: 1px solid #FFFFFF; margin-bottom:100px;color:white">&nbsp Days Left</p>
 			  <!-- get function --->
           </td>
         </tr>
 
       </tbody>
     </table>
+	<br>
+	<button id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
       </div>
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">

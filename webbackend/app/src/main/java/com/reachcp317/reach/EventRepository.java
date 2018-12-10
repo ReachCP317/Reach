@@ -31,17 +31,16 @@ public class EventRepository{
 
 		@Override
 		public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Event event = new Event(rs.getInt("eventID"));
+			Event event = new Event(rs.getInt("eventID"), rs.getInt("hostID"));
 			//event.setName(rs.getString("eventName"));
 			//event.setTotallnterested(rs.getInt("totalInterested"));
 			//event.setEventType(rs.getArray("eventType"));
-			event.setUserID(rs.getInt("userID"));
 			event.setAddress(rs.getString("address"));
-			event.setDesciption(rs.getString("desc"));
-			event.setLatitude(rs.getDouble("lat"));
-			event.setLongitude(rs.getDouble("lon"));
-			event.setStartTime(rs.getDate("start"));
-			event.setEndTime(rs.getDate("end"));
+			event.setDescription(rs.getString("description"));
+			event.setLatitude(rs.getDouble("latitude"));
+			event.setLongitude(rs.getDouble("longitude"));
+			event.setStartTime(rs.getDate("startDate"));
+			event.setEndTime(rs.getDate("endDate"));
 			event.setCapacity(rs.getInt("capacity"));
 			//event.setEventRange(rs.getInt("eventRange"));
 			return event;		

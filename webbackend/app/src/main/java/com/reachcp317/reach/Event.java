@@ -54,6 +54,7 @@ public class Event {
 
 	/**
 	 * The total number of users interested in going to the event.
+	 * Not being used
 	 */
 	private int totallnterested;
 
@@ -79,7 +80,9 @@ public class Event {
 	/**
 	 * The range the event wants to reach
 	 */
-	private int eventRange;
+	private double eventRange;
+	
+	int days;
 
 	/**
 	 * The constructor for the Event class.
@@ -94,7 +97,7 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public void Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID, int eventRange) {
+	public Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID, double eventRange) {
 		// TODO implement here
 		this.name = name;
 		this.description = description;
@@ -106,15 +109,16 @@ public class Event {
 		this.capacity = capacity;
 		this.eventType = eventType;
 		this.userID = userID;
-		this.eventRange;
+		this.eventRange = eventRange;
 
 	}
 	/**
 	 * Basic Event object initialization
 	 * @param id
 	 */
-	public Event(int id) {
-		this.eventID = id;
+	public Event(int eventID, int userID) {
+		this.eventID = eventID;
+		this.userID = userID;
 	}
 	/**
 	 * Gets the name of an event.
@@ -129,7 +133,7 @@ public class Event {
 	 * @return
 	 */
 
-	public String getDesrciption() {
+	public String getDescription() {
 		return this.description;
 	}
 
@@ -209,15 +213,19 @@ public class Event {
 	 * Gets the event range
 	 * @return 
 	 */
-	public int getEventRange() {
+	public double getEventRange() {
 		return this.eventRange;
+	}
+	
+	public int getDays() {
+		return this.days;
 	}
 
 	/**
 	 * Sets the range of the event.
 	 * @param name
 	 */
-	public void setEventRange(int eventRange) {
+	public void setEventRange(double eventRange) {
 		this.eventRange = eventRange;
 	}
 
@@ -233,7 +241,7 @@ public class Event {
 	 * Sets the description of the event
 	 * @param description
 	 */
-	public void setDesciption(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -300,22 +308,11 @@ public class Event {
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
 	}
-
-	/**
-	 * Sets the ID of the user who is hosting/creating the party in the database.
-	 * @param userID The ID of the user who is hosting/creating the party.
-	 */
-	public void setUserID(int userID) {
-		this.userID = userID;
+	
+	public void setDays(int days) {
+		this.days = days;
 	}
 
-	/**
-	 * Sets the event ID in the database.
-	 * @param eventID the new id for the event.
-	 */
-	public void setEventID(int evnetID) {
-		this.eventID = eventID;
-	}
 
 	/**
 	 * Provides details on an event.
