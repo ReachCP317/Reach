@@ -23,7 +23,7 @@ public class EventRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 /**
-	 * Populates a Event object with data; database test
+	 * Populates an Event object with data; database test
 	 * @author James Robertson
 	 *
 	 */
