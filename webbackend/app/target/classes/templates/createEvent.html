@@ -24,7 +24,7 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
       		<p>Username/Sign Out</p>
       	</div>
@@ -44,9 +44,9 @@ to do for it lol.
 </div>
 
   <div class="jumbotron">
+    <form action="#" class="form-inline" th:action="@{createEvent}" th:object="${event}" method="POST" id="eventForm">
     <div class="container" id="headings" >
-    <form action="#" class="form-inline" th:action="@{event}" th:object="${event}" method="POST" id="eventForm">
-
+   
       <span id="titleBar">
       <h1><strong>Host Event</strong></h1>
 <!--- we'll need to put the error message here as an "a" or "h-" tag or something
@@ -90,7 +90,7 @@ of "error" class in the css --->
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker3'
+                <input id="eventStartDate" th:value="*{startTime}" type='text' class="form-control" name='datetimepicker3'
                 title="Select the date for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker3">Start Date &#38; Time</label>
               </div>
@@ -101,7 +101,7 @@ of "error" class in the css --->
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker4'
+                <input id="eventEndDate" th:value="*{endTime}" type='text' class="form-control" name='datetimepicker4'
                  title="Select the time for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker4">End Date &#38; Time</label>
               </div>
@@ -111,13 +111,13 @@ of "error" class in the css --->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="eventCapacity"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
+              <input id="eventCapacity" th:field="*{capacity}"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
               <label for="capacity">Capacity</label>
             </div>
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label id="eventDescriptionLabel" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <label id="eventDescriptionLabel" th:field="*{description}" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
               <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
 
             </div>
@@ -128,7 +128,7 @@ of "error" class in the css --->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input type="text" id="eventType" title="Select all options that apply to your event" placeholder=" ">
+              <input type="text" id="eventType" th:field="*{eventType}" title="Select all options that apply to your event" placeholder=" ">
               <label for="eventType">Event Type</label>
             </div>
           </td>
@@ -137,8 +137,8 @@ of "error" class in the css --->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <select id="eventDays" title="Select the maximum amount of days your event will be visible">
-                <option disabled selected>Select your option</option>
+              <select id="eventDays" th:field="*{days}" title="Select the maximum amount of days your event will be visible">
+                <option value="0" disabled selected>Select your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -170,7 +170,7 @@ of "error" class in the css --->
   </div>
     <div class="navbar navbar-light bg-light" style="margin-bottom:0pxf" id="bottomNavbar">
       <span id="reachLogo">
-        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>
@@ -192,11 +192,11 @@ of "error" class in the css --->
      </body>
 	 
 	 
-  <script src="/createEvent.js"></script>
+  <script 	src="/createEvent.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script>
 	
-  <script src="moment.js"></script>
-      <script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
+  <script src="/moment.js"></script>
+      <script type="text/javascript" src="/bootstrap-datetimepicker.min.js"></script>
       <script type="text/javascript">
           $(function () {
               $('[name=datetimepicker3]').datetimepicker();

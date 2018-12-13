@@ -22,8 +22,9 @@ import org.springframework.jdbc.core.JdbcOperations;
 public class EventRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-/**
-	 * Populates a Event object with data; database test
+
+	/**
+	 * Populates an Event object with data; database test
 	 * @author James Robertson
 	 *
 	 */
@@ -32,7 +33,7 @@ public class EventRepository{
 		@Override
 		public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Event event = new Event(rs.getInt("eventID"), rs.getInt("hostID"));
-			//event.setName(rs.getString("eventName"));
+			//event.setName(rs.getString("name"));
 			//event.setTotallnterested(rs.getInt("totalInterested"));
 			//event.setEventType(rs.getArray("eventType"));
 			event.setAddress(rs.getString("address"));
@@ -63,5 +64,10 @@ public class EventRepository{
 	public Event getById(int id) {
 		Event event = this.jdbcTemplate.queryForObject("SELECT * FROM event WHERE eventID = ?", new Object[] {id}, new EventMapper());
 		return event;
+	}
+	
+	//TODO: add selection by radius
+	public List<Event> getMapMarkers() {
+		return this.jdbcTemplate.query("SELECT * FROM event", new EventMapper());
 	}
 }

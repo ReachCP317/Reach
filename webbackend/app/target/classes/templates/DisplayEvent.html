@@ -25,7 +25,8 @@ to do for it lol.
       <div id="Banner">
       		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p>Username/Sign Out</p>
+      		<!-- TODO: proper logout link--->
+			<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
@@ -33,8 +34,8 @@ to do for it lol.
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
       			<a href="https://www.google.com" id="search">Search</a>
-      			<a href="#" id="create">Create&nbsp;Event</a>
-      			<a href="#" id="profile">Profile</a>
+      			<a href="createEvent" id="create">Create&nbsp;Event</a>
+      			<a href="profile" id="profile">Profile</a>
       			<script> pageSettings() </script>
       		</span>
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>

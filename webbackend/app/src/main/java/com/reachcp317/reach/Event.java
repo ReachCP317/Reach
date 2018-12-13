@@ -2,7 +2,7 @@ package com.reachcp317.reach;
 
 import java.util.*;
 
-import com.sun.xml.internal.bind.v2.model.core.NonElement;
+//import com.sun.xml.internal.bind.v2.model.core.NonElement;
 
 import com.reachcp317.reach.User;
 
@@ -128,11 +128,19 @@ public class Event {
 		return this.name;
 	}
 
+
+	/**
+	 * Gets the address of an event
+	 * @return
+	 */
+	public String getAddress() {
+		return this.address;
+	}
+
 	/**
 	 * Gets the description of the event
 	 * @return
 	 */
-
 	public String getDescription() {
 		return this.description;
 	}

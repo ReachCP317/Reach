@@ -1,6 +1,7 @@
 package com.reachcp317.reach;
 
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,12 +31,12 @@ public class EventTest {
 	public Double latitude = 31.0;
 		/*Dates are assigned in the setUp function */
 	public int capacity = 20;
-	public ArrayList<String> eventType = null;
+	public String eventType = "none";
 	public int userID = 999999999;
+	public double range = 1.0;
 	
 	@BeforeTest
 	public void setUp() throws ParseException{ //using dateformat parse requires try/catch or throwing an exception
-		evnt = new Event();
 
 		// Convert string to date
         SimpleDateFormat dateformat1 = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
@@ -46,11 +47,11 @@ public class EventTest {
         Date date1 = dateformat1.parse(strdate1);
         Date date2 = dateformat1.parse(strdate2);
         
-        //create an event object to test using the additional constructor
-        //note ArrayList<String> eventType is given a null value here - this should not stay that way
-        evnt.Event(name, description,address, longitude, latitude,
-				date1, date2, capacity, null, userID);
+		evnt = new Event(name, description,address, longitude, latitude,
+				date1, date2, capacity, eventType, userID, range);//*/
+        
 
+       
 	}
 	
 	/*
@@ -94,6 +95,14 @@ public class EventTest {
 	}
 	
 	@Test
+	public void getEventType_Returns_EventType() {
+		final String expected = eventType;
+		final String actual = evnt.getEventType();
+		
+		Assert.assertEquals(actual, expected);
+	}
+	
+	@Test
 	public void getUserID_Returns_userID() {
 		final int expected = userID;
 		final int actual = evnt.getUserID();
@@ -101,7 +110,14 @@ public class EventTest {
 		Assert.assertEquals(actual, expected);
 	}
 	
-	/*TODO add more tests as Event makes progress*/
+	@Test
+	public void getEventRange_Returns_Range() {
+		final double expected = range;
+		final double actual = evnt.getEventRange();
+		
+		Assert.assertEquals(actual, expected);
+	}
+	
 	
 	@AfterTest
 	public void tearDown() {

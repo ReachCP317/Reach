@@ -84,10 +84,7 @@ public class UserRepository{
 			user = null;
 		}
 		
-		return user;
-		
-		//User user = this.jdbcTemplate.query("SELECT * FROM user WHERE userID = ?", new Object[] {id}, new UserMapper());
-		
+		return user;		
 	}
 	
 	public String getPasswordTest() {
@@ -126,12 +123,11 @@ public class UserRepository{
 	}
 	
 	//TODO: Should I pass a user object to these methods? Should probably just send parameters
-	public boolean createUser(User user) {
-		boolean success = true;
+	public int createUser(User user) {
+		int success = 0;
 		int update = 0;
 		
-		//check if an account with the given email already exists
-		//TODO: check for both an email and a username? Only check for username?
+		//TODO: check for both an email and a username? Only check for username? Are usernames unique?
 		try {
 			this.jdbcTemplate.queryForObject("SELECT email FROM user WHERE userName = ?"
 					, new Object[] {user.getUsername()}, String.class);
@@ -142,9 +138,11 @@ public class UserRepository{
 			update = this.jdbcTemplate.update("INSERT INTO user (email, pwd, userName) VALUES(?, ?, ?)",
 					new Object[] {user.getEmail(), user.getPassword(), user.getUsername()});
 		}finally {
-			//if no change was made to the database, user creation failed
-			if (update == 0) {
-				success = false;
+			//if no change was made to the database, user creation failed; otherwise, retrieve new User ID
+			if (update == 1) {
+				success = getID(user);
+			}else {
+				success = -1;
 			}
 		}
 		
@@ -156,7 +154,6 @@ public class UserRepository{
 	 * @param user
 	 * @return
 	 */
-	//TODO: Should this get called in createUser instead of the Controller?
 	public int getID(User user) {
 		int id = this.jdbcTemplate.queryForObject("SELECT userID FROM user WHERE userName = ?"
 				, new Object[] {user.getUsername()}, Integer.class);

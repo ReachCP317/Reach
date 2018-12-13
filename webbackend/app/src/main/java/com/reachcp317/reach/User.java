@@ -7,6 +7,8 @@ import java.util.*;
  * @author Morgenne Besenschek (implementation), James Robertson (UML export)
  *
  */
+//TODO: Clean up, figure out what actually needs to be here, what actually needs setters, etc.
+//TODO: Should User be split? UserLogin + UserInfo? hmm
 public class User {
 
 	/**

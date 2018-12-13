@@ -53,32 +53,12 @@ public class UserController implements WebMvcConfigurer{
 		
 	}
 	
-	@GetMapping("/main")
-	public String main(){
-		return "index";
-	}
-	
 	@GetMapping("/index")
 	public String mainPage(HttpSession httpSession) {
 		if (checkSession(httpSession)) {
 			return "redirect:/dashboard";
 		}else {
 			return "index";
-		}
-	}
-	
-	/**
-	 * Dashboard page. If User is not logged in, redirect to the index page
-	 * @return
-	 */
-	@GetMapping("/dashboard")
-	public String dashboardPage(Model model, HttpSession httpSession) {
-		if (!checkSession(httpSession)) {
-			return "redirect:/index";
-		}else {
-			model.addAttribute(httpSession);
-			System.out.println("Does this Work?" + httpSession.getAttribute("username"));
-			return "dashboard";
 		}
 	}
 	
@@ -133,7 +113,17 @@ public class UserController implements WebMvcConfigurer{
 			System.out.println("This is a username.");
 			//if db
 		}
-		//hashes password
+		
+		//hashes password before comparing with the database
+		MessageDigest mDigest;
+		String hashCode ="";
+		StringBuffer sb = new StringBuffer();
+		mDigest = MessageDigest.getInstance("SHA-256");
+		byte[] result = mDigest.digest(user.getPassword().getBytes());
+		for (int i = 0; i < result.length; i++) {
+			sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+		}
+		user.setPassword(sb.toString());
 		
 		/**
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -145,8 +135,9 @@ public class UserController implements WebMvcConfigurer{
 		**/
 		
 		//test
-		user.setPassword("0cb4bcd33cfb20f13f5fc8fc46fecdbea4fb776f5cc50de562c06d7d15f1c347");
+		//user.setPassword("0cb4bcd33cfb20f13f5fc8fc46fecdbea4fb776f5cc50de562c06d7d15f1c347");
 		
+		//returns valid User ID if login info matches a User in the database
 		int valid = db.verifyLogin(user);
 		System.out.println("Result: " + valid);
 		if (valid > 0) {
@@ -185,20 +176,21 @@ public class UserController implements WebMvcConfigurer{
 	@PostMapping("/createAccount")
 	//TODO: Proper error handling, save username in box if a user creation error occurs
 	public String checkNewAccount(User user, HttpSession httpSession) {
-		//password and confirm password boxes did not match
 		System.out.println("User = " + user.getUsername());
+		//password and confirm password boxes did not match
 		if (user.getPassword().compareTo(user.getPasswordConfirm()) != 0) {
 			//TODO: should I be dummying out the passwords here for security purposes?
 			return "redirect:/createAccount";
 		}else {
-			boolean createSuccess = db.createUser(user);
+			//returns a valid User ID if the account is made
+			int createSuccess = db.createUser(user);
 			//boolean createSuccess = true;
-			if (!createSuccess) {
+			if (createSuccess <= 0) {
 				return "redirect:/createAccount";
 			}
 			else{
 				httpSession.setAttribute("username", user.getUsername());
-				//TODO: set ID?
+				httpSession.setAttribute("userID", createSuccess);
 				return "redirect:/dashboard";
 			}
 
@@ -241,6 +233,8 @@ public class UserController implements WebMvcConfigurer{
 			return "redirect:/index";
 		}else {
 			//retrieve logged in User's profile
+			User user = db.getById((int) httpSession.getAttribute("userID"));
+			model.addAttribute(user);
 			return "profile";
 		}
 	}

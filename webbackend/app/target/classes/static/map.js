@@ -149,12 +149,22 @@ function showPosition(position) {
   map = new google.maps.Map(document.getElementById("mapPanel"), mapOptions);
   //directionsDisplay.setMap(map);
 
+
   var user = new google.maps.Marker({
     position: latlon,
     map: map,
     title: "You are Here!",
     icon: '/person_marker.png'
   });
+  
+  for (var i = 0; i < eventInfo.length; i++){
+    var marker = new google.maps.Marker({  
+      position: new google.maps.LatLng(eventInfo[i].lat, eventInfo[i].long),
+      map: map,
+      title: 'temp',
+      icon: '/party_popper_map.png'
+    });
+  }
 
   //tester marker using pub on king
   var pub = new google.maps.Marker({
@@ -163,7 +173,6 @@ function showPosition(position) {
     title: 'Desination',
     icon: '/party_popper_map.png'
   });
-
 
 }
 
