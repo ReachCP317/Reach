@@ -1,0 +1,4 @@
+In app/target, you'll find Reach.jar. Look up how to run jar files through command prompt or terminal. 
+When you're done, hit Ctrl+C (or Cmd+C?) in your command line.
+You could run it by double clicking, but trying to kill the process is more of a pain this way.
+Once the app has started running, in your browser of choice, visit localhost:8080.

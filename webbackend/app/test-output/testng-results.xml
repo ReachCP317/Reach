@@ -1,161 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="3" total="4" passed="1">
+<testng-results skipped="0" failed="3" ignored="0" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="94" started-at="2018-12-13T05:29:21Z" finished-at="2018-12-13T05:29:21Z">
+  <suite name="Default suite" duration-ms="73" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="94" started-at="2018-12-13T05:29:21Z" finished-at="2018-12-13T05:29:21Z">
+    <test name="Default test" duration-ms="73" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
       <class name="com.reachcp317.reach.UserRepositoryTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="setUp" is-config="true" duration-ms="12" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="setUp" is-config="true" duration-ms="10" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="createUser_Returns_Success()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="createUser_Returns_Success" duration-ms="8" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="PASS" signature="createUser_Returns_Success()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="createUser_Returns_Success" duration-ms="4" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createUser_Returns_Success -->
-        <test-method status="FAIL" signature="getByID_throwsException_withBadInput()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="getByID_throwsException_withBadInput" duration-ms="8" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="FAIL" signature="getByID_throwsException_withBadInput()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="getByID_throwsException_withBadInput" duration-ms="8" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <exception class="org.testng.TestException">
             <message>
               <![CDATA[
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException]]>
+Expected exception of type class org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
-	at org.testng.internal.Invoker.handleInvocationResults(Invoker.java:1497)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1245)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
-	at org.testng.internal.Invoker.handleInvocationResults(Invoker.java:1497)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:754)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	... 16 more
+Expected exception of type class org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
+at org.testng.internal.ExpectedExceptionsHolder.wrongException(ExpectedExceptionsHolder.java:68)
+at org.testng.internal.Invoker.considerExceptions(Invoker.java:1129)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:612)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: java.lang.NullPointerException
-	at com.reachcp317.reach.UserRepository.getById(UserRepository.java:80)
-	at com.reachcp317.reach.UserRepositoryTest.getByID_throwsException_withBadInput(UserRepositoryTest.java:31)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	... 18 more
+at com.reachcp317.reach.UserRepository.getById(UserRepository.java:80)
+at com.reachcp317.reach.UserRepositoryTest.getByID_throwsException_withBadInput(UserRepositoryTest.java:31)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+... 19 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.testng.TestException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getByID_throwsException_withBadInput -->
-        <test-method status="FAIL" signature="verifyLogin_detects_non_user()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="verifyLogin_detects_non_user" duration-ms="5" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="FAIL" signature="verifyLogin_detects_non_user()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="verifyLogin_detects_non_user" duration-ms="6" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at com.reachcp317.reach.UserRepository.verifyLogin(UserRepository.java:106)
-	at com.reachcp317.reach.UserRepositoryTest.verifyLogin_detects_non_user(UserRepositoryTest.java:39)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at com.reachcp317.reach.UserRepository.verifyLogin(UserRepository.java:106)
+at com.reachcp317.reach.UserRepositoryTest.verifyLogin_detects_non_user(UserRepositoryTest.java:39)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin_detects_non_user -->
-        <test-method status="FAIL" signature="verifyLogin_throwsException_withBadInput()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="verifyLogin_throwsException_withBadInput" duration-ms="5" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="FAIL" signature="verifyLogin_throwsException_withBadInput()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="verifyLogin_throwsException_withBadInput" duration-ms="4" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <exception class="org.testng.TestException">
             <message>
               <![CDATA[
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException]]>
+Expected exception of type class org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
-	at org.testng.internal.Invoker.handleInvocationResults(Invoker.java:1497)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1245)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.testng.TestException: 
-Expected exception org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
-	at org.testng.internal.Invoker.handleInvocationResults(Invoker.java:1497)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:754)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	... 16 more
+Expected exception of type class org.springframework.dao.EmptyResultDataAccessException but got java.lang.NullPointerException
+at org.testng.internal.ExpectedExceptionsHolder.wrongException(ExpectedExceptionsHolder.java:68)
+at org.testng.internal.Invoker.considerExceptions(Invoker.java:1129)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:612)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: java.lang.NullPointerException
-	at com.reachcp317.reach.UserRepository.verifyLogin(UserRepository.java:107)
-	at com.reachcp317.reach.UserRepositoryTest.verifyLogin_throwsException_withBadInput(UserRepositoryTest.java:49)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	... 18 more
+at com.reachcp317.reach.UserRepository.verifyLogin(UserRepository.java:107)
+at com.reachcp317.reach.UserRepositoryTest.verifyLogin_throwsException_withBadInput(UserRepositoryTest.java:49)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+... 19 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.testng.TestException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin_throwsException_withBadInput -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@5f341870]" name="tearDown" is-config="true" duration-ms="1" started-at="2018-12-13T00:29:21Z" finished-at="2018-12-13T00:29:21Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.reachcp317.reach.UserRepositoryTest@4e1d422d]" name="tearDown" is-config="true" duration-ms="5" started-at="2018-12-13T05:39:44Z" finished-at="2018-12-13T05:39:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
