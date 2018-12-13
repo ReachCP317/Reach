@@ -55,7 +55,7 @@ public class UserRepositoryTest {
 	@Test
 	public void createUser_Returns_Success() {
 		user = new User(0,"test name", "test@email.com", "testPassword");
-		
+
 		//Boolean condition = uRep.createUser(user);
 		
 		//Assert.assertTrue(condition);

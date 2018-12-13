@@ -22,7 +22,7 @@ import org.springframework.jdbc.core.JdbcOperations;
 public class EventRepository{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
+	
 	/**
 	 * Populates an Event object with data; database test
 	 * @author James Robertson
