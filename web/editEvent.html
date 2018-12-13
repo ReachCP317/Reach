@@ -1,0 +1,206 @@
+<!--
+authors: Bethel Adaghe
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>REACH Create Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="createEvent.css" media="screen" title="no title" charset="utf-8">
+	
+  </head>
+  <body>
+
+<div id="userInfo" hidden>
+
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+      		<p>Username/Sign Out</p>
+      	</div>
+      	<div id="BodyPanel">
+      		<!-- Code for navigation menu --->
+      		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed;">
+      			<a class="closeButton" onclick="closeNav()">&times;</a>
+      			<!--- href set to "#" until all webpages have been created and can be set properly--->
+      			<a href="dashboard.html" id="search">Search</a>
+      			<a id="create">Create&nbsp;Event</a>
+      			<a href="profilePage.html" id="profile">Profile</a>
+
+      		</span>
+
+      		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+      		<!-- End of code for navigation menu --->
+</div>
+
+  <div class="jumbotron">
+    <div class="container" id="headings" >
+    <form action="#" method="#" id="signInForm" class="form-inline">
+
+      <span id="titleBar">
+      <h1><strong>Host Event</strong></h1>
+
+      </span>
+      <!-- testing for the location input box................ --->
+      <div id="locationContainer" style="border-top:4px solid #FF6E83">
+          <div class="inputs form-group half">
+            <input id="eventLocation" type="text" placeholder="Ex. 75 University Ave W, N2L 3C5"/>
+            <label for="eventLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
+          </div>
+          <div class="inputs form-group half">
+            <select id="eventRange">
+                <option value="" disabled selected>Select your option</option>
+                <option>0.5</option>
+                <option>1</option>
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>Unlimited</option>
+            </select>
+            <label>Range (km)</label>
+          </div>
+      </div>
+      <!-- ................................................. --->
+      <!--- https://codepen.io/legeoffrey/pen/VYMLNq --->
+      </form>
+    </div>
+
+      <div id="createEvent">
+        <table id="eventInfo">
+      <tbody>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <input id="eventName" type="text" title="Enter the name of your event" placeholder=" ">
+              <label for="eventName">Event Name</label>
+            </div>
+          </td>
+            <td colspan=1>
+              <div class="inputs full">
+                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker3'
+                title="Select the date for your event" style="border-radius: 0" placeholder=" " />
+                <label for="datetimepicker3">Start Date &#38; Time</label>
+              </div>
+            </td>
+
+            <td colspan=1>
+              <div class="inputs full">
+                <!---<input id="eventTime"  type="time" placeholder=" ">
+                --->
+
+                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker4'
+                 title="Select the time for your event" style="border-radius: 0" placeholder=" " />
+                <label for="datetimepicker4">End Date &#38; Time</label>
+              </div>
+            </td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <input id="eventCapacity"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
+              <label for="capacity">Capacity</label>
+            </div>
+          </td>
+          <td colspan=2 rowspan=3>
+            <div class="inputs full">
+              <label id="eventDescriptionLabel" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
+
+            </div>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <input type="text" id="eventType" title="Select all options that apply to your event" placeholder=" ">
+              <label for="eventType">Event Type</label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <select id="eventDays" title="Select the maximum amount of days your event will be visible">
+                <option value="" disabled selected>Select your option</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+              </select>
+              <label for="eventDays" >Post for (days)</label>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+      </div>
+
+
+
+<div class="form-group row">
+      <button id="submitButton" onclick="eventSubmit()" class="submitBtn col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-12 col-xs-12"><strong>Submit</strong></button>
+  </div>
+  </div>
+    <div class="navbar navbar-light bg-light" style="margin-bottom:0pxf" id="bottomNavbar">
+      <span id="reachLogo">
+        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </div>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     </body>
+	 
+	 
+  <script src="createEvent.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script>
+	
+  <script src="moment.js"></script>
+      <script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
+      <script type="text/javascript">
+          $(function () {
+              $('[name=datetimepicker3]').datetimepicker();
+          });
+          $(function () {
+              $('[name=datetimepicker4]').datetimepicker();
+          });
+
+
+      </script>
+      <script> document.onload = pageSettings(); </script>
+</html>
