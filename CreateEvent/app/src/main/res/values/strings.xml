@@ -1,4 +1,27 @@
-<resources>
-    <string name="app_name">CreateEvent</string>
-    <string name="action_settings">Settings</string>
+<?xml version="1.0"?>
+
+-<resources>
+
+<string name="Reach">CreateEventPage</string>
+
+<string name="action_settings">Settings</string>
+
+<string name="create_event">Create Event</string>
+
+<string name="Days_Left">Days Left:</string>
+
+<string name="Description">Description</string>
+
+<string name="Event_Name">Event Name:</string>
+
+<string name="Address">Address:</string>
+
+<string name="Start_Date_And_Time">Start date and time:</string>
+
+<string name="End_Date_And_Time">End date and time:</string>
+
+<string name="Done">Done</string>
+
+<string name="Capacity">Capacity:</string>
+
 </resources>
