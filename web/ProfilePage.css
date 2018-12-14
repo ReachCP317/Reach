@@ -123,7 +123,7 @@ top: 50%;
 -ms-transform: translateY(-50%);
 transform: translateY(-50%);
 }
-#usertInfo{
+#userInfo{
   width:100%;
   margin:0;
   background-color: rgba(0,0,0,0.9);
@@ -138,16 +138,16 @@ tr {
   border-spacing: 10px;
   padding: 17px;
 }
-#usertInfo td {
+#userInfo td {
   width: 16.6666666%;
   vertical-align: middle;
   text-align: left;
   padding: 0; 
 }
-#usertInfo tr {
+#userInfo tr {
   height: 3em
 }
-#usertInfo tr {
+#userInfo tr {
   height: 3em
 }
 #submitButton{
