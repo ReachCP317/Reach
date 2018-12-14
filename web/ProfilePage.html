@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="ProfilePage.css" media="screen" title="no title" charset="utf-8">
+		<!---Code needed for navigation menu--->
+	<script src="navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
   </head>
   <body>
  
@@ -19,6 +22,18 @@
       		<p>Username/Sign Out</p>
       	</div>
 		
+	<div id="BodyPanel">
+		<!-- Code for navigation menu --->
+		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+			<a class="closeButton" onclick="closeNav()">&times;</a>
+			<!--- href set to "#" until all webpages have been created and can be set properly--->
+			<a href="#" id="search">Search</a>
+			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+			<a href="#" id="profile">Profile</a>
+			<script> pageSettings() </script>
+		</span>
+		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+		<!-- End of code for navigation menu --->
 
 	  <div class="jumbotron">
 		<div class="container" id="headings" >

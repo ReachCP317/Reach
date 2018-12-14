@@ -114,7 +114,12 @@ body{
   width:100px;
 }
 #bottomNavbar{
-  background-color: black;
+
+position: fixed;
+
+width:100%;
+Bottom:0;
+background-color: black;
 }
 #navbarContent{
   margin: 0;
@@ -130,9 +135,7 @@ transform: translateY(-50%);
   position: relative;
   left: 5px;
 }
-table,
-th,
-td,
+
 tr { 
   border-collapse: collapse;
   border-spacing: 10px;
@@ -162,3 +165,39 @@ p{
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
 }
+.slidecontainer {
+  border-radius: 15px 15px 0px 0px;
+  background-color: #12171F;
+
+  padding-top: 20px;
+}
+
+.nearbyEvents {
+  background-color: #38414E;
+  height=100%;
+}
+
+input {
+  border-radius: 15px;
+  color: #FFFFFF;
+  background-color: #242f3E;
+  border: none;
+}
+
+.slider {
+  -webkit-appearance: none;
+  background: #38414E;
+  outline: none;
+  height: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  background: #242f3E;
+  width: 10px;
+  height: 20px;
+  border-radius: 25px;
+}
+
