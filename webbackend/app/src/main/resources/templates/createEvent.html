@@ -56,7 +56,7 @@ of "error" class in the css --->
       <!-- testing for the location input box................ --->
       <div id="locationContainer" style="border-top:4px solid #FF6E83">
           <div class="inputs form-group half">
-            <input id="eventLocation" type="text" placeholder="Ex. 75 University Ave W, N2L 3C5"/>
+            <input id="eventLocation" th:field="*{address}" type="text" placeholder="Ex. 75 University Ave W, N2L 3C5"/>
             <label for="eventLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
           </div>
           <div class="inputs form-group half">
@@ -84,7 +84,7 @@ of "error" class in the css --->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="eventName" type="text" title="Enter the name of your event" placeholder=" ">
+              <input id="eventName" th:field="*{name}" type="text" title="Enter the name of your event" placeholder=" ">
               <label for="eventName">Event Name</label>
             </div>
           </td>
@@ -101,7 +101,8 @@ of "error" class in the css --->
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input id="eventEndDate" th:value="*{endTime}" type='text' class="form-control" name='datetimepicker4'
+                <input id="eventEndDate" th:field="*{endTime}" th:value="*{endTime}" type='text' class="form-control" name='datetimepicker4'
+                
                  title="Select the time for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker4">End Date &#38; Time</label>
               </div>
@@ -191,9 +192,9 @@ of "error" class in the css --->
 
      </body>
 	 
-	 
-  <script 	src="/createEvent.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script>
+  <script src="/createEvent.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script> -->
+  
 	
   <script src="/moment.js"></script>
       <script type="text/javascript" src="/bootstrap-datetimepicker.min.js"></script>

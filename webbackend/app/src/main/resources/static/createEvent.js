@@ -15,9 +15,9 @@ function pageSettings() {
     document.getElementById("create").style.color = "#FF6E83";
   }
 }
-
+/*
 function eventSubmit(){
-  var location = getCoordinates();
+  getCoordinates();
   var range = document.getElementById("eventRange").value;
   var name = document.getElementById("eventName").value;
   var startDateTime = document.getElementById("eventStartDate").value;
@@ -58,13 +58,21 @@ function initialize(){
 
 function getCoordinates() {
 var address = document.getElementById('eventLocation').value;
-var coordinates;
+var latitude;
+var longitude;
  geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == 'OK') {
-        coordinates = results[0].geometry.location;
+        latitude = results[0].geometry.location.lat();
+        longitude = results[0].geometry.location.long();
+        
+        var latOutput = document.getElementById('eventLat')
+		latOutput.innerHTML = 4;
+		var longOutput = document.getElementById('eventLong')
+		longOutput.innerHTML = 3;
+		
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
-	return coordinates;
-  }
+*/
+}

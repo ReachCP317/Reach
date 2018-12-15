@@ -6,8 +6,8 @@
     <title>REACH Create Event Webpage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/DisplayEvent.css" media="screen" title="no title" charset="utf-8">
-	<script src="/navigatorPanel.js"></script>
+    <link rel="stylesheet" href="DisplayEvent.css" media="screen" title="no title" charset="utf-8">
+	<script src="navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
@@ -23,19 +23,18 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard.html"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<!-- TODO: proper logout link--->
-			<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+      		<p>Username/Sign Out</p>
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
       		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
-      			<a href="https://www.google.com" id="search">Search</a>
-      			<a href="createEvent" id="create">Create&nbsp;Event</a>
-      			<a href="profile" id="profile">Profile</a>
+      			<a href="dashboard.html" id="search">Search</a>
+      			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+      			<a href="ProfilePage.html" id="profile">Profile</a>
       			<script> pageSettings() </script>
       		</span>
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -132,7 +131,7 @@ of "error" class in the css--->
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
+        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"><a/>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>

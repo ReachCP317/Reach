@@ -28,12 +28,12 @@ public class Event {
 	private String name;
 
 	/**
-	 * Descripton of event.
+	 * Description of event.
 	 */
 	private String description;
 
 	/**
-	 * Latititude of event.
+	 * Latitude of event.
 	 */
 	private double latitude;
 
@@ -45,21 +45,15 @@ public class Event {
 	/**
 	 * The time the event begins.
 	 */
-	private Date startTime;
+	private String startTime;
 
 	/**
 	 * The time the event ends.
 	 */
-	private Date endTime;
+	private String endTime;
 
 	/**
-	 * The total number of users interested in going to the event.
-	 * Not being used
-	 */
-	private int totallnterested;
-
-	/**
-	 * The events street number.
+	 * The event's street address.
 	 */
 	private String address;
 
@@ -77,6 +71,7 @@ public class Event {
 	 * The ID of the user who is hosting/creating the party.
 	 */
 	private int userID;
+	
 	/**
 	 * The range the event wants to reach
 	 */
@@ -97,7 +92,7 @@ public class Event {
 	 * @param eventType A string array of event types.
 	 * @param userID The ID of the user who is hosting/creating the party.
 	 */
-	public Event(String name, String description, String address, double latitude, double longitude, Date startTime, Date endTime, int capacity, String eventType, int userID, double eventRange) {
+	public Event(String name, String description, String address, double latitude, double longitude, String startTime, String endTime, int capacity, String eventType, int userID, double eventRange) {
 		// TODO implement here
 		this.name = name;
 		this.description = description;
@@ -165,7 +160,7 @@ public class Event {
 	 * Gets the time the event begins.
 	 * @return
 	 */
-	public Date getStartTime() {
+	public String getStartTime() {
 		return this.startTime;
 	}
 
@@ -173,16 +168,8 @@ public class Event {
 	 * Gets the time the event ends.
 	 * @return
 	 */
-	public Date getEndTime() {
+	public String getEndTime() {
 		return this.endTime;
-	}
-
-	/**
-	 * Gets the total number of users interested in going to the event.
-	 * @return
-	 */
-	public int getTotallnterested() {
-		return this.totallnterested;
 	}
 
 	/**
@@ -281,7 +268,7 @@ public class Event {
 	 * Sets the start time of the event.
 	 * @param startTime
 	 */
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
@@ -289,16 +276,8 @@ public class Event {
 	 * Sets the end time of the event
 	 * @param endTime
 	 */
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
-	}
-
-	/**
-	 * Sets the total number of interested users.
-	 * @param totallnterested
-	 */
-	public void setTotallnterested(int totallnterested) {
-		this.totallnterested = totallnterested;
 	}
 
 	/**
@@ -319,17 +298,6 @@ public class Event {
 	
 	public void setDays(int days) {
 		this.days = days;
-	}
-
-
-	/**
-	 * Provides details on an event.
-	 * @param eventID The ID of the event.
-	 * @return 
-	 */
-	public String eventDetails(int eventID) {
-		// TODO implement here
-		return "";
 	}
 
 }

@@ -47,8 +47,10 @@ public class EventTest {
         Date date1 = dateformat1.parse(strdate1);
         Date date2 = dateformat1.parse(strdate2);
         
+        /** dates temp changed to Strings due to input issues
 		evnt = new Event(name, description,address, longitude, latitude,
-				date1, date2, capacity, eventType, userID, range);//*/
+				date1, date2, capacity, eventType, userID, range);
+		**/
         
 
        

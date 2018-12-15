@@ -92,9 +92,8 @@ public class UserRepository{
 				new Object[] {"TheFunk"}, String.class);
 	}
 	
-	//TODO: are we checking by username or email? Are we allowing login by either? Are usernames unique?
 	/**
-	 * 
+	 * User login verification with the database
 	 * @param user
 	 * @return User's ID if login is valid, error code 0 (incorrect password) or -1 (User does not exist) otherwise
 	 */
@@ -122,18 +121,14 @@ public class UserRepository{
 		return valid;
 	}
 	
-	//TODO: Should I pass a user object to these methods? Should probably just send parameters
 	public int createUser(User user) {
 		int success = 0;
 		int update = 0;
 		
-		//TODO: check for both an email and a username? Only check for username? Are usernames unique?
 		try {
 			this.jdbcTemplate.queryForObject("SELECT email FROM user WHERE userName = ?"
 					, new Object[] {user.getUsername()}, String.class);
-			System.out.println("User exists!");
 		}catch (EmptyResultDataAccessException e) {
-			System.out.println("User does not exist!");
 			//returns 1 if a row in the database has been updated, 0 otherwise
 			update = this.jdbcTemplate.update("INSERT INTO user (email, pwd, userName) VALUES(?, ?, ?)",
 					new Object[] {user.getEmail(), user.getPassword(), user.getUsername()});
@@ -154,7 +149,7 @@ public class UserRepository{
 	 * @param user
 	 * @return
 	 */
-	public int getID(User user) {
+	private int getID(User user) {
 		int id = this.jdbcTemplate.queryForObject("SELECT userID FROM user WHERE userName = ?"
 				, new Object[] {user.getUsername()}, Integer.class);
 		

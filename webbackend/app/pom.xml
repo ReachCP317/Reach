@@ -71,6 +71,11 @@
   			<version>6.8</version>
   			<scope>test</scope>
 		</dependency>
+		<dependency>
+  			<groupId>com.google.maps</groupId>
+  			<artifactId>google-maps-services</artifactId>
+  			<version>0.9.1</version>
+		</dependency>
 	</dependencies>
 	
 

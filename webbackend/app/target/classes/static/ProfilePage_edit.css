@@ -1,21 +1,14 @@
-
 .navbar-brand{
   color: #ffffff;
 }
 .jumbotron{
-  margin: 0 auto;
+ margin: 0 auto;
   background-color: transparent;
   width: 80%;
+  min-height: 80vh;
+  min-width: 600px;
 }
-.container{
-  min-height: 100%;
-  margin-left: 5px;
-  width:100%;
-  background-color:rgba(0,0,0,.9);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 15px;
-  color:#FFF;
-}
+
 body{
   background: url("../images/bg_Image_prototype.jpg");
    height: 100%;
@@ -31,11 +24,16 @@ body{
   color: #FC3912;
   text-align: left;
 }
+
 #Banner {
   background-color: #000000;
   height: 100px;
   font-size: 90px;
   font-family: Bahnschrift Condensed;
+}
+.titlebar{
+	  font-family: Bahnschrift Condensed;
+	    color: #00000;
 }
 
 #Banner a {
@@ -51,7 +49,7 @@ body{
 }
 
 #BodyPanel {
-  position: relative;
+  position: fixed;
   height: 100%;
   width: 100%
 }
@@ -66,15 +64,14 @@ body{
 }
 
 #navigatorPanel {
-  z-index: 89;
+  z-index: 2;
   background-color: #12171F;
-  position: absolute;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
   width: 0%;
   overflow-x: hidden;
   transition: 0.5s;
-  top:0px;
-  padding-top: 50px;
+  padding-top: 5%;
   font-family: Bahnschrift Condensed;
 }
 
@@ -115,7 +112,12 @@ body{
   width:100px;
 }
 #bottomNavbar{
-  background-color: black;
+
+position: fixed;
+
+width:100%;
+Bottom:0;
+background-color: black;
 }
 #navbarContent{
   margin: 0;
@@ -124,36 +126,36 @@ top: 50%;
 -ms-transform: translateY(-50%);
 transform: translateY(-50%);
 }
-#eventInfo{
+#userInfo{
   width:100%;
   margin:0;
   background-color: rgba(0,0,0,0.9);
   position: relative;
   left: 5px;
 }
-table,
-th,
-td,
+
 tr { 
   border-collapse: collapse;
   border-spacing: 10px;
   padding: 17px;
 }
-#eventInfo td {
+#userInfo td {
   width: 16.6666666%;
   vertical-align: middle;
   text-align: left;
-  padding: 0;
+  padding: 0; 
 }
-#eventInfo tr {
+#userInfo tr {
   height: 3em
 }
-#eventInfo tr {
+#userInfo tr {
   height: 3em
 }
 #submitButton{
   float:right;
 }
+
+
 hr { 
    border-color: #FF6E83;
    border-width: 2px;
@@ -162,4 +164,77 @@ p{
   box-shadow: 0 0 0px #000;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
+}
+.slidecontainer {
+  border-radius: 15px 15px 0px 0px;
+  background-color: #12171F;
+
+  padding-top: 20px;
+}
+
+.nearbyEvents {
+  background-color: #38414E;
+  height=100%;
+}
+
+input {
+  border-radius: 15px;
+  color: #FFFFFF;
+  background-color: #242f3E;
+  border: none;
+}
+
+.slider {
+  -webkit-appearance: none;
+  background: #38414E;
+  outline: none;
+  height: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  background: #242f3E;
+  width: 10px;
+  height: 20px;
+  border-radius: 25px;
+}
+
+#formContent p{
+  color: #ffffff;
+  font-size:35px;
+}
+
+#formContent h2{
+  font-size: 50px;
+  color: #ffffff;
+}
+#formContent{
+  text-align: center;
+
+  margin:auto;
+ 
+}
+
+.container{
+  background-color:rgba(0,0,0,.9);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width:500px;
+
+  padding:20px;
+  position: relative;
+  z-index:10;
+}
+.container:after{
+ background-color:rgba(0,0,0,.9);
+  display:block;
+  position: absolute;
+  top:20px;
+  right:20px;
+  left:20px;
+  bottom:20px;
+
+  z-index:-1;
 }

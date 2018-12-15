@@ -150,7 +150,6 @@ public class UserController implements WebMvcConfigurer{
 			System.out.println("User: " + user.getUsername() + " " + user.getPassword());
 
 			model.addAttribute(httpSession);
-			//model.addAttribute(user);
 			return "redirect:/dashboard";
 		}
 		//TODO: tell User what was wrong

@@ -1,5 +1,6 @@
 package com.reachcp317.reach;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,10 +15,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.google.maps.GeoApiContext;
+import com.google.maps.GeocodingApi;
+import com.google.maps.errors.ApiException;
+import com.google.maps.model.GeocodingResult;
 import com.reachcp317.reach.UserRepository;
 
 /**
@@ -32,6 +43,9 @@ public class EventController implements WebMvcConfigurer{
 	EventRepository db;
 	//default Event search radius size; declared as an object for Thymeleaf compatibility
 	private static final int DEFAULT_RADIUS = 10;
+	GeoApiContext context = new GeoApiContext.Builder()
+		    .apiKey("AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4")
+		    .build();
     
 	/**
 	 * Dashboard page. Loads a Google Map and populates it with nearby Event markers based on the user's
@@ -47,34 +61,10 @@ public class EventController implements WebMvcConfigurer{
 		}else {
 		**/
 			model.addAttribute(httpSession);
-			List<Event> eventList = new ArrayList<Event>();
+			//List<Event> eventList = new ArrayList<Event>();
 			//List<Event> events = db.getMapMarkers();
-			/**
-			for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
-				Event current = iter.next();
-				System.out.println("Event: " + current.getEventID() + ", Location: (" +
-				current.getLatitude() + ", " + current.getLongitude() + "), Address: " +
-						current.getAddress());
-			}
-			**/
-			Event e = new Event(123, 123);
-			e.setLatitude(43.4670);
-			e.setLongitude(-80.5220);
 			
-			eventList.add(e);
-			System.out.println(eventList.get(0).getLatitude());
-			
-			Event e2 = new Event(124, 124);
-			e2.setLatitude(43.4680);
-			e2.setLongitude(-80.5230);
-			eventList.add(e2);
-			
-			//Event[] events = eventList.toArray(new Event[eventList.size()]);
-			//System.out.println("Event 1: " + events[0].getLatitude());
-			//System.out.println("Event 2: " + events[1].getLatitude());
-			
-			System.out.println("e2 id = " + e2.getEventID());
-			model.addAttribute("events", eventList);
+			//model.addAttribute("events", events);
 			searchRadius.setRadius(DEFAULT_RADIUS);
 			model.addAttribute(searchRadius);
 			//model.add
@@ -93,15 +83,15 @@ public class EventController implements WebMvcConfigurer{
 	public String updateRadius(Model model, HttpSession httpSession, SearchRadius searchRadius){
 		model.addAttribute(httpSession);
 		List<Event> eventList = new ArrayList<Event>();
-		//List<Event> events = db.getMapMarkers();
-		/**
+		List<Event> events = db.getMapMarkers(searchRadius.getRadius().intValue(), 43.4724, 80.5263);
+		
 		for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
 			Event current = iter.next();
 			System.out.println("Event: " + current.getEventID() + ", Location: (" +
 			current.getLatitude() + ", " + current.getLongitude() + "), Address: " +
 					current.getAddress());
 		}
-		**/
+		
 		Event e = new Event(123, 123);
 		e.setLatitude(43.4670);
 		e.setLongitude(-80.5220);
@@ -131,7 +121,7 @@ public class EventController implements WebMvcConfigurer{
 	@GetMapping("/event/{id}")
 	public String eventProfile(@PathVariable(value = "id") int id, Model model, HttpSession httpSession) {
 		Event event = db.getById(id);
-		//TODO: Proper error page?
+		//redirect User if given Event does not exist
 		if (event == null) {
 			return "redirect:/dashboard";
 		}else {
@@ -142,37 +132,113 @@ public class EventController implements WebMvcConfigurer{
 	}
 	
 	/**
-	 * Redirects user to dashboard
+	 * View User's current event
 	 * @param httpSession
 	 * @return
 	 */
 	@GetMapping("/event")
-	public String test(HttpSession httpSession) {
+	public String userEvent(Model model, Event event, HttpSession httpSession) {
+		if (!checkSession(httpSession)) {
+			return "redirect:/index";
+		}else {
+			//check if User has an Event in progress; if not, redirect User to create one
+			event = db.getCurrentUserEvent((int) httpSession.getAttribute("userID"));
+			if (event == null) {
+				return "redirect:/createEvent";
+			}else {
+				/**
+				 * Database connection test
+				 */
 
-		/**
-		 * Database connection test
-		 */
-		/**
+				/**
 		List<Event> events = db.viewAllEventnames();
 		for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
 			Event current = iter.next();
 			System.out.println("Event: " + current.getEventID());
+			System.out.println("Start Date: " + current.getStartTime());
+			System.out.println("Event Type: " + current.getEventType());
 		}
-		**/
-		
-		return "DisplayEvent";
+				 **/
+
+				model.addAttribute(event);
+				return "DisplayEvent";
+			}
+		}
 	}
 	
 	@GetMapping("/createEvent")
-	public String createEvent(Event event, HttpSession httpSession){
-		return "createEvent";
+	public String createEvent(Model model, Event event, HttpSession httpSession){
+		if (httpSession.getAttribute("username") == null) {
+			return "redirect:/index";
+		}//else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) != null) {
+			//return "redirect:/event";
+		//}
+		else {
+			return "createEvent";
+		}
 	}
 	
+	/**
+	 * 
+	 * @param event
+	 * @param httpSession
+	 * @return
+	 * @throws IOException 
+	 * @throws InterruptedException 
+	 * @throws ApiException 
+	 */
 	@PostMapping("/createEvent")
-	//TODO: how do I parse the results of the Google Maps geocoding?
-	//TODO: implement Google Maps Java Geocoding files?
-	public String submitEvent(Event event, HttpSession httpSession){
-		return "createEvent";
+	public String submitEvent(Event event, HttpSession httpSession) 
+			throws ApiException, InterruptedException, IOException{
+		//uses the Google Geocoding API to convert given address into latitude/longitude		
+		GeocodingResult[] results =  GeocodingApi.geocode(context,
+				event.getAddress()).await();
+		//System.out.println("Results: " + results[0].geometry.location.lat + ", " + 
+		//		results[0].geometry.location.lng + ")");
+	
+		if (results == null) {
+			return "createEvent";
+		}else {
+			event.setLatitude(results[0].geometry.location.lat);
+			event.setLongitude(results[0].geometry.location.lng);
+			//date picker isn't working, temp fix; format = 2018-01-18 11:30:00
+			event.setStartTime("2018-12-15 1:30:00");
+			event.setEndTime("2018-12-20 1:30:00");
+			int success = db.createEvent(event, (int) httpSession.getAttribute("userID"));
+			if (success == 1) {
+				return "DisplayEvent";	
+			}else {
+				return "createEvent";
+			}
+		}
+	
+	}
+	
+	/**
+	 * Allows a User to edit their current Event
+	 * @param model
+	 * @param httpSession
+	 * @return
+	 */
+	@GetMapping("editEvent")
+	public String editEvent(Model model, Event event, HttpSession httpSession) {
+		if (httpSession.getAttribute("username") == null) {
+			return "redirect:/index";
+		}//else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) == null) {
+			//return "redirect:/event";
+		//}
+		else {
+			event = db.getCurrentUserEvent((int) httpSession.getAttribute("userID"));
+			System.out.println(event.getAddress());
+			System.out.println(event.getCapacity());
+			if (event == null) {
+				return "createEvent";
+			}else {
+				//model.addAttribute(event);
+				model.addAttribute(httpSession);
+				return "editEvent";	
+			}
+		}
 	}
 	
 	/**

@@ -34,12 +34,6 @@ public class User {
 	private String username;
 
 	/**
-	 * a user's date of birth.  
-	 * Uses java class java.util.Date for date.
-	 */
-	private Date dateOfBirth;
-
-	/**
 	 * The users email.
 	 */
 	private String email;
@@ -49,18 +43,7 @@ public class User {
 	 */
 	private String password;
 	
-	//TODO: A better way to do password confirmation
 	private String passwordConfirm;
-
-	/**
-	 * 
-	 */
-	private String gender;
-
-	/**
-	 * 
-	 */
-	private String phoneNumber;
 
 	/**
 	 * The constructor for the User class.
@@ -103,14 +86,6 @@ public class User {
 	}
 
 	/**
-	 * Gets the age of the user
-	 * @return the user's age
-	 */
-	public int getAge() {
-		return 0;
-	}
-
-	/**
 	 * Gets the user's username
 	 * @return The user's username
 	 */
@@ -124,23 +99,6 @@ public class User {
 	 */
 	public String getEmail() {
 		return this.email;
-	}
-
-	/**
-	 * Gets the user's phone number
-	 * @return The users phone number.
-	 */
-	public String getPhoneNumber() {
-		return this.phoneNumber;
-	}
-
-	/**
-	 * Gets the user's gender
-	 * @return The gender of the user.
-	 */
-	public String getGender() {
-		// TODO implement here
-		return this.gender;
 	}
 
 	/**
@@ -177,14 +135,6 @@ public class User {
 	}
 
 	/**
-	 * Sets the user's phone number
-	 * @param phoneNumber The new phone number for the user.
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	/**
 	 * Sets the user's password
 	 * @param password The new user password.
 	 */
@@ -198,15 +148,6 @@ public class User {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	/**
-	 * Sets the user's gender
-	 * @param gender The new value for the user's gender.
-	 */
-	public void setGender(String gender) {
-		this.gender = gender;
-		
 	}
 	
 	public void setPasswordConfirm(String passwordConfirm) {

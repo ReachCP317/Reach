@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.reachcp317.reach.UserRepositoryTest">
+      <class name="com.reachcp317.reach.EventTest">
         <methods>
-          <include name="verifyLogin_throwsException_withBadInput"/>
-          <include name="tearDown"/>
-          <include name="getByID_throwsException_withBadInput"/>
-          <include name="verifyLogin_detects_non_user"/>
+          <include name="getAddress_Returns_Address"/>
+          <include name="getEventType_Returns_EventType"/>
+          <include name="getCapacity_Returns_Capacity"/>
+          <include name="getName_Returns_name"/>
+          <include name="getUserID_Returns_userID"/>
+          <include name="getDescription_Returns_Description"/>
           <include name="setUp"/>
+          <include name="getEventRange_Returns_Range"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.reachcp317.reach.UserRepositoryTest -->
+      </class> <!-- com.reachcp317.reach.EventTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
