@@ -5,228 +5,182 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bcg1">
-
-
+    android:background="@drawable/bcg1"
+    tools:context=".DisplayEvent">
     <TextView
-        android:id="@+id/Description"
-        android:layout_width="335dp"
-        android:layout_height="85dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="149dp"
+        android:id="@+id/capacityView"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/CapacityView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="82dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Capacity"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    z<TextView
+        android:id="@+id/daysLeft"
+        android:layout_width="197dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignBottom="@+id/daysLeftView"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="-10dp"
         android:ems="10"
         android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="143dp" />
-
-    <TextView
-        android:id="@+id/event"
-        android:layout_width="196dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="248dp"
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="143dp" />
-
-    <TextView
-        android:id="@+id/createEvent"
-        android:layout_width="123dp"
-        android:layout_height="29dp"
-        android:layout_alignBottom="@+id/descriptionView"
-        android:layout_marginStart="-132dp"
-        android:layout_marginBottom="79dp"
-        android:layout_toEndOf="@+id/addressView"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Display Event"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <TextView
-        android:id="@+id/eventName"
-        android:layout_width="196dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="349dp"
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="143dp" />
-
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
     <TextView
         android:id="@+id/description"
-        android:layout_width="196dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/eventName"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="74dp"
-        android:layout_toEndOf="@+id/createEvent"
+        android:layout_width="360dp"
+        android:layout_height="79dp"
+        android:layout_alignStart="@+id/startDate"
+        android:layout_alignTop="@+id/descriptionView"
+        android:layout_marginStart="-154dp"
+        android:layout_marginTop="37dp"
         android:ems="10"
         android:fontFamily="franklin-gothic-demi"
-        android:inputType="text|textMultiLine"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="193dp" />
-
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/nameView"
-        android:layout_width="129dp"
-        android:layout_height="29dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="248dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Event Name:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="140dp" />
-
-    <TextView
-        android:id="@+id/eventname"
-        android:layout_width="196dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="406dp"
+        android:id="@+id/startDate"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/endDate"
+        android:layout_alignBottom="@+id/eventNameView"
+        android:layout_marginStart="-7dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="160dp" />
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/endDate"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/address"
+        android:layout_alignTop="@+id/addressView"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="151dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/days"
+        android:layout_width="199dp"
+        android:layout_height="38dp"
+        android:layout_alignStart="@+id/address"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginBottom="180dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="200dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/capacity"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginBottom="282dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/capacity"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/CapacityView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="410dp"
+        android:layout_marginEnd="0dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
     <TextView
         android:id="@+id/descriptionView"
         android:layout_width="131dp"
         android:layout_height="30dp"
-        android:layout_above="@+id/addressView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="-139dp"
+        android:layout_alignStart="@+id/addressView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="57dp"
         android:fontFamily="franklin-gothic-demi"
-        android:text="Description:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="193dp" />
+        android:text="Description"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/addressView"
+        android:id="@+id/daysLeftView"
         android:layout_width="131dp"
         android:layout_height="28dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="298dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Address: "
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="243dp" />
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="196dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="292dp"
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="143dp" />
-
-    <TextView
-        android:id="@+id/startDateView"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/descriptionView"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="335dp"
-        android:layout_marginEnd="1dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Start Date and Time:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="343dp" />
-    <TextView
-        android:id="@+id/endDateView"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/descriptionView"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="389dp"
-        android:layout_marginEnd="2dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="End Date and Time:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="343dp" />
-
-    <EditText
-        android:id="@+id/Capcity"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/descriptionView"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="444dp"
-        android:layout_marginEnd="2dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Capacity:"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="343dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/descriptionView"
-        android:layout_alignStart="@+id/startDateView"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="8dp"
-        android:text="Days Left: "
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/Days"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView"
         android:layout_alignEnd="@+id/addressView"
-        android:text="TextView" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="237dp"
+        android:layout_marginEnd="-7dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Days Left"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
 
-
+    <TextView
+        android:id="@+id/eventNameView"
+        android:layout_width="130dp"
+        android:layout_height="24dp"
+        android:layout_alignStart="@+id/startDateTimeView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Event Name"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/addressView"
+        android:layout_width="128dp"
+        android:layout_height="23dp"
+        android:layout_alignEnd="@+id/startDateTimeView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="291dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Address"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/startDateTimeView"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/endDateTimeView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="182dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="Start Date And Time"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/endDateTimeView"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
+        android:layout_alignStart="@+id/CapacityView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="119dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="End Date And Time"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
 </RelativeLayout>

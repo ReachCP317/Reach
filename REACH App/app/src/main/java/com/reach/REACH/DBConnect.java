@@ -188,15 +188,16 @@ public class DBConnect {
      * @author michaelpintur
      * @SQA kobilee - need prepared statemnt
      */
-    public void queryEvent(int eventID) {
+    public Event queryEvent(int eventID) {
         String query = null;
         query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
         int lon = 0;
         int lat = 0;
-        String address;
+        String hostName = null;
+        String address = null;
         String startDate;
         String endDate;
-
+        Event eventObject = null;
 
 
         try {
@@ -204,15 +205,18 @@ public class DBConnect {
             while (rs.next()) {
                 lon = rs.getInt("longitude");
                 lat = rs.getInt("latitude");
+                hostName = rs.getString("hostName");
                 address = rs.getString("address");
                 startDate = rs.getString("startDate");
                 endDate = rs.getString("endDate");
             }
+            eventObject = new Event(hostName,address,lat,lon);
             System.out.println(eventID + " " + hostName);
         } catch (Exception ex) {
             System.out.println("Error: "+ ex);
         }
 
+        return eventObject;
     }
 
 
@@ -245,7 +249,7 @@ public class DBConnect {
     /**
      * Updates users password into the database, the database automatically hashes this string to sha256
      *
-     * @param userID User's ID
+     * @param userID User.java's ID
      * @param currentPass Users current password to check against db
      * @param newPass Users new password
      * @author michaelpintur
@@ -271,7 +275,7 @@ public class DBConnect {
             System.out.println("Password changed.");
             return 1;
         } else if (passwordChecker(userID, currentPass) == -1) {
-            System.out.println("User does not exist");
+            System.out.println("User.java does not exist");
             return -1;
         } else {
             System.out.println("Incorrect Current Password");
@@ -392,7 +396,7 @@ public class DBConnect {
      * @sqa Michael Pintur
      * 2018/12/09
      */
-    public void queryUser(int userID)
+    public boolean queryUser(int userID)
     {
         try {
             ps = con.prepareStatement("SELECT * FROM user WHERE userID = ?");
@@ -409,18 +413,17 @@ public class DBConnect {
         try
         {
             rs = ps.executeQuery();
-            while (rs.next())
-            {
+            while (rs.next()) {
                 email = rs.getString("email");
-                pwd  = rs.getString("pwd");
+                pwd = rs.getString("pwd");
                 icon = rs.getString("icon");
                 userName = rs.getString("userName");
             }
-            System.out.println(userID + " " + userName);
+            return true;
         }
         catch (Exception ex)
         {
-            System.out.println("Error: "+ ex);
+            return false;
         }
 
     }

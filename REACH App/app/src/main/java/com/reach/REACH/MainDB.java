@@ -2,7 +2,7 @@ package com.reach.REACH;
 
 import java.util.ArrayList;
 
-public class Main {
+public class MainDB {
 
 
     public static void main(String args[]) {

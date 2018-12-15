@@ -7,12 +7,11 @@ import android.widget.Button;
 import android.view.View;
 
 public class UIEditActivity extends AppCompatActivity {
-
-    private Button Save;
+    private Button Edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Save.setOnClickListener(new View.OnClickListener(){
+        Edit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 //add to Database
