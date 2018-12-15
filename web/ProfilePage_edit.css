@@ -31,6 +31,10 @@ body{
   font-size: 90px;
   font-family: Bahnschrift Condensed;
 }
+.titlebar{
+	  font-family: Bahnschrift Condensed;
+	    color: #00000;
+}
 
 #Banner a {
   color: #FFFFFF;
@@ -150,6 +154,8 @@ tr {
 #submitButton{
   float:right;
 }
+
+
 hr { 
    border-color: #FF6E83;
    border-width: 2px;
@@ -200,8 +206,8 @@ input {
   font-size:35px;
 }
 
-#formContent h1{
-  font-size: 100px;
+#formContent h2{
+  font-size: 50px;
   color: #ffffff;
 }
 #formContent{
