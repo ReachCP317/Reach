@@ -32,12 +32,40 @@
     <activity
         android:name="com.reach.REACH.MainActivity"
         android:label="@string/app_name">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
     </activity>
-  </application>
+    <activity
+        android:name="com.reach.REACH.CreateEvent">
 
+    </activity>
+    <activity
+        android:name="com.reach.REACH.DBConnect">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.DisplayEvent">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.Event">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.Login_Activity">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.MainDB">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.UIActivity">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.UIEditActivity">
+    </activity>
+    <activity
+        android:name="com.reach.REACH.User">
+    </activity>
+
+  </application>
 </manifest>
