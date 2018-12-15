@@ -1,0 +1,40 @@
+#bgImage{
+  background-image: url("bg_Image_prototype.jpg");
+
+  width:100%;
+  height:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+}
+
+#PPimage{
+  profilePic-image: url("profilePic.jpg");
+  width:10%;
+  height:10%;
+  profilePic-position: center;
+}
+table{
+  font-size: 35px;
+  color: #ffffff;
+  position: relative;
+  left: 300px;
+  
+}
+
+#bottomNavbar{
+  background-color: black;
+}
+#navbarContent{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#createContainer{
+	border: 7px solid black;
+	outline: 2px solid red;
+	background-color: rgb(100,100,100);
+}

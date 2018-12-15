@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create-Account Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/createAccount.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+<div id="bgImage">
+
+  <div class="jumbotron" id="formContent">
+
+    <h1><strong>REACH</strong></h1>
+    <div class="container">
+    <form action="#" th:action="@{createAccount}" method="post" th:object="${user}" id="signInForm" class="form-inline">
+        <p><b>Create Account</b></p>
+
+        <label for="usernameInput">Username:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <input type="text" class="form-control inputs" th:field="*{username}" id="usernameInput" placeholder="Enter Username"></div><br/><br/>
+
+		<label for="emailInput">Email:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="email" class="form-control inputs" th:field="*{email}" id="emailInput" placeholder="Enter Email">
+        </div><br/><br/>
+		
+        <label for="passwordInput">Password:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="password" class="form-control inputs" th:field="*{password}" id="passwordInput" placeholder="Enter Password">
+        </div><br/><br/>
+
+        <label for="confirmPasswordInput">Confirm Password:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="password" class="form-control inputs" th:field="*{passwordConfirm}" id="confirmPasswordInput" placeholder="Re-enter Password">
+        </div>
+        <!-- Placeholder submit button for testing --->
+        <div class="form-group row">
+        	<div class="offset-sm-2 col-sm-13">
+          		<button type="submit" class="btn btn-primary">Sign in</button>
+        	</div>
+      	</div>
+      </form>
+    </div>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
+      <span id="reachLogo">
+        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </nav>
+</div>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>

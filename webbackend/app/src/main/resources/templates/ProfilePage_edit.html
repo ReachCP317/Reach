@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>REACH Edit Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="ProfilePage_edit.css" media="screen" title="no title" charset="utf-8">
+		<!---Code needed for navigation menu--->
+	<script src="navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
+  </head>
+  <body>
+ 
+<div id="userInfo" hidden>
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+      		<p>Username/Sign Out</p>
+      	</div>
+		
+	<div id="BodyPanel">
+		<!-- Code for navigation menu --->
+		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+			<a class="closeButton" onclick="closeNav()">&times;</a>
+			<!--- href set to "#" until all webpages have been created and can be set properly--->
+			<a href="#" id="search">Search</a>
+			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+			<a href="#" id="profile">Profile</a>
+			<script> pageSettings() </script>
+		</span>
+		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+		<!-- End of code for navigation menu --->
+  <head>
+    <meta charset="utf-8">
+    <title>Create-Account Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="createAccount.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+  <div class="jumbotron" id="formContent">
+
+
+    <div class="container">
+			<div class="container" id="headings" >
+		<form action="#" method="#" id="signInForm" class="form-inline">
+		  <span id="titleBar">
+		  <h2><strong>Edit Profile</strong></h2>
+		  </span>
+		  <hr width="100%" align="center">
+		</form>
+		</div>
+    <form action="#" method="#" id="signInForm" class="form-inline">
+
+		<label for="emailInput">Email:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="email" class="form-control inputs" id="emailInput" placeholder="Enter Email">
+        </div><br/><br/>
+		
+		        <label for="oldPasswordInput">Password:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="password" class="form-control inputs" id="oldPasswordInput" placeholder="Enter Password">
+        </div><br/><br/>
+		
+        <label for="newPasswordInput">New Password:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="password" class="form-control inputs" id="newPasswordInput" placeholder="Enter new Password">
+        </div><br/><br/>
+
+        <label for="confirmPasswordInput">Confirm Password:</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input type="password" class="form-control inputs" id="confirmPasswordInput" placeholder="Re-enter new Password">
+        </div><br><br>
+		
+		  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <div class="offset-sm-2 col-sm-13">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div><br><br>
+      </div>
+      </form>
+    </div>
+    </div>
+
+    <div class="navigationBar" style="margin-bottom:0px" id="bottomNavbar">
+      <span id="reachLogo">
+        <a href="SignIn-CreateAccount.html">
+        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+	</a>
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </div>
+
+	
+	<br>
+
+      </div>
+  </div>
+    <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
+      <span id="reachLogo">
+        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"></a>
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </nav>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     </body>
+ 
+</html>

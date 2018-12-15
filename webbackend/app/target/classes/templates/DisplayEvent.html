@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>REACH Create Event Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="DisplayEvent.css" media="screen" title="no title" charset="utf-8">
+	<script src="navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
+  </head>
+  <body>
+
+<!-- Jamie: So we're going to have to pass the user information from page to page somehow
+when I've done it in the past I had to use c# to do it sooo idk what you guys want
+to do for it lol.
+--->
+<div id="userInfo" hidden>
+  <!-- Jamie: As far as I know we're going to have to pass the userID at least. We'll need
+  it for keeping track of who is creating the event in this case  --->
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="dashboard.html"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+      		<p>Username/Sign Out</p>
+      	</div>
+      	<div id="BodyPanel">
+      		<!-- Code for navigation menu --->
+      		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+      			<a class="closeButton" onclick="closeNav()">&times;</a>
+      			<!--- href set to "#" until all webpages have been created and can be set properly--->
+      			<a href="dashboard.html" id="search">Search</a>
+      			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+      			<a href="ProfilePage.html" id="profile">Profile</a>
+      			<script> pageSettings() </script>
+      		</span>
+      		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+      		<!-- End of code for navigation menu --->
+</div>
+
+  <div class="jumbotron">
+    <div class="container" id="headings" >
+    <form action="#" method="#" id="signInForm" class="form-inline">
+
+      <span id="titleBar">
+      <h1><strong>Display Event</strong></h1>
+<!--- we'll need to put the error message here as an "a" or "h-" tag or something
+named "errMessage". We need to reconstruct this so that it actually works utilizing some form
+of "error" class in the css--->
+      </span>
+      <!-- testing for the location input box................ --->
+	  <hr width="100%" align="center">
+      <div id="locationContainer">
+          <div id="eventLocation" class="inputs form-group half">
+            <label for="eventLocation"><i class="fas fa-map-marker-alt"></i>&nbsp Location</label>
+			 <!-- get function --->
+		  </div>
+      </div>
+      <!-- ................................................. --->
+      <!--- https://codepen.io/legeoffrey/pen/VYMLNq --->
+      </form>
+    </div>
+
+      <div id="DisplayEvent">
+        <table id="eventInfo">
+      <body>
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <label id="eventName">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Name</p>
+			  <!-- get function --->
+            </div>
+          </td>
+            <td colspan=1>
+              <div class="inputs full">
+                <p style="border-bottom: 1px solid #FFFFFF;color:white"> &nbsp Start Date & Time</p>
+				<!-- get function --->
+              </div>
+            </td>
+
+            <td colspan=1>
+              <div class="inputs full">
+                <!---<input id="eventTime"  type="time" placeholder=" ">
+                --->
+                <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp End Date & Time</p>
+				<!-- get function --->
+              </div>
+            </td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Capacity</p>
+			  <!-- get function --->
+            </div>
+          </td>
+          <td colspan=2 rowspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white;" for="eventDescription" title="Enter a brief description of your event for your guests">&nbsp Event Description</p>
+            </div>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Type</p>
+			  <!-- get function --->
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+              <p style="border-bottom: 1px solid #FFFFFF; margin-bottom:100px;color:white">&nbsp Days Left</p>
+			  <!-- get function --->
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+	<br>
+	<button id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
+      </div>
+  </div>
+    <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
+      <span id="reachLogo">
+        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"><a/>
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </nav>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     </body>
+ 
+</html>
