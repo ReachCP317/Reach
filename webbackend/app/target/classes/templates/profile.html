@@ -2,28 +2,61 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>ProfilePage</title>
+    <title>REACH Profile Page</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/ProfilePage.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="ProfilePage.css" media="screen" title="no title" charset="utf-8">
+		<!---Code needed for navigation menu--->
+	<script src="navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
   </head>
   <body>
  
-<div id="bgImage">
-	<div class=container logo>
-		<div class="logo_box">
-		<img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_logo.png" alt="" width="50%">
+<div id="userInfo" hidden>
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="dashboard.html"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+		<!-- TODO: proper logout link--->
+		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+      	</div>
+		
+	<div id="BodyPanel">
+		<!-- Code for navigation menu --->
+		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+			<a class="closeButton" onclick="closeNav()">&times;</a>
+			<!--- href set to "#" until all webpages have been created and can be set properly--->
+			<a href="dashboard.html" id="search">Search</a>
+			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+			<a href="ProfilePage.html" id="profile">Profile</a>
+			<script> pageSettings() </script>
+		</span>
+		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+		<!-- End of code for navigation menu --->
+
+	  <div class="jumbotron">
+		<div class="container" id="headings" >
+		<form action="#" method="#" id="signInForm" class="form-inline">
+		  <span id="titleBar">
+		  <h1><strong>Profile</strong></h1>
+		  </span>
+		  <hr width="100%" align="center">
+		</form>
 		</div>
-	</div>
-	
-	<div class=container profilePic>
-		<div class="profilePic_box">
-		<img src="/profilePic.jpg" id=PPimage>
-		</div>
-	</div>
-	
-	<table>
-		<tr>
+      <div id="DisplayEvent">
+
+        <table id="userInfo">
+      <body>
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+			
+  <table id="userdata">
+    <tr>
+      <td colspan = 3>
+	  <tr>
 			<td>Username:</td>
 			<td th:text="${user.username}">Username</td> 
 		</tr>
@@ -40,6 +73,13 @@
 			<td>"Rating"</td> 
 		</tr>
 		<tr>
+	  </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>	
+	  <tr>
 			<td>Hosted:</td>
 			<td>"replacee with hosted event link if applicable"</td> 
 		</tr>
@@ -50,11 +90,45 @@
 		<tr>
 			<td>Attended:</td>
 			<td>"replacee with attended event link if applicable"</td> 
-		</tr>
-    </table>
-    <nav class="navbar fixed-bottom navbar-light bg-light" id="bottomNavbar">
+		</tr></td>
+    </tr>
+  </table>
+            </div>
+          </tr>
+		  
+		  </table>
+
+
+
+		
+</table>
+	<br>
+
+          
+          <div class="content">
+              <a href="ProfilePage_edit.html"> 
+  <button type="button" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
+              </a>
+  <div>
+
+</div>
+
+
+
+
+
+		  
+  </div>
+
+
+	
+	<br>
+
+      </div>
+  </div>
+    <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
+        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"></a>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>
@@ -65,10 +139,14 @@
         <a class="navbar-brand" href="#">Feedback</a>
 </span>
       </nav>
-</div>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     </body>
+ 
 </html>
-
-
