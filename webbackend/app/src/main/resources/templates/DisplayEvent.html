@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,7 +33,7 @@ to do for it lol.
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
       			<a href="dashboard.html" id="search">Search</a>
       			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
-      			<a href="profile.html" id="profile">Profile</a>
+      			<a href="ProfilePage.html" id="profile">Profile</a>
       			<script> pageSettings() </script>
       		</span>
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -71,13 +70,13 @@ of "error" class in the css--->
           <td colspan=3>
             <div class="inputs full">
               <label id="eventName">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Name</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white"th:text="${event.name}">&nbsp Event Name</p>
 			  <!-- get function --->
             </div>
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <p style="border-bottom: 1px solid #FFFFFF;color:white"> &nbsp Start Date & Time</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.startTime}">&nbsp Start Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -86,7 +85,7 @@ of "error" class in the css--->
               <div class="inputs full">
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
-                <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp End Date & Time</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.endTime}">&nbsp End Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -95,13 +94,13 @@ of "error" class in the css--->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Capacity</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.capacity}">&nbsp Capacity</p>
 			  <!-- get function --->
             </div>
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white;" for="eventDescription" title="Enter a brief description of your event for your guests">&nbsp Event Description</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white;" th:text="${event.description}">&nbsp Description</p>
             </div>
           </td>
 
@@ -110,7 +109,7 @@ of "error" class in the css--->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event Type</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.eventType}">&nbsp Event Type</p>
 			  <!-- get function --->
             </div>
           </td>
@@ -118,7 +117,7 @@ of "error" class in the css--->
 
         <tr>
           <td colspan=3>
-              <p style="border-bottom: 1px solid #FFFFFF; margin-bottom:100px;color:white">&nbsp Days Left</p>
+              <p style="border-bottom: 1px solid #FFFFFF; margin-bottom:100px;color:white" th:text="${event.days}">&nbsp Days Left</p>
 			  <!-- get function --->
           </td>
         </tr>
