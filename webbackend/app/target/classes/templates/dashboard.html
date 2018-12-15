@@ -10,7 +10,7 @@
 	<script th:inline="javascript">
 	var eventInfo = [];
     /*[# th:each="event : ${events}"]*/
-        eventInfo.push({lat: /*[[${event.latitude}]]*/, long: /*[[${event.longitude}]]*/, name: /*[[${event.eventID}]]*/});
+        eventInfo.push({lat: /*[[${event.latitude}]]*/, long: /*[[${event.longitude}]]*/, name: /*[[${event.name}]]*/});
     /*[/]*/	
 	</script>
 	<script th:src="@{/map.js}"></script>

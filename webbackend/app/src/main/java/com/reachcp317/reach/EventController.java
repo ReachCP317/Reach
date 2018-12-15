@@ -62,9 +62,9 @@ public class EventController implements WebMvcConfigurer{
 		**/
 			model.addAttribute(httpSession);
 			//List<Event> eventList = new ArrayList<Event>();
-			//List<Event> events = db.getMapMarkers();
+			List<Event> events = db.getMapMarkers(10, 10.0, 10.0);
 			
-			//model.addAttribute("events", events);
+			model.addAttribute("events", events);
 			searchRadius.setRadius(DEFAULT_RADIUS);
 			model.addAttribute(searchRadius);
 			//model.add
@@ -82,7 +82,7 @@ public class EventController implements WebMvcConfigurer{
 	@PostMapping("/dashboard")
 	public String updateRadius(Model model, HttpSession httpSession, SearchRadius searchRadius){
 		model.addAttribute(httpSession);
-		List<Event> eventList = new ArrayList<Event>();
+		//List<Event> eventList = new ArrayList<Event>();
 		List<Event> events = db.getMapMarkers(searchRadius.getRadius().intValue(), 43.4724, 80.5263);
 		
 		for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
@@ -92,6 +92,7 @@ public class EventController implements WebMvcConfigurer{
 					current.getAddress());
 		}
 		
+		/**
 		Event e = new Event(123, 123);
 		e.setLatitude(43.4670);
 		e.setLongitude(-80.5220);
@@ -102,13 +103,14 @@ public class EventController implements WebMvcConfigurer{
 		e2.setLatitude(43.4680);
 		e2.setLongitude(-80.5230);
 		eventList.add(e2);
+		**/
 		
 		//Event[] events = eventList.toArray(new Event[eventList.size()]);
 		//System.out.println("Event 1: " + events[0].getLatitude());
 		//System.out.println("Event 2: " + events[1].getLatitude());
 		
 		System.out.println("Radius = " + searchRadius.getRadius());
-		model.addAttribute("events", eventList);
+		model.addAttribute("events", events);
 		model.addAttribute(searchRadius);
 
 		return "dashboard";
@@ -150,7 +152,7 @@ public class EventController implements WebMvcConfigurer{
 				 * Database connection test
 				 */
 
-				/**
+				
 		List<Event> events = db.viewAllEventnames();
 		for (Iterator<Event> iter = events.iterator(); iter.hasNext();) {
 			Event current = iter.next();
@@ -158,7 +160,7 @@ public class EventController implements WebMvcConfigurer{
 			System.out.println("Start Date: " + current.getStartTime());
 			System.out.println("Event Type: " + current.getEventType());
 		}
-				 **/
+				 
 
 				model.addAttribute(event);
 				return "DisplayEvent";
@@ -170,9 +172,9 @@ public class EventController implements WebMvcConfigurer{
 	public String createEvent(Model model, Event event, HttpSession httpSession){
 		if (httpSession.getAttribute("username") == null) {
 			return "redirect:/index";
-		}//else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) != null) {
-			//return "redirect:/event";
-		//}
+		}else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) != null) {
+			return "redirect:/DisplayEvent";
+		}
 		else {
 			return "createEvent";
 		}
@@ -188,11 +190,14 @@ public class EventController implements WebMvcConfigurer{
 	 * @throws ApiException 
 	 */
 	@PostMapping("/createEvent")
-	public String submitEvent(Event event, HttpSession httpSession) 
-			throws ApiException, InterruptedException, IOException{
+	public String submitEvent(Event event, HttpSession httpSession) {
 		//uses the Google Geocoding API to convert given address into latitude/longitude		
-		GeocodingResult[] results =  GeocodingApi.geocode(context,
-				event.getAddress()).await();
+		GeocodingResult[] results;
+		try {
+			results = getLatLong(event.getAddress());
+		} catch (Exception e) {
+			return "createEvent";
+		}
 		//System.out.println("Results: " + results[0].geometry.location.lat + ", " + 
 		//		results[0].geometry.location.lng + ")");
 	
@@ -220,7 +225,7 @@ public class EventController implements WebMvcConfigurer{
 	 * @param httpSession
 	 * @return
 	 */
-	@GetMapping("editEvent")
+	@GetMapping("/editEvent")
 	public String editEvent(Model model, Event event, HttpSession httpSession) {
 		if (httpSession.getAttribute("username") == null) {
 			return "redirect:/index";
@@ -229,14 +234,47 @@ public class EventController implements WebMvcConfigurer{
 		//}
 		else {
 			event = db.getCurrentUserEvent((int) httpSession.getAttribute("userID"));
-			System.out.println(event.getAddress());
-			System.out.println(event.getCapacity());
 			if (event == null) {
 				return "createEvent";
 			}else {
-				//model.addAttribute(event);
+				model.addAttribute(event);
 				model.addAttribute(httpSession);
 				return "editEvent";	
+			}
+		}
+	}
+	
+	/**
+	 * Submit Event changes
+	 * @param model
+	 * @param event
+	 * @param httpSession
+	 * @return
+	 */
+	@PostMapping("/editEvent")
+	public String submitEventEdit(Model model, Event event, HttpSession httpSession) {
+		GeocodingResult[] results;
+		try {
+			results = getLatLong(event.getAddress());
+		} catch (Exception e) {
+			return "editEvent";
+		}
+		//System.out.println("Results: " + results[0].geometry.location.lat + ", " + 
+		//		results[0].geometry.location.lng + ")");
+	
+		if (results == null) {
+			return "editEvent";
+		}else {
+			event.setLatitude(results[0].geometry.location.lat);
+			event.setLongitude(results[0].geometry.location.lng);
+			//date picker isn't working, temp fix; format = 2018-01-18 11:30:00
+			event.setStartTime("2018-12-15 1:30:00");
+			event.setEndTime("2018-12-20 1:30:00");
+			boolean success = db.updateEvent(event, (int) httpSession.getAttribute("userID"));
+			if (success) {
+				return "DisplayEvent";	
+			}else {
+				return "editEvent";
 			}
 		}
 	}
@@ -254,6 +292,19 @@ public class EventController implements WebMvcConfigurer{
 		}
 		return valid;
 	}
-	
+
+	/**
+	 * Retrieves latitude and longitude values from the Google Geocoding API given an address
+	 * @param address
+	 * @return
+	 * @throws ApiException
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
+	private GeocodingResult[] getLatLong(String address) throws ApiException, InterruptedException, IOException {
+		GeocodingResult[] results =  GeocodingApi.geocode(context,
+				address).await();
+		return results;
+	}
 }
 

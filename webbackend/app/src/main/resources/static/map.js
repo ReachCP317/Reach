@@ -161,7 +161,7 @@ function showPosition(position) {
     var marker = new google.maps.Marker({  
       position: new google.maps.LatLng(eventInfo[i].lat, eventInfo[i].long),
       map: map,
-      title: 'temp',
+      title: eventInfo[i].name,
       icon: '/party_popper_map.png'
     });
   }

@@ -38,7 +38,7 @@ public class EventRepository{
 		@Override
 		public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Event event = new Event(rs.getInt("eventID"), rs.getInt("hostID"));
-			//event.setName(rs.getString("eventName"));
+			event.setName(rs.getString("eventName"));
 			//event.setTotallnterested(rs.getInt("totalInterested"));
 			//event.setEventType(rs.getString("eventType"));
 			event.setAddress(rs.getString("address"));
@@ -111,9 +111,9 @@ public class EventRepository{
 		int update = 0;
 		
 		try {
-		update = this.jdbcTemplate.update("INSERT INTO event (hostID, address, description, latitude, longitude, startDate, endDate, capacity)"
-				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-				new Object[] {hostID, event.getAddress(), event.getDescription(),
+		update = this.jdbcTemplate.update("INSERT INTO event (hostID, eventName, address, description, latitude, longitude, startDate, endDate, capacity)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				new Object[] {hostID, event.getName(), event.getAddress(), event.getDescription(),
 						event.getLatitude(), event.getLongitude(),
 						event.getStartTime(), event.getEndTime(), event.getCapacity()});
 		}catch (Exception e) {
@@ -145,16 +145,16 @@ public class EventRepository{
 	public boolean updateEvent(Event event, int userID) {
 		boolean success = true;
 		int update;
-		try {
-			update = this.jdbcTemplate.update("UPDATE event SET address = ?, description = ?, latitude = ?, longitude = ?"
+		//try {
+			update = this.jdbcTemplate.update("UPDATE event SET address = ?, eventName = ?, description = ?, latitude = ?, longitude = ?"
 					+ "startDate = ?, endDate = ?, capacity = ? WHERE hostID = ? AND endDate > CURDATE()",
-					new Object[] {event.getAddress(), event.getDescription(),
+					new Object[] {event.getAddress(), event.getName(), event.getDescription(),
 							event.getLatitude(), event.getLongitude(),
-							event.getStartTime(), event.getEndTime(), event.getCapacity()}, 
-					new Object[] {userID});
-		}catch (Exception e) {
-			success = false;
-		}
+							event.getStartTime(), event.getEndTime(), event.getCapacity(), userID});
+			System.out.println(update);
+		//}catch (Exception e) {
+			//success = false;
+		//}
 		
 		return success;
 	}

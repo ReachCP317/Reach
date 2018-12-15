@@ -9,6 +9,7 @@ authors: Bethel Adaghe
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/createEvent.css" media="screen" title="no title" charset="utf-8">
+    <script src="/navigatorPanel.js"></script>
 	
   </head>
   <body>
@@ -28,19 +29,19 @@ authors: Bethel Adaghe
       		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed;">
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
-      			<a href="/dashboard" id="search">Search</a>
+      			<a href="dashboard" id="search">Search</a>
       			<a id="create">Create&nbsp;Event</a>
-      			<a href="/profile" id="profile">Profile</a>
+      			<a href="profile" id="profile">Profile</a>
 
       		</span>
 
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
       		<!-- End of code for navigation menu --->
-</div>
+		</div>
 
-  <div class="jumbotron">
-    <div class="container" id="headings" >
+  <div class="jumbotron" onclick="closeNav()">
     <form action="#" method="editEvent" th:object=${event} id="signInForm" class="form-inline">
+    <div class="container" id="headings" >
 
       <span id="titleBar">
       <h1><strong>Edit Event</strong></h1>
@@ -77,13 +78,13 @@ authors: Bethel Adaghe
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="eventName" type="text" title="Enter the name of your event" placeholder=" ">
+              <input id="eventName" th:field="*{name}" type="text" title="Enter the name of your event" placeholder=" ">
               <label for="eventName">Event Name</label>
             </div>
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <input id="eventStartDate" type='text' class="form-control" name='datetimepicker3'
+                <input id="eventStartDate" th:field="*{startTime}" type='text' class="form-control" name='datetimepicker3'
                 title="Select the date for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker3">Start Date &#38; Time</label>
               </div>
@@ -94,7 +95,7 @@ authors: Bethel Adaghe
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input id="eventEndDate" type='text' class="form-control" name='datetimepicker4'
+                <input id="eventEndDate" th:field="*{endTime}" type='text' class="form-control" name='datetimepicker4'
                  title="Select the time for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker4">End Date &#38; Time</label>
               </div>
@@ -104,7 +105,7 @@ authors: Bethel Adaghe
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="eventCapacity" th:value="*{capacity}" type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
+              <input id="eventCapacity" th:field="*{capacity}" type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
               <label for="capacity">Capacity</label>
             </div>
           </td>
