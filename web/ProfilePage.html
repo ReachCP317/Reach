@@ -19,7 +19,8 @@
       <div id="Banner">
       		<a href="dashboard.html"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p>Username/Sign Out</p>
+		<!-- TODO: proper logout link--->
+		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
       	</div>
 		
 	<div id="BodyPanel">
@@ -45,66 +46,70 @@
 		</form>
 		</div>
       <div id="DisplayEvent">
+
         <table id="userInfo">
       <body>
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp User Name</p>
+			
+  <table id="userdata">
+    <tr>
+      <td colspan = 3>
+<table id = "one">
+ <tr>
+			<td>Username:</td>
+			<td th:text="${user.username}">Username</td> 
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td th:text="${user.email}">Email</td> 
+		</tr>
+		<tr>
+			<td>Phone number:</td>
+			<td>"replace with phone number"</td> 
+		</tr>
+		<tr>
+			<td>Rating:</td>
+			<td>"Rating"</td> 
+		</tr>
+		<tr>
+	  </td>
+    </tr>
+</table>
+<table id = "one">
+	<tr>
+			<td>Hosted:</td>
+			<td>"replacee with hosted event link if applicable"</td> 
+		</tr>
+		<tr>
+			<td>Interested:</td>
+			<td>"replacee with interested event link if applicable"</td> 
+		</tr>
+		<tr>
+			<td>Attended:</td>
+			<td>"replacee with attended event link if applicable"</td> 
+		</tr>
+
+
+		<tr>
+	  </td>
+    </tr>
+</table>
+	  </td>
+    </tr>
+  </table>
+
+
             </div>
           </tr>
+		  
+		  </table>
 
-        <tr>
-          <td colspan=3>
-            <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Phone Number</p>
-            </div>
-          </td>
-        </tr>
 
-        <tr>
-          <td colspan=3>
-            <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Email</p>
-            </div>
-          </td>
-        </tr>
+
 		
-		<tr>
-          <td colspan=3>
-            <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Interested</p>
-            </div>
-          </td>
-        </tr>
-		
-		<tr>
-          <td colspan=3>
-            <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Attended</p>
-            </div>
-          </td>
-        </tr>
-		
-		<tr>
-          <td colspan=3>
-            <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Hosted</p>
-            </div>
-          </td>
-		  <td colspan=2>
-            <div>
-               <ul>
-				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event1</p></li>
-				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event2</p></li>
-				<li><p style="border-bottom: 1px solid #FFFFFF;color:white">&nbsp Event3</p></li>
-			   </ul>
-            </div>
-          </td>
-        </tr>
-		
-      </tbody>
-    </table>
+</table>
 	<br>
 
           

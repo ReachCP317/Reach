@@ -134,27 +134,47 @@ transform: translateY(-50%);
   background-color: rgba(0,0,0,0.9);
   position: relative;
   left: 5px;
+  font-size: 26px;
+  color: #ffffff;
+  position: relative;
+
 }
 
 tr { 
   border-collapse: collapse;
-  border-spacing: 10px;
+
   padding: 17px;
 }
+
 #userInfo td {
-  width: 16.6666666%;
+
+	border-bottom: 1px solid #FFFFFF;
+  width: 20%;
   vertical-align: middle;
   text-align: left;
-  padding: 0; 
+  padding:10px; 
+
 }
 #userInfo tr {
-  height: 3em
+  height: 3em;
 }
 #userInfo tr {
-  height: 3em
+  height: 3em;
 }
 #submitButton{
   float:right;
+}
+th{
+	  height: 10px;
+}
+#one{
+	  float:left;
+    width:45%;
+		
+}
+#two{
+	  float:right;
+    width:45%;
 }
 hr { 
    border-color: #FF6E83;
@@ -200,4 +220,8 @@ input {
   height: 20px;
   border-radius: 25px;
 }
+
+        .inlineTable {
+            display: inline-block;
+        }
 
