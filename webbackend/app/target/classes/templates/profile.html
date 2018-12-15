@@ -5,9 +5,9 @@
     <title>REACH Profile Page</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="ProfilePage.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/ProfilePage.css" media="screen" title="no title" charset="utf-8">
 		<!---Code needed for navigation menu--->
-	<script src="navigatorPanel.js"></script>
+	<script src="/navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
@@ -17,7 +17,7 @@
 </div>
 
       <div id="Banner">
-      		<a href="dashboard.html"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard.html"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
 		<!-- TODO: proper logout link--->
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
@@ -28,9 +28,9 @@
 		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
 			<a class="closeButton" onclick="closeNav()">&times;</a>
 			<!--- href set to "#" until all webpages have been created and can be set properly--->
-			<a href="dashboard.html" id="search">Search</a>
-			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
-			<a href="ProfilePage.html" id="profile">Profile</a>
+			<a href="dashboard" id="search">Search</a>
+			<a href="createEvent" id="create">Create&nbsp;Event</a>
+			<a href="profile" id="profile">Profile</a>
 			<script> pageSettings() </script>
 		</span>
 		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -106,7 +106,7 @@
 
           
           <div class="content">
-              <a href="ProfilePage_edit.html"> 
+              <a href="ProfilePage_edit"> 
   <button type="button" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
               </a>
   <div>
@@ -128,7 +128,7 @@
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"></a>
+        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>

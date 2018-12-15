@@ -16,7 +16,7 @@
   color:#FFF;
 }
 body{
-  background: url("../images/bg_Image_prototype.jpg");
+  background: url("/bg_Image_prototype.jpg");
    height: 100%;
    width:100%;
   background-position: center;
@@ -210,7 +210,7 @@ input {
   border-radius: 25px;
 }
 #PPimage{
-  profilePic-image: url("profilePic.jpg");
+  profilePic-image: url("/profilePic.jpg");
   width:10%;
   height:10%;
   profilePic-position: center;

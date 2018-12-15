@@ -1,7 +1,3 @@
-
-<!--
-authors: Bethel Adaghe, Zack VanderBurgt
--->
 <!DOCTYPE html>
 <html>
 
@@ -15,9 +11,7 @@ authors: Bethel Adaghe, Zack VanderBurgt
 	var eventInfo = [];
     /*[# th:each="event : ${events}"]*/
         eventInfo.push({lat: /*[[${event.latitude}]]*/, long: /*[[${event.longitude}]]*/, name: /*[[${event.eventID}]]*/});
-    /*[/]*/
-	
-	var k = eventInfo.length;	
+    /*[/]*/	
 	</script>
 	<script th:src="@{/map.js}"></script>
 	<!---Code needed for navigation menu--->
@@ -30,8 +24,7 @@ authors: Bethel Adaghe, Zack VanderBurgt
 
 	<div id="Banner">
 		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
-		
-		<!-- TODO: proper logout link--->
+
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
 	</div>
 	<div id="BodyPanel">
@@ -72,6 +65,7 @@ authors: Bethel Adaghe, Zack VanderBurgt
 			</div>
 		</span>
 	</div>
+
 </body>
 
 </html>

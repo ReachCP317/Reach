@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="5691" started-at="2018-12-13T05:45:52Z" finished-at="2018-12-13T05:45:58Z">
+  <suite name="Surefire suite" duration-ms="4605" started-at="2018-12-15T19:32:13Z" finished-at="2018-12-15T19:32:18Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="5691" started-at="2018-12-13T05:45:52Z" finished-at="2018-12-13T05:45:58Z">
+    <test name="Surefire test" duration-ms="4605" started-at="2018-12-15T19:32:13Z" finished-at="2018-12-15T19:32:18Z">
       <class name="com.reachcp317.Reach.ReachApplicationTests">
-        <test-method status="PASS" signature="contextLoads()[pri:0, instance:contextLoads(com.reachcp317.Reach.ReachApplicationTests)]" name="contextLoads" duration-ms="565" started-at="2018-12-13T00:45:57Z" finished-at="2018-12-13T00:45:58Z">
+        <test-method status="PASS" signature="contextLoads()[pri:0, instance:contextLoads(com.reachcp317.Reach.ReachApplicationTests)]" name="contextLoads" duration-ms="212" started-at="2018-12-15T14:32:17Z" finished-at="2018-12-15T14:32:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- contextLoads -->

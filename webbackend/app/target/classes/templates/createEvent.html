@@ -1,5 +1,5 @@
 <!--
-authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
+authors: Yousef Fahim, Muzammil Elahi, Nick Marecek, Jamie Omorodion, Yingxu Zhao
 -->
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@ authors: Yousef Fahim, Yingxu Zhao, Muzammil Elahi, Nick Marecek
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/createEvent.css" media="screen" title="no title" charset="utf-8">
-	
+	<script src="/navigatorPanel.js"></script>
   </head>
   <body>
 
@@ -24,7 +24,7 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
       		<p>Username/Sign Out</p>
       	</div>
@@ -33,9 +33,9 @@ to do for it lol.
       		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed;">
       			<a class="closeButton" onclick="closeNav()">&times;</a>
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
-      			<a href="dashboard.html" id="search">Search</a>
+      			<a href="dashboard" id="search">Search</a>
       			<a id="create">Create&nbsp;Event</a>
-      			<a href="profilePage.html" id="profile">Profile</a>
+      			<a href="profile" id="profile">Profile</a>
 
       		</span>
 
@@ -43,10 +43,10 @@ to do for it lol.
       		<!-- End of code for navigation menu --->
 </div>
 
-  <div class="jumbotron">
-    <form action="#" class="form-inline" th:action="@{createEvent}" th:object="${event}" method="POST" id="eventForm">
+  <div class="jumbotron" onclick="closeNav()">
+    <form action="#" th:action="@{createEvent}" th:object="${event}" method="POST" id="signInForm" class="form-inline">
     <div class="container" id="headings" >
-   
+
       <span id="titleBar">
       <h1><strong>Host Event</strong></h1>
 <!--- we'll need to put the error message here as an "a" or "h-" tag or something
@@ -101,8 +101,7 @@ of "error" class in the css --->
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
 
-                <input id="eventEndDate" th:field="*{endTime}" th:value="*{endTime}" type='text' class="form-control" name='datetimepicker4'
-                
+                <input id="eventEndDate" th:value="*{endTime}" type='text' class="form-control" name='datetimepicker4'
                  title="Select the time for your event" style="border-radius: 0" placeholder=" " />
                 <label for="datetimepicker4">End Date &#38; Time</label>
               </div>
@@ -112,7 +111,7 @@ of "error" class in the css --->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <input id="eventCapacity" th:field="*{capacity}"  type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
+              <input id="eventCapacity" th:field="*{capacity}" type="text" title="Enter the maximum amount of guests for your event" placeholder=" ">
               <label for="capacity">Capacity</label>
             </div>
           </td>
@@ -159,6 +158,7 @@ of "error" class in the css --->
             </div>
           </td>
         </tr>
+
       </tbody>
     </table>
       </div>
@@ -171,7 +171,7 @@ of "error" class in the css --->
   </div>
     <div class="navbar navbar-light bg-light" style="margin-bottom:0pxf" id="bottomNavbar">
       <span id="reachLogo">
-        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
+        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>
@@ -189,13 +189,13 @@ of "error" class in the css --->
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+	 </div>
      </body>
-	 
+
+
   <script src="/createEvent.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script> -->
-  
-	
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script>
+
   <script src="/moment.js"></script>
       <script type="text/javascript" src="/bootstrap-datetimepicker.min.js"></script>
       <script type="text/javascript">
