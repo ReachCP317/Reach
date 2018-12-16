@@ -81,11 +81,7 @@ public class DBConnect {
         }
 
         try {
-            ps = con.prepareStatement("SELECT * from event where (longitude BETWEEN ? AND ?) and latitude between ? and ? and endDate > CURDATE()");
-            ps.setDouble(1, lonLow);
-            ps.setDouble(2, lonHigh);
-            ps.setDouble(3, latLow);
-            ps.setDouble(4, latHigh);
+            ps = con.prepareStatement("SELECT * from event");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

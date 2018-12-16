@@ -28,7 +28,9 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends FragmentActivity implements OnMarkerClickListener,
         OnMarkerDragListener, OnMapReadyCallback, OnMyLocationButtonClickListener, OnMyLocationClickListener {
@@ -37,8 +39,10 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
     private ArrayList<Integer> eventsList;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFLC;
-    private double radius = 10;
+    private double radius = 30;
     Location location;
+    Event newEvent;
+    String result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,16 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         mapFragment.getMapAsync(this);
         mFLC = LocationServices.getFusedLocationProviderClient(this);
         location = new Location("");
+        newEvent = new Event();
         eventsList = new ArrayList<Integer>();
-        new Connect().execute();
+
+        try {
+            result = new Connect().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -59,6 +71,7 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         mMap = googleMap;
         mMap.setOnMarkerClickListener(this);
         mMap.setOnMyLocationClickListener(this);
+        mMap.setOnMyLocationButtonClickListener(this);
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -70,22 +83,11 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         } catch (SecurityException e) {
             Toast.makeText(this, "App needs permissions", Toast.LENGTH_SHORT).show();
         }
-
-        MarkerOptions marker = new MarkerOptions();
-        marker.position(new LatLng(-33.852, 151.211));
-        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
-        googleMap.addMarker(marker);
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        new Connect().execute();
-        new CreateEvent().execute();
-        new Connect().execute();
-        //eventsList.clear();
-        updateLocation();
-        new UpdateEventsList().execute();
-        addMarkers();
+
         return false;
     }
 
@@ -111,7 +113,19 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
 
     @Override
     public boolean onMyLocationButtonClick() {
+        eventsList.clear();
+        updateLocation();
 
+        try {
+            result = new UpdateEventsList().execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, " " + eventsList.size(), Toast.LENGTH_SHORT).show();
+        addMarkers();
         return true;
     }
 
@@ -139,10 +153,10 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         this.radius = radius;
     }
 
-    private class Connect extends AsyncTask<Void, Void, Void> {
+    private class Connect extends AsyncTask<String, Void, String> {
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(String... strings) {
             connect = new DBConnect();
             return null;
         }
@@ -159,27 +173,27 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         } catch (SecurityException e) {
             e.printStackTrace();
         }
-        Toast.makeText(this, location.getLatitude() + " " + location.getLongitude(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, location.getLatitude() + " " + location.getLongitude(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, "Loc Update", Toast.LENGTH_SHORT).show();
     }
 
-    private class CreateEvent extends AsyncTask<Void, Void, Void> {
+    private class CreateEvent extends AsyncTask<String, Void, String> {
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(String... strings) {
             connect.createEvent("test", "test", -80.527810, 43.474040, "test", "test", "test", 0);
             return null;
         }
     }
 
-    private class UpdateEventsList extends AsyncTask<Void, Void, Void> {
+    private class UpdateEventsList extends AsyncTask<String, Void, String> {
 
         double lat = location.getLatitude();
         double lon = location.getLongitude();
 
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected String doInBackground(String... strings) {
 
             eventsList = connect.closeLocation(lat, lon, radius);
 
@@ -188,20 +202,53 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
     }
 
     public void addMarkers() {
-        Event newEvent;
-        MarkerOptions marker;
+        MarkerOptions marker = new MarkerOptions();
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
 
-        Toast.makeText(this, "Adding " + eventsList.size() + " markers", Toast.LENGTH_SHORT);
-
-        //mMap.clear();
+        mMap.clear();
 
         for (int i = 0; i < eventsList.size(); i++){
-            newEvent = connect.queryEvent(eventsList.get(i));
-            marker = new MarkerOptions();
+            //System.out.println(i);
+            try {
+                if (connect.con.isClosed()) {
+                    try {
+                        result = new Connect().execute().get();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                result = new QueryEvent(i).execute().get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             marker.position(new LatLng(newEvent.getLocation().getLatitude(), newEvent.getLocation().getLongitude()));
-            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
             mMap.addMarker(marker);
         }
     }
+
+    private class QueryEvent extends AsyncTask<String, Void, String> {
+        int index = 0;
+
+        public QueryEvent(int i) {
+            super();
+            this.index = i;
+        }
+
+        @Override
+        protected String doInBackground(String... Strings) {
+            newEvent = connect.queryEvent(eventsList.get(index));
+            return null;
+        }
+    }
 }
+
+
 
