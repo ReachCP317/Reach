@@ -9,14 +9,11 @@ public class User {
 
     private int id;
     private int number_ratings;
-    private float radius;
     private float rating;
     private String name;
     private Date date_of_birth;
 
-    public User(String name, Date date_of_birth, float radius) {
-
-        this.radius = radius;
+    public User(String name, Date date_of_birth) {
         this.rating = 0;
         this.name = name;
         this.date_of_birth = date_of_birth;
@@ -65,6 +62,7 @@ public class User {
      *
      * @return rating The updated average rating of the user
      * @author Ali Shahid
+     * @SQA Julius Fan
      */
     public float setRating(float rating, int number_ratings) {
         float temp = this.rating * this.number_ratings;
