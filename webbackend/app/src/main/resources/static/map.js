@@ -205,7 +205,7 @@ function nearbyEvents(count){
 	  for (var i = 0; i < count; i++){
 	  var EventsContainer = document.getElementById("NearbyEvents");
 	  var eventPanel = document.createElement("div");
-	  eventPanel.onClick= goToDisplay(eventInfo[i].eventID);
+	  eventPanel.onclick = goToDisplay(eventInfo[i].eventID);
 	  var name = document.createElement("p");
 	  var date = document.createElement("p");
 	  var description = document.createElement("p");
