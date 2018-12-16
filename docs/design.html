@@ -26,22 +26,16 @@
 		</ul>
 	<li><a href="#Interface">4. Interface</a></li>
 		<ul>
-		<li><a href="#4.1">4.1 Colour Usage</a></li>
-		<li><a href="#4.2">4.2 Font Usage</a></li>
-		<li><a href="#4.3">4.3 Icons</a></li>
-		<li><a href="#4.4">4.4 View Modules</a></li>
+		<li><a href="#4.1">4.1 Icons</a></li>
+		<li><a href="#4.2">4.2 View Modules</a></li>
 		</ul>
 	<li><a href="#DetailedDesign">5. Detailed Design</a></li>
 		<ul>
+		<li><a href="#onCreate()">onCreate()</a></li>
 		<li><a href="#onMapReady()">onMapReady()</a></li>
 		<li><a href="#onMarkerClick()">onMarkerClick()</a></li>
-		<li><a href="#interested()">interested()</a></li>
-		<li><a href="#giveRating()">giveRating()</a></li>
-		<li><a href="#setRadius()">setRadius()</a></li>
-		<li><a href="#createEvent()">createEvent()</a></li>
-		<li><a href="#deleteEvent()">deleteEvent()</a></li>
-		<li><a href="#updateEvent()">updateEvent()</a></li>
-		<li><a href="#changeLocation()">changeLocation()</a></li>
+		<li><a href="#onClickSearch()">onClickSearch()</a></li>
+		<li><a href="#onClickPlus()">onClickPlus()</a></li>
 		</ul>
 	</ul>
 	
@@ -90,146 +84,83 @@
 		<p>
 		Team Representative: Julius Fan / Qiao Liu</p>
 		<p>
-		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Midusa Nadeswarathasan, Zach VanderBurgt</p>
+		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Midusa Nadeswarathasan, Zach VanderBurgt, Jamie Omorodion, Nick Marecek, Pranavy Perinparajah</p>
 		<p>
 		<strong>Database</strong> </p>
 		<p>
 		Team Representative: Pray Khanna</p>
 		<p>
-		Members: Jordan Harris, Qiao Liu, Mike Pintur, Yousef Fahim</p>
+		Members: Jordan Harris, Qiao Liu, Mike Pintur, Yousef Fahim, Yingxu Zhao, Kobi Lee</p>
 		<p>
 		<strong>Back End</strong> </p>
 		<p>
-		Team Representative: Morgenne Besenschek</p>
+		Team Representative: Julius Fan, Morgenne Besenschek</p>
 		<p>
-		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Julius Fan, Kobi Lee, Morgenne Besenschek</p>
+		Members: Joshua Varga, Ali Shahid, Dustin Dugal, Michael CWJ, Kobi Lee, Morgenne Besenschek, James Robertson</p>
 		<p>
 		<strong>Front End</strong> </p>
 		<p>
 		Team Representative: Rosario Elmy / Qiao Liu</p>
 		<p>
-		Members: Bethel Adaghe, Dan Huynh, Joshua Varga, Qiao Liu, Midusa Nadeswarathasan, Muzammil Elahi, Yousef Fahim</p>
+		Members: Bethel Adaghe, Dan Huynh, Joshua Varga, Midusa Nadeswarathasan, Muzammil Elahi, Yousef Fahim, Nick Marecek, Yingxu Zhao, Zach Vanderburgt</p>
 		<p>
 		<strong>Website</strong> </p>
 		<p>
-		Team Representative: Rosario Elmy</p>
+		Team Representative: Rosario Elmy / Morgenne Besenschek</p>
 		<p>
-		Members: Bethel Adaghe, Dan Huynh, Midusa Nadeswarathasan, Muzammil Elahi, Nick Marecek, Qiao Liu, Yingxu Zhao, Yousef Fahim, Zach VanderBurgt</p>
+		Members: Bethel Adaghe, Dan Huynh, Midusa Nadeswarathasan, Muzammil Elahi, Nick Marecek, Qiao Liu, Yingxu Zhao, Yousef Fahim, Zach VanderBurgt, Michael CWJ, </p>
 		</ul>
 
 
 	<h2 id="Decomposition">3. Decomposition</h2>
 
 	<h3 id="3.1">3.1 Model Class Diagram</h3>
-		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/JuliusFan-design-1/images/Model%20Class%20Diagram.png" style="width:1000px;height:1000px;"> </p>
+		<p> <img src="https://i.imgur.com/WIp8ydE.jpg" style="width:1000px;height:1000px;"> </p>
 
 
 	<h2 id="Interface">4. Interface</h2>
 
-	<h3 id="4.1">4.1 Colour Usage</h3>
-		<p>
-		<style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-		.tg .tg-syad{background-color:#000000;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
-		.tg .tg-uog8{text-decoration:underline;border-color:inherit;text-align:left;vertical-align:top}
-		.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-		.tg .tg-8a3d{background-color:#282828;color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
-		.tg .tg-lydr{background-color:#ff0000;border-color:inherit;text-align:left;vertical-align:top}
-		</style>
-		<table class="tg">
- 		<tr>
-    			<th class="tg-uog8">Component</th>
-    			<th class="tg-0pky">Colours<br></th>
-  		</tr>
-  		<tr>
-    			<td class="tg-0pky">Menu and Boxes</td>
-    			<td class="tg-syad">#0000000<br></td>
-  		</tr>
-  		<tr>
-    			<td class="tg-0pky">Buttons<br></td>
-    			<td class="tg-8a3d">#282828<br></td>
-  		</tr>
-  		<tr>
-    			<td class="tg-0pky">Borders<br></td>
-    			<td class="tg-lydr">#FF0000<br></td>
-  		</tr>
-  		<tr>
-    			<td class="tg-0pky">Text<br></td>
-   			<td class="tg-0pky">#FFFFFF</td>
-  		</tr>
-		</table>
-		</p>
-	<h3 id="4.2">4.2 Font Usage</h3>
-		<p>  
-		<strong>Website</strong></p>
-		<ul>
-		<li>Bahnschrift Condensed</li>
-		<li>Calibri (Body)</li>
-		</ul>
-		<p>  
-		<strong>Android</strong></p>
-		<ul>
-		<li>Franklin Gothic Demi</li>
-		</ul>
-	<h3 id="4.3">4.3 Icons</h3>
+	<h3 id="4.1">4.1 Icons</h3>
 		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" style="width:200px;height:200px;"> </p>
-	<h3 id="4.4">4.4 View Modules</h3>
-		<p> <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_event.png" style="width:216px;height:384px;">
-		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_main.png" style="width:216px;height:384px;"> 
-		    <img src="https://raw.githubusercontent.com/ReachCP317/Reach/master/gui_prototypes/android/reach_page_menu.png" style="width:216px;height:384px;"> </p>
-		<p> <img src="https://i.imgur.com/mxN9yxU.jpg" style="width:500px;height:290px;">
-		    <img src="https://i.imgur.com/DUSf1Qq.jpg" style="width:500px;height:290px;"> 
-		    <img src="https://i.imgur.com/6Pcnqcg.jpg" style="width:500px;height:290px;"></p>
-		<p> <img src="https://i.imgur.com/ui9RKCC.jpg" style="width:500px;height:290px;">
-		    <img src="https://i.imgur.com/2ayF5TF.jpg" style="width:500px;height:290px;"> 
-		    <img src="https://i.imgur.com/cXhKoVB.jpg" style="width:500px;height:290px;"></p>
+	<h3 id="4.2">4.2 View Modules</h3>
+	<h3>Android</h3>
+		<p> <img src="https://i.gyazo.com/1ee970d61b9ac60233a4cff272840a50.png" style="width:256px;height:400px;">
+		    <img src="https://i.gyazo.com/ea1a512b38d47c2e4a75741f1bb027bf.png" style="width:256px;height:400px;"> 
+		    <img src="https://i.gyazo.com/d5abc452ff8c4a04ccb578966944e0e2.png" style="width:256px;height:400px;">
+		    <img src="https://i.gyazo.com/bf1edaaa30f18626a1c7be299db681eb.png" style="width:256px;height:400px;">
+		    <img src="https://i.gyazo.com/27638ca01adc42efb2c86c9d45d58d1c.png" style="width:256px;height:400px;"> </p>
+	<h3>Website</h3>
+		<p> <img src="https://cdn.discordapp.com/attachments/523225192684584975/523225750254387211/Create_Account.PNG" style="width:550px;height:270px;">
+		    <img src="https://cdn.discordapp.com/attachments/523225192684584975/523225980257435678/Sign_In.PNG" style="width:550px;height:270px;"> 
+		    <img src="https://cdn.discordapp.com/attachments/523225192684584975/523226391894949916/Search_Page.PNG" style="width:550px;height:270px;"></p>
+		<p> <img src="https://cdn.discordapp.com/attachments/523225192684584975/523226743415242755/Create_Event.PNG" style="width:550px;height:270px;">
+		    <img src="https://cdn.discordapp.com/attachments/523225192684584975/523227098631110682/Display_Event.PNG" style="width:550px;height:270px;"> 
+		    <img src="https://cdn.discordapp.com/attachments/523225192684584975/523227753705766915/Profile_Page.PNG" style="width:550px;height:270px;"></p>
 
 
 	<h2 id="DetailedDesign">5. Detailed Design</h2>
-		<p>Detailed description of important functions for Reach.</p>
+		<p>Detailed description of various functions for Reach.</p>
+	<h3 id="onCreate()">onCreate()</h3>
+		<p>  
+		Called when the activity is created. Overriden to initialize the activities' appropriate elements, fragments, buttons, and listeners.
+		</p>
 	<h3 id="onMapReady()">onMapReady(GoogleMap)</h3>
 		<p>  
-		Called when the map is ready to be used. Overriden to call updateEventsList(), setMyLocationEnabled().
+		Called when the map is ready to be used. Overriden to initialize location services and additional listeners.
 		</p>
 	<h3 id="onMarkerClick()">onMarkerClick(Marker)</h3>
 		<p>
-		Called when a marker is clicked/tapped. This will be overridden to go to the EventActivity.
+		Called when a marker is clicked/tapped. This will be overridden to go to DisplayEventActivity with the data attached to the Marker's corresponding Event.
 		</p>
-	<h3 id="updateEventsList()">updateEventsList()</h3>
+	<h3 id="onClickSearch()">onClickSearch(View)</h3>
 		<p>  
-		Iterate through the list of events in the database, storing only nearby locations (small difference in lat/long) into eventsList. For each event, if distanceTo(Location) returns a value (in meters, will have to convert) less than or equal to the user's radius, a Marker will be placed via addMarker().
+		Searches the database for events that are within the user's radius and displays them on the map as Markers.
 		</p>
-	<h3 id="interested()">interested()</h3>
+	<h3 id="onClickPlus()">onClickPlus(View)</h3>
 		<p>
-		Called when the user presses the 'Interested' button. Increments the Event's "totalInterested" value by 1. When the button is pressed again, decrement by 1.
+		Starts CreateEventActivity.
 		</p>
-	<h3 id="giveRating()">giveRating(float)</h3>
-		<p>
-		Called when the user presses the 'Rate' button. Calculates the new rating of the event's creator and updates it to the database.
-		</p>
-	<h3 id="setRadius()">setRadius(float)</h3>
-		<p>
-		Sets the user's radius to whatever value in kilometers was entered in the text box.
-		</p>
-	<h3 id="createEvent()">createEvent()</h3>
-		<p>
-		Called when the 'Create Event' button is pressed. Places a draggable marker on the user's location. Once the marker has been confirmed to be in the correct position, opens the EventView.
-		</p>
-	<h3 id="deleteEvent()">deleteEvent()</h3>
-		<p>
-		Called when the 'Delete Event' button is pressed. Clears all event information and removes the event from the database.
-		</p>
-	<h3 id="updateEvent()">updateEvent()</h3>
-		<p>
-		Submits changes to the event's information to the database. 
-		</p>
-	<h3 id="changeLocation()">changeLocation()</h3>
-		<p>
-		Opens MainActivity and makes the event's Marker draggable. Once the marker has been confirmed to be in the correct position, opens the EventView.
-		</p>
-	
+
 </body>
 
 </html>
