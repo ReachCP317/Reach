@@ -24,7 +24,7 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard"><img class="icon" src="../static/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
       		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
       	</div>
@@ -191,11 +191,11 @@ of "error" class in the css --->
      </body>
 
 
-  <script src="/createEvent.js"></script>
+  <script src="../static/createEvent.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4&callback=initialize"></script>
 
-  <script src="/moment.js"></script>
-      <script type="text/javascript" src="/bootstrap-datetimepicker.min.js"></script>
+  <script src="../static/moment.js"></script>
+      <script type="text/javascript" src="../static/bootstrap-datetimepicker.min.js"></script>
       <script type="text/javascript">
           $(function () {
               $('[name=datetimepicker3]').datetimepicker();

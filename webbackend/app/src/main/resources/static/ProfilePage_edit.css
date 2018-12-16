@@ -3,7 +3,7 @@
 }
 .jumbotron{
  margin: 0 auto;
-  background-color: transparent;
+  background-color: transparent  !important;;
   width: 80%;
   min-height: 80vh;
   min-width: 600px;
