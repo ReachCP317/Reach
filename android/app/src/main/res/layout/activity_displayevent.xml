@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bcg1"
-    tools:context=".EventActivity">
+    tools:context=".DisplayEventActivity">
 
     <TextView
         android:id="@+id/name"
@@ -67,7 +67,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/addressView"
+        android:id="@+id/address"
         android:layout_width="200dp"
         android:layout_height="37dp"
         android:layout_alignStart="@+id/totalInterested"
