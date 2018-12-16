@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerDragListener;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -23,38 +26,39 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements OnMarkerClickListener,
-        OnMarkerDragListener, OnMapReadyCallback, OnMyLocationButtonClickListener {
+        OnMarkerDragListener, OnMapReadyCallback, OnMyLocationButtonClickListener, OnMyLocationClickListener {
 
     private DBConnect connect;
     private ArrayList<Integer> eventsList;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFLC;
-    private float radius;
+    private double radius = 10;
+    Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        connect = new DBConnect();
-        Toast.makeText(this, connect.toString(), Toast.LENGTH_SHORT).show();
-        if (connect == null) {
-            Toast.makeText(this, "Failed to connect", Toast.LENGTH_SHORT).show();
-        }
-        mFLC = LocationServices.getFusedLocationProviderClient(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mFLC = LocationServices.getFusedLocationProviderClient(this);
+        location = new Location("");
+        eventsList = new ArrayList<Integer>();
+        new Connect().execute();
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnMarkerClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
         mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json));
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -75,7 +79,13 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        updateEventsList();
+        new Connect().execute();
+        new CreateEvent().execute();
+        new Connect().execute();
+        //eventsList.clear();
+        updateLocation();
+        new UpdateEventsList().execute();
+        addMarkers();
         return false;
     }
 
@@ -91,6 +101,11 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
 
     @Override
     public void onMarkerDragEnd(Marker marker) {
+
+    }
+
+    @Override
+    public void onMyLocationClick(@NonNull Location location) {
 
     }
 
@@ -116,13 +131,6 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
     }
 
     /**
-     * Creates a new event and adds it to the database.
-     */
-    public void createEvent() {
-
-    }
-
-    /**
      * Sets a new radius used for searching events.
      *
      * @param radius radius to search for events in.
@@ -131,11 +139,69 @@ public class MainActivity extends FragmentActivity implements OnMarkerClickListe
         this.radius = radius;
     }
 
-    /**
-     * Updates eventsList from the database.
-     */
-    public void updateEventsList(){
-        connect.createEvent("test", "test", 0, 0, "test", "test", "test", 0);
+    private class Connect extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            connect = new DBConnect();
+            return null;
+        }
+    }
+
+    public void updateLocation() {
+        try {
+            mFLC.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    MainActivity.this.location = location;
+                }
+            });
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(this, location.getLatitude() + " " + location.getLongitude(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Loc Update", Toast.LENGTH_SHORT).show();
+    }
+
+    private class CreateEvent extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            connect.createEvent("test", "test", -80.527810, 43.474040, "test", "test", "test", 0);
+            return null;
+        }
+    }
+
+    private class UpdateEventsList extends AsyncTask<Void, Void, Void> {
+
+        double lat = location.getLatitude();
+        double lon = location.getLongitude();
+
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            eventsList = connect.closeLocation(lat, lon, radius);
+
+            return null;
+        }
+    }
+
+    public void addMarkers() {
+        Event newEvent;
+        MarkerOptions marker;
+
+        Toast.makeText(this, "Adding " + eventsList.size() + " markers", Toast.LENGTH_SHORT);
+
+        //mMap.clear();
+
+        for (int i = 0; i < eventsList.size(); i++){
+            newEvent = connect.queryEvent(eventsList.get(i));
+            marker = new MarkerOptions();
+            marker.position(new LatLng(newEvent.getLocation().getLatitude(), newEvent.getLocation().getLongitude()));
+            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+            mMap.addMarker(marker);
+        }
     }
 }
 

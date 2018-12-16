@@ -15,12 +15,22 @@ public class Event {
     private String description;
     private String address;
     private Location location;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
     private int totalInterested;
 
     //Constructor
-    public Event(String name, String description, String address, Location location, Date startTime, Date endTime) {
+    public Event() {
+        this.name = "default";
+        this.description = "default";
+        this.address = "default";
+        this.location = new Location("");
+        this.startTime = "default";
+        this.endTime = "default";
+        this.totalInterested = 0;
+    }
+
+    public Event(String name, String description, String address, Location location, String startTime, String endTime) {
         this.name = name;
         this.description = description;
         this.address = address;
@@ -73,7 +83,7 @@ public class Event {
      *
      * @return The starting time of the event.
      */
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
@@ -82,7 +92,7 @@ public class Event {
      *
      * @return The ending time of the event.
      */
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
@@ -138,7 +148,7 @@ public class Event {
      *
      * @param startTime The new starting time of the event.
      */
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
@@ -147,7 +157,7 @@ public class Event {
      *
      * @param endTime The new ending time of the event.
      */
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 

@@ -1,5 +1,8 @@
 package io.github.reachcp317.reach;
 
+import android.location.Location;
+import android.os.AsyncTask;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 
 public class DBConnect {
 
-    private Connection con;
+    public Connection con;
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
@@ -31,7 +34,9 @@ public class DBConnect {
     public DBConnect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb","reachWeb@reachdb", "reachWLU3@");
+            String url ="jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb";
+            con = DriverManager.getConnection(url, "reachAndroid@reachdb", "reachWLU@");
+            //con = DriverManager.getConnection("jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb","reachWeb@reachdb", "reachWLU3@");
             st = con.createStatement();
             System.out.println("Successful Connection to Database");
         } catch(Exception ex) {
@@ -106,8 +111,6 @@ public class DBConnect {
         return events;
 
     }
-
-    public
 
 
     /*
@@ -189,7 +192,7 @@ public class DBConnect {
      * @author michaelpintur
      * @SQA kobilee - need prepared statemnt
      */
-    public void queryEvent(int eventID) {
+    public Event queryEvent(int eventID) {
         String query = null;
         query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
         int lon = 0;
@@ -197,7 +200,7 @@ public class DBConnect {
         String address;
         String startDate;
         String endDate;
-
+        Event event = new Event();
 
 
         try {
@@ -205,15 +208,20 @@ public class DBConnect {
             while (rs.next()) {
                 lon = rs.getInt("longitude");
                 lat = rs.getInt("latitude");
-                address = rs.getString("address");
-                startDate = rs.getString("startDate");
-                endDate = rs.getString("endDate");
+                Location location = new Location("");
+                location.setLatitude(lat);
+                location.setLongitude(lon);
+                event.setLocation(location);
+                event.setAddress(rs.getString("address"));
+                event.setStartTime(rs.getString("startDate"));
+                event.setEndTime(rs.getString("endDate"));
             }
             System.out.println(eventID + " ");
         } catch (Exception ex) {
             System.out.println("Error: "+ ex);
         }
 
+        return event;
     }
 
 
