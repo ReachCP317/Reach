@@ -13,6 +13,19 @@
                       <PersistentState>
                         <option name="children">
                           <map>
+                            <entry key="actionbar">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\jpewp\Documents\Projects\Reach\images\party_popper.png" />
+                                      <entry key="theme" value="HOLO_DARK" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                             <entry key="launcher">
                               <value>
                                 <PersistentState>
@@ -34,8 +47,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
-                                      <entry key="foregroundImage" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
+                                      <entry key="backgroundImage" value="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Android Studio\@mipmap\ic_launcher" />
+                                      <entry key="foregroundImage" value="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Android Studio\@mipmap\ic_launcher" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -49,7 +62,19 @@
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="https://raw.githubusercontent.com/ReachCP317/Reach/master/images/reach_icon.png" />
+                                      <entry key="imageAsset" value="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Android Studio\@mipmap\ic_launcher" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="notification">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\jpewp\Documents\Projects\Reach\images\party_popper.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -59,7 +84,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
@@ -68,6 +93,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>
