@@ -11,7 +11,7 @@
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
- 
+
 <div id="userInfo" hidden>
     <input id="userID" type="text">
 </div>
@@ -22,7 +22,7 @@
 		<!-- TODO: proper logout link--->
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
       	</div>
-		
+
 	<div id="BodyPanel">
 		<!-- Code for navigation menu --->
 		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
@@ -52,25 +52,25 @@
         <tr>
           <td colspan=3>
             <div class="inputs full">
-			
+
   <table id="userdata">
     <tr>
       <td colspan = 3>
 	  <tr>
 			<td>Username:</td>
-			<td th:text="${user.username}">Username</td> 
+			<td th:text="${user.username}">Username</td>
 		</tr>
 		<tr>
 			<td>Email:</td>
-			<td th:text="${user.email}">Email</td> 
+			<td th:text="${user.email}">Email</td>
 		</tr>
 		<tr>
 			<td>Phone number:</td>
-			<td>"replace with phone number"</td> 
+			<td>"replace with phone number"</td>
 		</tr>
 		<tr>
 			<td>Rating:</td>
-			<td>"Rating"</td> 
+			<td>"Rating"</td>
 		</tr>
 		<tr>
 	  </td>
@@ -78,35 +78,35 @@
   </table>
   <table>
     <tr>
-      <td>	
+      <td>
 	  <tr>
 			<td>Hosted:</td>
-			<td>"replacee with hosted event link if applicable"</td> 
+			<td>"replacee with hosted event link if applicable"</td>
 		</tr>
 		<tr>
 			<td>Interested:</td>
-			<td>"replacee with interested event link if applicable"</td> 
+			<td>"replacee with interested event link if applicable"</td>
 		</tr>
 		<tr>
 			<td>Attended:</td>
-			<td>"replacee with attended event link if applicable"</td> 
+			<td>"replacee with attended event link if applicable"</td>
 		</tr></td>
     </tr>
   </table>
             </div>
           </tr>
-		  
+
 		  </table>
 
 
 
-		
+
 </table>
 	<br>
 
-          
+
           <div class="content">
-              <a href="ProfilePage_edit"> 
+              <a href="ProfilePage_edit">
   <button type="button" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
               </a>
   <div>
@@ -117,11 +117,11 @@
 
 
 
-		  
+
   </div>
 
 
-	
+
 	<br>
 
       </div>
@@ -131,12 +131,10 @@
         <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
-        <a class="navbar-brand" href="#">About</a>
-        <a class="navbar-brand" href="#">Terms</a>
-        <a class="navbar-brand" href="#">Contact Us</a>
-        <a class="navbar-brand" href="#">Privacy</a>
-        <a class="navbar-brand" href="#">FAQ</a>
-        <a class="navbar-brand" href="#">Feedback</a>
+        <a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('about.html','MyWindow',width=300,height=300); return false;">About</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Terms.html','MyWindow',width=300,height=300); return false;">Terms</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Contact Us.html','MyWindow',width=300,height=300); return false;">Contact Us</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Privacy.html','MyWindow',width=300,height=300); return false;">Privacy</a>
 </span>
       </nav>
 
@@ -148,5 +146,5 @@
 
 
      </body>
- 
+
 </html>
