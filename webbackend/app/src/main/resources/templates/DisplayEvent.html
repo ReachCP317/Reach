@@ -25,7 +25,9 @@ to do for it lol.
       <div id="Banner">
       		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+      		<a href="/logout">
+			<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+			</a>
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
@@ -120,7 +122,9 @@ of "error" class in the css--->
       </tbody>
     </table>
 	<br>
-	<button href="editEvent" th:if="${event.userID} == ${#httpSession.getAttribute('userID')}" id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
+	<a href="editEvent">
+	<button th:if="${event.userID} == ${#httpSession.getAttribute('userID')}" id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
+    </a>
       </div>
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">

@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/ProfilePage.css" media="screen" title="no title" charset="utf-8">
 		<!---Code needed for navigation menu--->
-	<script src="../static/navigatorPanel.js"></script>
+	<script src="/navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
@@ -17,10 +17,12 @@
 </div>
 
       <div id="Banner">
-      		<a href="dashboard.html"><img class="icon" src="../static/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard.html"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
 		<!-- TODO: proper logout link--->
+		<a href="/logout">
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+		</a>
       	</div>
 		
 	<div id="BodyPanel">
@@ -73,10 +75,9 @@
 			<td>"Rating"</td> 
 		</tr>
 		<tr>
-		<div class="content">
-		<button type="button" action="editProfile" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
-              
-  <div>
+		<a href="editProfile">
+		<button th:if="${user.ID} == ${#httpSession.getAttribute('userID')}" id="Edit" style="margin-left:95%; background:black; color:white;"> Edit </button>
+        </a>
 	  </td>
     </tr>
   </table>
@@ -98,7 +99,7 @@
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="../static/reach_icon.png"></a>
+        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>

@@ -1,5 +1,7 @@
 package com.reachcp317.reach;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -15,29 +17,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.reachcp317.reach.UserRepository;
 
 /**
- * Prototype for web page direction, user form input and user info display
+ * Controller for web page direction, user form input and user info display
  * @author Morgenne Besenschek
  *
  */
 
-//TODO: Should login go in its own Controller?
-//TODO: Fix return statements to adhere to standards
-//@SessionAttributes("user")
 @Controller
 public class UserController implements WebMvcConfigurer{
-	//test variable
-	public boolean login = false;
-	//public User currentUser; ?
 	@Autowired
 	UserRepository db;
-	//TODO:
 
 	/**
 	 * When User visits the site, redirects them based on if they are logged in or not
@@ -79,7 +71,7 @@ public class UserController implements WebMvcConfigurer{
 	/**
 	 * Verifies if User information entered is valid. Immediately hashes password upon submission.
 	 * If User info is valid, login User and redirect to the dashboard.
-	 * @author Morgenne Besenschek, Michael Pintur (SHA256 algorithm)
+	 * @author Morgenne Besenschek
 	 * @param user
 	 * @param model
 	 * @return
@@ -88,45 +80,19 @@ public class UserController implements WebMvcConfigurer{
 	 */
 	@PostMapping("/login")
 	//TODO: cookie functionality
-	//https://docs.oracle.com/javaee/6/api/index.html?javax/servlet/http/HttpSession.html
 	public String checkLoginInfo(User user, Model model, HttpSession httpSession) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		//TODO: properly check if user has entered a username or email. Is @ or . permitted in our usernames?
-		if (user.getUsername().contains("@")) {
-			System.out.println("This is an email");
-			//verify user info
-			//retrieve username using email
-		}else {
-			System.out.println("This is a username.");
-			//if db
-		}
-		
-		//hashes password before comparing with the database
-		MessageDigest mDigest;
-		StringBuffer sb = new StringBuffer();
-		mDigest = MessageDigest.getInstance("SHA-256");
-		byte[] result = mDigest.digest(user.getPassword().getBytes());
-		for (int i = 0; i < result.length; i++) {
-			sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
-		}
-		user.setPassword(sb.toString());
-		
+
+		user.setPassword(hashPassword(user.getPassword()).toString());
 		
 		//returns valid User ID if login info matches a User in the database
 		int valid = db.verifyLogin(user);
-		System.out.println("Result: " + valid);
 		if (valid > 0) {
 			httpSession.setAttribute("username", user.getUsername());
-			//TODO: should I be mapping user ID?
 			httpSession.setAttribute("userID", valid);
-
-			System.out.println("User = " + httpSession.getAttribute("username"));
-			System.out.println("Login successful");
-			System.out.println("User: " + user.getUsername() + " " + user.getPassword());
-
 			model.addAttribute(httpSession);
 			return "redirect:/dashboard";
 		}
-		//TODO: tell User what was wrong
+		
 		else {
 			return "redirect:/login";
 		}
@@ -149,15 +115,12 @@ public class UserController implements WebMvcConfigurer{
 	@PostMapping("/createAccount")
 	//TODO: Proper error handling, save username in box if a user creation error occurs
 	public String checkNewAccount(User user, HttpSession httpSession) {
-		System.out.println("User = " + user.getUsername());
 		//password and confirm password boxes did not match
 		if (user.getPassword().compareTo(user.getPasswordConfirm()) != 0) {
-			//TODO: should I be dummying out the passwords here for security purposes?
 			return "redirect:/createAccount";
 		}else {
 			//returns a valid User ID if the account is made
 			int createSuccess = db.createUser(user);
-			//boolean createSuccess = true;
 			if (createSuccess <= 0) {
 				return "redirect:/createAccount";
 			}
@@ -170,15 +133,6 @@ public class UserController implements WebMvcConfigurer{
 		}
 	}
 	
-	
-	/*
-	@PostMapping("/profile/{id}")
-	public String userProfile() {
-		
-		return "profile";
-	}
-	*/
-	
 	/**
 	 * View a User profile given a User id
 	 * @return
@@ -189,7 +143,6 @@ public class UserController implements WebMvcConfigurer{
 			return "redirect:/dashboard";
 		}
 		User user = db.getById(id);
-		//TODO: Proper error page?
 		if (user == null) {
 			return "redirect:/dashboard";
 		}else {
@@ -199,17 +152,18 @@ public class UserController implements WebMvcConfigurer{
 		}
 	}
 	
-	@GetMapping("/profile")
 	/**
 	 * Visiting profile without any id number defaults to the logged in user's profile.
 	 * @return
 	 */
+	@GetMapping("/profile")
 	public String profile(Model model, HttpSession httpSession) {
 		if (!checkSession(httpSession)) {
 			return "redirect:/index";
 		}else {
 			//retrieve logged in User's profile
 			User user = db.getById((int) httpSession.getAttribute("userID"));
+			model.addAttribute(httpSession);
 			model.addAttribute(user);
 			return "profile";
 		}
@@ -227,11 +181,29 @@ public class UserController implements WebMvcConfigurer{
 	}
 	
 	@GetMapping("/editProfile")
-	public String editProfile(HttpSession httpSession) {
+	public String editProfile(HttpSession httpSession, User user, Model model) {
 		if (!checkSession(httpSession)) {
 			return "redirect:/index";
 		}else {
+			user = db.getById((int) httpSession.getAttribute("userID"));
+			model.addAttribute(httpSession);
+			model.addAttribute(user);
 			return "ProfilePage_edit";
+		}
+	}
+	
+	@PostMapping("/editProfile")
+	public String submitEditProfile(HttpSession httpSession, User user) throws NoSuchAlgorithmException {
+		if (user.getPasswordConfirm().compareTo(user.getPasswordUpdate()) != 0) {
+			return "ProfilePage_edit";
+		}else {
+			user.setPassword(hashPassword(user.getPassword()).toString());
+			boolean success = db.updateUser(user, (int) httpSession.getAttribute("userID"));
+			if (!success) {
+				return "ProfilePage_edit";
+			}else {
+				return "profile";
+			}
 		}
 	}
 	
@@ -250,4 +222,20 @@ public class UserController implements WebMvcConfigurer{
 		return valid;
 	}
 	
+	/**
+	 * Password hash; credit to Michael Pintur (SHA256 algorithm)
+	 * @param password
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 */
+	private StringBuffer hashPassword(String password) throws NoSuchAlgorithmException {
+		MessageDigest mDigest;
+		StringBuffer sb = new StringBuffer();
+		mDigest = MessageDigest.getInstance("SHA-256");
+		byte[] result = mDigest.digest(password.getBytes());
+		for (int i = 0; i < result.length; i++) {
+			sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+		}
+		return sb;
+	}
 }

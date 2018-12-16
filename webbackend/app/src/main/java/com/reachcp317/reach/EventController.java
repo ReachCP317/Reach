@@ -41,7 +41,7 @@ import com.reachcp317.reach.UserRepository;
 public class EventController implements WebMvcConfigurer{
 	@Autowired
 	EventRepository db;
-	//default Event search radius size; declared as an object for Thymeleaf compatibility
+	//default Event search radius size
 	private static final int DEFAULT_RADIUS = 10;
 	GeoApiContext context = new GeoApiContext.Builder()
 		    .apiKey("AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4")
@@ -55,21 +55,19 @@ public class EventController implements WebMvcConfigurer{
 	 */
 	@GetMapping("/dashboard")
 	public String dashboardPage(Model model, HttpSession httpSession, SearchRadius searchRadius) {
-		/**
+		
 		if (!checkSession(httpSession)) {
 			return "redirect:/index";
 		}else {
-		**/
+		
 			model.addAttribute(httpSession);
-			//List<Event> eventList = new ArrayList<Event>();
-			List<Event> events = db.getMapMarkers(10, 10.0, 10.0);
+			List<Event> events = db.getMapMarkers(DEFAULT_RADIUS, 43.4724, 80.5263);
 			
 			model.addAttribute("events", events);
 			searchRadius.setRadius(DEFAULT_RADIUS);
 			model.addAttribute(searchRadius);
-			//model.add
 			return "dashboard";
-		//}
+		}
 	}
 	
 	/**
@@ -205,9 +203,9 @@ public class EventController implements WebMvcConfigurer{
 	public String editEvent(Model model, Event event, HttpSession httpSession) {
 		if (httpSession.getAttribute("username") == null) {
 			return "redirect:/index";
-		}//else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) == null) {
-			//return "redirect:/event";
-		//}
+		}else if (db.getCurrentUserEvent((int) httpSession.getAttribute("userID")) == null) {
+			return "redirect:/createEvent";
+		}
 		else {
 			event = db.getCurrentUserEvent((int) httpSession.getAttribute("userID"));
 			if (event == null) {

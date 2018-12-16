@@ -4,7 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="../static/dashboardStyles.css">
+	<link rel="stylesheet" type="text/css" href="dashboardStyles.css">
 	<!-- Scripts here-->
 	<script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=AIzaSyCWUQSdJbU9l36D14gaSlw9MovZNacqaf4"></script>
 	<script th:inline="javascript">
@@ -15,7 +15,7 @@
 	</script>
 	<script th:src="@{/map.js}"></script>
 	<!---Code needed for navigation menu--->
-	<script src="../static/navigatorPanel.js"></script>
+	<script src="/navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
 
 </head>
@@ -23,9 +23,11 @@
 <body>
 
 	<div id="Banner">
-		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="../static/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
+		<a href="/logout">
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+		</a>
 	</div>
 	<div id="BodyPanel">
 		<!-- Code for navigation menu --->
@@ -33,8 +35,8 @@
 			<a class="closeButton" onclick="closeNav()">&times;</a>
 			<!--- href set to "#" until all webpages have been created and can be set properly--->
 			<a href="#" id="search">Search</a>
-			<a href="createEvent" id="create">Create&nbsp;Event</a>
-			<a href="profile" id="profile">Profile</a>
+			<a href="/createEvent" id="create">Create&nbsp;Event</a>
+			<a href="/profile" id="profile">Profile</a>
 			<script> pageSettings() </script>
 		</span>
 		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -52,14 +54,16 @@
 					<input type="submit" value="Show Me Parties">
 				</form>
 				<hr style="border:none; border-color:#242f3E">
-				<script src="../static/mapItems.js"></script>
+				<script src="/mapItems.js"></script>
 			</div>
 
 			<div class="nearbyEvents" id="NearbyEvents">
 				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>	
 				<tr th:each="event : ${events}">
 				<hr style="color:white">
-				<a th:href="@{/DisplayEvent/{id}(id=${event.getEventID()})}" style="font-size:18px; text-align:left, property ="text-decoration:none;"" th:text="${event.getName()}">&nbsp Event Name </a>
+				<a th:href="@{/DisplayEvent/{id}(id=${event.getEventID()})}">
+				<p style="font-size:18px; text-align:left; color:white; text-decoration:underline;" th:text="${event.getName()}">&nbsp Event Name </p>
+				</a>
 				<p style="font-size:15px; text-align:right;" th:text="'Ends ' + ${event.getEndTime()}">&nbsp Time </p>
 				<p style="font-size:15px;text-align:left"th:text="${event.getDescription()}">&nbsp Description.... </p>
 				<hr style="color:white">

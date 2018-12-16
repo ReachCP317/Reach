@@ -142,6 +142,28 @@ public class UserRepository{
 	}
 	
 	/**
+	 * Updates User password and email
+	 * @param user
+	 * @param id
+	 * @return
+	 */
+	public boolean updateUser(User user, int id) {
+		boolean success = true;
+		int update = 0;
+		try {
+			update = this.jdbcTemplate.update("UPDATE user SET email = ?, pwd = ? WHERE userID = ? AND pwd = ?",
+					new Object[] {user.getEmail(), user.getPasswordUpdate(), id, user.getPassword()});
+		}catch (EmptyResultDataAccessException e) {
+			success = false;
+		}finally {
+			if (update == 0) {
+				success = false;
+			}
+		}
+		return success;
+	}
+	
+	/**
 	 * Retrieves userID for a newly created User
 	 * @param user
 	 * @return

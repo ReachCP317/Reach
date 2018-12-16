@@ -130,11 +130,6 @@ public class EventRepository{
 		return success;
 	}
 	
-	private int getID(Event event) {
-		
-		return 1;
-	}
-	
 	/**
 	 * 
 	 * @param event
@@ -146,12 +141,12 @@ public class EventRepository{
 		boolean success = true;
 		int update;
 		//try {
-			update = this.jdbcTemplate.update("UPDATE event SET address = ?, eventName = ?, description = ?, latitude = ?, longitude = ?"
+			update = this.jdbcTemplate.update("UPDATE event SET address = ?, eventName = ?, description = ?, latitude = ?, longitude = ?,"
 					+ "startDate = ?, endDate = ?, capacity = ? WHERE hostID = ? AND endDate > CURDATE()",
 					new Object[] {event.getAddress(), event.getName(), event.getDescription(),
 							event.getLatitude(), event.getLongitude(),
 							event.getStartTime(), event.getEndTime(), event.getCapacity(), userID});
-			System.out.println(update);
+			System.out.println("Update: " + update);
 		//}catch (Exception e) {
 			//success = false;
 		//}
@@ -168,6 +163,7 @@ public class EventRepository{
 	 * @return
 	 */
 	public List<Event> getMapMarkers(int radius, double userLat, double userLong) {
-		return this.jdbcTemplate.query("SELECT * FROM event", new EventMapper());
+		
+		return this.jdbcTemplate.query("SELECT * FROM event WHERE endDate > CURDATE()", new EventMapper());
 	}
 }

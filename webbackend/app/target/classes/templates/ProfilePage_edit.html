@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/ProfilePage_edit.css" media="screen" title="no title" charset="utf-8">
 		<!---Code needed for navigation menu--->
-	<script src="../static/navigatorPanel.js"></script>
+	<script src="/navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
   </head>
   <body>
@@ -17,9 +17,11 @@
 </div>
 
       <div id="Banner">
-      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="../static/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="https://github.com/ReachCP317/Reach"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p>Username/Sign Out</p>
+      		<a href="/logout">
+			<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+			</a>
       	</div>
 
 	<div id="BodyPanel">
@@ -27,8 +29,8 @@
 		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
 			<a class="closeButton" onclick="closeNav()">&times;</a>
 			<!--- href set to "#" until all webpages have been created and can be set properly--->
-			<a href="#" id="search">Search</a>
-			<a href="createEvent.html" id="create">Create&nbsp;Event</a>
+			<a href="dashboard" id="search">Search</a>
+			<a href="createEvent" id="create">Create&nbsp;Event</a>
 			<a href="#" id="profile">Profile</a>
 			<script> pageSettings() </script>
 		</span>
@@ -39,7 +41,7 @@
     <title>Create-Account Page</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="createAccount.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/createAccount.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
 
@@ -48,18 +50,16 @@
 
     <div class="container">
 			<div class="container" id="headings" >
-		<form action="#" method="#" id="signInForm" class="form-inline">
 		  <span id="titleBar">
 		  <h2><strong>Edit Profile</strong></h2>
 		  </span>
 		  <hr width="100%" align="center">
-		</form>
 		</div>
-    <form action="#" method="editProfile" th:object="${user}" id="signInForm" class="form-inline">
+    <form th:action="@{editProfile}" method="post" th:object="${user}" id="signInForm" class="form-inline">
 
 		<label for="emailInput">Email:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="email" class="form-control inputs" th:field="${name}" id="emailInput" placeholder="Enter Email">
+          <input type="email" class="form-control inputs" th:field="*{email}" id="emailInput" placeholder="Enter Email">
         </div><br/><br/>
 
 		        <label for="oldPasswordInput">Password:</label>
@@ -88,8 +88,8 @@
 
     <div class="navigationBar" style="margin-bottom:0px" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="SignIn-CreateAccount.html">
-        <img class="navbar-brand" id="imagelogo" src="reach_icon.png">
+        <a href="dashboard">
+        <img class="navbar-brand" id="imagelogo" src="/reach_icon.png">
 	</a>
       </span>
       <span id="navbarContent">
@@ -107,7 +107,6 @@
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="../static/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" href="#">About</a>

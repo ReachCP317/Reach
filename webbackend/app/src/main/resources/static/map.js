@@ -166,16 +166,6 @@ function showPosition(position) {
     });
   }
 
-  
-
-  //tester marker using pub on king
-  var pub = new google.maps.Marker({
-    position: new google.maps.LatLng(43.4678, -80.5232),
-    map: map,
-    title: 'Desination',
-    icon: '/party_popper_map.png'
-  });
-
 }
 
 function showError(error) {
