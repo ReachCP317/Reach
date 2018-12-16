@@ -138,7 +138,7 @@ public class EventController implements WebMvcConfigurer{
 	 * @param httpSession
 	 * @return
 	 */
-	@GetMapping("/event")
+	@GetMapping("/DisplayEvent")
 	public String userEvent(Model model, Event event, HttpSession httpSession) {
 		if (!checkSession(httpSession)) {
 			return "redirect:/index";
@@ -166,6 +166,18 @@ public class EventController implements WebMvcConfigurer{
 				return "DisplayEvent";
 			}
 		}
+	}
+	
+	@GetMapping("/DisplayEvent?eventID={eventID}")
+	public String viewEvent(@PathVariable(value = "eventID") int id, Model model, HttpSession httpSession) {
+		Event event = db.getById(id);
+		if (event == null) {
+			return "redirect:/dashboard";
+		}else {
+			model.addAttribute(event);
+		}
+		
+		return "DisplayEvent";
 	}
 	
 	@GetMapping("/createEvent")

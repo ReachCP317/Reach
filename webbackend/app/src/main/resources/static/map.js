@@ -165,11 +165,7 @@ var eventCount = 0;
       title: eventInfo[i].name,
       icon: '/party_popper_map.png'
     });
-	if(eventCount <= 5){
-		eventCount = eventCount + 1;
-	}
   }
-  nearbyEvents(eventCount);
 
   
 
@@ -180,7 +176,8 @@ var eventCount = 0;
     title: 'Desination',
     icon: '/party_popper_map.png'
   });
-
+//map breaks
+nearbyEvents(eventCount);
 }
 
 function showError(error) {
@@ -201,6 +198,7 @@ function showError(error) {
 }
 getLocation();
 
+//breaks map
 function nearbyEvents(count){
 	  for (var i = 0; i < count; i++){
 	  var EventsContainer = document.getElementById("NearbyEvents");

@@ -55,13 +55,19 @@
 				<script src="/mapItems.js"></script>
 			</div>
 
-			<div class="nearbyEvents">
+			<div class="nearbyEvents" id="NearbyEvents">
 				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>
+				<!--
+				<table>
+				<tr th:each="event : ${events}" onClick="goToDisplay()">
 				<hr style="color:white">
-				<p style="font-size:18px; text-align:left">&nbsp Event Name </p>
-				<p style="font-size:15px; text-align:right;">Start Date-End Date &nbsp </p>
-				<p style="font-size:15px;text-align:left"> &nbsp Description...</p>
+				<p style="font-size:18px; text-align:left" th:text="${event.getName()}">&nbsp Event Name </p>
+				<p style="font-size:15px; text-align:right;" th:text="${event.getStartTime()} + ${event.getEndTime()}">&nbsp Time </p>
+				<p style="font-size:15px;text-align:left"th:text="${event.getDescription()}">&nbsp Description.... </p>
 				<hr style="color:white">
+				</tr>
+				</table>
+				-->
 			</div>
 		</span>
 	</div>
