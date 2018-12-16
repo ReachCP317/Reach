@@ -1,10 +1,18 @@
 package io.github.reachcp317.reach;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.io.InputStream;
+import android.location.Location;
+import android.os.AsyncTask;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 /**
  *
  * @author Michael Pintur
@@ -12,10 +20,9 @@ import java.security.NoSuchAlgorithmException;
  *
  */
 
-
 public class DBConnect {
 
-    private Connection con;
+    public Connection con;
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
@@ -24,20 +31,18 @@ public class DBConnect {
      * Constructor to connect to the MYSQL database
      *
      */
-    public DBConnect () {
+    public DBConnect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url ="jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb?useSSL=true&requireSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            con = DriverManager.getConnection(url, "reachAdmin@reachdb as the user ", "reachWLU@");
-
-                    st = con.createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
+            String url ="jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb";
+            con = DriverManager.getConnection(url, "reachAndroid@reachdb", "reachWLU@");
+            //con = DriverManager.getConnection("jdbc:mysql://reachdb.mysql.database.azure.com:3306/reachdb","reachWeb@reachdb", "reachWLU3@");
+            st = con.createStatement();
             System.out.println("Successful Connection to Database");
         } catch(Exception ex) {
             System.out.println("Error: "+ ex);
         }
     }
-
-
 
     /**
      *
@@ -76,11 +81,7 @@ public class DBConnect {
         }
 
         try {
-            ps = con.prepareStatement("SELECT * from event where (longitude BETWEEN ? AND ?) and latitude between ? and ? and endDate > CURDATE()");
-            ps.setDouble(1, lonLow);
-            ps.setDouble(2, lonHigh);
-            ps.setDouble(3, latLow);
-            ps.setDouble(4, latHigh);
+            ps = con.prepareStatement("SELECT * from event");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -135,7 +136,7 @@ public class DBConnect {
         }
     }
 
-    /*
+    /**
      * createEvent into event table
      *
      * event table fields -
@@ -155,10 +156,10 @@ public class DBConnect {
      * @sqa JuliusFan
      *
      */
-    public void createEvent(String email, String desc, double lon, double lat, String start, String end, String address) {
+    public void createEvent(String email, String desc, double lon, double lat, String start, String end, String address, int capacity ) {
         int userID = getUserID(email);
         try {
-            ps = con.prepareStatement("INSERT INTO event (hostID, address, description, latitude, longitude, startDate, endDate)"
+            ps = con.prepareStatement("INSERT INTO event (hostID, address, description, latitude, longitude, startDate, endDate, capacity)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             ps.setInt(1,  userID);
             ps.setString(2, address);
@@ -167,6 +168,7 @@ public class DBConnect {
             ps.setDouble(5, lon);
             ps.setString(6, start);
             ps.setString(7, end);
+            ps.setInt(8, capacity);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -183,18 +185,18 @@ public class DBConnect {
     /**
      * Returns a result set from the database view v_event_name when given an event ID.
      * @param eventID - Possibly from an ArrayList of event ID's
-     * @author michaelpintur1
+     * @author michaelpintur
+     * @SQA kobilee - need prepared statemnt
      */
     public Event queryEvent(int eventID) {
         String query = null;
         query = String.format("SELECT * FROM v_event_name WHERE eventID = %d",eventID);
         int lon = 0;
         int lat = 0;
-        String hostName = null;
-        String address = null;
+        String address;
         String startDate;
         String endDate;
-        Event eventObject = null;
+        Event event = new Event();
 
 
         try {
@@ -202,18 +204,20 @@ public class DBConnect {
             while (rs.next()) {
                 lon = rs.getInt("longitude");
                 lat = rs.getInt("latitude");
-                hostName = rs.getString("hostName");
-                address = rs.getString("address");
-                startDate = rs.getString("startDate");
-                endDate = rs.getString("endDate");
+                Location location = new Location("");
+                location.setLatitude(lat);
+                location.setLongitude(lon);
+                event.setLocation(location);
+                event.setAddress(rs.getString("address"));
+                event.setStartTime(rs.getString("startDate"));
+                event.setEndTime(rs.getString("endDate"));
             }
-            //eventObject = new Event(hostName,address,lat,lon);
-            System.out.println(eventID + " " + hostName);
+            System.out.println(eventID + " ");
         } catch (Exception ex) {
             System.out.println("Error: "+ ex);
         }
 
-        return eventObject;
+        return event;
     }
 
 
@@ -223,6 +227,7 @@ public class DBConnect {
      * @param email - user email
      * @return - returns the unique userID from the given email address.
      * @author michaelpintur
+     * @SQA kobilee - need prepared statemnt
      */
     public int getUserID(String email) {
         int userID = 0;
@@ -285,7 +290,8 @@ public class DBConnect {
      *
      * Method will hash the given password to SHA-256 then will compare hash codes with the database to verify the passwords are correct.
      *
-     *
+     * @param userID
+     * @param password
      * @return -1 if no result set 0- if hash code does not match database hash code 1- if hash codes match
      *
      * @author michaelpintur
@@ -381,6 +387,45 @@ public class DBConnect {
         }
     }
 
+    /**
+     * Method returns void on default
+     * Method to fetch what email, pwd(hashed), icon (directory to image), username  when given a userID
+     * @param userID Users ID number
+     *
+     *
+     * @author Jordan Harris
+     * @sqa Michael Pintur
+     * 2018/12/09
+     */
+    public void queryUser(int userID)
+    {
+        try {
+            ps = con.prepareStatement("SELECT * FROM user WHERE userID = ?");
+            ps.setInt(1,userID);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-
+        String email;
+        String pwd;
+        String icon;
+        String userName = null;
+        try
+        {
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                email = rs.getString("email");
+                pwd  = rs.getString("pwd");
+                icon = rs.getString("icon");
+                userName = rs.getString("userName");
+            }
+            System.out.println(userID + " " + userName);
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Error: "+ ex);
+        }
+    }
 }
