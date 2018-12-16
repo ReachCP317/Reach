@@ -57,8 +57,9 @@
 
 			<div class="nearbyEvents" id="NearbyEvents">
 				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>
+				<!--
 				<table>
-				<tr th:each="event, itemStat : *{event}">
+				<tr th:each="event, itemStat : *{event}" onClick="goToDisplay()">
 				<hr style="color:white">
 				<p style="font-size:18px; text-align:left" th:text="*{event[__${itemStat.index}__].name}">&nbsp Event Name </p>
 				<p style="font-size:15px; text-align:right;" th:text="*{event[__${itemStat.index}__].startTime} + *{event[__${itemStat.index}__].endTime}">&nbsp Time </p>
@@ -66,6 +67,7 @@
 				<hr style="color:white">
 				</tr>
 				</table>
+				-->
 			</div>
 		</span>
 	</div>
