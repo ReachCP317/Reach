@@ -210,7 +210,7 @@ public class DBConnect {
                 startDate = rs.getString("startDate");
                 endDate = rs.getString("endDate");
             }
-            eventObject = new Event(hostName,address,lat,lon);
+           // eventObject = new Event("Event1", hostName,address, new Date(), new Date(), 37.47, lat,lon);
             System.out.println(eventID + " " + hostName);
         } catch (Exception ex) {
             System.out.println("Error: "+ ex);
@@ -289,7 +289,7 @@ public class DBConnect {
      *
      * Method will hash the given password to SHA-256 then will compare hash codes with the database to verify the passwords are correct.
      *
-     * @param email
+     * @param userID
      * @param password
      * @return -1 if no result set 0- if hash code does not match database hash code 1- if hash codes match
      *

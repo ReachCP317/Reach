@@ -1,47 +1,52 @@
 package com.reach.REACH;
+/**
+ * @author Midusa Nadeswarathasan
+ *  * nade1680@mylaurier.ca
+ */
+/**
+ * @author Julius Fan
+ * fanx0430@mylaurier.ca
+ */
 
-import android.location.Address;
-import android.location.Geocoder;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
 public class DisplayEvent extends AppCompatActivity {
-    private TextView Days_Left;
-    private TextView Description;
-    private TextView Event_Name;
-    private TextView Address;
-    private Date Start_Date_And_Time;
-    private Date End_Date_And_Time;
-    private TextView Capacity;
-    private Event e;
+    private Button Logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_event);
-        TextView Days_Left = (TextView)findViewById(R.id.daysLeft);
-        TextView Description = (TextView)findViewById(R.id.description);
-        TextView Event_Name = (TextView)findViewById(R.id.eventName);
-        TextView Address = (TextView)findViewById(R.id.address);
-        TextView Start_Date_And_Time = (TextView)findViewById(R.id.startDate);
-        TextView End_Date_And_Time = (TextView)findViewById(R.id.endDate);
-        TextView Capacity = (TextView)findViewById(R.id.capacity);
-        Days_Left.setText(e.getDays());
-        Description.setText(e.getDescription());
-        Event_Name.setText(e.getName());
-        Address.setText(e.getAddress());
-        Start_Date_And_Time.setText((CharSequence) e.getStartTime());
-        End_Date_And_Time.setText((CharSequence)e.getEndTime());
-        Capacity.setText(e.getCapacity());
+        Intent intent = getIntent();
+        Bundle e = intent.getExtras();
 
+        TextView Name = findViewById(R.id.name);
+        TextView Description = findViewById(R.id.description);
+        TextView Address = findViewById(R.id.addressView);
+        TextView Start_Date_And_Time = findViewById(R.id.startDate);
+        TextView End_Date_And_Time = findViewById(R.id.endDate);
+        TextView totalInterested = findViewById(R.id.totalInterested);
+        Description.setText(e.getString("DESC"));
+        Name.setText(e.getString("NAME"));
+        Address.setText(e.getString("ADDRESS"));
+        Start_Date_And_Time.setText(e.getString("START"));
+        End_Date_And_Time.setText(e.getString("END"));
+        totalInterested.setText(Integer.toString(e.getInt("TOTIN")));
+
+        Logout = (Button)findViewById(R.id.Logout);
+        Logout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DisplayEvent.this,Login_Activity.class));
+                Toast.makeText(DisplayEvent.this, "Logged out", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
+

@@ -8,203 +8,150 @@
     android:background="@drawable/bcg1"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/daysLeft"
-        android:layout_width="197dp"
-        android:layout_height="35dp"
-        android:layout_alignStart="@+id/description"
-        android:layout_alignBottom="@+id/daysLeftView"
-        android:layout_marginStart="148dp"
-        android:layout_marginBottom="-8dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="number"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="360dp"
-        android:layout_height="79dp"
-        android:layout_alignStart="@+id/startDate"
-        android:layout_alignTop="@+id/descriptionView"
-        android:layout_marginStart="-154dp"
-        android:layout_marginTop="37dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="text|textMultiLine"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/startDate"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/endDate"
-        android:layout_alignBottom="@+id/eventNameView"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="-10dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:hint="mm_dd_yy_at_00_00"
-        android:inputType="datetime"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/endDate"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/address"
-        android:layout_alignTop="@+id/addressView"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="128dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:hint="mm_dd_yy_at_00_00"
-        android:inputType="datetime"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/eventName"
-        android:layout_width="199dp"
-        android:layout_height="38dp"
-        android:layout_alignStart="@+id/address"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="193dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="text"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="200dp"
-        android:layout_height="37dp"
-        android:layout_alignStart="@+id/capacity"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-4dp"
-        android:layout_marginBottom="278dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:inputType="textMultiLine"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <EditText
-        android:id="@+id/capacity"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/CapacityView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-17dp"
-        android:layout_marginEnd="23dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="franklin-gothic-demi"
-        android:hint="0"
-        android:inputType="text"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/descriptionView"
-        android:layout_width="131dp"
-        android:layout_height="30dp"
-        android:layout_alignStart="@+id/addressView"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-4dp"
-        android:layout_marginTop="58dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Description"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/daysLeftView"
-        android:layout_width="131dp"
-        android:layout_height="28dp"
-        android:layout_alignEnd="@+id/addressView"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="239dp"
-        android:layout_marginEnd="-6dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Days Left"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/eventNameView"
-        android:layout_width="130dp"
-        android:layout_height="24dp"
-        android:layout_alignStart="@+id/startDateTimeView"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Event_Name"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/addressView"
-        android:layout_width="128dp"
-        android:layout_height="23dp"
-        android:layout_alignEnd="@+id/startDateTimeView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="291dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Address"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/startDateTimeView"
-        android:layout_width="129dp"
-        android:layout_height="50dp"
-        android:layout_alignStart="@+id/endDateTimeView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="182dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Start Date And Time"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/endDateTimeView"
-        android:layout_width="135dp"
-        android:layout_height="55dp"
-        android:layout_alignStart="@+id/CapacityView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="118dp"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="End Date And Time"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/CapacityView"
-        android:layout_width="154dp"
-        android:layout_height="26dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-21dp"
-        android:layout_marginBottom="89dp"
-        android:layout_toStartOf="@+id/button"
-        android:fontFamily="franklin-gothic-demi"
-        android:text="Capacity"
-        android:textColor="@color/colorText"
-        android:textSize="20sp" />
     <Button
         android:id="@+id/button"
         android:layout_width="89dp"
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="12dp"
-        android:text="Create" />
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="11dp"
+        android:background="#000000"
+        android:text="Create"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="51dp"
+        android:text="Event Name:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/descriptionLabel"
+        android:layout_width="119dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="86dp"
+        android:text="Description:"
+        android:textColor="@color/colorText"
+
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nameLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:background = "#282828"
+        android:inputType="text"
+        android:textColor="@color/colorText" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="355dp"
+        android:layout_height="99dp"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="134dp"
+        android:background = "#282828"
+        android:ems="10"
+        android:inputType="text|textAutoCorrect|textMultiLine"
+        android:textColor="@color/colorText" />
+
+    <TextView
+        android:id="@+id/startdateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="156dp"
+        android:text="Start Date and Time:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/addressView"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="224dp"
+        android:text="Address:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/enddateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_alignStart="@+id/nameLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="90dp"
+        android:text="End Date and Time:"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addressView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-4dp"
+        android:background = "#282828"
+        android:layout_marginEnd="7dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:textColor="@color/colorText" />
+
+    <EditText
+        android:id="@+id/start"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/startdateLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:background = "#282828"
+        android:ems="10"
+        android:hint="mm_dd_yy_at_00_00"
+        android:inputType="datetime"
+        android:textColor="@color/colorText" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="257dp"
+        android:background="#000000"
+        android:text="Logout"
+        android:textColor="#FFFFFF" />
+    <EditText
+        android:id="@+id/end"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/startdateLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="67dp"
+        android:background = "#282828"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="mm_dd_yy_at_00_00"
+        android:inputType="datetime"
+        android:textColor="@color/colorText" />
 </RelativeLayout>

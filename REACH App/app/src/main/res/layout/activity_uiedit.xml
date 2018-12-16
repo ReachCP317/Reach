@@ -91,7 +91,16 @@
             android:text="Password:"
             android:textColor="#A9A9A9"
             android:textSize="20sp" />
-
+        <Button
+            android:id="@+id/Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvInfo"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="261dp"
+            android:background="#000000"
+            android:text="Logout"
+            android:textColor="#FFFFFF" />
       </RelativeLayout>
 
     </RelativeLayout>

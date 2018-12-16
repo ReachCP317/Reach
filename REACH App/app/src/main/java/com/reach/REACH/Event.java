@@ -2,21 +2,22 @@ package com.reach.REACH;
 
 import android.location.Location;
 
+import java.util.Date;
+
 public class Event {
     private String name;
     private String description;
     private String address;
     private String startTime;
     private String endTime;
-    private int capacity;
+    private int totalInterested;
     private Location location;
-    private int ageReq;
     private int days_left;
 
     //Constructor
     public Event Events[];
     public int index= 0;
-    public Event(String name, String address, double latitude, double longitude) {
+    public Event(String event1, String name, String address, Date date1, Date date, double v, double latitude, double longitude) {
         this.name = name;
         this.address = address;
         this.location = new Location("");
@@ -53,8 +54,8 @@ public class Event {
     }
 
 
-    public int getCapacity() {
-        return this.capacity;
+    public int getTotalInterested() {
+        return this.totalInterested;
     }
     public int getDays() {
         return this.days_left;
@@ -81,15 +82,11 @@ public class Event {
         this.endTime = endTime;
     }
 
-    public void setAgeReq(int age) {
-        this.ageReq = age;
-    }
-
     public void setDays(int days) {
         this.days_left = days;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setTotalInterested(int totalInterested) {
+        this.totalInterested = totalInterested;
     }
 }
