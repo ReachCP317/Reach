@@ -17,7 +17,7 @@
   color:#FFF;
 }
 body{
-  background: url("/bg_Image_prototype.jpg");
+  background: url("../static/bg_Image_prototype.jpg");
    height: 100%;
    width:100%;
   background-position: center;
@@ -134,7 +134,7 @@ transform: translateY(-50%);
 table,
 th,
 td,
-tr { 
+tr {
   border-collapse: collapse;
   border-spacing: 10px;
   padding: 17px;
@@ -154,7 +154,7 @@ tr {
 #submitButton{
   float:right;
 }
-hr { 
+hr {
    border-color: #FF6E83;
    border-width: 2px;
 }

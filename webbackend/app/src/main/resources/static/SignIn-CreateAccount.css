@@ -12,7 +12,7 @@ body, html{
   color: #ffffff;
 }
 body{
-  background-image: url("/bg_Image_prototype.jpg");
+  background-image: url("../static/bg_Image_prototype.jpg");
 
   width:100%;
   height:100%;

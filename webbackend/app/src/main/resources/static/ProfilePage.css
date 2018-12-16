@@ -16,7 +16,7 @@
   color:#FFF;
 }
 body{
-  background: url("/bg_Image_prototype.jpg");
+  background: url("../static/bg_Image_prototype.jpg");
    height: 100%;
    width:100%;
   background-position: center;
@@ -140,7 +140,7 @@ transform: translateY(-50%);
 
 }
 
-tr { 
+tr {
   border-collapse: collapse;
   border-spacing: 10px;
   padding: 17px;
@@ -149,7 +149,7 @@ tr {
   width: 20%;
   vertical-align: middle;
   text-align: left;
-  padding:10px; 
+  padding:10px;
 }
 #userInfo tr {
   height: 3em
@@ -165,7 +165,7 @@ float: left;
 margin-left: 5%;
 margin-top: -5%;
 }
-hr { 
+hr {
    border-color: #FF6E83;
    border-width: 2px;
 }
@@ -215,4 +215,3 @@ input {
   height:10%;
   profilePic-position: center;
 }
-
