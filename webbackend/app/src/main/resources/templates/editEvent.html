@@ -8,7 +8,7 @@ authors: Bethel Adaghe
     <title>REACH Edit Event</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/createEvent.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/createEvent.css" media="screen" title="no title" charset="utf-8">
     <script src="/navigatorPanel.js"></script>
 
   </head>
@@ -111,8 +111,8 @@ authors: Bethel Adaghe
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label id="eventDescriptionLabel" th:field="*{description}" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
-              <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
+              <label id="eventDescriptionLabel" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <textarea id="eventDescription" th:field="*{description}" type="text" rows="10" placeholder=" "></textarea>
 
             </div>
           </td>

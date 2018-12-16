@@ -44,6 +44,8 @@ public class User {
 	private String password;
 	
 	private String passwordConfirm;
+	
+	private String passwordUpdate;
 
 	/**
 	 * The constructor for the User class.
@@ -113,6 +115,10 @@ public class User {
 	public String getPasswordConfirm() {
 		return this.passwordConfirm;
 	}
+	
+	public String getPasswordUpdate() {
+		return this.passwordUpdate;
+	}
 
 	/**
 	 * Sets the rating of a user
@@ -152,6 +158,10 @@ public class User {
 	
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
+	}
+	
+	public void setPasswordUpdate(String passwordUpdate) {
+		this.passwordUpdate = passwordUpdate;
 	}
 
 }

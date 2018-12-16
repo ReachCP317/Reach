@@ -26,7 +26,7 @@ to do for it lol.
       <div id="Banner">
       		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p>Username/Sign Out</p>
+      		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
@@ -117,8 +117,8 @@ of "error" class in the css --->
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <label id="eventDescriptionLabel" th:field="*{description}" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
-              <textarea id="eventDescription"  type="text" rows="10" placeholder=" "></textarea>
+              <label id="eventDescriptionLabel" for="eventDescription" title="Enter a brief description of your event for your guests">Event Description</label>
+              <textarea id="eventDescription" th:field="*{description}" type="text" rows="10" placeholder=" "></textarea>
 
             </div>
           </td>
@@ -171,15 +171,13 @@ of "error" class in the css --->
   </div>
     <div class="navbar navbar-light bg-light" style="margin-bottom:0pxf" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="dashboard.html"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
+        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
       </span>
       <span id="navbarContent">
-        <a class="navbar-brand" href="#">About</a>
-        <a class="navbar-brand" href="#">Terms</a>
-        <a class="navbar-brand" href="#">Contact Us</a>
-        <a class="navbar-brand" href="#">Privacy</a>
-        <a class="navbar-brand" href="#">FAQ</a>
-        <a class="navbar-brand" href="#">Feedback</a>
+        <a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('about.html','MyWindow',width=300,height=300); return false;">About</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Terms.html','MyWindow',width=300,height=300); return false;">Terms</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Contact Us.html','MyWindow',width=300,height=300); return false;">Contact Us</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Privacy.html','MyWindow',width=300,height=300); return false;">Privacy</a>
 </span>
       </div>
 

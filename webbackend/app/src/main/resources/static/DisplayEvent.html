@@ -5,7 +5,7 @@
     <title>REACH Create Event Webpage</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/DisplayEvent.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="DisplayEvent.css" media="screen" title="no title" charset="utf-8">
 	<script src="/navigatorPanel.js"></script>
 	<script src="/DisplayEvent.js"></script>
 	<script> window.onload = pageSettings()</script>
@@ -23,9 +23,9 @@ to do for it lol.
 </div>
 
       <div id="Banner">
-      		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard"><img class="icon" src="reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
-      		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+      		<p>Username/Sign Out</p>
       	</div>
       	<div id="BodyPanel">
       		<!-- Code for navigation menu --->
@@ -34,7 +34,7 @@ to do for it lol.
       			<!--- href set to "#" until all webpages have been created and can be set properly--->
       			<a href="dashboard" id="search">Search</a>
       			<a href="createEvent" id="create">Create&nbsp;Event</a>
-      			<a href="profile" id="profile">Profile</a>
+      			<a href="ProfilePage" id="profile">Profile</a>
       			<script> pageSettings() </script>
       		</span>
       		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
@@ -55,7 +55,8 @@ of "error" class in the css--->
 	  <hr width="100%" align="center">
       <div id="locationContainer">
           <div id="eventLocation" class="inputs form-group half">
-            <label for="eventLocation" th:text="'Location: ' +${event.address}"><i class="fas fa-map-marker-alt"></i>&nbsp Location</label>
+            <label for="eventLocation"><i class="fas fa-map-marker-alt"></i>&nbsp Location</label>
+			 <!-- get function --->
 		  </div>
       </div>
       <!-- ................................................. --->
@@ -70,13 +71,13 @@ of "error" class in the css--->
           <td colspan=3>
             <div class="inputs full">
               <label id="eventName">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white"th:text="'Event Name: ' + ${event.name}">&nbsp Event Name</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.name}">&nbsp Event Name</p>
 			  <!-- get function --->
             </div>
           </td>
             <td colspan=1>
               <div class="inputs full">
-                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="'Start Date: ' + ${event.startTime}">&nbsp Start Time</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.startTime}">&nbsp Start Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -85,7 +86,7 @@ of "error" class in the css--->
               <div class="inputs full">
                 <!---<input id="eventTime"  type="time" placeholder=" ">
                 --->
-                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="'End Date: ' + ${event.endTime}">&nbsp End Time</p>
+                <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.endTime}">&nbsp End Time</p>
 				<!-- get function --->
               </div>
             </td>
@@ -94,13 +95,13 @@ of "error" class in the css--->
         <tr>
           <td colspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="'Capacity: ' + ${event.capacity}">&nbsp Capacity</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white" th:text="${event.capacity}">&nbsp Capacity</p>
 			  <!-- get function --->
             </div>
           </td>
           <td colspan=2 rowspan=3>
             <div class="inputs full">
-              <p style="border-bottom: 1px solid #FFFFFF;color:white;" th:text="'Description: ' + ${event.description}">&nbsp Description</p>
+              <p style="border-bottom: 1px solid #FFFFFF;color:white;" th:text="${event.description}">&nbsp Description</p>
             </div>
           </td>
 
@@ -115,17 +116,22 @@ of "error" class in the css--->
           </td>
         </tr>
 
-
+        <tr>
+          <td colspan=3>
+              <p style="border-bottom: 1px solid #FFFFFF; margin-bottom:100px;color:white" th:text="${event.days}">&nbsp Days Left</p>
+			  <!-- get function --->
+          </td>
+        </tr>
 
       </tbody>
     </table>
 	<br>
-	<button href="editEvent" th:if="${event.userID} == ${#httpSession.getAttribute('userID')}" id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
+	<button id="Edit"style="margin-left:95%; background:black; color:white;"> Edit </button>
       </div>
   </div>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
       <span id="reachLogo">
-        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"><a/>
+        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="reach_icon.png"><a/>
       </span>
       <span id="navbarContent">
         <a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('about.html','MyWindow',width=300,height=300); return false;">About</a>

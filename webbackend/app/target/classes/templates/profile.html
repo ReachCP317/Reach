@@ -17,7 +17,7 @@
 </div>
 
       <div id="Banner">
-      		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+      		<a href="dashboard.html"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
 
 		<!-- TODO: proper logout link--->
 		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
@@ -73,43 +73,13 @@
 			<td>"Rating"</td> 
 		</tr>
 		<tr>
+		<div class="content">
+		<button type="button" action="editProfile" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
+              
+  <div>
 	  </td>
     </tr>
   </table>
-  <table>
-    <tr>
-      <td>	
-	  <tr>
-			<td>Hosted:</td>
-			<td>"replacee with hosted event link if applicable"</td> 
-		</tr>
-		<tr>
-			<td>Interested:</td>
-			<td>"replacee with interested event link if applicable"</td> 
-		</tr>
-		<tr>
-			<td>Attended:</td>
-			<td>"replacee with attended event link if applicable"</td> 
-		</tr></td>
-    </tr>
-  </table>
-            </div>
-          </tr>
-		  
-		  </table>
-
-
-
-		
-</table>
-	<br>
-
-          
-          <div class="content">
-              <a href="ProfilePage_edit"> 
-  <button type="button" class="btn btn-primary pull-right" id="EditProfile" >Edit Profile</button>
-              </a>
-  <div>
 
 </div>
 

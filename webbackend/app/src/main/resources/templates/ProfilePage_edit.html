@@ -5,7 +5,7 @@
     <title>REACH Edit Profile Page</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/ProfilePage_edit.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/ProfilePage_edit.css" media="screen" title="no title" charset="utf-8">
 		<!---Code needed for navigation menu--->
 	<script src="navigatorPanel.js"></script>
 	<script> window.onload = pageSettings()</script>
@@ -55,26 +55,26 @@
 		  <hr width="100%" align="center">
 		</form>
 		</div>
-    <form action="#" method="#" id="signInForm" class="form-inline">
+    <form action="#" method="editProfile" th:object="${user}" id="signInForm" class="form-inline">
 
 		<label for="emailInput">Email:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="email" class="form-control inputs" id="emailInput" placeholder="Enter Email">
+          <input type="email" class="form-control inputs" th:field="${name}" id="emailInput" placeholder="Enter Email">
         </div><br/><br/>
 
 		        <label for="oldPasswordInput">Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="password" class="form-control inputs" id="oldPasswordInput" placeholder="Enter Password">
+          <input type="password" class="form-control inputs" th:field="*{password}" id="oldPasswordInput" placeholder="Enter Password">
         </div><br/><br/>
 
         <label for="newPasswordInput">New Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="password" class="form-control inputs" id="newPasswordInput" placeholder="Enter new Password">
+          <input type="password" class="form-control inputs" th:field="*{passwordUpdate}" id="newPasswordInput" placeholder="Enter new Password">
         </div><br/><br/>
 
         <label for="confirmPasswordInput">Confirm Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <input type="password" class="form-control inputs" id="confirmPasswordInput" placeholder="Re-enter new Password">
+          <input type="password" class="form-control inputs" th:field="*{passwordConfirm}" id="confirmPasswordInput" placeholder="Re-enter new Password">
         </div><br><br>
 
 		  <div class="input-group mb-2 mr-sm-2 mb-sm-0">

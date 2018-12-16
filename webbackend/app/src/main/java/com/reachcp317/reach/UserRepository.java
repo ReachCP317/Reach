@@ -105,9 +105,6 @@ public class UserRepository{
 			login = this.jdbcTemplate.queryForObject("SELECT * FROM user WHERE userName = ?",
 					new Object[] {user.getUsername()}, new UserMapperWithPassword());
 			
-			System.out.println("Entered: " + user.getPassword());
-			System.out.println("In database: " + login.getPassword());
-			
 			if (user.getPassword().compareTo(login.getPassword()) != 0) {
 					valid = 0;
 			}else {

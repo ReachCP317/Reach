@@ -28,7 +28,7 @@ authors: Yousef Fahim, Bethel Adaghe, Muzammil Elahi
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <input type="email" class="form-control inputs" th:field="*{email}" id="emailInput" placeholder="Enter Email">
         </div><br/><br/>
-		
+
         <label for="passwordInput">Password:</label>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <input type="password" class="form-control inputs" th:field="*{password}" id="passwordInput" placeholder="Enter Password">
@@ -38,7 +38,7 @@ authors: Yousef Fahim, Bethel Adaghe, Muzammil Elahi
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
           <input type="password" class="form-control inputs" th:field="*{passwordConfirm}" id="confirmPasswordInput" placeholder="Re-enter Password">
         </div><br><br>
-		
+
 		  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="offset-sm-2 col-sm-13">
           <button type="submit" class="btn btn-primary">Create</button>
@@ -55,12 +55,10 @@ authors: Yousef Fahim, Bethel Adaghe, Muzammil Elahi
 	</a>
       </span>
       <span id="navbarContent">
-        <a class="navbar-brand" href="#">About</a>
-        <a class="navbar-brand" href="#">Terms</a>
-        <a class="navbar-brand" href="#">Contact Us</a>
-        <a class="navbar-brand" href="#">Privacy</a>
-        <a class="navbar-brand" href="#">FAQ</a>
-        <a class="navbar-brand" href="#">Feedback</a>
+        <a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('about.html','MyWindow',width=300,height=300); return false;">About</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Terms.html','MyWindow',width=300,height=300); return false;">Terms</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Contact Us.html','MyWindow',width=300,height=300); return false;">Contact Us</a>
+<a class="navbar-brand" style="cursor:pointer" onClick="MyWindow=window.open('Privacy.html','MyWindow',width=300,height=300); return false;">Privacy</a>
 </span>
       </div>
 

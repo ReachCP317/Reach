@@ -56,18 +56,14 @@
 			</div>
 
 			<div class="nearbyEvents" id="NearbyEvents">
-				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>
-				<!--
-				<table>
+				<h5 style="font-size:20px; margin:10px 0;">Events Nearby</h5>	
 				<tr th:each="event : ${events}">
 				<hr style="color:white">
-				<p style="font-size:18px; text-align:left" th:text="${event.getName()}">&nbsp Event Name </p>
-				<p style="font-size:15px; text-align:right;" th:text="${event.getStartTime()} + ${event.getEndTime()}">&nbsp Time </p>
+				<a th:href="@{/DisplayEvent/{id}(id=${event.getEventID()})}" style="font-size:18px; text-align:left, property ="text-decoration:none;"" th:text="${event.getName()}">&nbsp Event Name </a>
+				<p style="font-size:15px; text-align:right;" th:text="'Ends ' + ${event.getEndTime()}">&nbsp Time </p>
 				<p style="font-size:15px;text-align:left"th:text="${event.getDescription()}">&nbsp Description.... </p>
 				<hr style="color:white">
 				</tr>
-				</table>
-				-->
 			</div>
 		</span>
 	</div>
