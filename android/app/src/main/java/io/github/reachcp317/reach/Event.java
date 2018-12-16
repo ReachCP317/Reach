@@ -1,6 +1,5 @@
 package io.github.reachcp317.reach;
 
-
  // import statements
 import android.location.Location;
 
@@ -57,7 +56,6 @@ public class Event {
      *
      * @return The description of the event
      */
-
     public String getDescription() {
         return description;
     }

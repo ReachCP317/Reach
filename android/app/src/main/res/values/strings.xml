@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">REACH</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Reach</string>
+    <string name="title_activity_main">Reach</string>
 </resources>
