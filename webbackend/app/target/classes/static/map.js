@@ -157,7 +157,6 @@ function showPosition(position) {
     icon: '/person_marker.png'
   });
   
-var eventCount = 0;
   for (var i = 0; i < eventInfo.length; i++){
     var marker = new google.maps.Marker({  
       position: new google.maps.LatLng(eventInfo[i].lat, eventInfo[i].long),
@@ -176,8 +175,7 @@ var eventCount = 0;
     title: 'Desination',
     icon: '/party_popper_map.png'
   });
-//map breaks
-nearbyEvents(eventCount);
+
 }
 
 function showError(error) {
@@ -197,27 +195,3 @@ function showError(error) {
   }
 }
 getLocation();
-
-//breaks map
-function nearbyEvents(count){
-	  for (var i = 0; i < count; i++){
-	  var EventsContainer = document.getElementById("NearbyEvents");
-	  var eventPanel = document.createElement("div");
-	  eventPanel.onClick= goToDisplay(eventInfo[i].eventID);
-	  var name = document.createElement("p");
-	  var date = document.createElement("p");
-	  var description = document.createElement("p");
-	  var line = document.createElement("hr");
-	  eventPanel.append(name);
-	  eventPanel.append(date);
-	  eventPanel.append(description);
-	  eventPanel.append(line);
-	  name.innerHTML = eventInfo[i].name;
-	  name.style="font-size:18px; text-align:left";
-	  date.innerHTML = eventInfo[i].startTime + "-" + eventInfo[i].endTime;
-	  date.style="font-size:15px; text-align:right;";
-	  description.innerHTML = eventInfo[i].description+;
-	  description.style="font-size:15px;text-align:left; overflow:hidden; text-overflow:ellipsis;";
-	  line.style="color:white;
-  }
-}
