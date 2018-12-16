@@ -7,6 +7,8 @@ output.innerHTML = slider.value + " km";
 slider.oninput = function() {
   output.innerHTML = this.value + " km";
 }
+/*
 function goToDisplay(eventID){
-	window.location.href = "DisplayEvent?eventID="+eventID +"";
+	window.location.href = "/DisplayEvent?eventID="+eventID +"";
 }
+*/
