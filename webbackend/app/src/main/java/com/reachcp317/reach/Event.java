@@ -1,0 +1,303 @@
+package com.reachcp317.reach;
+
+import java.util.*;
+
+//import com.sun.xml.internal.bind.v2.model.core.NonElement;
+
+import com.reachcp317.reach.User;
+
+/**
+ * 
+ */
+public class Event {
+
+	/**
+	 * Default constructor
+	 */
+	public Event() {
+	}
+
+	/**
+	 * The id of the event
+	 */
+	private int eventID;
+
+	/**
+	 * Name of event.
+	 */
+	private String name;
+
+	/**
+	 * Description of event.
+	 */
+	private String description;
+
+	/**
+	 * Latitude of event.
+	 */
+	private double latitude;
+
+	/**
+	 * Longitude of event.
+	 */
+	private double longitude;
+
+	/**
+	 * The time the event begins.
+	 */
+	private String startTime;
+
+	/**
+	 * The time the event ends.
+	 */
+	private String endTime;
+
+	/**
+	 * The event's street address.
+	 */
+	private String address;
+
+	/**
+	 * The capacity of the event.
+	 */
+	private int capacity;
+
+	/**
+	 * The type of event?
+	 */
+	private String eventType;
+
+	/**
+	 * The ID of the user who is hosting/creating the party.
+	 */
+	private int userID;
+	
+	/**
+	 * The range the event wants to reach
+	 */
+	private double eventRange;
+	
+	int days;
+
+	/**
+	 * The constructor for the Event class.
+	 * @param name 
+	 * @param description 
+	 * @param address 
+	 * @param latitiude 
+	 * @param longitude 
+	 * @param startTime 
+	 * @param endTime 
+	 * @param capacity the capacity of the event.
+	 * @param eventType A string array of event types.
+	 * @param userID The ID of the user who is hosting/creating the party.
+	 */
+	public Event(String name, String description, String address, double latitude, double longitude, String startTime, String endTime, int capacity, String eventType, int userID, double eventRange) {
+		// TODO implement here
+		this.name = name;
+		this.description = description;
+		this.address = address;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.capacity = capacity;
+		this.eventType = eventType;
+		this.userID = userID;
+		this.eventRange = eventRange;
+
+	}
+	/**
+	 * Basic Event object initialization
+	 * @param id
+	 */
+	public Event(int eventID, int userID) {
+		this.eventID = eventID;
+		this.userID = userID;
+	}
+	/**
+	 * Gets the name of an event.
+	 * @return The name of the event.
+	 */
+	public String getName() {
+		return this.name;
+	}
+
+
+	/**
+	 * Gets the address of an event
+	 * @return
+	 */
+	public String getAddress() {
+		return this.address;
+	}
+
+	/**
+	 * Gets the description of the event
+	 * @return
+	 */
+	public String getDescription() {
+		return this.description;
+	}
+
+	/**
+	 * Gets the latitude of the event.
+	 * @return
+	 */
+	public double getLatitude() {
+		return this.latitude;
+	}
+
+	/**
+	 * Gets the longitude of the event.
+	 * @return
+	 */
+	public double getLongitude() {
+		return this.longitude;
+	}
+
+	/**
+	 * Gets the time the event begins.
+	 * @return
+	 */
+	public String getStartTime() {
+		return this.startTime;
+	}
+
+	/**
+	 * Gets the time the event ends.
+	 * @return
+	 */
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	/**
+	 * Gets the capacity of the event from the database and returns it as a int.
+	 * @return The capacity of the event.
+	 */
+	public int getCapacity() {
+		return this.capacity;
+	}
+
+	/**
+	 * Gets the event type from the database.
+	 * @return The event type in a string array
+	 */
+	public String getEventType() {
+		return this.eventType;
+	}
+
+	/**
+	 * Gets the event orginizers user ID from the database and returns it as a int.
+	 * @return The ID of the user who is hosting/creating the party.
+	 */
+	public int getUserID() {
+		return this.userID;
+	}
+
+	/**
+	 * Gets the event ID from the database
+	 * @return the event ID to be returned.
+	 */
+	public int getEventID() {
+		return this.eventID;
+	}
+
+	/**
+	 * Gets the event range
+	 * @return 
+	 */
+	public double getEventRange() {
+		return this.eventRange;
+	}
+	
+	public int getDays() {
+		return this.days;
+	}
+
+	/**
+	 * Sets the range of the event.
+	 * @param name
+	 */
+	public void setEventRange(double eventRange) {
+		this.eventRange = eventRange;
+	}
+
+	/**
+	 * Sets the name of the event.
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Sets the description of the event
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * Sets the address of the event.
+	 * @param address
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	/**
+	 * Sets the latitude of the address
+	 * @param latitiude
+	 */
+	public void setLatitude(double latitiude) {
+		this.latitude = latitiude;
+	}
+
+	/**
+	 * Sets the longitude of the address
+	 * @param longitude
+	 */
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	/**
+	 * Sets the start time of the event.
+	 * @param startTime
+	 */
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	/**
+	 * Sets the end time of the event
+	 * @param endTime
+	 */
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	/**
+	 * Sets the capacity of the event in the database.
+	 * @param capacity The capacity of the event.
+	 */
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	/**
+	 * Sets the event type in the database.
+	 * @param eventType A string array filled with event types.
+	 */
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
+	}
+	
+	public void setDays(int days) {
+		this.days = days;
+	}
+
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>REACH Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/ProfilePage.css" media="screen" title="no title" charset="utf-8">
+		<!---Code needed for navigation menu--->
+	<script src="/navigatorPanel.js"></script>
+	<script> window.onload = pageSettings()</script>
+  </head>
+  <body>
+ 
+<div id="userInfo" hidden>
+    <input id="userID" type="text">
+</div>
+
+      <div id="Banner">
+      		<a href="dashboard"><img class="icon" src="/reach_icon.png" style="width:75px; height:75px; margin: 12.5px 0px 0px 12.5px; float:left"></img>Reach</a>
+
+		<!-- TODO: proper logout link--->
+		<a href="/logout">
+		<p th:text="${#httpSession.getAttribute('username')} + '/Sign Out'">Username/Sign Out</p>
+		</a>
+      	</div>
+		
+	<div id="BodyPanel">
+		<!-- Code for navigation menu --->
+		<span id="navigatorPanel" style="font-family:Bahnschrift Condensed">
+			<a class="closeButton" onclick="closeNav()">&times;</a>
+			<!--- href set to "#" until all webpages have been created and can be set properly--->
+			<a href="dashboard" id="search">Search</a>
+			<a href="createEvent" id="create">Create&nbsp;Event</a>
+			<a href="profile" id="profile">Profile</a>
+			<script> pageSettings() </script>
+		</span>
+		<span id="NavigatorButton" onclick="openNav()">&#9776;</span>
+		<!-- End of code for navigation menu --->
+
+	  <div class="jumbotron">
+		<div class="container" id="headings" >
+		<form action="#" method="#" id="signInForm" class="form-inline">
+		  <span id="titleBar">
+		  <h1><strong>Profile</strong></h1>
+		  </span>
+		  <hr width="100%" align="center">
+		</form>
+		</div>
+      <div id="DisplayEvent">
+
+        <table id="userInfo">
+      <body>
+        <tr>
+          <td colspan=3>
+            <div class="inputs full">
+			
+  <table id="userdata">
+    <tr>
+      <td colspan = 3>
+	  <tr>
+			<td>Username:</td>
+			<td th:text="${user.username}">Username</td> 
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td th:text="${user.email}">Email</td> 
+		</tr>
+		<tr>
+			<td>Phone number:</td>
+			<td>"replace with phone number"</td> 
+		</tr>
+		<tr>
+			<td>Rating:</td>
+			<td>"Rating"</td> 
+		</tr>
+		<tr>
+		<a href="editProfile">
+		<button th:if="${user.ID} == ${#httpSession.getAttribute('userID')}" id="Edit" style="margin-left:95%; background:black; color:white;"> Edit </button>
+        </a>
+	  </td>
+    </tr>
+  </table>
+
+</div>
+
+
+
+
+
+		  
+  </div>
+
+
+	
+	<br>
+
+      </div>
+  </div>
+    <nav class="navbar navbar-fixed-bottom navbar-light bg-light" id="bottomNavbar">
+      <span id="reachLogo">
+        <a href="dashboard"><img class="navbar-brand" id="imagelogo" src="/reach_icon.png"></a>
+      </span>
+      <span id="navbarContent">
+        <a class="navbar-brand" href="#">About</a>
+        <a class="navbar-brand" href="#">Terms</a>
+        <a class="navbar-brand" href="#">Contact Us</a>
+        <a class="navbar-brand" href="#">Privacy</a>
+        <a class="navbar-brand" href="#">FAQ</a>
+        <a class="navbar-brand" href="#">Feedback</a>
+</span>
+      </nav>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+     </body>
+ 
+</html>
