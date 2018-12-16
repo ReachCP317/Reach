@@ -1,7 +1,5 @@
 package com.reachcp317.reach;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -180,6 +178,13 @@ public class UserController implements WebMvcConfigurer{
 		return "index";
 	}
 	
+	/**
+	 * Form to edit User details
+	 * @param httpSession
+	 * @param user
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/editProfile")
 	public String editProfile(HttpSession httpSession, User user, Model model) {
 		if (!checkSession(httpSession)) {
@@ -192,17 +197,29 @@ public class UserController implements WebMvcConfigurer{
 		}
 	}
 	
+	/**
+	 * Attempt to update User details
+	 * @param httpSession
+	 * @param user
+	 * @return
+	 * @throws NoSuchAlgorithmException
+	 */
 	@PostMapping("/editProfile")
 	public String submitEditProfile(HttpSession httpSession, User user) throws NoSuchAlgorithmException {
-		if (user.getPasswordConfirm().compareTo(user.getPasswordUpdate()) != 0) {
+		//password change is not required; can change email without changing password
+		if ((user.getPasswordConfirm() != null || user.getPasswordUpdate() != null)
+				&& user.getPasswordConfirm().compareTo(user.getPasswordUpdate()) != 0) {
 			return "ProfilePage_edit";
 		}else {
+			if (user.getPasswordUpdate() == null) {
+				user.setPasswordUpdate(user.getPassword());
+			}
 			user.setPassword(hashPassword(user.getPassword()).toString());
 			boolean success = db.updateUser(user, (int) httpSession.getAttribute("userID"));
 			if (!success) {
 				return "ProfilePage_edit";
 			}else {
-				return "profile";
+				return "redirect:/profile";
 			}
 		}
 	}

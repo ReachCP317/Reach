@@ -7,8 +7,6 @@ import java.util.*;
  * @author Morgenne Besenschek (implementation), James Robertson (UML export)
  *
  */
-//TODO: Clean up, figure out what actually needs to be here, what actually needs setters, etc.
-//TODO: Should User be split? UserLogin + UserInfo? hmm
 public class User {
 
 	/**
@@ -34,7 +32,7 @@ public class User {
 	private String username;
 
 	/**
-	 * The users email.
+	 * The user's email.
 	 */
 	private String email;
 
@@ -112,23 +110,27 @@ public class User {
 		return this.password;
 	}
 	
+	/**
+	 * Gets the user's input for a password confirmation box
+	 * @return
+	 */
 	public String getPasswordConfirm() {
 		return this.passwordConfirm;
 	}
 	
+	/**
+	 * Gets the user's input for a password update box
+	 * @return
+	 */
 	public String getPasswordUpdate() {
 		return this.passwordUpdate;
 	}
 
 	/**
 	 * Sets the rating of a user
-	 * @param Parameter1 The new user rating.
+	 * @param rating The new user rating.
 	 */
 	public void setRating(float rating) {
-		/* TODO: how do we want to calculate ratings?
-		 * Do we keep track of how many times a user has been rated and set a new rating based on
-		 * the overall average of the ratings? Is database handling this?
-		 */
 		this.rating = rating;
 	}
 

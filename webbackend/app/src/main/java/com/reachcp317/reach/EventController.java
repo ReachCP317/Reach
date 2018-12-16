@@ -15,21 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
-import com.reachcp317.reach.UserRepository;
 
 /**
  * Prototype for web page direction, Event form input and Event info display
@@ -89,25 +80,6 @@ public class EventController implements WebMvcConfigurer{
 	}
 	
 	/**
-	 * View an Event profile given a Event ID
-	 * @return
-	 */
-	@GetMapping("/event/{id}")
-	public String eventProfile(@PathVariable(value = "id") int id, Model model, HttpSession httpSession) {
-		if (!checkSession(httpSession)) {
-			return "redirect:/index";
-		}
-		Event event = db.getById(id);
-		//redirect User if given Event does not exist
-		if (event == null) {
-			return "redirect:/dashboard";
-		}else {
-			model.addAttribute(event);
-			return "DisplayEvent";
-		}
-	}
-	
-	/**
 	 * View User's current event
 	 * @param httpSession
 	 * @return
@@ -128,6 +100,13 @@ public class EventController implements WebMvcConfigurer{
 		}
 	}
 	
+	/**
+	 * Displays Event information given an Event ID
+	 * @param id
+	 * @param model
+	 * @param httpSession
+	 * @return
+	 */
 	@GetMapping("/DisplayEvent/{id}")
 	public String viewEvent(@PathVariable(value = "id") int id, Model model, HttpSession httpSession) {
 		if (!checkSession(httpSession)) {
@@ -144,6 +123,13 @@ public class EventController implements WebMvcConfigurer{
 		return "DisplayEvent";
 	}
 	
+	/**
+	 * Form to create an Event
+	 * @param model
+	 * @param event
+	 * @param httpSession
+	 * @return
+	 */
 	@GetMapping("/createEvent")
 	public String createEvent(Model model, Event event, HttpSession httpSession){
 		if (httpSession.getAttribute("username") == null) {
@@ -244,7 +230,7 @@ public class EventController implements WebMvcConfigurer{
 			event.setEndTime("2018-12-20 1:30:00");
 			boolean success = db.updateEvent(event, (int) httpSession.getAttribute("userID"));
 			if (success) {
-				return "DisplayEvent";	
+				return "redirect:/DisplayEvent";	
 			}else {
 				return "editEvent";
 			}
@@ -255,8 +241,7 @@ public class EventController implements WebMvcConfigurer{
 	 * Checks if there is a valid User logged in to the app.
 	 * @param httpSession
 	 * @return true if User logged in, false otherwise
-	 */
-	//TODO: move to login controller and reference from there?
+	 */	
 	private boolean checkSession(HttpSession httpSession) {
 		boolean valid = true;
 		if (httpSession.getAttribute("username") == null) {

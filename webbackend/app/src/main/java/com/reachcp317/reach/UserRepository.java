@@ -66,7 +66,7 @@ public class UserRepository{
 	 * @return
 	 */
 	public List<User> viewAllUsernames(){
-		return this.jdbcTemplate.query("SELECT * FROM user", new UserMapper());
+		return this.jdbcTemplate.query("SELECT * FROM user", new UserMapperWithPassword());
 	}
 
 	/**

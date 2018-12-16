@@ -135,21 +135,18 @@ public class EventRepository{
 	 * @param event
 	 * @return
 	 */
-	//UPDATE event SET address = ?, description = ?, 
-	//WHERE eventID = 
 	public boolean updateEvent(Event event, int userID) {
 		boolean success = true;
 		int update;
-		//try {
+		try {
 			update = this.jdbcTemplate.update("UPDATE event SET address = ?, eventName = ?, description = ?, latitude = ?, longitude = ?,"
 					+ "startDate = ?, endDate = ?, capacity = ? WHERE hostID = ? AND endDate > CURDATE()",
 					new Object[] {event.getAddress(), event.getName(), event.getDescription(),
 							event.getLatitude(), event.getLongitude(),
 							event.getStartTime(), event.getEndTime(), event.getCapacity(), userID});
-			System.out.println("Update: " + update);
-		//}catch (Exception e) {
-			//success = false;
-		//}
+		}catch (Exception e) {
+			success = false;
+		}
 		
 		return success;
 	}
