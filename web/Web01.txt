@@ -1,0 +1,68 @@
+
+Result Size: 753 x 605
+
+5
+<!DOCTYPE html>
+<html>
+<head>
+<title>DisplayEvent</title>
+<style>
+body {
+    background-color: black;
+    text-align: left;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+​
+table{
+    font-family:Arial, Helvetica, sans-serif;
+    border-collapse:collapse;
+    width:96%;
+}
+td, th{
+    border:2px solid #E40D50;
+    text-algin: left;
+    padding:10px;
+}
+​
+</style>
+</head>
+<body>
+​
+<canvas id="head" width="180" height="50"
+style="border:2px solid #E40D50;">
+</canvas>
+<script>
+var canvas = document.getElementById("head");
+var ctx = canvas.getContext("2d");
+ctx.font = "bold 25px Arial";
+ctx.fillStyle="white";
+ctx.fillText("Host Event",15,35);
+</script>
+​
+<p></p>
+​
+<canvas id="location" width="700" height="30"
+style="border:2px solid #E40D50;">
+</canvas>
+<script>
+var canvas = document.getElementById("location");
+var ctx = canvas.getContext("2d");
+ctx.font = "20px Arial";
+ctx.fillStyle="white";
+ctx.fillText("Location:  |",10,23);
+ctx.fillText("Invite Radius:",450,23);
+</script>
+​
+<p></p>
+​
+<table>
+    <tr>
+        <th>Event Name: </th>
+        <th>Event Date: </th>
+        <th>Event Time: </th>
+    </tr>
+    <tr>
+        <th>Guest Type: </th>
+    </tr>
+
