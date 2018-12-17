@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bcg1"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/capacity"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/address"
+        android:layout_alignTop="@+id/addressView"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="206dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/capacityView"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/CapacityView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="82dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Capacity"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/daysLeft"
+        android:layout_width="197dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/description"
+        android:layout_alignBottom="@+id/daysLeftView"
+        android:layout_marginStart="145dp"
+        android:layout_marginBottom="-10dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="360dp"
+        android:layout_height="79dp"
+        android:layout_alignStart="@+id/startDate"
+        android:layout_alignTop="@+id/descriptionView"
+        android:layout_marginStart="-154dp"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/startDate"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/endDate"
+        android:layout_alignBottom="@+id/eventNameView"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="-77dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/endDate"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/address"
+        android:layout_alignTop="@+id/addressView"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="151dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/eventName"
+        android:layout_width="199dp"
+        android:layout_height="38dp"
+        android:layout_alignStart="@+id/address"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="245dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="200dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/capacity"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginBottom="282dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/capacity"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/CapacityView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:fontFamily="franklin-gothic-demi"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/descriptionView"
+        android:layout_width="131dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/addressView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="57dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Description"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/daysLeftView"
+        android:layout_width="131dp"
+        android:layout_height="28dp"
+        android:layout_alignEnd="@+id/addressView"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="0dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Days_Left"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/eventNameView"
+        android:layout_width="130dp"
+        android:layout_height="24dp"
+        android:layout_alignStart="@+id/startDateTimeView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="235dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Event_Name"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/addressView"
+        android:layout_width="128dp"
+        android:layout_height="23dp"
+        android:layout_alignEnd="@+id/startDateTimeView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="291dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Address"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/startDateTimeView"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/endDateTimeView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="182dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/Start_Date_And_Time"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/endDateTimeView"
+        android:layout_width="135dp"
+        android:layout_height="55dp"
+        android:layout_alignStart="@+id/CapacityView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="119dp"
+        android:fontFamily="franklin-gothic-demi"
+        android:text="@string/End_Date_And_Time"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,4 @@
+#Sat Dec 01 00:04:33 EST 2018
+base.0=C\:\\Users\\zackv\\OneDrive\\Documents\\GitHub\\Reach\\Map\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
+path.0=classes.dex
+renamed.0=classes.dex
