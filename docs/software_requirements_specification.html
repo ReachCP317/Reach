@@ -19,7 +19,6 @@
 		<h1>Reach - Software Requirements</h1>
 		<ul>
 			<li><a href="#Introduction">1. Introduction</a></li>
-			<li>
 				<ul>
 					<li><a href="#1.1">1.1 Purpose</a></li>
 					<li><a href="#1.2">1.2 Scope</a></li>
@@ -27,9 +26,7 @@
 					<li><a href="#1.4">1.4 References</a></li>
 					<li><a href="#1.5">1.5 Overview</a></li>
 				</ul>
-			</li>
 			<li><a href="#Overall_Description">2. Overall Description</a></li>
-			<li>
 				<ul>
 					<li><a href="#2.1">2.1 Product Perspective</a></li>
 					<li><a href="#2.2">2.2 Product Functions</a></li>
@@ -37,9 +34,7 @@
 					<li><a href="#2.4">2.4 References</a></li>
 					<li><a href="#2.5">2.5 Overview</a></li>
 				</ul>
-			</li>
 			<li><a href="#Requirements">3. Specific Requirements</a></li>
-			<li>
 				<ul>
 					<li><a href="#3.1">3.1 External Interfaces</a></li>
 					<li><a href="#3.2">3.2 Database</a></li>
@@ -47,8 +42,8 @@
 					<li><a href="#3.4">3.4 Software System Attributes</a></li>
 					<li><a href="#3.5">3.5 Use Case Diagram</a></li>
 				</ul>
-			</li>
 		</ul>
+    
 		<h2 id="Introduction">1. Introduction</h2>
 		<p>
 			Reach is an Android and Web based application that makes finding and hosting events easier for everyone. 
@@ -68,14 +63,14 @@
 			Guests define the radius around them, all events are listed within the radius, and Guests can express interest in any event they choose.
 			This gives the Host an idea of the potential number of people attending their event.
 		</p>
-		<h3 id="1.3">1.3 Definitions</h3>
-		<p>
-			<b>Guest:</b> A user who attends an event.<br>
-			<b>Host:</b> A user who schedules an event.<br>
-			<b>Post:</b> Introduces an event into the database to be advertised.<br>
-			<b>Search:</b> Request a list of events that are scheduled to begin or have already begun.<br>
-			<b>User Radius:</b> The user-defined radius in kilometers around their current location in which to search or advertise.<br>
-		</p>
+	<h3 id="1.3">1.3 Definitions</h3>
+		<dl>
+		<dt>Guest:</dt><dd> A user who attends an event</dd>
+		<dt>Host:</dt><dd> A user who schedules an event</dd>
+		<dt>Post:</dt><dd> Adds an event into the database to be advertised</dd>
+		<dt>Search:</dt><dd> Request a list of events that are scheduled to begin or have already begun</dd>
+		<dt>User Radius:</dt><dd> The user-defined radius in kilometers around their current location in which to search or advertise</dd>
+		</dl>
 		<h3 id="1.4">1.4 References</h3>
 		<p>
 			IEEE. <a href="https://bohr.wlu.ca/cp317/notes/IEEE_830.pdf">IEEE Std 830-1998</a> IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998
@@ -165,68 +160,73 @@
 			The following are all forms of data which the user either uses or inputs using the software
 		</p>
 		<ul>
-			<li>Database</li>
-			<li>Google Maps API</li>
-			<li>Username</li>
-			<li>Passwords/Salts</li>
-			<li>GPS Location (coordinates)</li>
-			<li>Timestamps</li>
-			<li>Message Strings</li>
+		    <li>Database</li>
+		    <li>Google Maps API</li>
+	            <li>GPS Location (coordinates)</li>
+		    <li>Message Strings</li>
+		    <li>Passwords/Salts</li>
+		    <li>Timestamps</li>
+		    <li>Username</li>
 		</ul>
 		<h3 id="3.2"> 3.2 Database</h3>
-		<p>
-			<b>User Information:</b>
-			Database contains user specific information such as:
-		</p>
+        <p>
+          <b>User Information:</b>
+		Database contains user specific information such as:</p>
+	<ul>
+          <li>Emails</li>
+          <li>Location</li>
+	  <li>Passwords/Salts</li>
+	  <li>Usernames</li>
+	</ul>
+          
+          <p><b>Party Information:</b>
+		  Database also contains information specific to each party/event such as:
+	<ul>
+	  <li>Custom QR code/party access password (optional)</li>
+	  <li>Date</li>
+	  <li>Details and further information</li>
+          <li>Host(s)</li>
+	  <li>Location</li>
+	  <li>Name</li>
+          <li>Privacy</li>
+	  <li>Radius</li>
+	  <li>Rules</li>
+          <li>Time</li>
+		<!--Do we actually plan on using the QR code? It isn't in the UML -->
+	</ul>
+	<h3 id="3.3">3.3 Standards Compliance</h3>
 		<ul>
-			<li>Emails</li>
-			<li>Usernames</li>
-			<li>Passwords/Salts</li>
-			<li>Location</li>
+			<li>Log Formatting:
+				<li>User:</li>
+				<li>Process:</li>
+				<li>Target User (if there is one):</li>
+				<li>Date/Time:</li>
+				<li>IP Address:</li>
+			</li>
+			<li><dt>Logging Procedures:</dt>
+				<dd><p>Logs will be generated whenever a user interacts with the database. 
+				The log contains which user is interacting with the database and what it is that they're doing. 
+				This includes things like user logins, password reset requests, password resets, registering a party, sending a location to another user, requesting a location from another user, rating another user, and logging out.</p>
+				</dd>
+			</li>
 		</ul>
-		<p>
-			<b>Party Information:</b>
-			Database also contains information specific to each party/event such as:
-		</p>
-		<ul>
-			<li>Host(s)</li>
-			<li>Location</li>
-			<li>Date</li>
-			<li>Time</li>
-			<li>Rules</li>
-			<li>Details and further information</li>
-			<li>Custom QR code/party access password (optional)</li>
-		</ul>
-		<h3 id="3.3">3.3 Standards Compliance</h3>
-		<b>Log Formatting:</b>
-		<ul>
-			<li>User</li>
-			<li>Process</li>
-			<li>Target User (if there is one)</li>
-			<li>Date/Time</li>
-			<li>IP Address</li>
-		</ul>
-		<b>Logging Procedures:</b>
-		<p>
-			Logs are generated whenever a user interacts with the database. 
-			The log contains which user is interacting with the database and what it is that they're doing. 
-			This includes things like user logins, password reset requests, password resets, registering a party,
-			sending a location to another user, requesting a location from another user, rating another user, and logging out.
-		</p>
-		<h3 id="3.4">3.4 Software System Attributes</h3>
-		<b>Security:</b>
-		<p>
-			Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
-			If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
-			The hash generated is then checked with what is stored in the database. If the two don't match an error is returned.<br><br>
-			Encryption Algorithm: SHA256
-		</p>
-		<b>Maintainability:</b>
-		<p>
-			Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
-			"Hotfixes" are released on an "as needed" basis to address any critical bugs noticed with the software.
-		</p>
-		<h3 id="3.5">3.5 Use Case Diagram</h3>
+
+	<h3 id="3.4">3.4 Software System Attributes</h3>
+		<dl>
+			<dt>Maintainability:</dt>
+				<dd><p>Regular patches released on a monthly basis focused on optimization and implementing fixes based on bugs noticed internally or on feedback from the user base. 
+				"Hotfixes" will be released on an "as needed" basis to address any critical bugs noticed with the software.</p>
+				</dd>
+		
+			<dt>Security:</dt>
+				<dd><p>Login: If the given username/email doesn't exist within the database then an error is handed back to the client side. 
+				If the username/email does exist the designated Salt for that username/email (stored in the database) is added to the given password and hashed using SHA256. 
+				The hash generated will then be checked with what is stored in the database. If the two don't match an error is returned.</p>
+				<p>Encryption Algorithm: SHA256</p>
+				</dd>
+			</dl>
+		
+	<h3 id="3.5">3.5 Use Case Diagram</h3>
 		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;display:block; margin:0 auto;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\&quot; version=\&quot;9.2.7\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;0a9d91dc-77bb-02fd-63d9-d9423b81706a\&quot; name=\&quot;Page-1\&quot;&gt;7VrLcpswFP0ath1A+LW0nTRZtDOZeNomSxlusCYy8gjhR7++wggwEu4Q12BP3EwW6KLnOUdHF4yFpsvtA8erxXcWALVcO9ha6M5y3ZHrWum/HeyygOf1s0DISZCFnDIwI79BBW0VTUgAcaWiYIwKsqoGfRZF4ItKDHPONtVqb4xWR13hEIzAzMfUjP4igVhk0WHPLuOPQMJFPrJjqztz7L+HnCWRGs9y0dv+L7u9xHlfqn68wAHbHITQvYWmnDGRXS23U6AptDlsWbuvR+4W8+YQiSYNFE9rTBO19B8xcDU3scvxkNNcpZfJko59wbiFJmvggkjEvuE50CcWE0FYJKvMmRBsKSvQ9MakwGPKaNrurkSk7GNMSZi2FWwlowuxpLLgyEuWCEoimBY02zKopizbwvbosp0CTKlRYEsQfCerqAZuzpfSp4tUeVOynYcWB0T3VQwrfYVFzyXG8kLBXA85MiB/SCAWltuncpTJXKLfD8V+nWbkxnjp9zqjxTNoeWT/WallBY262y1DgxYDbtlAnguyMNksiIDZCvvpnY08mar4nAEK5GrGMTIVOqyBoncGKEYGFDOQArWfcUCS2IBFLlJU1x8Lzt4hl1bEohSzN0KpFsJKYL4EBXiN8pYkCOgxwPf6heB88kOeJj/HlJ9Xg7l7Bszzoa5Wf6g7/TmOgcVPAhsZuV+n078ZARZodiBAt4kAo2CcJr0lgAeYyzXy3YsCY194TQtfegU2EBjJsIaMzL4xDyEP2fVoHaDR+4sEOVAsyLo6ZB1EaoQnRlJxFYeRToZ+ysQs4T6oVoepr97RSOvI0TrK1mx0tGesWHYzEs2dc2kSh5+Cw6N22AKHZt5+VSeBM+juJKhJlmeAub+4vbPAqcmFWzsLeldnI9mu+Hw+MmzPR8w0/qp8pMOEEpm5zVgIqeDbs5EOM0p0gWSkYhmjxmBdxkVG2t4/NaHst+YhyL1uD+nwpQgy07JnLOD2HMTp8K0IMvO/Ti0k1/+ntxDHac9DPpZM+hTHMfE1GrdEvBTEpaXXnFN5/QScyAmle+VA9E0yzAwupeFL8upofKDBqS8bciLzjvRteEZi+/9ObFOqLrbfHK+6T/SjpDkv1Y7chhtOood3B9VWaYX4AxMe2h+bl12pLy+yGZwskkEDkVzyKWRgnmatpRDmb0xTDjeZRKChmbm1lkQ0eRBuM4kYXJupaWR46FRT004tz27tsMmnfK0+4tV82NGWj3jmg/UdULhFH/G87nzEa/Iw3KKP5Ou6AR/Rd8nJPiKL5TduWfXyO0J0/wc=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
 		<script src="https://www.draw.io/js/viewer.min.js"></script>
 	</body>
